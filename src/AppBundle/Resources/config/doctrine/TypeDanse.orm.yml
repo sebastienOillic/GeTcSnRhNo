@@ -1,0 +1,16 @@
+AppBundle\Entity\TypeDanse:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\TypeDanseRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+            unique: true
+    lifecycleCallbacks: {  }

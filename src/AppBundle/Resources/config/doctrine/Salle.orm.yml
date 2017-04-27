@@ -1,0 +1,15 @@
+AppBundle\Entity\Salle:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\SalleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: integer
+            unique: true
+    lifecycleCallbacks: {  }

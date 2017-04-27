@@ -1,0 +1,18 @@
+AppBundle\Entity\Avis:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\AvisRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        commentaire:
+            type: text
+    oneToMany:
+        user:
+            targetEntity: AppBundle\Entity\User
+            mappedBy: avis
+    lifecycleCallbacks: {  }

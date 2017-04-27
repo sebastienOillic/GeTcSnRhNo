@@ -1,0 +1,45 @@
+AppBundle\Entity\Cours:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CoursRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        dateCours:
+            type: datetime
+        heureDebut:
+            type: time
+        heureFin:
+            type: time
+        nombreDanseursMax:
+            type: integer
+    oneToMany:
+        user:
+            targetEntity: AppBundle\Entity\User
+            mappedBy: category
+    manyToOne:
+        typeDanse:
+            targetEntity: AppBundle\Entity\TypeDanse
+            joinColumn:
+                name: typeDanse_id
+                referencedComlumnName: id
+                onDelete: RESTRICT
+    manyToOne:
+        typeDanse:
+            targetEntity: AppBundle\Entity\Niveau
+            joinColumn:
+                name: niveau_id
+                referencedComlumnName: id
+                onDelete: RESTRICT
+    manyToOne:
+        typeDanse:
+            targetEntity: AppBundle\Entity\Salle
+            joinColumn:
+                name: salle_id
+                referencedComlumnName: id
+                onDelete: RESTRICT
+    lifecycleCallbacks: {  }

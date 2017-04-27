@@ -1,0 +1,24 @@
+AppBundle\Entity\Evenement:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\EvenementRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        dateDebut:
+            type: datetime
+        dateFin:
+            type: datetime
+        lieu:
+            type: string
+            length: 255
+        description:
+            type: text
+    lifecycleCallbacks: {  }
