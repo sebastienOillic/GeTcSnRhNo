@@ -1,6 +1,6 @@
 AppBundle\Entity\Cours:
     type: entity
-    table: null
+    table: cours
     repositoryClass: AppBundle\Repository\CoursRepository
     id:
         id:
@@ -29,14 +29,14 @@ AppBundle\Entity\Cours:
                 referencedComlumnName: id
                 onDelete: RESTRICT
 
-    manyToOne:
+
         niveau:
             targetEntity: AppBundle\Entity\Niveau
             joinColumn:
                 name: niveau_id
                 referencedComlumnName: id
                 onDelete: RESTRICT
-    manyToOne:
+
         salle:
             targetEntity: AppBundle\Entity\Salle
             joinColumn:
@@ -44,7 +44,7 @@ AppBundle\Entity\Cours:
                 referencedComlumnName: id
                 onDelete: RESTRICT
 
-    manyToOne:
+
         evenement:
             targetEntity: AppBundle\Entity\Evenement
             joinColumn:
@@ -52,11 +52,11 @@ AppBundle\Entity\Cours:
                 referencedComlumnName: id
                 onDelete: RESTRICT
 
-    OneToMany:
+    oneToMany:
         avis:
             targetEntity: AppBundle\Entity\Avis
             mappedBy: cours
-            cascade: [all]
+#            cascade: [all]
 
 
     lifecycleCallbacks: {  }

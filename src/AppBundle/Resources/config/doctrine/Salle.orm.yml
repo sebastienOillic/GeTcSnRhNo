@@ -1,6 +1,6 @@
 AppBundle\Entity\Salle:
     type: entity
-    table: null
+    table: salle
     repositoryClass: AppBundle\Repository\SalleRepository
     id:
         id:

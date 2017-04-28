@@ -7,11 +7,11 @@ AppBundle\Entity\User:
             generator:
                 strategy: AUTO
 
-    manyToOne:
-            statut:
-                targetEntity: AppBundle\Entity\Staatut
-                joinColum:
-                    name: statut_id
-                    referencedColumnName: id
-                    nullable: false
-                onDelete: RESTRICT
+#    manyToOne:
+#            statut:
+#                targetEntity: AppBundle\Entity\Statut
+#                joinColum:
+#                    name: statut_id
+#                    referencedColumnName: id
+#                    nullable: false
+#                onDelete: RESTRICT

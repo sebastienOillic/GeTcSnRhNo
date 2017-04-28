@@ -1,6 +1,6 @@
 AppBundle\Entity\StyleDanse:
     type: entity
-    table: null
+    table: styleDanse
     repositoryClass: AppBundle\Repository\StyleDanseRepository
     id:
         id:

@@ -1,6 +1,6 @@
 AppBundle\Entity\Niveau:
     type: entity
-    table: null
+    table: niveau
     repositoryClass: AppBundle\Repository\NiveauRepository
     id:
         id:

@@ -1,5 +1,4 @@
 app_accueil:
-    pattern: /
     resource: "routing/accueil.yml"
     prefix: /accueil
 

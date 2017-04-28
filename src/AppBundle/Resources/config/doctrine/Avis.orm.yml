@@ -1,6 +1,6 @@
 AppBundle\Entity\Avis:
     type: entity
-    table: null
+    table: avis
     repositoryClass: AppBundle\Repository\AvisRepository
     id:
         id:
@@ -14,12 +14,13 @@ AppBundle\Entity\Avis:
 
     manyToOne:
         cours:
-            targetEntity: BlogBundle\Entity\Cours
+            targetEntity: AppBundle\Entity\Cours
             inversedBy: avis
             joinColumn:
                 name: cours_id
                 referencedColumnName: id
-                nullabe: false
+                onDelete: RESTRICT
+                nullabe: true
 #    oneToMany:
 #        user:
 #            targetEntity: AppBundle\Entity\User

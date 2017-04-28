@@ -1,6 +1,6 @@
 AppBundle\Entity\TypeDanse:
     type: entity
-    table: null
+    table: typeDanse
     repositoryClass: AppBundle\Repository\TypeDanseRepository
     id:
         id:
@@ -15,7 +15,7 @@ AppBundle\Entity\TypeDanse:
             unique: true
 
     manyToMany:
-        styleDanse:
+        styleDanses:
             targetEntity: AppBundle\Entity\StyleDanse
             mappedBy: TypeDanses
 

@@ -1,6 +1,6 @@
 AppBundle\Entity\Statut:
     type: entity
-    table: null
+    table: statut
     repositoryClass: AppBundle\Repository\StatutRepository
     id:
         id:

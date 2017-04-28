@@ -1,6 +1,6 @@
 AppBundle\Entity\Evenement:
     type: entity
-    table: null
+    table: evenement
     repositoryClass: AppBundle\Repository\EvenementRepository
     id:
         id:
