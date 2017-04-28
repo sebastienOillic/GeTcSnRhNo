@@ -17,10 +17,10 @@ AppBundle\Entity\Cours:
             type: time
         nombreDanseursMax:
             type: integer
-    oneToMany:
-        user:
-            targetEntity: AppBundle\Entity\User
-            mappedBy: category
+#    oneToMany:
+#        user:
+#            targetEntity: AppBundle\Entity\User
+#            mappedBy: category
     manyToOne:
         typeDanse:
             targetEntity: AppBundle\Entity\TypeDanse
@@ -28,18 +28,35 @@ AppBundle\Entity\Cours:
                 name: typeDanse_id
                 referencedComlumnName: id
                 onDelete: RESTRICT
+
     manyToOne:
-        typeDanse:
+        niveau:
             targetEntity: AppBundle\Entity\Niveau
             joinColumn:
                 name: niveau_id
                 referencedComlumnName: id
                 onDelete: RESTRICT
     manyToOne:
-        typeDanse:
+        salle:
             targetEntity: AppBundle\Entity\Salle
             joinColumn:
                 name: salle_id
                 referencedComlumnName: id
                 onDelete: RESTRICT
+
+    manyToOne:
+        evenement:
+            targetEntity: AppBundle\Entity\Evenement
+            joinColumn:
+                name: evenement_id
+                referencedComlumnName: id
+                onDelete: RESTRICT
+
+    OneToMany:
+        avis:
+            targetEntity: AppBundle\Entity\Avis
+            mappedBy: cours
+            cascade: [all]
+
+
     lifecycleCallbacks: {  }

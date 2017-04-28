@@ -13,4 +13,10 @@ AppBundle\Entity\TypeDanse:
             type: string
             length: 255
             unique: true
+
+    manyToMany:
+        styleDanse:
+            targetEntity: AppBundle\Entity\StyleDanse
+            mappedBy: TypeDanses
+
     lifecycleCallbacks: {  }

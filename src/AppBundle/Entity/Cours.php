@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,6 +34,107 @@ class Cours
      * @var int
      */
     private $nombreDanseursMax;
+
+    private $typeDanse;
+
+    private $salle;
+
+    private $niveau;
+
+    private $evenement;
+
+    private $avis;
+
+    /**
+     * Cours constructor.
+     * @param $avis
+     */
+    public function __construct($avis)
+    {
+        $this->avis = new ArrayCollection();
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getAvis()
+    {
+        return $this->avis;
+    }
+
+    /**
+     * @param mixed $avis
+     */
+    public function setAvis($avis)
+    {
+        $this->avis = $avis;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getTypeDanse()
+    {
+        return $this->typeDanse;
+    }
+
+    /**
+     * @param mixed $typeDanse
+     */
+    public function setTypeDanse($typeDanse)
+    {
+        $this->typeDanse = $typeDanse;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSalle()
+    {
+        return $this->salle;
+    }
+
+    /**
+     * @param mixed $salle
+     */
+    public function setSalle($salle)
+    {
+        $this->salle = $salle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
+    }
+
+    /**
+     * @param mixed $niveau
+     */
+    public function setNiveau($niveau)
+    {
+        $this->niveau = $niveau;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEvenement()
+    {
+        return $this->evenement;
+    }
+
+    /**
+     * @param mixed $evenement
+     */
+    public function setEvenement($evenement)
+    {
+        $this->evenement = $evenement;
+    }
 
 
     /**
@@ -136,4 +238,26 @@ class Cours
     {
         return $this->nombreDanseursMax;
     }
+
+
+    public function addAvis(Avis $avis){
+
+        if(!$this->avis->contains($avis)){
+
+            $this->avis->add($avis);
+            $avis->setCours($avis);
+        }
+        return $this;
+    }
+
+    public function removeAvis(Avis $avis)
+    {
+        if ($this->avis->contains($avis)) {
+            $this->avis->removeElement($avis);
+            $avis->setCours(null);
+        }
+
+        return $this;
+    }
+
 }

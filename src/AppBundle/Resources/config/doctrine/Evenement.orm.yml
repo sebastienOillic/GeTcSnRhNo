@@ -21,4 +21,8 @@ AppBundle\Entity\Evenement:
             length: 255
         description:
             type: text
+        image:
+            type: string
+            length: 255
+            unique: true
     lifecycleCallbacks: {  }

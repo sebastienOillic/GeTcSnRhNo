@@ -19,6 +19,24 @@ class Avis
      */
     private $commentaire;
 
+    private $cours;
+
+    /**
+     * @return mixed
+     */
+    public function getCours()
+    {
+        return $this->cours;
+    }
+
+    /**
+     * @param mixed $cours
+     */
+    public function setCours($cours)
+    {
+        $this->cours = $cours;
+    }
+
 
     /**
      * Get id
@@ -52,4 +70,6 @@ class Avis
     {
         return $this->commentaire;
     }
+
+
 }

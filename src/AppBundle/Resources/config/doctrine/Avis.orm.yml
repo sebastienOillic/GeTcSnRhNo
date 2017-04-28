@@ -11,8 +11,17 @@ AppBundle\Entity\Avis:
     fields:
         commentaire:
             type: text
-    oneToMany:
-        user:
-            targetEntity: AppBundle\Entity\User
-            mappedBy: avis
+
+    manyToOne:
+        cours:
+            targetEntity: BlogBundle\Entity\Cours
+            inversedBy: avis
+            joinColumn:
+                name: cours_id
+                referencedColumnName: id
+                nullabe: false
+#    oneToMany:
+#        user:
+#            targetEntity: AppBundle\Entity\User
+#            mappedBy: avis
     lifecycleCallbacks: {  }
