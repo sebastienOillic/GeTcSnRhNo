@@ -1,33 +1,16 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
-                <li><a class="navbar-brand" href="{{ path('fos_user_registration_register') }}">Register</a></li>
-
-
-
-
-                <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                    <a class="navbar-brand" href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span>
-                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                    </a>
-                {% else %}
-                    <a class="navbar-brand" href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                    {% endif %}</li>
-
-            </ul>
-        </div>
-    </div>
+<nav class="navbar navbar-default navbar-static-top" id="topnavbar">
+{# <nav class="navbar navbar-inverse navbar-fixed-bottom"> #}
+    <div class="navbar-header">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">ACCUEIL</a></li>
+      <li><a href="#">QUI SOMMES NOUS ?</a></li>
+      <li><a href="#">MENTIONS LEGALES</a></li>
+      <li><a href="#">PLAN DU SITE</a></li>
+      <li><a href="#">FORUM</a></li>
+      <li><a href="#">CONTACT</a></li>
+    </ul>
+  </div>
 </nav>
+
+
+

@@ -1,6 +1,6 @@
 #slider {
 	position: relative;
-	border: 2px solid red;
+	border: 2px solid;
 	width: 600px;
 	height: 335px;
 	overflow: hidden;
