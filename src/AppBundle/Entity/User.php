@@ -29,6 +29,8 @@ class User extends BaseUser
 
     private $avis;
 
+    private $statut;
+
     /**
      * @return int
      */
@@ -133,5 +135,28 @@ class User extends BaseUser
     public function getAvis()
     {
         return $this->avis;
+    }
+
+    /**
+     * Set statut
+     *
+     * @param \AppBundle\Entity\Statut $statut
+     * @return User
+     */
+    public function setStatut(\AppBundle\Entity\Statut $statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return \AppBundle\Entity\Statut 
+     */
+    public function getStatut()
+    {
+        return $this->statut;
     }
 }
