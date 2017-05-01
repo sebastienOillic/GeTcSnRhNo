@@ -1,0 +1,22 @@
+{% extends "AppBundle::base.html.twig" %} {% block title %} {{ parent() }} - Types de danses {% endblock %} {% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>Types de danses</h1>
+            </div>
+
+            {% for typeDanse in typeDanses %} {% if loop.index0 % 2 == 0 %}
+            <div class="row">
+                {% endif %}
+
+                <div class="col-md-6">
+                    <h2>{{ typeDanse.nom }}</h2>
+                </div>
+
+                {% if loop.index % 2 == 0 or loop.last %}</div>{% endif %} {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

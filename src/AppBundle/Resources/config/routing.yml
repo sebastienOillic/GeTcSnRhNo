@@ -1,6 +1,10 @@
 app_accueil:
-    resource: "routing/accueil.yml"
+    resource: routing/accueil.yml
     prefix: /accueil
+
+app_typeDanse:
+    resource: routing/typeDanse.yml
+    prefix: /typeDanse
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
@@ -20,4 +24,5 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
 
