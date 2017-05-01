@@ -101,37 +101,4 @@ class User extends BaseUser
     {
         return $this->sex;
     }
-
-    /**
-     * Add avis
-     *
-     * @param \AppBundle\Entity\Avis $avis
-     * @return User
-     */
-    public function addAvi(\AppBundle\Entity\Avis $avis)
-    {
-        $this->avis[] = $avis;
-
-        return $this;
-    }
-
-    /**
-     * Remove avis
-     *
-     * @param \AppBundle\Entity\Avis $avis
-     */
-    public function removeAvi(\AppBundle\Entity\Avis $avis)
-    {
-        $this->avis->removeElement($avis);
-    }
-
-    /**
-     * Get avis
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAvis()
-    {
-        return $this->avis;
-    }
 }

@@ -21,8 +21,8 @@ AppBundle\Entity\Avis:
                 referencedColumnName: id
                 onDelete: RESTRICT
                 nullabe: true
-#    oneToMany:
-#        user:
-#            targetEntity: AppBundle\Entity\User
-#            mappedBy: avis
+
+        user:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: avis
     lifecycleCallbacks: {  }

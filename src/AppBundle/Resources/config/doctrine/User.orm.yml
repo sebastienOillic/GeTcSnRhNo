@@ -6,7 +6,27 @@ AppBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 56
+            nullable: false
+        prenom:
+            type: string
+            length: 56
+            nullable: false
+        sex:
+            type: string
+            length: 56
+            nullable: false
 
+    oneToMany:
+        avis:
+            targetEntity: AppBundle\Entity\Avis
+            mappedBy: user
+
+
+    lifecycleCallbacks: {  }
 #    manyToOne:
 #            statut:
 #                targetEntity: AppBundle\Entity\Statut
