@@ -1,9 +1,10 @@
 app_accueil:
     resource: "routing/accueil.yml"
     prefix: /
+
 app_typeDanse:
-    resource: routing/typeDanse.yml
-    prefix: /typeDanse
+    resource: routing/typedanse.yml
+    prefix: /typedanse
 
 app_styledanse:
     resource: "routing/styledance.yml"
