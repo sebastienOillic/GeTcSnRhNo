@@ -1,16 +1,33 @@
-{% extends 'AppBundle:Admin:base.html.twig' %} {% block content %}
-<h1>Supprimer un type de danse</h1>
-<hr> {{ form_start(edit_form) }} {{ form_widget(edit_form) }} {{ form_end(edit_form) }}
+{% extends 'AppBundle::base.html.twig' %} {% block content %}
+<h1>Types de danses</h1>
+<hr>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ typeDanse.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ typeDanse.nom }}</td>
+        </tr>
+    </tbody>
+</table>
 <hr>
 <ul class="list-inline">
     <li>
-        <a href="{{ path('app_admin_typedanse_index') }}" class="btn btn-sm btn-default">
+        <a href="{{ path('app_admin_typeDanse_index') }}" class="btn btn-sm btn-default">
                 Retour à la liste
             </a>
     </li>
     <li>
+        <a href="{{ path('app_admin_typeDanse_edit', { 'id': typeDanse.id }) }}" class="btn btn-sm btn-warning">
+                Modifier
+            </a>
+    </li>
+    <li>
         {{ form_start(delete_form) }}
-        <input type="submit" value="Delete" class="btn btn-sm btn-danger"> {{ form_end(delete_form) }}
+        <input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> {{ form_end(delete_form) }}
     </li>
 </ul>
 {% endblock %}

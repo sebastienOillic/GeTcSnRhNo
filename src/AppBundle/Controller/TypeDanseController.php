@@ -2,9 +2,12 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\TypeDanse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 /**
  * Class TypeDanseController
@@ -33,7 +36,7 @@ class TypeDanseController extends Controller
      */
     public function newAction(Request $request)
     {
-        $typeDanse = new TypeDanse();
+        $typeDanse = new TypeDanse('Danse moderne');
         $form = $this
                 ->createForm('AppBundle\Form\TypeDanseType', $typeDanse)
                 ->add('save', new SubmitType(), [

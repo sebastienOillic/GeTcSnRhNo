@@ -1,22 +1,50 @@
-{% extends "AppBundle::base.html.twig" %} {% block title %} {{ parent() }} - Types de danses {% endblock %} {% block content %}
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="page-header">
-                <h1>Types de danses</h1>
-            </div>
-
-            {% for typeDanse in typeDanses %} {% if loop.index0 % 2 == 0 %}
-            <div class="row">
-                {% endif %}
-
-                <div class="col-md-6">
-                    <h2>{{ typeDanse.nom }}</h2>
-                </div>
-
-                {% if loop.index % 2 == 0 or loop.last %}</div>{% endif %} {% endfor %}
-        </div>
-    </div>
+{% extends 'AppBundle::base.html.twig' %} {% block content %}
+<h1>Liste des types de danse</h1>
+<hr>
+<div class="table-responsive">
+    <table class="table table-stripped table-condensed">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for typeDanse in typeDanses %}
+            <tr>
+                <td>
+                    <a href="{{ path('app_admin_typeDanse_show', { 'id': typeDanse.id }) }}">
+                            {{ typeDanse.id }}
+                        </a>
+                </td>
+                <td>{{ typeDanse.nom }}</td>
+                <td>{{ typeDanse.description }}</td>
+                <td>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="{{ path('app_admin_typeDanse_show', { 'id': typeDanse.id }) }}" class="btn btn-xs btn-primary">
+                                    Supprimer
+                                </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_admin_typeDanse_edit', { 'id': typeDanse.id }) }}" class="btn btn-xs btn-warning">
+                                    Modifier
+                                </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
-{% endblock content %}
+<hr>
+<ul class="list-inline">
+    <li>
+        <a href="{{ path('app_admin_typeDanse_new') }}" class="btn btn-sm btn-success">
+                Ajouter
+            </a>
+    </li>
+</ul>
+{% endblock %}

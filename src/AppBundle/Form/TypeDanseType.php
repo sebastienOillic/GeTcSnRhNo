@@ -14,9 +14,14 @@ class TypeDanseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', 'string', [
+            ->add('nom', 'text', [
                 'label' => 'Nom',
             ])
+            ->add('description', 'textarea', [
+                'attr' => [
+                    'rows' => 8,
+                ]
+            ]);
             //->add('styleDanse', new StyleDanseType());
            // ->add('user', new UserType());
     }
@@ -27,7 +32,7 @@ class TypeDanseType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'ApppBundle\Entity\TypeDanse',
+            'data_class' => 'AppBundle\Entity\TypeDanse',
         ]);
     }
 

@@ -1,4 +1,4 @@
-{% extends 'AppBundle:Admin:base.html.twig' %} {% block content %}
+{% extends 'AppBundle::base.html.twig' %} {% block content %}
 <h1>Liste des types de danse</h1>
 <hr>
 <div class="table-responsive">
@@ -7,26 +7,27 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
-            {% for typedanse in typedanses %}
+            {% for typeDanse in typeDanses %}
             <tr>
                 <td>
-                    <a href="{{ path('App_admin_typedanse_show', { 'id': typedanse.id }) }}">
-                            {{ typedanse.id }}
+                    <a href="{{ path('app_admin_typeDanse_show', { 'id': typeDanse.id }) }}">
+                            {{ typeDanse.id }}
                         </a>
                 </td>
-                <td>{{ typedanse.nom }}</td>
+                <td>{{ typeDanse.nom }}</td>
                 <td>
                     <ul class="list-inline">
                         <li>
-                            <a href="{{ path('App_admin_typedanse_show', { 'id': typedanse.id }) }}" class="btn btn-xs btn-primary">
+                            <a href="{{ path('app_admin_typeDanse_show', { 'id': typeDanse.id }) }}" class="btn btn-xs btn-primary">
                                     Supprimer
                                 </a>
                         </li>
                         <li>
-                            <a href="{{ path('App_admin_typedanse_edit', { 'id': typedanse.id }) }}" class="btn btn-xs btn-warning">
+                            <a href="{{ path('app_admin_typeDanse_edit', { 'id': typeDanse.id }) }}" class="btn btn-xs btn-warning">
                                     Modifier
                                 </a>
                         </li>
@@ -40,7 +41,7 @@
 <hr>
 <ul class="list-inline">
     <li>
-        <a href="{{ path('App_admin_typedanse_new') }}" class="btn btn-sm btn-success">
+        <a href="{{ path('app_admin_typeDanse_new') }}" class="btn btn-sm btn-success">
                 Ajouter
             </a>
     </li>
