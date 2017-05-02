@@ -17,6 +17,6 @@ AppBundle\Entity\TypeDanse:
     manyToMany:
         styleDanses:
             targetEntity: AppBundle\Entity\StyleDanse
-            mappedBy: TypeDanses
+            mappedBy: typeDanses
 
     lifecycleCallbacks: {  }
