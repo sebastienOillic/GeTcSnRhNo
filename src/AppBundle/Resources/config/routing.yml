@@ -1,6 +1,6 @@
 app_accueil:
     resource: "routing/accueil.yml"
-    prefix: /accueil
+    prefix: /
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
