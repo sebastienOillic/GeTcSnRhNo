@@ -1,0 +1,41 @@
+AppBundle\Entity\TypeDanse:
+    one-step : 
+        nom : One-step
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
+    fox-trot:
+        nom : Fox-trot
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
+    quickstep:
+        nom : quickstep
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
+    tango:
+        nom : tango
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
+    boston:
+        nom : boston
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
+    valse anglaise: 
+        nom : valse anglaise
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
+    paso-doble: 
+        nom : paso-doble
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
+    rumba: 
+        nom : rumba
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
+    charleston: 
+        nom : charleston
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
+    madison: 
+        nom : madison
+        styleDanse: '@Danses modernes'
+        fos_user: '@username'
