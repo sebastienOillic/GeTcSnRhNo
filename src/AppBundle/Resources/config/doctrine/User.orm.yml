@@ -19,23 +19,24 @@ AppBundle\Entity\User:
             type: string
             length: 56
             nullable: false
-        statut:
-            type: string
-            length: 56
-            options:
-                default: "danseurs"
+#        statut:
+#            type: string
+#            length: 56
+#            nullable: false
+#            options:
+#                default: "danseur"
 
     oneToMany:
         avis:
             targetEntity: AppBundle\Entity\Avis
             mappedBy: user
-#    manyToOne:
-#        statut:
-#            targetEntity: AppBundle\Entity\Statut
-#            joinColumn:
-#                name: statut_id
-#                referencedComlumnName: id
-#                onDelete: RESTRICT
+    manyToOne:
+        statut:
+            targetEntity: AppBundle\Entity\Statut
+            joinColumn:
+                name: statut_id
+                referencedComlumnName: id
+                onDelete: RESTRICT
 
     lifecycleCallbacks: {  }
 #    manyToOne:
