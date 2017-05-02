@@ -84,7 +84,7 @@ class StyleDanse
     }
 
 
-    public function setDescription($nom)
+    public function setDescription($description)
     {
         $this->description = $description;
 

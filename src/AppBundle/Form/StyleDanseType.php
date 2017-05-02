@@ -17,6 +17,9 @@ class StyleDanseType extends AbstractType
         $builder
             ->add('nom', 'text', [
                 'label' => 'Nom',
+            ])
+            ->add('description', 'textarea', [
+                'attr' => ['rows' => 8,]
             ]);
     }
 
