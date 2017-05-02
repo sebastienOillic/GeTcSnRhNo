@@ -24,9 +24,25 @@
 </head>
 
 <body>
+<div class="container-fluid">
+    {% block header %}
+        <header>
+            <div class="row" id="accueilHeader">
+                <div class="col-sm-4" id="image">
+                    <img src="{{ asset('bundles/app/img/logo2.jpg') }}" class="img-circle"/>
+                </div>
+                <div class="col-sm-6" id="titreAccueil">
+                    Ami'Danse
+                </div>
+                <div class="col-sm-2" id="buttonConnexion">
+                    <a href="/login" class="btn btn-default">Connexion</a>
+                </div>
+            </div>
+        </header>
+        <!--{# Navbar #}-->
+    {% endblock %}
 
-
-    {% include 'AppBundle:Layout:navbar.html.twig' %}
+    <!--{% include 'AppBundle:Layout:navbar.html.twig' %}-->
 
 
 
@@ -51,6 +67,6 @@
         <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>
     {% endblock javascripts %}
-
+</div>
 </body>
 </html>
