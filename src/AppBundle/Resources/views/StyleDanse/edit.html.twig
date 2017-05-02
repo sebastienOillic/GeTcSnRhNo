@@ -1,27 +1,16 @@
-{% extends 'AppBundle::base.html.twig' %}
-
-
-
-
-
-{% block content %}
-    <h1>Modifier Style de danses</h1>
-    <hr>
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-    {{ form_end(edit_form) }}
-    <hr>
-    <ul class="list-inline">
-        <li>
-            <a href="{{ path('app_admin_styleDanse_index') }}" class="btn btn-sm btn-default">
+{% extends '::base.html.twig' %} {% block content %}
+<h1>Modifier Style de danses</h1>
+<hr> {{ form_start(edit_form) }} {{ form_widget(edit_form) }} {{ form_end(edit_form) }}
+<hr>
+<ul class="list-inline">
+    <li>
+        <a href="{{ path('app_admin_styleDanse_index') }}" class="btn btn-sm btn-default">
                 Liste des styles de danse
             </a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer" class="btn btn-sm btn-danger">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </li>
+    <li>
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> {{ form_end(delete_form) }}
+    </li>
+</ul>
 {% endblock %}
-
