@@ -16,6 +16,11 @@ class Cours
     private $id;
 
     /**
+     * @var string
+     */
+    private $nom;
+
+    /**
      * @var \DateTime
      */
     private $dateCours;
@@ -58,7 +63,6 @@ class Cours
     {
         return $this->danseurs;
     }
-
 
 
     /**
@@ -193,6 +197,29 @@ class Cours
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Cours
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
     }
 
     /**

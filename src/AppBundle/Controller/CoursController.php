@@ -22,7 +22,7 @@ class CoursController extends Controller
 		$coours = $this->findCours();
         //$mode = false;
 		
-        return $this->render('AppBundle::listeCours.html.twig', [
+        return $this->render('AppBundle:Cours:listeCours.html.twig', [
 		    'cours' => $cours, 
             //'form' => $form->createView(),
 			//'mode'=> $mode,
@@ -55,7 +55,7 @@ class CoursController extends Controller
 		//$contacts = $this->findContacts();
 		//$mode = false;
 		
-        return $this->render('AppBundle::createCours.html.twig', [
+        return $this->render('AppBundle:Cours:createCours.html.twig', [
 		   // 'contacts' => $contacts, 
             'form' => $form->createView(),
 			//'mode'=> $mode,
