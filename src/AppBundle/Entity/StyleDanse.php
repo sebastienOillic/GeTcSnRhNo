@@ -24,23 +24,6 @@ class StyleDanse
 
     private $typeDanses;
 
-    private $description;
-
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param mixed $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
 
     /**
      * @return ArrayCollection
