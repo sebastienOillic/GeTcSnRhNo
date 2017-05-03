@@ -36,7 +36,7 @@ class TypeDanseController extends Controller
      */
     public function newAction(Request $request)
     {
-        $typeDanse = new TypeDanse('Danse moderne');
+        $typeDanse = new TypeDanse();
         $form = $this
                 ->createForm('AppBundle\Form\TypeDanseType', $typeDanse)
                 ->add('save', new SubmitType(), [
@@ -91,7 +91,10 @@ class TypeDanseController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+        
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($typeDanse);
+            $em->flush($typeDanse);
 
             return $this->redirectToRoute('app_admin_typeDanse_edit', array('id' => $typeDanse->getId()));
         }
@@ -116,7 +119,7 @@ class TypeDanseController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($typeDanse);
-            $em->flush();
+            $em->flush($typeDanse);
         }
 
         return $this->redirectToRoute('app_admin_typeDanse_index');

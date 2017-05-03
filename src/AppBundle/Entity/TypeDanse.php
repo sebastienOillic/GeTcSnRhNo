@@ -44,12 +44,19 @@ class TypeDanse
      * TypeDanse constructor.
      * @param $styleDanses
      */
-    public function __construct($styleDanses)
+    public function __construct()
     {
         $this->styleDanses = new ArrayCollection();
     }
 
-
+    /**
+     * TypeDanse toString
+     * @return string
+     */
+    public function __toString()
+    {
+            return $this->nom;
+    }
     /**
      * Get id
      *
