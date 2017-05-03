@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Class TypeDanseController
@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class TypeDanseController extends Controller
 {
     /**
-     * @Route("/", name="typeDansepage")
+     * @Route("/", name="typeDanse")
      */
     public function indexAction()
     {
@@ -47,9 +47,19 @@ class TypeDanseController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $styleDanses = $typeDanse->getStyleDanses();
+            $typeDanse->setStyleDanses(new ArrayCollection());
+            foreach ($styleDanses as $styleDanse) {
+                $typeDanse->addStyleDanse($styleDanse);
+            }
             $em = $this->getDoctrine()->getManager();
+            // echo "<pre>";
+            // var_dump($typeDanse->getStyleDanses());
+            // echo "</pre>";
+            // die();
+            
             $em->persist($typeDanse);
-            $em->flush($typeDanse);
+            $em->flush();
 
             return $this->redirectToRoute('app_admin_typeDanse_show', array('id' => $typeDanse->getId()));
         }
@@ -94,7 +104,7 @@ class TypeDanseController extends Controller
         
             $em = $this->getDoctrine()->getManager();
             $em->persist($typeDanse);
-            $em->flush($typeDanse);
+            $em->flush();
 
             return $this->redirectToRoute('app_admin_typeDanse_edit', array('id' => $typeDanse->getId()));
         }
@@ -119,7 +129,7 @@ class TypeDanseController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($typeDanse);
-            $em->flush($typeDanse);
+            $em->flush();
         }
 
         return $this->redirectToRoute('app_admin_typeDanse_index');
