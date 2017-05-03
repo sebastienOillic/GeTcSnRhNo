@@ -13,45 +13,45 @@
 
           </ul>
         </li>
-        <li><a href="#">AGENDA</a></li>
-        <li><a href="">INSCRIPTION</a></li>
-        <li><a href="#">FORUM</a></li>
-        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">Agenda</a></li>
+        <li><a href="">Cours</a></li>
+        <li><a href="#">Forum</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </div>
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+    {#<div id="navbar" class="navbar-collapse collapse">#}
+      {#<ul class="nav navbar-nav navbar-right">#}
 
-          {% if is_granted('ROLE_RESPONSABLE') %} <li role="separator" class="divider"></li>
-            <li><a class="navbar-brand" href="{{ path('admin_index') }}">Administration</a></li>
+          {#{% if is_granted('ROLE_RESPONSABLE') %} <li role="separator" class="divider"></li>#}
+            {#<li><a class="navbar-brand" href="{{ path('admin_index') }}">Administration</a></li>#}
 
-          {% else %}
-        <li><a class="navbar-brand" href="{{ path('fos_user_registration_register') }}"><span
-                    class="glyphicon glyphicon-user"></span>Créer un Compte</a></li>
-          {% endif %}
-
-
-        <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-          <a class="navbar-brand" href="{{ path('fos_user_security_logout') }}"><span
-                    class="glyphicon glyphicon-log-out"></span>
-              {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-          </a></li>
-        <li><a class="navbar-brand" href="{{ path('fos_user_profile_show') }}">Profile</a></li>
-          {% else %}
-            <li> <a class="navbar-brand" href="{{ path('fos_user_security_login') }}"><span
-                        class="glyphicon glyphicon-log-in"></span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}
-              </a>
-            </li>
+          {#{% else %}#}
+        {#<li><a class="navbar-brand" href="{{ path('fos_user_registration_register') }}"><span#}
+                    {#class="glyphicon glyphicon-user"></span>Créer un Compte</a></li>#}
+          {#{% endif %}#}
 
 
-          {% endif %}
+        {#<li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+            {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
+          {#<a class="navbar-brand" href="{{ path('fos_user_security_logout') }}"><span#}
+                    {#class="glyphicon glyphicon-log-out"></span>#}
+              {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+          {#</a></li>#}
+        {#<li><a class="navbar-brand" href="{{ path('fos_user_profile_show') }}">Profile</a></li>#}
+          {#{% else %}#}
+            {#<li> <a class="navbar-brand" href="{{ path('fos_user_security_login') }}"><span#}
+                        {#class="glyphicon glyphicon-log-in"></span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}#}
+              {#</a>#}
+            {#</li>#}
+
+
+          {#{% endif %}#}
           {#<li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>#}
 
 
-      </ul>
-    </div>
+      {#</ul>#}
+    {#</div>#}
   </div>
 </nav>
 
