@@ -1,3 +1,0 @@
-App_home:
-    path: /
-    defaults: { _controller: AppBundle:Accueil:home }

@@ -1,6 +1,15 @@
-app_accueil:
-    resource: "routing/accueil.yml"
-    prefix: /
+app_home:
+    path: /
+    defaults: { _controller: AppBundle:Accueil:home }
+
+app_admin:
+    resource: "@AppBundle/Resources/config/routing/admin.yml"
+    prefix: /admin
+
+
+#app_avis:
+#    resource: "@AppBundle/Resources/config/routing/avis.yml"
+#    prefix: /avis
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

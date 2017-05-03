@@ -22,6 +22,34 @@ class TypeDanse
 
     private $styleDanses;
 
+    private $users;
+
+    private $description;
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
     /**
      * @return ArrayCollection
      */
@@ -42,9 +70,10 @@ class TypeDanse
      * TypeDanse constructor.
      * @param $styleDanses
      */
-    public function __construct($styleDanses)
+    public function __construct()
     {
         $this->styleDanses = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
 
@@ -81,6 +110,20 @@ class TypeDanse
         return $this->nom;
     }
 
+
+
+
+    public function removeStyleDanse(StyleDanse $styleDanse)
+    {
+        if ($this->styleDanses->contains($styleDanse)) {
+            $this->styleDanses->removeElement($styleDanse);
+            $styleDanse->removeTypeDanse($this);
+        }
+
+        return $this;
+    }
+
+
     public function addStyleDanse(StyleDanse $styleDanse)
     {
 
@@ -92,11 +135,23 @@ class TypeDanse
         return $this;
     }
 
-    public function removeStyleDanse(StyleDanse $styleDanse)
+
+    public function addUser(User $user)
     {
-        if ($this->styleDanses->contains($styleDanse)) {
-            $this->styleDanses->removeElement($styleDanse);
-            $styleDanse->removeTypeDanse($this);
+
+        if (!$this->users->contains($user)) {
+
+            $this->users->add($user);
+            $user->addTypeDanse($this);
+        }
+        return $this;
+    }
+
+    public function removeUser(User $user)
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeTypeDanse($this);
         }
 
         return $this;
