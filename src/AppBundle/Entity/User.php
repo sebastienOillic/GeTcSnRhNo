@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,135 +11,200 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->cours = new ArrayCollection();
+        $this->typeDanses = new ArrayCollection();
+        $this->coursAnimes = new ArrayCollection();
+
+    }
+
     /**
      * @var int
      */
     protected $id;
 
+    private $nom;
 
-    
-}
+    private $prenom;
+
+    private $sexe;
+
+    private $cours;
+
+    private $coursAnimes;
+
+    private $typeDanses;
 
     /**
-     * @var string
+     * @return mixed
      */
-//    private $firstname;
-//
-//    /**
-//     * @var string
-//     */
-//    private $lastName;
-//
-//    /**
-//     * @var string
-//     */
-//    private $email;
-//
-//    /**
-//     * @var string
-//     */
-//    private $password;
-//
-//
-//    /**
-//     * Get id
-//     *
-//     * @return integer
-//     */
-//    public function getId()
-//    {
-//        return $this->id;
-//    }
-//
-//    /**
-//     * Set firstname
-//     *
-//     * @param string $firstname
-//     * @return User
-//     */
-//    public function setFirstname($firstname)
-//    {
-//        $this->firstname = $firstname;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get firstname
-//     *
-//     * @return string
-//     */
-//    public function getFirstname()
-//    {
-//        return $this->firstname;
-//    }
-//
-//    /**
-//     * Set lastName
-//     *
-//     * @param string $lastName
-//     * @return User
-//     */
-//    public function setLastName($lastName)
-//    {
-//        $this->lastName = $lastName;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get lastName
-//     *
-//     * @return string
-//     */
-//    public function getLastName()
-//    {
-//        return $this->lastName;
-//    }
-//
-//    /**
-//     * Set email
-//     *
-//     * @param string $email
-//     * @return User
-//     */
-//    public function setEmail($email)
-//    {
-//        $this->email = $email;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get email
-//     *
-//     * @return string
-//     */
-//    public function getEmail()
-//    {
-//        return $this->email;
-//    }
-//
-//    /**
-//     * Set password
-//     *
-//     * @param string $password
-//     * @return User
-//     */
-//    public function setPassword($password)
-//    {
-//        $this->password = $password;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get password
-//     *
-//     * @return string
-//     */
-//    public function getPassword()
-//    {
-//        return $this->password;
-//    }
-//}
+    public function getCoursAnimes()
+    {
+        return $this->coursAnimes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeDanses()
+    {
+        return $this->typeDanses;
+    }
+
+    /**
+     * @param mixed $typeDanses
+     */
+    public function addTypeDanse(TypeDanse $typeDanse)
+    {
+        if (!$this->typeDanses->contains($typeDanse)) {
+
+            $this->typeDanses->add($typeDanse);
+            $typeDanse->addUser($this);
+        }
+        return $this;
+    }
+
+    public function removeTypeDanse(TypeDanse $typeDanse)
+    {
+        if ($this->typeDanses->contains($typeDanse)) {
+            $this->typeDanses->removeElement($typeDanse);
+            $typeDanse->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCours()
+    {
+        return $this->cours;
+    }
+
+    /**
+     * @param mixed $cours
+     */
+    public function setCours($cours)
+    {
+        $this->cours = $cours;
+    }
+
+
+
+    /**
+     * @return int
+     */
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return User
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     * @return User
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set sex
+     *
+     * @param string $sexe
+     * @return User
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sex
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    public function addCours(Cours $cours)
+    {
+        if (!$this->cours->contains($cours)) {
+
+            $this->cours->add($cours);
+            $cours->addDanseur($this);
+        }
+        return $this;
+    }
+
+    public function removeCours(Cours $cours)
+    {
+        if ($this->cours->contains($cours)) {
+            $this->cours->removeElement($cours);
+            $cours->removeDanseur($this);
+        }
+
+        return $this;
+    }
+
+    public function addCoursAnime(Cours $coursAnime)
+    {
+        if (!$this->coursAnimes->contains($coursAnime)) {
+
+            $this->coursAnimes->add($coursAnime);
+            $coursAnime->addAnimateur($this);
+        }
+        return $this;
+    }
+
+    public function removeCoursAnime(Cours $coursAnime)
+    {
+        if ($this->coursAnimes->contains($coursAnime)) {
+            $this->coursAnimes->removeElement($coursAnime);
+            $coursAnime->removeAnimateur($this);
+        }
+
+        return $this;
+    }
+
+}
