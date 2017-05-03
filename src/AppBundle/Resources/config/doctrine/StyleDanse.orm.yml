@@ -16,7 +16,7 @@ AppBundle\Entity\StyleDanse:
 
         description:
             type: text
-            nullable: true
+            unique: false
 
     manyToMany:
         typeDanses:
