@@ -6,7 +6,9 @@ app_admin:
     resource: "@AppBundle/Resources/config/routing/admin.yml"
     prefix: /admin
 
-
+app_cours:
+    resource: routing/cours.yml
+    prefix: /cours
 #app_avis:
 #    resource: "@AppBundle/Resources/config/routing/avis.yml"
 #    prefix: /avis
