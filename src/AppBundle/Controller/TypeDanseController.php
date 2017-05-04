@@ -52,7 +52,7 @@ class TypeDanseController extends Controller
             $em->persist($typeDanse);
             $em->flush();
 
-            return $this->redirectToRoute('app_admin_typeDanse_show', array('id' => $typeDanse->getId()));
+            return $this->redirectToRoute('app_typeDanse_show', array('id' => $typeDanse->getId()));
         }
 
         return $this->render('AppBundle:TypeDanse:new.html.twig', array(
@@ -97,7 +97,7 @@ class TypeDanseController extends Controller
             $em->persist($typeDanse);
             $em->flush();
 
-            return $this->redirectToRoute('app_typeDanse_edit', array('id' => $typeDanse->getId()));
+            return $this->redirectToRoute('app_admin_typeDanse_edit', array('id' => $typeDanse->getId()));
         }
         return $this->render('AppBundle:TypeDanse:edit.html.twig', array(
             'edit_form' => $editForm->createView(),
@@ -120,7 +120,7 @@ class TypeDanseController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('app_admin_typeDanse_index');
+        return $this->redirectToRoute('app_typeDanse_index');
     }
 
     /**
