@@ -10,4 +10,5 @@
 /bin/
 /composer.phar
 /.idea/
+/web/bundles/*
 !/web/bundles/app
