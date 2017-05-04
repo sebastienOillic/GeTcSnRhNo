@@ -55,7 +55,7 @@ class TypeDanseController extends Controller
             return $this->redirectToRoute('app_admin_typeDanse_show', array('id' => $typeDanse->getId()));
         }
 
-        return $this->render('AppBundle:Admin/TypeDanse:new.html.twig', array(
+        return $this->render('AppBundle:TypeDanse:new.html.twig', array(
             'typeDanse' => $typeDanse,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class TypeDanseController extends Controller
     {
         $deleteForm = $this->createDeleteForm($typeDanse);
 
-        return $this->render('AppBundle:Admin/TypeDanse:show.html.twig', array(
+        return $this->render('AppBundle:TypeDanse:show.html.twig', array(
             'typeDanse' => $typeDanse,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -97,9 +97,9 @@ class TypeDanseController extends Controller
             $em->persist($typeDanse);
             $em->flush();
 
-            return $this->redirectToRoute('app_admin_typeDanse_edit', array('id' => $typeDanse->getId()));
+            return $this->redirectToRoute('app_typeDanse_edit', array('id' => $typeDanse->getId()));
         }
-        return $this->render('AppBundle:Admin/TypeDanse:edit.html.twig', array(
+        return $this->render('AppBundle:TypeDanse:edit.html.twig', array(
             'edit_form' => $editForm->createView(),
         ));
     }
