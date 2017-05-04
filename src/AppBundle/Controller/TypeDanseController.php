@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class TypeDanseController extends Controller
 {
     /**
-     * @Route("/", name="typeDansepage")
+     * @Route("/", name="typeDanse")
      */
     public function indexAction()
     {
@@ -36,10 +36,10 @@ class TypeDanseController extends Controller
      */
     public function newAction(Request $request)
     {
-        $typeDanse = new TypeDanse('Danse moderne');
+        $typeDanse = new TypeDanse();
         $form = $this
                 ->createForm('AppBundle\Form\TypeDanseType', $typeDanse)
-                ->add('save', new SubmitType(), [
+                ->add('Enregistrer', new SubmitType(), [
                     'attr' => [
                         'class' => 'btn btn-sm btn-success',
                     ]
@@ -48,8 +48,9 @@ class TypeDanseController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
             $em->persist($typeDanse);
-            $em->flush($typeDanse);
+            $em->flush();
 
             return $this->redirectToRoute('app_admin_typeDanse_show', array('id' => $typeDanse->getId()));
         }
@@ -80,10 +81,9 @@ class TypeDanseController extends Controller
      */
     public function editAction(Request $request, TypeDanse $typeDanse)
     {
-        $deleteForm = $this->createDeleteForm($typeDanse);
         $editForm = $this
                 ->createForm('AppBundle\Form\TypeDanseType', $typeDanse)
-                ->add('save', new SubmitType(), [
+                ->add('Enregistrer', new SubmitType(), [
                     'attr' => [
                         'class' => 'btn btn-sm btn-primary',
                     ]
@@ -91,15 +91,16 @@ class TypeDanseController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($typeDanse);
+            $em->flush();
 
             return $this->redirectToRoute('app_admin_typeDanse_edit', array('id' => $typeDanse->getId()));
         }
-
         return $this->render('AppBundle:Admin/TypeDanse:edit.html.twig', array(
-            'typeDanse' => $typeDanse,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 

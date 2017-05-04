@@ -70,7 +70,6 @@ class User extends BaseUser
     {
         if ($this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->removeElement($typeDanse);
-            $typeDanse->removeUser($this);
         }
 
         return $this;
