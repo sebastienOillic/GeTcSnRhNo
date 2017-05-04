@@ -1,0 +1,44 @@
+{% extends "::base.html.twig" %} {% trans_default_domain 'FOSUserBundle' %} {% block content %} {#
+<h1>hello</h1>#}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>Administration</h2>
+    </div>
+    <div class="panel-body">
+
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Membres</th>
+                        <th>Roles</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>
+                            {% for role in user.roles %}
+                            <div>{{ role }}</div>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="{{ path('admin_demote', { 'username': user.username }) }}"><button class="btn btn-warning pull-right">Retirer un rôle</button></a>
+                            <a href="{{ path('admin_promote', { 'username': user.username }) }}"><button class="btn btn-success pull-right">Ajouter un rôle</button></a>
+                            {#<a href="{{ path('admin_delete', { 'username': user.username }) }}"><button class="btn btn-success pull-right">Ajouter un rôle</button></a>#}
+                            {#{{ form_start(delete_form) }}#}
+                            {#<input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> {{ form_end(delete_form) }}#}
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
