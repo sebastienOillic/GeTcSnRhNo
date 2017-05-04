@@ -1,7 +1,17 @@
+
+
+app_admin_dashboard:
+    path: /
+    defaults:
+        _controller: AppBundle:Admin/Dashboard:index
+
+app_admin_typeDanse:
+    resource: admin/typeDanse.yml
+    prefix:   /typeDanse
+
 admin_index:
     path: /
     defaults: { _controller: AppBundle:Admin:index }
-
 
 admin_promote:
     path: /promote/{username}

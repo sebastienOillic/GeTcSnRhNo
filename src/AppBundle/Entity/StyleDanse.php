@@ -93,24 +93,6 @@ class StyleDanse
         return $this->nom;
     }
 
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
   public function addTypeDanse(TypeDanse $typeDanse){
 
       if(!$this->typeDanses->contains($typeDanse)){

@@ -21,6 +21,31 @@
 <ul class="list-inline">
     <li>
         <a href="{{ path('app_admin_styleDanse_index') }}" class="btn btn-sm btn-default">
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <h1>Styles de danse</h1>
+    <hr>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ styleDanse.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ styleDanse.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ styleDanse.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('app_admin_styleDanse_index') }}" class="btn btn-sm btn-default">
                 Liste des Danses
             </a>
     </li>

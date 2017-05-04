@@ -9,4 +9,7 @@
 /vendor/
 /bin/
 /composer.phar
-
+/.idea/
+/web/bundles/*
+!/web/bundles/app
+/cache/dev/*
