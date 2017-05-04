@@ -13,3 +13,5 @@
 /web/bundles/*
 !/web/bundles/app
 /cache/dev/*
+/public/*
+.vscode/

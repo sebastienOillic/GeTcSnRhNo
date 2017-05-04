@@ -25,4 +25,5 @@ AppBundle\Entity\Evenement:
             type: string
             length: 255
             unique: true
+            nullable: true
     lifecycleCallbacks: {  }

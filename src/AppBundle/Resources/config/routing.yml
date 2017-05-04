@@ -16,10 +16,12 @@ app_typeDanse:
     prefix: /typedanse
 
 app_styledanse:
-    resource: "routing/styledance.yml"
+    resource: "routing/styledanse.yml"
     prefix: /styledanse
 
-
+app_evenement:
+    resource: "routing/evenement.yml"
+    prefix: /evenement
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
