@@ -39,7 +39,7 @@ class TypeDanseController extends Controller
         $typeDanse = new TypeDanse();
         $form = $this
                 ->createForm('AppBundle\Form\TypeDanseType', $typeDanse)
-                ->add('save', new SubmitType(), [
+                ->add('Enregistrer', new SubmitType(), [
                     'attr' => [
                         'class' => 'btn btn-sm btn-success',
                     ]
@@ -49,6 +49,7 @@ class TypeDanseController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $styleDanses = $typeDanse->getStyleDanses();
             $typeDanse->setStyleDanses(new ArrayCollection());
+
             foreach ($styleDanses as $styleDanse) {
                 $typeDanse->addStyleDanse($styleDanse);
             }
@@ -93,7 +94,7 @@ class TypeDanseController extends Controller
         $deleteForm = $this->createDeleteForm($typeDanse);
         $editForm = $this
                 ->createForm('AppBundle\Form\TypeDanseType', $typeDanse)
-                ->add('save', new SubmitType(), [
+                ->add('Enregistrer', new SubmitType(), [
                     'attr' => [
                         'class' => 'btn btn-sm btn-primary',
                     ]
@@ -101,14 +102,10 @@ class TypeDanseController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-        
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($typeDanse);
-            $em->flush();
+            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('app_admin_typeDanse_edit', array('id' => $typeDanse->getId()));
+            return $this->redirectToRoute('shop_admin_typeDanse_edit', array('id' => $feature->getId()));
         }
-
         return $this->render('AppBundle:Admin/TypeDanse:edit.html.twig', array(
             'typeDanse' => $typeDanse,
             'edit_form' => $editForm->createView(),
