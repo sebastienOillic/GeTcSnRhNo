@@ -13,20 +13,24 @@ AppBundle\Entity\TypeDanse:
             type: string
             length: 255
             unique: true
-        description:
-            type: text
-            nullable: true
-
+            
         description:
             type: text
             unique: false
-
+            nullable: true
+    
     manyToMany:
         styleDanses:
             targetEntity: AppBundle\Entity\StyleDanse
-            mappedBy: typeDanses
-
-
+            inversedBy: typeDanses
+            joinTable:
+                name: styledanse_typedanse
+                joinColumns:
+                    typeDanse_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    styleDanse_id:
+                        referencedColumnName: id
 
         users:
             targetEntity:   AppBundle\Entity\User
@@ -39,4 +43,5 @@ AppBundle\Entity\TypeDanse:
                 inverseJoinColumns:
                     animateurPotentiel_id:
                         referencedColumnName: id
+                        
     lifecycleCallbacks: {  }

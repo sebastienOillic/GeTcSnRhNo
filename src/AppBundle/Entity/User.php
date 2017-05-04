@@ -59,9 +59,7 @@ class User extends BaseUser
     public function addTypeDanse(TypeDanse $typeDanse)
     {
         if (!$this->typeDanses->contains($typeDanse)) {
-
             $this->typeDanses->add($typeDanse);
-            $typeDanse->addUser($this);
         }
         return $this;
     }
@@ -70,7 +68,6 @@ class User extends BaseUser
     {
         if ($this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->removeElement($typeDanse);
-            $typeDanse->removeUser($this);
         }
 
         return $this;

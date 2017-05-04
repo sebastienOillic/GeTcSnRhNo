@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+//use Doctrine\ORM\Event\PreUpdateEventArgs;
 
 /**
  * StyleDanse
@@ -57,14 +58,18 @@ class StyleDanse
     }
 
     /**
-     * StyleDanse constructor.
+     * TypeDanse constructor.
      * @param $typeDanses
      */
     public function __construct()
     {
-        $this->typeDanses = new ArrayCollection();
+        $this->typeDanses = new TypeDanse();
     }
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
 
     /**
      * Get id
@@ -118,8 +123,5 @@ class StyleDanse
 
         return $this;
     }
-
-
-
 
 }

@@ -5,8 +5,10 @@
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 /app/phpunit.xml
+/dev/cache/*
 /build/
 /vendor/
 /bin/
 /composer.phar
 /src/AppBundle/DataFictures/
+
