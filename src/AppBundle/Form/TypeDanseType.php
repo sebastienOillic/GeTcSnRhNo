@@ -30,6 +30,14 @@ class TypeDanseType extends AbstractType
                     $qb = $repository->createQueryBuilder('s');
                     return $qb;
                 }
+            ])
+            ->add('users', 'entity', [
+                'class'         => 'AppBundle\Entity\User',
+                'multiple'      => true,
+                'query_builder' => function (EntityRepository $repository) {
+                    $qb = $repository->createQueryBuilder('u');
+                    return $qb;
+                }
             ]);
     }
 
