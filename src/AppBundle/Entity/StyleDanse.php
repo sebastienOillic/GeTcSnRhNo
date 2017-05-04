@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-//use Doctrine\ORM\Event\PreUpdateEventArgs;
+
 
 /**
  * StyleDanse
@@ -120,7 +120,6 @@ class StyleDanse
     {
         if ($this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->removeElement($typeDanse);
-            $typeDanse->removeStyleDanse($this);
         }
 
         return $this;

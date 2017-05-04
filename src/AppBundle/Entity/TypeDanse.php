@@ -155,7 +155,6 @@ class TypeDanse
     {
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
-            $user->removeTypeDanse($this);
         }
 
         return $this;

@@ -43,7 +43,7 @@ class StyleDanseController extends Controller
             $em->persist($styleDanse);
             $em->flush($styleDanse);
 
-            return $this->redirectToRoute('app_admin_styleDanse_show', array('id' => $styleDanse->getId()));
+            return $this->redirectToRoute('app_styleDanse_show', array('id' => $styleDanse->getId()));
         }
 
         return $this->render('AppBundle:StyleDanse:new.html.twig', array(
@@ -111,7 +111,7 @@ class StyleDanseController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('app_admin_styleDanse_index');
+        return $this->redirectToRoute('app_styleDanse_index');
     }
 
     /**

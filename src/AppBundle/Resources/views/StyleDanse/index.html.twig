@@ -14,7 +14,7 @@
             {% for styleDanse in stylesDanse %}
             <tr>
                 <td>
-                    <a href="{{ path('app_admin_styleDanse_show', { 'id': styleDanse.id }) }}">
+                    <a href="{{ path('app_styleDanse_show', { 'id': styleDanse.id }) }}">
                             {{ styleDanse.id }}
                         </a>
                 </td>
@@ -23,7 +23,7 @@
                 <td>
                     <ul class="list-inline">
                         <li>
-                            <a href="{{ path('app_admin_styleDanse_show', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-primary">
+                            <a href="{{ path('app_styleDanse_show', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-primary">
                                     Show
                                 </a>
                         </li>
