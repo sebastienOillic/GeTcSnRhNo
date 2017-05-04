@@ -18,11 +18,19 @@ AppBundle\Entity\TypeDanse:
             type: text
             unique: false
             nullable: true
-
+    
     manyToMany:
         styleDanses:
             targetEntity: AppBundle\Entity\StyleDanse
-            mappedBy: typeDanses
+            inversedBy: typeDanses
+            joinTable:
+                name: styledanse_typedanse
+                joinColumns:
+                    typeDanse_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    styleDanse_id:
+                        referencedColumnName: id
 
         users:
             targetEntity:   AppBundle\Entity\User

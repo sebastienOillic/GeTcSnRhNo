@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 
 /**
@@ -124,7 +125,7 @@ class TypeDanse
     {
         if ($this->styleDanses->contains($styleDanse)) {
             $this->styleDanses->removeElement($styleDanse);
-            $styleDanse->removeTypeDanse($this);
+           // $styleDanse->removeTypeDanse($this);
         }
 
         return $this;
@@ -136,7 +137,7 @@ class TypeDanse
         if (!$this->styleDanses->contains($styleDanse)) {
 
             $this->styleDanses->add($styleDanse);
-            $styleDanse->addTypeDanse($this);
+            //$styleDanse->addTypeDanse($this);
         }
         return $this;
     }

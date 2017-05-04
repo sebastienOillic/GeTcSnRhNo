@@ -47,12 +47,12 @@ class TypeDanseController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $styleDanses = $typeDanse->getStyleDanses();
-            $typeDanse->setStyleDanses(new ArrayCollection());
+            //$styleDanses = $typeDanse->getStyleDanses();
+           // $typeDanse->setStyleDanses(new ArrayCollection());
 
-            foreach ($styleDanses as $styleDanse) {
-                $typeDanse->addStyleDanse($styleDanse);
-            }
+            //foreach ($styleDanses as $styleDanse) {
+             //   $typeDanse->addStyleDanse($styleDanse);
+            //}
             $em = $this->getDoctrine()->getManager();
             // echo "<pre>";
             // var_dump($typeDanse->getStyleDanses());
@@ -91,7 +91,7 @@ class TypeDanseController extends Controller
      */
     public function editAction(Request $request, TypeDanse $typeDanse)
     {
-        $deleteForm = $this->createDeleteForm($typeDanse);
+        //$deleteForm = $this->createDeleteForm($typeDanse);
         $editForm = $this
                 ->createForm('AppBundle\Form\TypeDanseType', $typeDanse)
                 ->add('Enregistrer', new SubmitType(), [
@@ -102,14 +102,18 @@ class TypeDanseController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('shop_admin_typeDanse_edit', array('id' => $feature->getId()));
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($typeDanse);
+            $em->flush();
+
+            return $this->redirectToRoute('app_admin_typeDanse_edit', array('id' => $typeDanse->getId()));
         }
         return $this->render('AppBundle:Admin/TypeDanse:edit.html.twig', array(
-            'typeDanse' => $typeDanse,
+            //'typeDanse' => $typeDanse,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+     //       'delete_form' => $deleteForm->createView(),
         ));
     }
 
