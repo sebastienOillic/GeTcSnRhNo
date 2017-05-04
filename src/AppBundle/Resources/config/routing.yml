@@ -11,6 +11,16 @@ app_admin:
 #    resource: "@AppBundle/Resources/config/routing/avis.yml"
 #    prefix: /avis
 
+app_typeDanse:
+    resource: routing/typedanse.yml
+    prefix: /typedanse
+
+app_styledanse:
+    resource: "routing/styledance.yml"
+    prefix: /styledanse
+
+
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
@@ -29,4 +39,5 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
 

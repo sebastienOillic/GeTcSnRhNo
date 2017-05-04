@@ -19,10 +19,10 @@ class StyleDanse
      * @var string
      */
     private $nom;
+    
+    private $description;
 
     private $typeDanses;
-
-    private $description;
 
     /**
      * @return mixed

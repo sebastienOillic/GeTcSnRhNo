@@ -1,0 +1,58 @@
+<header>
+    <div class="row" id="accueilHeader">
+        <div class="col-sm-2" id="image">
+            <img src="{{ asset('bundles/app/img/logo2.jpg') }}" class="img-circle"/>
+        </div>
+        <div class="col-sm-8" id="titreAccueil">
+            <a href="/">Ami'Danse</a>
+        </div>
+        <div class="col-sm-2" id="buttonConnexion">
+            {% if is_granted("ROLE_RESPONSABLE") %}
+
+                <a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a>
+
+                {#{% else %}#}
+                {#<a class="btn btn-default" href="{{ path('fos_user_registration_register') }}"><span#}
+                {#class="glyphicon glyphicon-user"></span>Créer un Compte</a>#}
+
+
+            {% endif %}
+
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a class="btn btn-default" href="{{ path('fos_user_security_logout') }}"><span
+                            class="glyphicon glyphicon-log-out"></span>
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+                <a class="btn btn-default" href="{{ path('fos_user_profile_show') }}">Profile</a>
+            {% else %}
+                <a class="btn btn-default" href="{{ path('fos_user_security_login') }}"><span
+                            class="glyphicon glyphicon-log-in"></span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% endif %}
+        </div>
+
+
+    </div>
+    {# Navbar #}
+    {% include "AppBundle:Layout:navbar.html.twig" %}
+</header>
+
+{#<header>#}
+    {#<div class="row" id="accueilHeader">#}
+        {#<div class="col-sm-2" id="image">#}
+            {#<img src="{{ asset('bundles/app/img/logo2.jpg') }}" class="img-circle"/>#}
+        {#</div>#}
+        {#<div class="col-sm-8" id="titreAccueil">#}
+            {#<a href="/">Ami'Danse</a>#}
+        {#</div>#}
+        {#<div class="col-sm-2" id="buttonConnexion">#}
+            {#<a href="/login" class="btn btn-default">Connexion</a>#}
+        {#</div>#}
+    {#</div>#}
+    {# Navbar #}
+    {#{% include "AppBundle:Layout:navbar.html.twig" %}#}
+{#</header>#}
+
+

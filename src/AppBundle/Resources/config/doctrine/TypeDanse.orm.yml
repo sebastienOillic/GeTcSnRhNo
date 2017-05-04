@@ -13,6 +13,9 @@ AppBundle\Entity\TypeDanse:
             type: string
             length: 255
             unique: true
+        description:
+            type: text
+            nullable: true
 
         description:
             type: text

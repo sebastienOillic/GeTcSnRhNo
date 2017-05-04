@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="icon" type="image/x-icon" href="{{ asset('bundles/app/img/favicon.ico') }}" />
     <title>{% block title %}Ami'Danse{% endblock %}</title>
 
     {% block stylesheets %}
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
         <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/app/css/font-awesome.min.css') }}" rel="stylesheet"> 
         <link href="{{ asset('bundles/app/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
         <link href="{{ asset('bundles/app/css/styles.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-        <link href="{{ asset('bundles/app/css/admin.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/slider.css') }}"> 
 
     {% endblock stylesheets %}
 
@@ -25,64 +25,106 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        {% block header %}
-            <header>
-                <div class="row" id="accueilHeader">
-                    <div class="col-sm-4" id="image">
-                        <img src="{{ asset('bundles/app/img/logo2.jpg') }}" class="img-circle"/> 
-                    </div>
-                    <div class="col-sm-6" id="titreAccueil">
-                        Ami'Danse
-                    </div>
-                    <div class="col-sm-2" id="buttonConnexion">
-                        <div class="col-sm-2" id="buttonConnexion">
+<div id="container">
+    {# Header #}
+    {% block header %}
+        {% include "AppBundle:Layout:header.html.twig" %}
+    {% endblock %}
+
+    <main>
+        {# Content #}
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {# Footer #}
+    {% block footer %}
+        {% include "AppBundle:Layout:footer.html.twig" %}
+    {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/navbar.js') }}"></script>
+    {% endblock javascripts %}
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+    {#<div id="container">#}
+        {# Header #}
+        {#{% block header %}#}
+{#<<<<<<< HEAD#}
+            {#<header>#}
+                {#<div class="row" id="accueilHeader">#}
+                    {#<div class="col-sm-4" id="image">#}
+                        {#<img src="{{ asset('bundles/app/img/logo2.jpg') }}" class="img-circle"/> #}
+                    {#</div>#}
+                    {#<div class="col-sm-6" id="titreAccueil">#}
+                        {#Ami'Danse#}
+                    {#</div>#}
+                    {#<div class="col-sm-2" id="buttonConnexion">#}
+                        {#<div class="col-sm-2" id="buttonConnexion">#}
                             {#<a href="/login" class="btn btn-default">Connexion</a>#}
 
-                            {% if is_granted("ROLE_RESPONSABLE") %}
+                            {#{% if is_granted("ROLE_RESPONSABLE") %}#}
 
-                                <a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a>
+                                {#<a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a>#}
 
                                 {#{% else %}#}
                                 {#<a class="btn btn-default" href="{{ path('fos_user_registration_register') }}"><span#}
                                 {#class="glyphicon glyphicon-user"></span>Créer un Compte</a>#}
 
 
-                            {% endif %}
+                            {#{% endif %}#}
 
 
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                            <a class="btn btn-default" href="{{ path('fos_user_security_logout') }}"><span
-                                        class="glyphicon glyphicon-log-out"></span>
-                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                            </a>
-                            <a class="btn btn-default" href="{{ path('fos_user_profile_show') }}">Profile</a>
-                            {% else %}
-                            <a class="btn btn-default" href="{{ path('fos_user_security_login') }}"><span
-                                        class="glyphicon glyphicon-log-in"></span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}
-                            </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </header>
+                            {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+                            {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
+                            {#<a class="btn btn-default" href="{{ path('fos_user_security_logout') }}"><span#}
+                                        {#class="glyphicon glyphicon-log-out"></span>#}
+                                {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+                            {#</a>#}
+                            {#<a class="btn btn-default" href="{{ path('fos_user_profile_show') }}">Profile</a>#}
+                            {#{% else %}#}
+                            {#<a class="btn btn-default" href="{{ path('fos_user_security_login') }}"><span#}
+                                        {#class="glyphicon glyphicon-log-in"></span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}#}
+                            {#</a>#}
+                            {#{% endif %}#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</header>#}
             {# Navbar #}
-        {% endblock %}
-            <main>    
-                {% include "AppBundle:Layout:navbar.html.twig" %}
-                {# Content #}
-                {% block content %}{% endblock %}
-            </main>
-            {# Footer #}
-            {% include "AppBundle:Layout:footer.html.twig" %}
+{#=======#}
+            {#{% include "AppBundle:Layout:header.html.twig" %}            #}
+        {#{% endblock %}#}
 
-            {% block javascripts %}
-                <script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script>
-                <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
-                <script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>
-                <script src="{{ asset('bundles/app/js/navbar.js') }}"></script>
-            {% endblock javascripts %}
-      </div>
-</body>
-</html>
+        {#<main>    #}
+        {# Content #}
+        {#{% block content %}#}
+        {#{% endblock %}#}
+        {#</main>#}
+
+        {# Footer #}
+        {#{% block footer %}#}
+        {#{% include "AppBundle:Layout:footer.html.twig" %}#}
+{#>>>>>>> adminstyledanse#}
+        {#{% endblock %}#}
+
+        {#{% block javascripts %}#}
+            {#<script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script>#}
+            {#<script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>#}
+            {#<script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>#}
+            {#<script src="{{ asset('bundles/app/js/navbar.js') }}"></script>#}
+        {#{% endblock javascripts %}#}
+   {#</div>#}
+{#</body>#}
+{#</html>#}
