@@ -14,41 +14,39 @@
             </thead>
             <tbody>
             {% for styleDanse in stylesDanse %}
-                <tr>
-                    <td>
-                        <a href="{{ path('app_admin_styleDanse_show', { 'id': styleDanse.id }) }}">
+            <tr>
+                <td>
+                    <a href="{{ path('app_admin_styleDanse_show', { 'id': styleDanse.id }) }}">
                             {{ styleDanse.id }}
                         </a>
-                    </td>
-                    <td>{{ styleDanse.nom }}</td>
-                    <td>{{ styleDanse.description }}</td>
-                    <td>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="{{ path('app_admin_styleDanse_show', { 'id': styleDanse.id }) }}"
-                                    class="btn btn-xs btn-primary">
+                </td>
+                <td>{{ styleDanse.nom }}</td>
+                <td>{{ styleDanse.description }}</td>
+                <td>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="{{ path('app_admin_styleDanse_show', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-primary">
                                     Show
                                 </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}"
-                                    class="btn btn-xs btn-warning">
+                        </li>
+                        <li>
+                            <a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-warning">
                                     Modifier
                                 </a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
             {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <hr>
-    <ul class="list-inline">
-        <li>
-            <a href="{{ path('app_admin_styleDanse_new') }}" class="btn btn-sm btn-success">
+        </tbody>
+    </table>
+</div>
+<hr>
+<ul class="list-inline">
+    <li>
+        <a href="{{ path('app_admin_styleDanse_new') }}" class="btn btn-sm btn-success">
                 Créer un nouveau style de danse
             </a>
-        </li>
-    </ul>
+    </li>
+</ul>
 {% endblock %}
