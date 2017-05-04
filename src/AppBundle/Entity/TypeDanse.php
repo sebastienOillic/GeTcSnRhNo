@@ -75,7 +75,10 @@ class TypeDanse
         $this->styleDanses = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
-
+     
+     public function __toString(){
+         return $this->nom;
+     }
 
     /**
      * Get id

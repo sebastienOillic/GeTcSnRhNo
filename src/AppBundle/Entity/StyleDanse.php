@@ -24,8 +24,6 @@ class StyleDanse
 
     private $typeDanses;
 
-    private $description;
-
     /**
      * @return mixed
      */
@@ -66,6 +64,11 @@ class StyleDanse
     {
         $this->typeDanses = new ArrayCollection();
     }
+    
+     public function __toString()
+     {
+         return $this->nom;
+     }
 
 
     /**
@@ -99,24 +102,6 @@ class StyleDanse
     public function getNom()
     {
         return $this->nom;
-    }
-
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
   public function addTypeDanse(TypeDanse $typeDanse){

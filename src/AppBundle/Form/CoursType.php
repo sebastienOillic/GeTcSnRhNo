@@ -14,13 +14,12 @@ class CoursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-             ->add('nom')
+             ->add('typeDanse')
+             ->add('niveau')
              ->add('dateCours','date', ['format' => 'dd/MM/yyyy',])
              ->add('heureDebut')
              ->add('heureFin')
              ->add('nombreDanseursMax')
-             ->add('typeDanse')
-             ->add('niveau')
              ->add('salle','choice')
              ->add('referent')
              ->add('animateurs')

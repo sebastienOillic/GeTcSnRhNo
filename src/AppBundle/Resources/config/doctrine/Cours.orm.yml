@@ -9,9 +9,6 @@ AppBundle\Entity\Cours:
             generator:
                 strategy: AUTO
     fields:
-        nom:
-            type: string
-            length: 255
         dateCours:
             type: datetime
         heureDebut:
