@@ -1,6 +1,6 @@
 AppBundle\Entity\TypeDanse:
     type: entity
-    table: typeDanse
+    table: typedanse
     repositoryClass: AppBundle\Repository\TypeDanseRepository
     id:
         id:
