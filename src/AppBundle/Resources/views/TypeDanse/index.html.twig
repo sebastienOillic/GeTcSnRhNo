@@ -8,6 +8,10 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
+                <th>Style de danse</th>
+                <th>Référent potentiel</th>
+                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -20,6 +24,7 @@
                 </td>
                 <td>{{ typeDanse.nom }}</td>
                 <td>{{ typeDanse.description }}</td>
+                <td>{{ styleDanse.nom}}</td>
                 <td>
                     <ul class="list-inline">
                         <li>
@@ -43,7 +48,7 @@
 <ul class="list-inline">
     <li>
         <a href="{{ path('app_admin_typeDanse_new') }}" class="btn btn-sm btn-success">
-                Ajouter
+                Ajouter un type de danse
             </a>
     </li>
 </ul>

@@ -21,6 +21,7 @@ app_styledanse:
     resource: "routing/styledance.yml"
     prefix: /styledanse
 
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

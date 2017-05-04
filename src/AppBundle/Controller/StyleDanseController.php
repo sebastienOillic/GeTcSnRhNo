@@ -31,7 +31,7 @@ class StyleDanseController extends Controller
         $styleDanse = new StyleDanse(['Tango']);
         $form = $this
                 ->createForm('AppBundle\Form\StyleDanseType', $styleDanse)
-                ->add('save', new SubmitType(), [
+                ->add('Enregistrer', new SubmitType(), [
                     'attr' => [
                         'class' => 'btn btn-sm btn-success',
                     ]
@@ -72,10 +72,10 @@ class StyleDanseController extends Controller
      */
     public function editAction(Request $request, StyleDanse $styleDanse)
     {
-        $deleteForm = $this->createDeleteForm($styleDanse);
+       // $deleteForm = $this->createDeleteForm($styleDanse);
         $editForm = $this
                 ->createForm('AppBundle\Form\StyleDanseType', $styleDanse)
-                ->add('save', new SubmitType(), [
+                ->add('Enregistrer', new SubmitType(), [
                     'attr' => [
                         'class' => 'btn btn-sm btn-primary',
                     ]

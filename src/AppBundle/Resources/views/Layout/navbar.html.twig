@@ -1,3 +1,4 @@
+
 {# <nav class="navbar navbar-inverse navbar-fixed-top" id="topnavbar"> #}
 <nav class="navbar navbar-default navbar-static-top" id="topnavbar">
   <div class="container-fluid">
@@ -13,9 +14,10 @@
           {% if is_granted('ROLE_RESPONSABLE') %} <li role="separator" class="divider"></li>
             <li><a class="navbar-brand" href="{{ path('admin_index') }}">Administration</a></li>
 
-          {% else %}
-        <li><a class="navbar-brand" href="{{ path('fos_user_registration_register') }}"><span
+                    {% else %}
+                    <li><a class="navbar-brand" href="{{ path('fos_user_registration_register') }}"><span
                     class="glyphicon glyphicon-user"></span>Créer un Compte</a></li>
+
           {% endif %}
         <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -23,11 +25,12 @@
                     class="glyphicon glyphicon-log-out"></span>
               {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
           </a></li>
-        <li><a class="navbar-brand" href="{{ path('fos_user_profile_show') }}">Profile</a></li>
-          {% else %}
-            <li> <a class="navbar-brand" href="{{ path('fos_user_security_login') }}"><span
+                    <li><a class="navbar-brand" href="{{ path('fos_user_profile_show') }}">Profile</a></li>
+                    {% else %}
+                    <li> <a class="navbar-brand" href="{{ path('fos_user_security_login') }}"><span
                         class="glyphicon glyphicon-log-in"></span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}
               </a>
+
             </li>
           {% endif %}
           {#<li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>#}

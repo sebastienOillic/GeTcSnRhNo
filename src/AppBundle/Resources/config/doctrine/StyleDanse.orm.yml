@@ -19,19 +19,11 @@ AppBundle\Entity\StyleDanse:
             unique: false
             nullable: true
 
-
     manyToMany:
         typeDanses:
-            targetEntity:   AppBundle\Entity\TypeDanse
-            inversedBy: styleDanses
-            joinTable:
-                name: styleDanse_typeDanse
-                joinColumns:
-                    styleDanse_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    typeDanse_id:
-                        referencedColumnName: id
+            targetEntity: AppBundle\Entity\TypeDanse
+            mappedBy: styleDanses
+
+    lifecycleCallbacks: {}
 
 
-    lifecycleCallbacks: {  }
