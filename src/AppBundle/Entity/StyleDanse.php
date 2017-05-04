@@ -31,7 +31,23 @@ class StyleDanse
     private $slug;
 
     /**
-     * @return ArrayCollection
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return TypeDanse
      */
     public function getTypeDanses()
     {
@@ -39,12 +55,15 @@ class StyleDanse
     }
 
     /**
-     * @param ArrayCollection $typeDanses
+     * @param TypeDanse $typeDanses
      */
     public function setTypeDanses($typeDanses)
     {
         $this->typeDanses = $typeDanses;
     }
+
+
+
 
     /**
      * TypeDanse constructor.
