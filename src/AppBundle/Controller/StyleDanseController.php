@@ -72,7 +72,7 @@ class StyleDanseController extends Controller
      */
     public function editAction(Request $request, StyleDanse $styleDanse)
     {
-       // $deleteForm = $this->createDeleteForm($styleDanse);
+        $deleteForm = $this->createDeleteForm($styleDanse);
         $editForm = $this
                 ->createForm('AppBundle\Form\StyleDanseType', $styleDanse)
                 ->add('Enregistrer', new SubmitType(), [
@@ -111,7 +111,7 @@ class StyleDanseController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('app_admin_styleDanse_index');
+        return $this->redirectToRoute('app_styleDanse_index');
     }
 
     /**
