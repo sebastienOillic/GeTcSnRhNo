@@ -60,11 +60,6 @@ class StyleDanse
          return $this->nom;
      }
 
-    public function __toString()
-    {
-        return $this->nom;
-    }
-
     /**
      * Get id
      *

@@ -1,18 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
-<h1>Voici votre liste de contacts</h1>
+<h1>Voici votre liste de cours</h1>
 {# Pour chaque coours #}
 {% for cours in cours %}
 <div class="row cours">
     <div class="col-sm-11">
-        <div class="panel panel-default">
-            <div class="panel-body">
-				{{cours.name}}  {{cours.niveau}} 
-                {{cours.dateCours}} - {{cours.heureDebut}}-{{cours.heureFin}} Salle {{cours.salle}}
-
-            </div>
-        </div>
+            <a href="#" class="btn btn-xs btn-danger">
+				<b>{{cours.typeDanse}}  {{cours.niveau}}</b><br />
+                {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('h:m')}}-{{cours.heureFin|date('h:m')}} Salle {{cours.salle}}
+            </a>     
     </div>
     <div class="col-sm-1">
         <p>
@@ -21,7 +18,7 @@
                 <span class="glyphicon glyphicon-pencil"></span>
             </a>
             {# Bouton d'edition #}
-            <a href="{{ path('app_cours_edit') }}" class="btn btn-xs btn-warning">
+            <a href="#" class="btn btn-xs btn-warning">
                 <span class="glyphicon glyphicon-pencil"></span>
             </a>
             {# Bouton de suppression #}

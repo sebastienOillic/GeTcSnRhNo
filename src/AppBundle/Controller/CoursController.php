@@ -19,7 +19,7 @@ class CoursController extends Controller
      */
    public function listeAction()
     {
-		$coours = $this->findCours();
+		$cours = $this->findCours();
         //$mode = false;
 		
         return $this->render('AppBundle:Cours:listeCours.html.twig', [
@@ -49,7 +49,7 @@ class CoursController extends Controller
             $em->persist($cours); 
             $em->flush($cours);
         
-            return $this->redirect($this->generateUrl('cours_liste'));    
+            return $this->redirect($this->generateUrl('app_cours_liste'));    
         }
 
 		//$contacts = $this->findContacts();

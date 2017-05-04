@@ -46,6 +46,15 @@ class User extends BaseUser
     }
 
     /**
+     * TypeDanse toString
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
+    /**
      * @return mixed
      */
     public function getTypeDanses()
