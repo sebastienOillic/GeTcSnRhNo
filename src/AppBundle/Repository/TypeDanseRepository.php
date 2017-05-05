@@ -29,4 +29,38 @@ class TypeDanseRepository extends EntityRepository
             ->setParameter('styleDanse', $styleDanse)
             ->getResult();
     }
+
+    /**
+     * Finds typeDanse by user.
+     *
+     * @param User $user
+     *
+     * @return \AppBundle\Entity\TypeDanse[]
+     */
+    public function findByUser(User $user)
+    {
+        $qb = $this->createQueryBuilder('t');
+
+        return $qb
+            ->where($qb->expr()->eq('t.user', ':user'))
+            ->getQuery()
+            ->setParameter('user', $user)
+            ->getResult();
+    }
+
+    /* public function findOneByNomAndPrenom(User $nom, $prenom)
+    {
+        $qb = $this->createQueryBuilder('t');
+
+        return $qb
+            ->where($qb->expr()->eq('t.nom', ':nom'))
+            ->andWhere($qb->expr()->eq('t.prenom', ':prenom'))
+            ->getQuery()
+            ->setParameters([
+                'nom'        => $nom,
+                'prenom'     => $prenom,
+            ])
+            //->getResult();
+            ->getOneOrNullResult();
+    }*/
 }

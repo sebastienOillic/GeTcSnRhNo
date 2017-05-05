@@ -25,6 +25,23 @@ class StyleDanse
     /**
      * @return ArrayCollection
      */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+
     public function getTypeDanses()
     {
         return $this->typeDanses;
@@ -37,15 +54,11 @@ class StyleDanse
     {
         $this->typeDanses = $typeDanses;
     }
-
-    /**
-     * StyleDanse constructor.
-     * @param $typeDanses
-     */
-    public function __construct($typeDanses)
-    {
-        $this->typeDanses = new ArrayCollection();
-    }
+    
+     public function __toString()
+     {
+         return $this->nom;
+     }
 
 
     /**
@@ -95,7 +108,7 @@ class StyleDanse
     {
         if ($this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->removeElement($typeDanse);
-            $typeDanse->removeStyleDanse($this);
+
         }
 
         return $this;

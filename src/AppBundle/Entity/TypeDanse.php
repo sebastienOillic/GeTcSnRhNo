@@ -47,6 +47,14 @@ class TypeDanse
         $this->styleDanses = new ArrayCollection();
     }
 
+    /**
+     * TypeDanse toString
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom;
+    }
 
     /**
      * Get id
@@ -105,9 +113,10 @@ class TypeDanse
 
     public function removeStyleDanse(StyleDanse $styleDanse)
     {
-        if ($this->styleDanses->contains($styleDanse)) {
-            $this->styleDanses->removeElement($styleDanse);
-            $styleDanse->removeTypeDanse($this);
+
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+
         }
 
         return $this;
