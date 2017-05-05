@@ -1,31 +1,7 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block content %}
-{#{% for publication in publications %}#}
-    {#{% set post_path = path('blog_post', {'categorySlug': post.category.slug, 'postSlug': post.slug}) %}#}
-    {#<div>#}
-        {#<h3>#}
-            {#<a href="{{ path('publication_show', { 'id': publication.id }) }}">#}
-                {#{{publication.title }}#}
-            {#</a>#}
-        {#</h3>#}
-        {#<p>#}
 
-            {#<em>Publié le {{ publication.publishedAt|date('d/m/Y') }}</em>, par#}
-            {#<strong>{{ publication.author }}</strong>#}
-        {#</p>#}
-        {#<p>#}
-            {#{{ publication.description  }}#}
-            {#{{ publication.content|summary }}#}
-        {#</p>#}
-        {#<p class="text-right">#}
-            {#<a href="{{ post_path }}" class="btn btn-primary btn-sm">#}
-                {#Lire la suite#}
-            {#</a>#}
-        {#</p>#}
-    {#</div>#}
-    {#{% if not loop.last %}<hr>{% endif %}#}
-{% endfor %}
 
 {% endblock %}
 

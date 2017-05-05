@@ -1,13 +1,13 @@
 {% extends '::base.html.twig' %}
 {% block content %}
 <h1>Agenda</h1>
-<a class="btn btn-success" href="#" role="button">Nouvel évenement</a>
+<a class="btn btn-success" href="{{ path('app_agenda_add') }}" role="button">Nouvel évenement</a>
 <div class="row">
     {% for event in events %}
         <div class="col-md-4 col-sm-6">
             <h2 class="event-name">{{event.nom}}</h2>
             {% if event.image %}
-                <p>Y'a une image là </p>
+                <img style="width: 95%" src="{{ asset('uploads/events_img/' ~ event.image) }}"></img>
             {% endif %}
             <div>Du {{event.dateDebut|date('d/m/Y')}} au {{event.dateFin|date('d/m/Y')}}</div>
             <div>{{event.lieu}}</div>
@@ -20,5 +20,5 @@
         </div>
     {% endfor %}
 </div>
-<a class="btn btn-success" href="#" role="button">Nouvel évenement</a>
+<a class="btn btn-success" href="{{ path('app_agenda_add') }}" role="button">Nouvel évenement</a>
 {% endblock %}

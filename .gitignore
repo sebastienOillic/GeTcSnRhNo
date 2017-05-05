@@ -18,3 +18,4 @@
 /cache/dev/*
 /public/*
 .vscode/
+/web/uploads/*

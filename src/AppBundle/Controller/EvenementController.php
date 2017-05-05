@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EvenementController extends Controller
 {
@@ -20,5 +21,43 @@ class EvenementController extends Controller
         return $this->render('AppBundle:Evenement:index.html.twig', array(
             'events' => $events,
         ));
+    }
+
+    public function newAction(Request $request){
+        $event = new \AppBundle\Entity\Evenement();
+        $form = $this->createForm('AppBundle\Form\EvenementType', $event)
+            ->add('Enregistrer', new SubmitType(), [
+                'attr' => [
+                        'class' => 'btn btn-sm btn-success',
+                    ]
+        ]);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $file = $event->getImage();
+            if (!is_null($file)){
+
+                $filename = md5(uniqid()).'.'.$file->guessExtension();
+                $file = $file->move(
+                    $this->getParameter('events_image_directory'),
+                    $filename
+                );
+                $event->setImage($filename);
+            }
+            else {
+                $event->setImage(NULL);
+            }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($event);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('app_agenda_index'));
+
+        }
+        return $this->render('AppBundle:Evenement:new.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
