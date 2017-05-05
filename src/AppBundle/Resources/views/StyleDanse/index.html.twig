@@ -6,42 +6,52 @@
     <hr>
     <div class="table-responsive">
         <div class="row" id="danseAccueil">
+            {% set number = 0 %}
             {% for styleDanse in stylesDanse %}
-            <div class="col-md-3">
-                <div class="listedanses orange">
-                    <h3>{{ styleDanse.nom }}</h3>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-warning">
-                                Modifier
-                            </a>
-                        </li>
-                    </ul>
-                    <p>{{ styleDanse.description }}</p>
-                    <ul class="listetypesdanse">
-                        <li><a href="#">Boston</a></li>
-                        <li><a href="#">Charleston</a></li>
-                        <li><a href="#">Foxtrot</a></li>
-                        <li><a href="#">Madison</a></li>
-                        <li><a href="#">One-Step</a></li>
-                        <li><a href="#">Paso-doble</a></li>
-                        <li><a href="#">Quicks Tep</a></li>
-                        <li><a href="#">Tango</a></li>
-                        <li><a href="#">Valse</a></li>
-                    </ul>
+                {% set number = number+1 %}
+                <div class="col-md-3">
+                {% if number %3 == 0 %}
+                    <div class="listedanses tomato">
+                {% elseif number %3 == 1 %}
+                    <div class="listedanses orange">
+                {% elseif number %3 == 2 %}
+                    <div class="listedanses firebrick">
+                {% endif %}
+                        <h3>{{ styleDanse.nom }}</h3>
+                        <ul class="list-inline">
+                            <li>
+                                {% if is_granted("ROLE_RESPONSABLE") %}
+                                <a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-warning">
+                                    Modifier
+                                </a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                        <p>{{ styleDanse.description }}</p>
+                        <ul class="listetypesdanse">
+                            <li><a href="/typedanse/5/show">Boston</a></li>
+                            <li><a href="/typedanse/9/show">Charleston</a></li>
+                            <li><a href="/typedanse/2/show">Foxtrot</a></li>
+                            <li><a href="/typedanse/10/show">Madison</a></li>
+                            <li><a href="/typedanse/1/show">One-Step</a></li>
+                            <li><a href="/typedanse/7/show">Paso-doble</a></li>
+                            <li><a href="/typedanse/3/show">Quicks Tep</a></li>
+                            <li><a href="/typedanse/4/show">Tango</a></li>
+                            <li><a href="/typedanse/6/show">Valse</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>
     <hr>
-    <ul class="list-inline">
-        <li>
-            <a href="{{ path('app_admin_styleDanse_new') }}" class="btn btn-sm btn-success">
-                Créer un nouveau style de danse
-            </a>
-        </li>
-    </ul>
+    {% if is_granted("ROLE_RESPONSABLE") %}
+        <ul class="list-inline">
+            <li>
+                <a href="{{ path('app_admin_styleDanse_new') }}" class="btn btn-sm btn-success">
+                    Créer un nouveau style de danse
+                </a>
+           </li>
+        </ul>
+    {% endif %}
 {% endblock %}
-
-

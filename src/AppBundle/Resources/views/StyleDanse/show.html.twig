@@ -1,10 +1,10 @@
 {% extends '::base.html.twig' %}
-
 {% block content %}
     <h1>Styles de danse</h1>
     <hr>
     <table class="table">
         <tbody>
+<<<<<<< HEAD
             <tr>
                 <th>Id</th>
                 <td>{{ styleDanse.id }}</td>
@@ -17,6 +17,20 @@
                 <th>Description</th>
                 <td>{{ styleDanse.description }}</td>
             </tr>
+=======
+        <tr>
+            <th>Id</th>
+            <td>{{ styleDanse.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ styleDanse.nom }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ styleDanse.description }}</td>
+        </tr>
+>>>>>>> dev
         </tbody>
     </table>
     <hr>
@@ -25,15 +39,58 @@
             <a href="{{ path('app_styleDanse_index') }}" class="btn btn-sm btn-default">
                 Liste des Danses
             </a>
-    </li>
-    <li>
-        <a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}" class="btn btn-sm btn-warning">
+        </li>
+        <li>
+            <a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}" class="btn btn-sm btn-warning">
                 Modifier
             </a>
-    </li>
-    <li>
-        {{ form_start(delete_form) }}
-        <input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> {{ form_end(delete_form) }}
-    </li>
-</ul>
-{% endblock %}
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+
+
+
+{#{% extends '::base.html.twig' %}#}
+
+{#{% block content %}#}
+    {#<h1>Styles de danse</h1>#}
+    {#<hr>#}
+    {#<table class="table">#}
+        {#<tbody>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<td>{{ styleDanse.id }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Nom</th>#}
+                {#<td>{{ styleDanse.nom }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Description</th>#}
+                {#<td>{{ styleDanse.description }}</td>#}
+            {#</tr>#}
+        {#</tbody>#}
+    {#</table>#}
+    {#<hr>#}
+    {#<ul class="list-inline">#}
+        {#<li>#}
+            {#<a href="{{ path('app_styleDanse_index') }}" class="btn btn-sm btn-default">#}
+
+                {#Liste des Danses#}
+            {#</a>#}
+    {#</li>#}
+    {#<li>#}
+        {#<a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}" class="btn btn-sm btn-warning">#}
+                {#Modifier#}
+            {#</a>#}
+    {#</li>#}
+    {#<li>#}
+        {#{{ form_start(delete_form) }}#}
+        {#<input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> {{ form_end(delete_form) }}#}
+    {#</li>#}
+{#</ul>#}
+{#{% endblock %}#}

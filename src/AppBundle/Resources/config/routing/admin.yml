@@ -17,3 +17,9 @@ admin_demote:
     defaults: { _controller: AppBundle:Admin:demote }
     methods: GET
 
+admin_delete:
+    path:     /{id}/delete
+    defaults: { _controller: AppBundle:Admin:delete }
+    methods:  DELETE
+
+

@@ -1,4 +1,5 @@
 /app/bootstrap.php.cache
+/cache/dev/*
 /app/cache/*
 /app/config/parameters.yml
 /app/logs/*
@@ -11,4 +12,8 @@
 /bin/
 /composer.phar
 /src/AppBundle/DataFictures/
+/.idea/
+/web/bundles/*
+!/web/bundles/app
+
 
