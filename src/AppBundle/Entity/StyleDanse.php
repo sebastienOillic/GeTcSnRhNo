@@ -2,9 +2,12 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
+//use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca7ef1ddcb4d5c4f7368281ff42c5728fbeaea1c
 
 /**
  * StyleDanse
@@ -26,28 +29,45 @@ class StyleDanse
     private $typeDanses;
 
     /**
-     * @return ArrayCollection
-     */
-    public function getTypeDanses()
-    {
-        return $this->typeDanses;
-    }
-
-    /**
-     * @param ArrayCollection $typeDanses
-     */
-    public function setTypeDanses($typeDanses)
-    {
-        $this->typeDanses = $typeDanses;
-    }
-
-    /**
      * TypeDanse constructor.
      * @param $typeDanses
      */
     public function __construct()
     {
         $this->typeDanses = new TypeDanse();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+
+    public function getTypeDanses()
+    {
+        return $this->typeDanses;
+    }
+
+    /**
+     * @param TypeDanse $typeDanses
+     */
+    public function setTypeDanses($typeDanses)
+    {
+        $this->typeDanses = $typeDanses;
     }
     
      public function __toString()

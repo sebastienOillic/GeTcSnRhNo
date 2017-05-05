@@ -198,7 +198,7 @@ class User extends BaseUser
         if (!$this->coursAnimes->contains($coursAnime)) {
 
             $this->coursAnimes->add($coursAnime);
-            $coursAnime->addAnimateur($this);
+//            $coursAnime->addAnimateur($this);
         }
         return $this;
     }

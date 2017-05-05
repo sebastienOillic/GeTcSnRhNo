@@ -298,7 +298,7 @@ class Cours
     {
         if ($this->avis->contains($avis)) {
             $this->avis->removeElement($avis);
-            $avis->setCours(null);
+//            $avis->setCours(null);
         }
 
         return $this;
@@ -318,7 +318,7 @@ class Cours
     {
         if ($this->danseurs->contains($danseur)) {
             $this->danseurs->removeElement($danseur);
-            //$danseur->removeCours($this);
+//            $danseur->removeCours($this);
         }
 
         return $this;
@@ -339,7 +339,7 @@ class Cours
     {
         if ($this->animateurs->contains($animateur)) {
             $this->animateurs->removeElement($animateur);
-            //$animateur->removeCours($this);
+//            $animateur->removeCours($this);
         }
 
         return $this;

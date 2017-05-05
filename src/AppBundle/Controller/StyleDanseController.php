@@ -17,6 +17,7 @@ class StyleDanseController extends Controller
 
         $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
 
+        // src/AppBundle/Resources/views/index.html.twig
         return $this->render('AppBundle:StyleDanse:index.html.twig', array(
             'stylesDanse' => $stylesDanses,
         ));
@@ -72,7 +73,7 @@ class StyleDanseController extends Controller
      */
     public function editAction(Request $request, StyleDanse $styleDanse)
     {
-       // $deleteForm = $this->createDeleteForm($styleDanse);
+        $deleteForm = $this->createDeleteForm($styleDanse);
         $editForm = $this
                 ->createForm('AppBundle\Form\StyleDanseType', $styleDanse)
                 ->add('Enregistrer', new SubmitType(), [

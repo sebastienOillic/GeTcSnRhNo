@@ -92,7 +92,6 @@ class TypeDanseController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            
             $em = $this->getDoctrine()->getManager();
             $em->persist($typeDanse);
             $em->flush();

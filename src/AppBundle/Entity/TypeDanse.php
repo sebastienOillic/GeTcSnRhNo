@@ -122,6 +122,7 @@ class TypeDanse
         return $this->nom;
     }
 
+
     public function removeStyleDanse(StyleDanse $styleDanse)
     {
         if ($this->styleDanses->contains($styleDanse)) {
