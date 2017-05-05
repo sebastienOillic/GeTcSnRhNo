@@ -1,4 +1,4 @@
- {% extends '::base.html.twig' %} {% block content %}
+{% extends '::base.html.twig' %} {% block content %}
 <h1>Styles de danse</h1>
 <hr>
 <div class="table-responsive">
@@ -12,6 +12,7 @@
                     {% elseif number %3 == 2 %}
                     <div class="listedanses firebrick">
                         {% endif %}
+
                         <h3>{{ styleDanse.nom }}</h3>
                         <ul class="list-inline">
                             <li>

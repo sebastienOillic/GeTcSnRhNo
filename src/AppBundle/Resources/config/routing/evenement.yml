@@ -1,0 +1,4 @@
+app_agenda_index:
+    path: /
+    defaults: { _controller: AppBundle:Evenement:index}
+    methods: GET
