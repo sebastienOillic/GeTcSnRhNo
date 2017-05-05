@@ -14,6 +14,7 @@ class User extends BaseUser
      * @var int
      */
     protected $id;
+
   
     private $nom;
 
@@ -86,7 +87,6 @@ class User extends BaseUser
     public function setCours($cours)
     {
         $this->cours = $cours;
-    
 
     
 }
@@ -94,6 +94,7 @@ class User extends BaseUser
     /**
      * @var string
      */
+
 
     public function getSexe()
     {

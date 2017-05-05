@@ -62,6 +62,22 @@ class StyleDanse
 
 
     /**
+     * StyleDanse constructor.
+     * @param $typeDanses
+     */
+    public function __construct($typeDanses)
+
+    {
+        $this->typeDanses = new ArrayCollection();
+    }
+
+
+    public function __toString(){
+        return $this->name;
+    }
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -110,7 +126,6 @@ class StyleDanse
             $this->typeDanses->removeElement($typeDanse);
 
         }
-
         return $this;
     }
 
