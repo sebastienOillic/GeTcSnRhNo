@@ -1,0 +1,6 @@
+app_cours_liste:
+    path: /liste
+    defaults: { _controller: AppBundle:Cours:liste }
+app_cours_add:
+    path: /create
+    defaults: { _controller: AppBundle:Cours:add }

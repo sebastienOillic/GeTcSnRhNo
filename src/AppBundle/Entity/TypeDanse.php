@@ -88,6 +88,7 @@ class TypeDanse
     {
         return $this->nom;
     }
+
     /**
      * Get id
      *

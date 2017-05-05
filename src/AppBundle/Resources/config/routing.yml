@@ -6,19 +6,20 @@ app_admin:
     resource: "@AppBundle/Resources/config/routing/admin.yml"
     prefix: /admin
 
-
+app_cours:
+    resource: routing/cours.yml
+    prefix: /cours
 #app_avis:
 #    resource: "@AppBundle/Resources/config/routing/avis.yml"
 #    prefix: /avis
 
 app_typeDanse:
-    resource: routing/typedanse.yml
-    prefix: /typedanse
+    resource: routing/typeDanse.yml
+    prefix: /typeDanse
 
 app_styledanse:
     resource: "routing/styledance.yml"
     prefix: /styledanse
-
 
 
 fos_user_security:

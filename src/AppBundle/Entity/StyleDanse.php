@@ -49,11 +49,11 @@ class StyleDanse
     {
         $this->typeDanses = new TypeDanse();
     }
-
-    public function __toString()
-    {
-        return $this->nom;
-    }
+    
+     public function __toString()
+     {
+         return $this->nom;
+     }
 
     /**
      * Get id
@@ -86,24 +86,6 @@ class StyleDanse
     public function getNom()
     {
         return $this->nom;
-    }
-
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
   public function addTypeDanse(TypeDanse $typeDanse){

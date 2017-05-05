@@ -10,6 +10,7 @@ AppBundle\Entity\Salle:
                 strategy: AUTO
     fields:
         nom:
-            type: integer
+            type: string
+            length: 255
             unique: true
     lifecycleCallbacks: {  }
