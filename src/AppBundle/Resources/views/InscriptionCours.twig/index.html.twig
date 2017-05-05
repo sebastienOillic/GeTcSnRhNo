@@ -1,0 +1,26 @@
+{% extends 'AppBundle::listeCours.html.twig' %} {% block content %}
+
+<h1>Inscription à un cours</h1>
+<hr>
+<p><a class="btn btn-default" href="{{ path('fos_user_registration_register') }}"><span
+
+                  class="glyphicon glyphicon-user"></span>Créer un Compte</a></p>
+<hr>
+<ul class="list-inline">
+    <li>
+        <a href="{{path('app_inscriptioncours_add')}}" class="btn btn-sm btn-default">
+                Confirmer
+        </a>
+    </li>
+    <li>
+        <a href="{{path('app_inscriptioncours_cancel')}}" class="btn btn-sm btn-default">
+                Annuler
+        </a>
+    </li>
+    <li>
+        <a href="{{path('app_cours_liste')}}" class="btn btn-sm btn-default">
+                Retour à la liste des cours
+        </a>
+    </li>
+</ul>
+{% endblock %}
