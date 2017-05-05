@@ -11,19 +11,20 @@
                 <div class="col-md-3">
                 {% if number %3 == 0 %}
                     <div class="listedanses tomato">
+
                 {% elseif number %3 == 1 %}
-                    <div class="listedanses orange">
-                {% elseif number %3 == 2 %}
+                <div class="listedanses orange">
+                    {% elseif number %3 == 2 %}
                     <div class="listedanses firebrick">
-                {% endif %}
+                        {% endif %}
+
                         <h3>{{ styleDanse.nom }}</h3>
                         <ul class="list-inline">
                             <li>
                                 {% if is_granted("ROLE_RESPONSABLE") %}
                                 <a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-warning">
                                     Modifier
-                                </a>
-                                {% endif %}
+                                </a> {% endif %}
                             </li>
                         </ul>
                         <p>{{ styleDanse.description }}</p>
@@ -40,17 +41,15 @@
                         </ul>
                     </div>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <hr>
-    {% if is_granted("ROLE_RESPONSABLE") %}
+        <hr> {% if is_granted("ROLE_RESPONSABLE") %}
         <ul class="list-inline">
             <li>
                 <a href="{{ path('app_admin_styleDanse_new') }}" class="btn btn-sm btn-success">
                     Créer un nouveau style de danse
                 </a>
-           </li>
+            </li>
         </ul>
-    {% endif %}
-{% endblock %}
+        {% endif %} {% endblock %}

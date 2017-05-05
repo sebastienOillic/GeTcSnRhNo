@@ -6,13 +6,20 @@ app_admin:
     resource: "@AppBundle/Resources/config/routing/admin.yml"
     prefix: /admin
 
+app_cours:
+    resource: routing/cours.yml
+    prefix: /cours
+
+app_inscriptionCours:
+    resource: routing/inscriptioncours.yml
+    prefix: /cours/liste/inscriptioncours
 
 #app_avis:
 #    resource: "@AppBundle/Resources/config/routing/avis.yml"
 #    prefix: /avis
 
 app_typeDanse:
-    resource: routing/typedanse.yml
+    resource: routing/typeDanse.yml
     prefix: /typedanse
 
 app_styledanse:
@@ -27,6 +34,13 @@ app_accueil:
     resource: "routing/accueil.yml"
     prefix: /accueil
 
+app_evenement:
+    resource: "routing/evenement.yml"
+    prefix: /evenement
+
+app_accueil:
+    resource: "routing/accueil.yml"
+    prefix: /accueil
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

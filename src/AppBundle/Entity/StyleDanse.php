@@ -54,6 +54,12 @@ class StyleDanse
     {
         $this->typeDanses = $typeDanses;
     }
+    
+     public function __toString()
+     {
+         return $this->nom;
+     }
+
 
     /**
      * StyleDanse constructor.
@@ -69,6 +75,7 @@ class StyleDanse
     public function __toString(){
         return $this->name;
     }
+
 
     /**
      * Get id
@@ -117,6 +124,7 @@ class StyleDanse
     {
         if ($this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->removeElement($typeDanse);
+
         }
         return $this;
     }

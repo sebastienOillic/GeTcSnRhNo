@@ -45,6 +45,47 @@ class Cours
 
     private $avis;
 
+    private $danseurs;
+
+    private $animateurs;
+
+    private $referent;
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getDanseurs()
+    {
+        return $this->danseurs;
+    }
+
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getAnimateurs()
+    {
+        return $this->animateurs;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getReferent()
+    {
+        return $this->referent;
+    }
+
+    /**
+     * @param mixed $referent
+     */
+    public function setReferent($referent)
+    {
+        $this->referent = $referent;
+    }
+
     /**
      * Cours constructor.
      * @param $avis
@@ -147,6 +188,7 @@ class Cours
         return $this->id;
     }
 
+    
     /**
      * Set dateCours
      *

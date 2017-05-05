@@ -12,3 +12,4 @@ app_agenda_delete:
     path:     /{id}/delete
     defaults: { _controller: AppBundle:Evenement:delete}
     methods: [GET, POST]
+

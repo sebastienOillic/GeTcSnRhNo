@@ -15,6 +15,78 @@ class User extends BaseUser
      */
     protected $id;
 
+  
+    private $nom;
+
+    private $prenom;
+
+    private $sexe;
+
+    private $cours;
+
+    private $coursAnimes;
+
+    private $typeDanses;
+
+    /**
+     * @return mixed
+     */
+    public function getCoursAnimes()
+    {
+        return $this->coursAnimes;
+    }
+
+    /**
+     * TypeDanse toString
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeDanses()
+    {
+        return $this->typeDanses;
+    }
+
+    /**
+     * @param mixed $typeDanses
+     */
+    public function addTypeDanse(TypeDanse $typeDanse)
+    {
+        if (!$this->typeDanses->contains($typeDanse)) {
+            $this->typeDanses->add($typeDanse);
+        }
+        return $this;
+    }
+
+    public function removeTypeDanse(TypeDanse $typeDanse)
+    {
+        if ($this->typeDanses->contains($typeDanse)) {
+            $this->typeDanses->removeElement($typeDanse);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCours()
+    {
+        return $this->cours;
+    }
+
+    /**
+     * @param mixed $cours
+     */
+    public function setCours($cours)
+    {
+        $this->cours = $cours;
 
     
 }
@@ -22,123 +94,51 @@ class User extends BaseUser
     /**
      * @var string
      */
-//    private $firstname;
-//
-//    /**
-//     * @var string
-//     */
-//    private $lastName;
-//
-//    /**
-//     * @var string
-//     */
-//    private $email;
-//
-//    /**
-//     * @var string
-//     */
-//    private $password;
-//
-//
-//    /**
-//     * Get id
-//     *
-//     * @return integer
-//     */
-//    public function getId()
-//    {
-//        return $this->id;
-//    }
-//
-//    /**
-//     * Set firstname
-//     *
-//     * @param string $firstname
-//     * @return User
-//     */
-//    public function setFirstname($firstname)
-//    {
-//        $this->firstname = $firstname;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get firstname
-//     *
-//     * @return string
-//     */
-//    public function getFirstname()
-//    {
-//        return $this->firstname;
-//    }
-//
-//    /**
-//     * Set lastName
-//     *
-//     * @param string $lastName
-//     * @return User
-//     */
-//    public function setLastName($lastName)
-//    {
-//        $this->lastName = $lastName;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get lastName
-//     *
-//     * @return string
-//     */
-//    public function getLastName()
-//    {
-//        return $this->lastName;
-//    }
-//
-//    /**
-//     * Set email
-//     *
-//     * @param string $email
-//     * @return User
-//     */
-//    public function setEmail($email)
-//    {
-//        $this->email = $email;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get email
-//     *
-//     * @return string
-//     */
-//    public function getEmail()
-//    {
-//        return $this->email;
-//    }
-//
-//    /**
-//     * Set password
-//     *
-//     * @param string $password
-//     * @return User
-//     */
-//    public function setPassword($password)
-//    {
-//        $this->password = $password;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get password
-//     *
-//     * @return string
-//     */
-//    public function getPassword()
-//    {
-//        return $this->password;
-//    }
-//}
+
+
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    public function addCours(Cours $cours)
+    {
+        if (!$this->cours->contains($cours)) {
+
+            $this->cours->add($cours);
+            $cours->addDanseur($this);
+        }
+        return $this;
+    }
+
+    public function removeCours(Cours $cours)
+    {
+        if ($this->cours->contains($cours)) {
+            $this->cours->removeElement($cours);
+            //$cours->removeDanseur($this);
+        }
+
+        return $this;
+    }
+
+    public function addCoursAnime(Cours $coursAnime)
+    {
+        if (!$this->coursAnimes->contains($coursAnime)) {
+
+            $this->coursAnimes->add($coursAnime);
+//            $coursAnime->addAnimateur($this);
+        }
+        return $this;
+    }
+
+    public function removeCoursAnime(Cours $coursAnime)
+    {
+        if ($this->coursAnimes->contains($coursAnime)) {
+            $this->coursAnimes->removeElement($coursAnime);
+            //$coursAnime->removeAnimateur($this);
+        }
+
+        return $this;
+    }
+
+}
