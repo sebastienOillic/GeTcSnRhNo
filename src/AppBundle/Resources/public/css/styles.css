@@ -1,68 +1,151 @@
 body {
-    padding-top: 50px;
+    padding-top: 0;
     padding-bottom: 20px;
+    background-color: #FFF7CC;
+}
+h2{
+    font-size: 36px;
+    font-family: "Dancing Script", cursive;
+    color: #8A0507;
+    text-align: center;
 }
 
-form .control-label.required:after {
-    position: absolute;
-    right: 6px;
-    display: inline-block;
-    content: '*';
-    color: red;
-    font-weight: bold;
+#container{
+    margin:10px;
 }
 
-form .checkbox label.required:after {
-    margin-left: 6px;
-    display: inline-block;
-    content: '*';
-    color: red;
-    font-weight: bold;
+header {
+    margin:0px;
+}
+.img-circle{
+    width:50%;
 }
 
-.jumbotron {
-    padding: 30px 0;
+#titreAccueil {
+    font-size: 36px;
+    font-family: "Dancing Script", cursive;
+    color: #8A0507;
+    text-align: center;
+}
+#titreAccueil a:link, a:visited {
+    color: #8A0507;
+    text-decoration:none;
+}
+#titreAccueil a:hover{
+    color: #ff0000;
+    text-decoration:none;
 }
 
-.science-thumb,
-.publication-thumb {
-    margin-top: 40px;
+#danseAccueil{
+    margin-top: 10px;
+    text-align:center;
 }
 
-.science-thumb:first-child,
-.publication-thumb:first-child {
-    margin-top: 0;
+#listeEvents {
+    border:solid 1px;
+    border-radius: 10px;
+    margin:10px;
+}
+.eventAccueil{
+    margin: 10px;
+    background-color:#FFF;
+    padding:5px;
+    border:solid 1px;
+    border-radius: 5px;
+}
+.eventAccueil a:link, a:visited {
+    color: #8A0507;
+    text-decoration:none;
+}
+.eventAccueil a:hover{
+    color: #ff0000;
+    text-decoration:none;
+}
+.imgEvent{
+    width:40%;
+    float:left;
+}
+.imgEvent img{
+    width:100px;
+    height:100px;
+}
+.eventDetail{
+    width:60%;
+    float:left;
+}
+.clearboth{
+    clear:both;
+}
+.reseauSocial {
+    width:100%;
+}
+.reseauSocial >p{
+    text-align: center;
 }
 
-.science-thumb > div,
-.publication-thumb > div,
-.publish-thumb > div {
-    border-left: 4px solid #ffffff;
-    padding-left: 16px;
+.listedanses{
+    border:solid 1px;
+    border-radius: 10px;
+    margin:10px;
+    margin-left:2px;
+    color: #FFF;
+    height: 300px;
 }
 
-.science-thumb > h1,
-.publication-thumb > h1,
-.publish-thumb > h1 {
-    position: relative;
-    left: -3px;
+.listedanses a:link, a:visited{
+    color:#FFF;
+    text-decoration: none;
 }
 
-.science-thumb > h2,
-.publication-thumb > h2,
-.publish-thumb > h2 {
-    position: relative;
-    left: -1px;
+.listedanses a:hover{
+    color:#d3d3d3;
+    text-decoration: none;
 }
 
-.science-thumb > div {
-    border-left-color: #549595;
+.orange{
+    background-color:orange;
+}
+.tomato{
+    background-color:tomato;
+}
+.firebrick{
+    background-color:firebrick;
 }
 
-.publication-thumb > div {
-    border-left-color: #9473b4;
+.listetypesdanse li{
+    text-align: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+listetypesdanse ul,li a:link, a:visited{
+    color:#FFF;
+    text-decoration: none;
 }
 
-.publish-thumb > div {
-    border-left-color: #b47677;
+listetypesdanse ul,li a:hover{
+    color:#d3d3d3;
+    text-decoration: none;
+}
+
+
+#topnavigbar {
+    background-color: #AB252B;
+    border-radius: 10px;
+}
+#topnavigbar a:link, a:visited{ 
+    color: #FFF;
+}
+#bottomnavigbar a:link, a:visited{ 
+    color: #AB252B;
+}
+
+.navigbar ul{
+    text-align:center;
+    padding:5px;
+    font-size:20px;
+} 
+.navigbar li {
+    display:inline-block;
+    margin: 0 20px;
 }
