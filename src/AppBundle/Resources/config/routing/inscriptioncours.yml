@@ -1,6 +1,15 @@
-app_inscriptioncours_add:
-    path: /add
-    defaults: { _controller: AppBundle:IncriptionCours:add }
-app_inscriptioncours_cancel:
+app_inscriptionCours_index:
+     path: /
+     defaults: { _controller: AppBundle:InscriptionCours:index }
+    
+app_inscriptionCours_add:
+  path: /add
+#    defaults: { _controller: AppBundle:InscriptionCours:add }
+ #   requirements:
+ #       id: \d+
+
+app_inscriptionCours_cancel:
     path: /cancel
-    defaults: { _controller: AppBundle:IncriptionCours:cancel }
+#   defaults: { _controller: AppBundle:InscriptionCours:cancel }
+#   requirements:
+#        id: \d+

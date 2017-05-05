@@ -57,5 +57,16 @@ class CoursRepository extends EntityRepository
             ->setParameter('user', $user)
             ->getResult();
      }
+
+     public function findByDanseur(User $user)
+     {
+        $qb = $this->createQueryBuilder('u');
+
+        return $qb
+            ->where($qb->expr()->eq('c.user', ':user'))
+            ->getQuery()
+            ->setParameter('user', $user)
+            ->getResult();
+     }
 }
 

@@ -1,15 +1,11 @@
-{% extends '::base.html.twig' %}
-
-{% block content %}
+{% extends '::base.html.twig' %} {% block content %}
 <h1>Voici votre liste de cours</h1>
-{# Pour chaque coours #}
-{% for cours in cours %}
+{# Pour chaque coours #} {% for cours in cours %}
 <div class="row cours">
     <div class="col-sm-11">
-            <a href="#" class="btn btn-xs btn-danger">
-				<b>{{cours.typeDanse}}  {{cours.niveau}}</b><br />
-                {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('h:m')}}-{{cours.heureFin|date('h:m')}} Salle {{cours.salle}}
-            </a>     
+        <a href="{{path('app_inscriptionCours_index')}}" class="btn btn-xs btn-danger">
+            <b>{{cours.typeDanse}}  {{cours.niveau}}</b><br /> {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('H:m')}}-{{cours.heureFin|date('H:m')}} Salle {{cours.salle}}
+        </a>
     </div>
     <div class="col-sm-1">
         <p>
@@ -28,5 +24,4 @@
         </p>
     </div>
 </div>
-{% endfor %}
-  {% endblock %}
+{% endfor %} {% endblock %}

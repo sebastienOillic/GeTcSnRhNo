@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %} {% block content %}
 <h1>Inscription à un cours</h1>
-<hr> {{ form_start(form) }} {{ form_widget(form) }} {{ form_end(form) }}
-</hr>
+
 <ul class="list-inline">
     <li>
         <a href="{{path('app_cours_liste')}}" class="btn btn-sm btn-default">
