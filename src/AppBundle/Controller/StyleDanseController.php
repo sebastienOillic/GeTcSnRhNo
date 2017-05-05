@@ -111,7 +111,7 @@ class StyleDanseController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('app_admin_styleDanse_index');
+        return $this->redirectToRoute('app_styleDanse_index');
     }
 
     /**

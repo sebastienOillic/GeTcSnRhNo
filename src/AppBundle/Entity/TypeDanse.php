@@ -4,8 +4,6 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Entity\User as BaseUser;
-use Doctrine\ORM\Event\PreUpdateEventArgs;
 
 /**
  * TypeDanse
@@ -23,36 +21,6 @@ class TypeDanse
     private $nom;
 
     private $styleDanses;
-
-    private $users;
-
-    private $description;
-
-    
-
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param mixed $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
 
     /**
      * @return ArrayCollection
@@ -74,20 +42,12 @@ class TypeDanse
      * TypeDanse constructor.
      * @param $styleDanses
      */
-    public function __construct()
+    public function __construct($styleDanses)
     {
         $this->styleDanses = new ArrayCollection();
-        $this->users = new ArrayCollection();
     }
 
-    /**
-     * TypeDanse toString
-     * @return string
-     */
-    public function __toString()
-    {
-            return $this->nom;
-    }
+
     /**
      * Get id
      *
@@ -132,35 +92,22 @@ class TypeDanse
         return $this;
     }
 
-
     public function addStyleDanse(StyleDanse $styleDanse)
     {
 
         if (!$this->styleDanses->contains($styleDanse)) {
 
             $this->styleDanses->add($styleDanse);
-            //$styleDanse->addTypeDanse($this);
+            $styleDanse->addTypeDanse($this);
         }
         return $this;
     }
 
-
-    public function addUser(User $user)
+    public function removeStyleDanse(StyleDanse $styleDanse)
     {
-
-        if (!$this->users->contains($user)) {
-
-            $this->users->add($user);
-            $user->addTypeDanse($this);
-        }
-        return $this;
-    }
-
-    public function removeUser(User $user)
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            $user->removeTypeDanse($this);
+        if ($this->styleDanses->contains($styleDanse)) {
+            $this->styleDanses->removeElement($styleDanse);
+            $styleDanse->removeTypeDanse($this);
         }
 
         return $this;

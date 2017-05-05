@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Class TypeDanseController
@@ -47,25 +47,15 @@ class TypeDanseController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //$styleDanses = $typeDanse->getStyleDanses();
-           // $typeDanse->setStyleDanses(new ArrayCollection());
-
-            //foreach ($styleDanses as $styleDanse) {
-             //   $typeDanse->addStyleDanse($styleDanse);
-            //}
             $em = $this->getDoctrine()->getManager();
-            // echo "<pre>";
-            // var_dump($typeDanse->getStyleDanses());
-            // echo "</pre>";
-            // die();
             
             $em->persist($typeDanse);
             $em->flush();
 
-            return $this->redirectToRoute('app_admin_typeDanse_show', array('id' => $typeDanse->getId()));
+            return $this->redirectToRoute('app_typeDanse_show', array('id' => $typeDanse->getId()));
         }
 
-        return $this->render('AppBundle:Admin/TypeDanse:new.html.twig', array(
+        return $this->render('AppBundle:TypeDanse:new.html.twig', array(
             'typeDanse' => $typeDanse,
             'form' => $form->createView(),
         ));
@@ -79,7 +69,7 @@ class TypeDanseController extends Controller
     {
         $deleteForm = $this->createDeleteForm($typeDanse);
 
-        return $this->render('AppBundle:Admin/TypeDanse:show.html.twig', array(
+        return $this->render('AppBundle:TypeDanse:show.html.twig', array(
             'typeDanse' => $typeDanse,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +81,6 @@ class TypeDanseController extends Controller
      */
     public function editAction(Request $request, TypeDanse $typeDanse)
     {
-        //$deleteForm = $this->createDeleteForm($typeDanse);
         $editForm = $this
                 ->createForm('AppBundle\Form\TypeDanseType', $typeDanse)
                 ->add('Enregistrer', new SubmitType(), [
@@ -103,17 +92,14 @@ class TypeDanseController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
-            
             $em = $this->getDoctrine()->getManager();
             $em->persist($typeDanse);
             $em->flush();
 
             return $this->redirectToRoute('app_admin_typeDanse_edit', array('id' => $typeDanse->getId()));
         }
-        return $this->render('AppBundle:Admin/TypeDanse:edit.html.twig', array(
-            //'typeDanse' => $typeDanse,
+        return $this->render('AppBundle:TypeDanse:edit.html.twig', array(
             'edit_form' => $editForm->createView(),
-     //       'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -133,7 +119,7 @@ class TypeDanseController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('app_admin_typeDanse_index');
+        return $this->redirectToRoute('app_typeDanse_index');
     }
 
     /**

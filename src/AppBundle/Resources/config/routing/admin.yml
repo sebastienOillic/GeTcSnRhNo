@@ -1,13 +1,9 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> dev
 
 
-app_admin_dashboard:
-    path: /
-    defaults:
-        _controller: AppBundle:Admin/Dashboard:index
-
-app_admin_typeDanse:
-    resource: admin/typeDanse.yml
-    prefix:   /typeDanse
 
 admin_index:
     path: /
@@ -24,4 +20,9 @@ admin_demote:
     methods: GET
 
 
+
+admin_delete:
+    path:     /{id}/delete
+    defaults: { _controller: AppBundle:Admin:delete }
+    methods:  DELETE
 

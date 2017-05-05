@@ -14,15 +14,18 @@ AppBundle\Entity\StyleDanse:
             length: 255
             unique: true
 
-        description:
-            type: text
-            unique: false
-
     manyToMany:
         typeDanses:
-            targetEntity: AppBundle\Entity\TypeDanse
-            mappedBy: styleDanses
+            targetEntity:   AppBundle\Entity\TypeDanse
+            inversedBy: styleDanses
+            joinTable:
+                name: styleDanse_typeDanse
+                joinColumns:
+                    styleDanse_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    typeDanse_id:
+                        referencedColumnName: id
 
-    lifecycleCallbacks: {}
 
-
+    lifecycleCallbacks: {  }

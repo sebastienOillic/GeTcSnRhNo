@@ -45,61 +45,13 @@ class Cours
 
     private $avis;
 
-    private $danseurs;
-
-    private $animateurs;
-
-    private $referent;
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getDanseurs()
-    {
-        return $this->danseurs;
-    }
-
-
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getAnimateurs()
-    {
-        return $this->animateurs;
-    }
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getReferent()
-    {
-        return $this->referent;
-    }
-
-    /**
-     * @param mixed $referent
-     */
-    public function setReferent($referent)
-    {
-        $this->referent = $referent;
-    }
-
-
-
-
-
     /**
      * Cours constructor.
      * @param $avis
      */
-    public function __construct()
+    public function __construct($avis)
     {
         $this->avis = new ArrayCollection();
-        $this->danseurs = new ArrayCollection();
-        $this->animateurs = new ArrayCollection();
     }
 
 
@@ -308,44 +260,4 @@ class Cours
         return $this;
     }
 
-    public function addDanseur(User $danseur){
-
-        if(!$this->danseurs->contains($danseur)){
-
-            $this->danseurs->add($danseur);
-            $danseur->addCours($this);
-        }
-        return $this;
-    }
-
-    public function removeDanseur(User $danseur)
-    {
-        if ($this->danseurs->contains($danseur)) {
-            $this->danseurs->removeElement($danseur);
-            $danseur->removeCours($this);
-        }
-
-        return $this;
-    }
-
-
-    public function addAnimateur(User $animateur){
-
-        if(!$this->danseurs->contains($animateur)){
-
-            $this->danseurs->add($animateur);
-            $animateur->addCours($this);
-        }
-        return $this;
-    }
-
-    public function removeAnimateur(User $animateur)
-    {
-        if ($this->animateurs->contains($animateur)) {
-            $this->animateurs->removeElement($animateur);
-            $animateur->removeCours($this);
-        }
-
-        return $this;
-    }
 }
