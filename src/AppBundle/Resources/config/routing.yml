@@ -9,6 +9,11 @@ app_admin:
 app_cours:
     resource: routing/cours.yml
     prefix: /cours
+
+app_inscriptionCours:
+    resource: routing/inscriptionCours.yml
+    prefix: /cours/liste/inscriptionCours
+
 #app_avis:
 #    resource: "@AppBundle/Resources/config/routing/avis.yml"
 #    prefix: /avis
@@ -20,7 +25,6 @@ app_typeDanse:
 app_styledanse:
     resource: "routing/styledance.yml"
     prefix: /styledanse
-
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

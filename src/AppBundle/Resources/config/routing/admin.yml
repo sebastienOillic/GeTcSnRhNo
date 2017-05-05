@@ -12,11 +12,4 @@ admin_demote:
     defaults: { _controller: AppBundle:Admin:demote }
     methods: GET
 
-app_admin_dashboard:
-    path: /
-    defaults:
-        _controller: AppBundle:Admin/Dashboard:index
 
-app_admin_typeDanse:
-    resource: admin/typeDanse.yml
-    prefix:   /typeDanse
