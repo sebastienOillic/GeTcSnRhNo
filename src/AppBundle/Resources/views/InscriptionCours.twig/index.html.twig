@@ -1,6 +1,12 @@
 {% extends 'AppBundle::listeCours.html.twig' %} {% block content %}
 
 <h1>Inscription à un cours</h1>
+{% if %}
+<li> <a class="navbar-brand" href="{{ path('fos_user_security_login') }}"><span
+                        class="glyphicon glyphicon-log-in"></span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+              </a>
+
+</li>
 <hr>
 <p><a class="btn btn-default" href="{{ path('fos_user_registration_register') }}"><span
 
