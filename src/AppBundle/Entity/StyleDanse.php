@@ -4,10 +4,6 @@ namespace AppBundle\Entity;
 
 //use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-<<<<<<< HEAD
-
-=======
->>>>>>> ca7ef1ddcb4d5c4f7368281ff42c5728fbeaea1c
 
 /**
  * StyleDanse
