@@ -1,6 +1,6 @@
 AppBundle\Entity\StyleDanse:
     type: entity
-    table: styleDanse
+    table: styledanse
     repositoryClass: AppBundle\Repository\StyleDanseRepository
     id:
         id:
@@ -16,20 +16,13 @@ AppBundle\Entity\StyleDanse:
 
         description:
             type: text
-            nullable: true
+            unique: false
 
     manyToMany:
         typeDanses:
-            targetEntity:   AppBundle\Entity\TypeDanse
-            inversedBy: styleDanses
-            joinTable:
-                name: styleDanse_typeDanse
-                joinColumns:
-                    styleDanse_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    typeDanse_id:
-                        referencedColumnName: id
+            targetEntity: AppBundle\Entity\TypeDanse
+            mappedBy: styleDanses
+
+    lifecycleCallbacks: {}
 
 
-    lifecycleCallbacks: {  }

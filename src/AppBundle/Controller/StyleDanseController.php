@@ -17,6 +17,7 @@ class StyleDanseController extends Controller
 
         $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
 
+        // src/AppBundle/Resources/views/index.html.twig
         return $this->render('AppBundle:StyleDanse:index.html.twig', array(
             'stylesDanse' => $stylesDanses,
         ));
@@ -31,7 +32,7 @@ class StyleDanseController extends Controller
         $styleDanse = new StyleDanse(['Tango']);
         $form = $this
                 ->createForm('AppBundle\Form\StyleDanseType', $styleDanse)
-                ->add('save', new SubmitType(), [
+                ->add('Enregistrer', new SubmitType(), [
                     'attr' => [
                         'class' => 'btn btn-sm btn-success',
                     ]
@@ -43,7 +44,7 @@ class StyleDanseController extends Controller
             $em->persist($styleDanse);
             $em->flush($styleDanse);
 
-            return $this->redirectToRoute('app_admin_styleDanse_show', array('id' => $styleDanse->getId()));
+            return $this->redirectToRoute('app_styleDanse_show', array('id' => $styleDanse->getId()));
         }
 
         return $this->render('AppBundle:StyleDanse:new.html.twig', array(
@@ -75,7 +76,7 @@ class StyleDanseController extends Controller
         $deleteForm = $this->createDeleteForm($styleDanse);
         $editForm = $this
                 ->createForm('AppBundle\Form\StyleDanseType', $styleDanse)
-                ->add('save', new SubmitType(), [
+                ->add('Enregistrer', new SubmitType(), [
                     'attr' => [
                         'class' => 'btn btn-sm btn-primary',
                     ]
@@ -111,7 +112,7 @@ class StyleDanseController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('app_admin_styleDanse_index');
+        return $this->redirectToRoute('app_styleDanse_index');
     }
 
     /**

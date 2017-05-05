@@ -1,4 +1,4 @@
-{% extends 'AppBundle::base.html.twig' %} {% block content %}
+{% extends '::base.html.twig' %} {% block content %}
 <h1>Liste des types de danse</h1>
 <hr>
 <div class="table-responsive">
@@ -8,22 +8,29 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
+                <th>Style de danse</th>
+                <th>Animateur potentiel</th>
+                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
             {% for typeDanse in typeDanses %}
             <tr>
                 <td>
-                    <a href="{{ path('app_admin_typeDanse_show', { 'id': typeDanse.id }) }}">
+                    <a href="{{ path('app_typeDanse_show', { 'id': typeDanse.id }) }}">
                             {{ typeDanse.id }}
                         </a>
                 </td>
                 <td>{{ typeDanse.nom }}</td>
                 <td>{{ typeDanse.description }}</td>
+                <td> </td>
+                <td></td>
+
                 <td>
                     <ul class="list-inline">
                         <li>
-                            <a href="{{ path('app_admin_typeDanse_show', { 'id': typeDanse.id }) }}" class="btn btn-xs btn-primary">
+                            <a href="{{ path('app_typeDanse_show', { 'id': typeDanse.id }) }}" class="btn btn-xs btn-primary">
                                     Supprimer
                                 </a>
                         </li>
@@ -43,7 +50,7 @@
 <ul class="list-inline">
     <li>
         <a href="{{ path('app_admin_typeDanse_new') }}" class="btn btn-sm btn-success">
-                Ajouter
+                Ajouter un type de danse
             </a>
     </li>
 </ul>

@@ -1,9 +1,9 @@
-app_admin_typeDanse_index:
+app_typeDanse_index:
     path: /
     defaults: { _controller: AppBundle:TypeDanse:index}
     methods:  GET
 
-app_admin_typeDanse_show:
+app_typeDanse_show:
     path:     /{id}/show
     defaults: { _controller: "AppBundle:TypeDanse:show" }
     methods:  GET

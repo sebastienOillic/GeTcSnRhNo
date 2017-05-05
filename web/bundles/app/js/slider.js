@@ -12,7 +12,7 @@ function animatePicture()
 	    slider.insertBefore(currentPicture, slider.firstChild);
 		currentPicture.style.left = 0;
 		leftPos = 0;
-		window.setTimeout(changePicture, 1000);
+		window.setTimeout(changePicture, 10000);
     }
 }	
 
@@ -24,4 +24,11 @@ function changePicture()
 	currentPicture = slider.lastElementChild;
 	interval = window.setInterval(animatePicture, 1);	
 }
-window.setTimeout(changePicture, 1000);
+window.setTimeout(changePicture, 10000);
+
+
+
+
+
+
+

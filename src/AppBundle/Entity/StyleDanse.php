@@ -2,7 +2,7 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
+//use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,30 +25,51 @@ class StyleDanse
     private $typeDanses;
 
     /**
+     * TypeDanse constructor.
+     * @param $typeDanses
+     */
+    public function __construct()
+    {
+        $this->typeDanses = new TypeDanse();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
      * @return ArrayCollection
      */
+
     public function getTypeDanses()
     {
         return $this->typeDanses;
     }
 
     /**
-     * @param ArrayCollection $typeDanses
+     * @param TypeDanse $typeDanses
      */
     public function setTypeDanses($typeDanses)
     {
         $this->typeDanses = $typeDanses;
     }
 
-    /**
-     * StyleDanse constructor.
-     * @param $typeDanses
-     */
-    public function __construct($typeDanses)
+    public function __toString()
     {
-        $this->typeDanses = new ArrayCollection();
+        return $this->nom;
     }
-
 
     /**
      * Get id
@@ -83,24 +104,6 @@ class StyleDanse
         return $this->nom;
     }
 
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
   public function addTypeDanse(TypeDanse $typeDanse){
 
       if(!$this->typeDanses->contains($typeDanse)){
@@ -115,11 +118,9 @@ class StyleDanse
     {
         if ($this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->removeElement($typeDanse);
-            $typeDanse->removeStyleDanse($this);
         }
 
         return $this;
     }
-
 
 }
