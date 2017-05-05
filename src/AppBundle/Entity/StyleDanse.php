@@ -68,11 +68,13 @@ class StyleDanse
 
 
 
-
     public function __toString()
     {
         return $this->nom;
     }
+
+    
+
 
     /**
      * Get id

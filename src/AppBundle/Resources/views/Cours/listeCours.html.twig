@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<h1>Voici votre liste de cours</h1>
+{# Pour chaque coours #}
+{% for cours in cours %}
+<div class="row cours">
+    <div class="col-sm-11">
+            <a href="#" class="btn btn-xs btn-danger">
+				<b>{{cours.typeDanse}}  {{cours.niveau}}</b><br />
+                {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('h:m')}}-{{cours.heureFin|date('h:m')}} Salle {{cours.salle}}
+            </a>     
+    </div>
+    <div class="col-sm-1">
+        <p>
+            {# Bouton d'ajout #}
+            <a href="{{ path('app_cours_add') }}" class="btn btn-xs btn-warning">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            {# Bouton d'edition #}
+            <a href="#" class="btn btn-xs btn-warning">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            {# Bouton de suppression #}
+            <a href="{{path('app_cours_liste')}}" class="btn btn-xs btn-danger">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        </p>
+    </div>
+</div>
+{% endfor %}
+  {% endblock %}

@@ -60,7 +60,6 @@ class Cours
     }
 
 
-
     /**
      * @return ArrayCollection
      */
@@ -86,10 +85,6 @@ class Cours
     {
         $this->referent = $referent;
     }
-
-
-
-
 
     /**
      * Cours constructor.
@@ -195,6 +190,7 @@ class Cours
         return $this->id;
     }
 
+    
     /**
      * Set dateCours
      *
