@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %} {% block content %}
+<h1>Annuler l'inscription</h1>
+<hr> {{ form_start(form) }} {{ form_widget(form) }} {{ form_end(form) }}
+</hr>
+<ul class="list-inline">
+    <li>
+        <a href="{{path('app_cours_liste')}}" class="btn btn-sm btn-default">
+                Retour à la liste des cours
+        </a>
+    </li>
+</ul>
+{% endblock %}
