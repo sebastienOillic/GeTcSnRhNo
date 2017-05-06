@@ -22,6 +22,6 @@ admin_delete:
     defaults: { _controller: AppBundle:Admin:delete }
     methods:  DELETE
 
-app_admin_typeDanse:
-    resource: admin/typeDanse.yml
-    prefix:   /typeDanse
+#app_admin_typeDanse:
+#    resource: admin/typeDanse.yml
+#    prefix:   /typeDanse
