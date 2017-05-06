@@ -33,6 +33,11 @@ class StyleDanse
         $this->typeDanses = new TypeDanse();
     }
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
     /**
      * @return mixed
      */
@@ -66,11 +71,6 @@ class StyleDanse
         $this->typeDanses = $typeDanses;
     }
     
-     public function __toString()
-     {
-         return $this->nom;
-     }
-
     /**
      * Get id
      *

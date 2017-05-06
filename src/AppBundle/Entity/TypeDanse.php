@@ -28,7 +28,24 @@ class TypeDanse
 
     private $description;
 
-    
+    /**
+     * TypeDanse constructor.
+     * @param $styleDanses
+     */
+    public function __construct()
+    {
+        $this->styleDanses = new ArrayCollection();
+        $this->users = new ArrayCollection();
+    }
+
+    /**
+     * TypeDanse toString
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom;
+    }
 
     /**
      * @return mixed
@@ -70,25 +87,7 @@ class TypeDanse
         $this->styleDanses = $styleDanses;
     }
 
-    /**
-     * TypeDanse constructor.
-     * @param $styleDanses
-     */
-    public function __construct()
-    {
-        $this->styleDanses = new ArrayCollection();
-        $this->users = new ArrayCollection();
-    }
-
-    /**
-     * TypeDanse toString
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->nom;
-    }
-
+    
     /**
      * Get id
      *

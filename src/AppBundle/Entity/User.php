@@ -38,20 +38,20 @@ class User extends BaseUser
     private $typeDanses;
 
     /**
-     * @return mixed
-     */
-    public function getCoursAnimes()
-    {
-        return $this->coursAnimes;
-    }
-
-    /**
      * TypeDanse toString
      * @return string
      */
     public function __toString()
     {
         return $this->nom;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getCoursAnimes()
+    {
+        return $this->coursAnimes;
     }
 
     /**

@@ -91,8 +91,6 @@ class Avis
         return $this->commentaire;
     }
 
-
-
     /**
      * Set user
      *
