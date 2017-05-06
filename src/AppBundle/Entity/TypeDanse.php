@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
-use Doctrine\ORM\Event\PreUpdateEventArgs;
+
 
 /**
  * TypeDanse
@@ -121,6 +121,7 @@ class TypeDanse
     {
         return $this->nom;
     }
+
 
     public function removeStyleDanse(StyleDanse $styleDanse)
     {

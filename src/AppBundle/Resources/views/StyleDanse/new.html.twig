@@ -1,12 +1,32 @@
-{% extends '::base.html.twig' %} {% block content %}
-<h1>Création d'un style de danse</h1>
-<hr> {{ form_start(form) }} {{ form_widget(form) }} {{ form_end(form) }}
-<hr>
-<ul class="list-inline">
-    <li>
-        <a href="{{ path('app_admin_styleDanse_index') }}" class="btn btn-sm btn-default">
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <h1>Création d'un style de danse</h1>
+    <hr>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('app_styleDanse_index') }}" class="btn btn-sm btn-default">
+<<<<<<< HEAD
+                Liste des danses
+=======
                 Retour à la liste
+>>>>>>> dev
             </a>
     </li>
 </ul>
 {% endblock %}
+
+
+
+
+
+
+

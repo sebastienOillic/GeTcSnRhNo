@@ -1,3 +1,8 @@
+
+app_typeDanse:
+    resource: typedanse.yml
+    prefix:   /typedanse
+
 admin_index:
     path: /
     defaults: { _controller: AppBundle:Admin:index }
@@ -12,10 +17,10 @@ admin_demote:
     defaults: { _controller: AppBundle:Admin:demote }
     methods: GET
 
-app_admin_dashboard:
-    path: /
-    defaults:
-        _controller: AppBundle:Admin/Dashboard:index
+admin_delete:
+    path:     /{id}/delete
+    defaults: { _controller: AppBundle:Admin:delete }
+    methods:  DELETE
 
 app_admin_typeDanse:
     resource: admin/typeDanse.yml

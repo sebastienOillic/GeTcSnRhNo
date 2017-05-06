@@ -27,6 +27,10 @@
                         <td>
                             <a href="{{ path('admin_demote', { 'username': user.username }) }}"><button class="btn btn-warning pull-right">Retirer un rôle</button></a>
                             <a href="{{ path('admin_promote', { 'username': user.username }) }}"><button class="btn btn-success pull-right">Ajouter un rôle</button></a>
+                            {#<a href="{{ path('admin_delete', { 'username': user.username }) }}"><button class="btn btn-success pull-right">Ajouter un rôle</button></a>#}
+                            {#{{ form_start(delete_form) }}#}
+                            {#<input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> {{ form_end(delete_form) }}#}
+
                         </td>
                     </tr>
                     {% endfor %}

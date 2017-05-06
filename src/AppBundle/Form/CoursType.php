@@ -15,7 +15,7 @@ class CoursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-             ->add('typeDanse', 'entity', [
+            /* ->add('typeDanse', 'entity', [
                 'class'         => 'AppBundle\Entity\TypeDanse',
                 'query_builder' => function (EntityRepository $repository) {
                     $qb = $repository->createQueryBuilder('t');
@@ -23,7 +23,7 @@ class CoursType extends AbstractType
                     return $qb
                         ->orderBy('t.nom', 'ASC');
                 },
-            ])
+            ])*/
              ->add('niveau','entity', [
                 'class'         => 'AppBundle\Entity\Niveau',
                 'query_builder' => function (EntityRepository $repository) {

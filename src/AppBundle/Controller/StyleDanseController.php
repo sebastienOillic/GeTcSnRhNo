@@ -17,6 +17,7 @@ class StyleDanseController extends Controller
 
         $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
 
+        // src/AppBundle/Resources/views/index.html.twig
         return $this->render('AppBundle:StyleDanse:index.html.twig', array(
             'stylesDanse' => $stylesDanses,
         ));
@@ -43,7 +44,7 @@ class StyleDanseController extends Controller
             $em->persist($styleDanse);
             $em->flush($styleDanse);
 
-            return $this->redirectToRoute('app_admin_styleDanse_show', array('id' => $styleDanse->getId()));
+            return $this->redirectToRoute('app_styleDanse_show', array('id' => $styleDanse->getId()));
         }
 
         return $this->render('AppBundle:StyleDanse:new.html.twig', array(
@@ -72,7 +73,7 @@ class StyleDanseController extends Controller
      */
     public function editAction(Request $request, StyleDanse $styleDanse)
     {
-       // $deleteForm = $this->createDeleteForm($styleDanse);
+        $deleteForm = $this->createDeleteForm($styleDanse);
         $editForm = $this
                 ->createForm('AppBundle\Form\StyleDanseType', $styleDanse)
                 ->add('Enregistrer', new SubmitType(), [
@@ -111,7 +112,7 @@ class StyleDanseController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('app_admin_styleDanse_index');
+        return $this->redirectToRoute('app_styleDanse_index');
     }
 
     /**

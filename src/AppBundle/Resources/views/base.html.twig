@@ -13,7 +13,9 @@
     {% block stylesheets %}
     <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/app/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/app/css/admin.css') }}" rel="stylesheet"> {% endblock stylesheets %}
+    <link href="{{ asset('bundles/app/css/admin.css') }}" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/slider.css') }}">
+    {% endblock stylesheets %}
 
     <!--[if lt IE 9]>
     <script src="{{ asset('bundles/app/js/html5shiv.min.js') }}"></script>
@@ -22,20 +24,15 @@
 </head>
 
 <body>
-
-
     {% include 'AppBundle:Layout:navbar.html.twig' %}
-
-
-
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
-                {% include "AppBundle:Layout:sidebar.html.twig" %}
-            </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 {% include 'AppBundle:Layout:flashes.html.twig' %} {% block content %}{% endblock content %}
+            </div>
+            <div class="col-sm-3 col-md-2 sidebar">
+                {% include "AppBundle:Layout:sidebar.html.twig" %}
             </div>
         </div>
     </div>
@@ -45,7 +42,6 @@
     <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>
     {% endblock javascripts %}
-
 </body>
 
 </html>
