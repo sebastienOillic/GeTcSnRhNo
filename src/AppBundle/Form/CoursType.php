@@ -33,7 +33,8 @@ class CoursType extends AbstractType
                         ->orderBy('n.nom', 'ASC');
                 },
             ])
-             ->add('dateCours','date', ['format' => 'dd/MM/yyyy',])
+
+             ->add('dateCours','date', ['format' => " dd/MM/yyyy",])
              ->add('heureDebut')
              ->add('heureFin')
              ->add('nombreDanseursMax')

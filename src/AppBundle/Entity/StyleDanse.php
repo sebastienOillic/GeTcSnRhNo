@@ -70,7 +70,7 @@ class StyleDanse
     {
         $this->typeDanses = $typeDanses;
     }
-    
+
     /**
      * Get id
      *

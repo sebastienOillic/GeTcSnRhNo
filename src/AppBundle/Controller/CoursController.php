@@ -8,6 +8,8 @@ use AppBundle\Form\CoursType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+
+
 class CoursController extends Controller
 {
  /*   public function indexAction()
@@ -17,16 +19,21 @@ class CoursController extends Controller
     /**
      * Create action.
      */
-   public function listeAction()
+
+
+    public function listeAction()
     {
-        $user = $this->getUser();      
-        $cours = $this->findCours();
-       //$mode = false;        
-        return $this->render('AppBundle:Cours:listeCours.html.twig', [
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $cours = $em->getRepository('AppBundle:Cours')->findByDate();
+
+        return $this->render('AppBundle:Cours:listeCours.html.twig', array(
             'cours' => $cours,
             'user' => $user
-       ]);
-   }
+        ));
+
+    }
+
     
 	/**
      * Add action.

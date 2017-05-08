@@ -22,7 +22,7 @@ class Avis
     private $cours;
 
     private $user;
-
+//lien unique
     private $slug;
 
     /**

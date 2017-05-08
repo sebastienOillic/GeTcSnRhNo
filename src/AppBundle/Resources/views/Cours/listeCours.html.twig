@@ -20,13 +20,15 @@
             {# Bouton de suppression #}
             <a href="{{path('app_cours_liste')}}" class="btn btn-xs btn-danger">
                 <span class="glyphicon glyphicon-trash"></span>
+
             </a>
         </p>
     </div>
 </div>
-{% endfor %} {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-<p>{{'nom'}}: {{ user.nom }}</p>
-<p>{{'Prénom'}}: {{ user.prenom }}</p>
-<p>{{'Sexe'}}: {{ user.sexe }}</p>
 
+{% endfor %} {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+<p>{{ 'nom'}}: {{ user.nom }}</p>
+<p>{{ 'Prénom'}}: {{ user.prenom }}</p>
+<p>{{ 'Sexe'}}: {{ user.sexe }}</p>
 {% endif %} {% endblock %}

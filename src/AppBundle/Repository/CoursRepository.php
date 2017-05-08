@@ -6,7 +6,10 @@ use AppBundle\Entity\TypeDanse;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Niveau;
 use AppBundle\Entity\Salle;
+use AppBundle\Entity\Cours;
+
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * CoursRepository
@@ -16,8 +19,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class CoursRepository extends EntityRepository
 {
-     public function findByTypeDanse(TypeDanse $typeDanse)
-     {
+    public function findByTypeDanse(TypeDanse $typeDanse)
+    {
         $qb = $this->createQueryBuilder('c');
 
         return $qb
@@ -25,10 +28,10 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('typeDanse', $typeDanse)
             ->getResult();
-     }
+    }
 
-     public function findByNiveau(Niveau $niveau)
-     {
+    public function findByNiveau(Niveau $niveau)
+    {
         $qb = $this->createQueryBuilder('c');
 
         return $qb
@@ -36,9 +39,10 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('niveau', $niveau)
             ->getResult();
-     }
-     public function findBySalle(Salle $salle)
-     {
+    }
+
+    public function findBySalle(Salle $salle)
+    {
         $qb = $this->createQueryBuilder('c');
 
         return $qb
@@ -46,9 +50,10 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('salle', $salle)
             ->getResult();
-     }
-     public function findByAnimateur(User $user)
-     {
+    }
+
+    public function findByAnimateur(User $user)
+    {
         $qb = $this->createQueryBuilder('u');
 
         return $qb
@@ -56,7 +61,7 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('user', $user)
             ->getResult();
-     }
+    }
 
      public function findByDanseur(User $user)
      {
@@ -68,5 +73,49 @@ class CoursRepository extends EntityRepository
             ->setParameter('user', $user)
             ->getResult();
      }
+
+    public function findByDate()
+    {
+        $currentdate = new \DateTime(); //Date du jour
+
+        return $this->createQueryBuilder('cours')
+            ->select('cours')
+            ->where('cours.dateCours >= :date')
+            ->setParameter(':date', $currentdate->format('Y-m-d'))
+            ->getQuery()
+            ->getResult();
+    }
+
+
+//
+//    public function findByDate()
+//    {
+//        $now = new \DateTime();
+//        return $this->createQueryBuilder('c')
+//            ->where('c.dateCours > :limite')
+//            ->setParameter('limite', $now)
+//            ->getQuery();
+//            ->getResult();
+////      return  $qb->getResult();
+//    }
+
 }
+
+
+
+
+//public function getByDate(\Datetime $date)
+//{
+//    $from = new \DateTime($date->format("Y-m-d")." 00:00:00");
+//    $to   = new \DateTime($date->format("Y-m-d")." 23:59:59");
+//
+//    $qb = $this->createQueryBuilder("e");
+//    $qb
+//        ->andWhere('e.date BETWEEN :from AND :to')
+//        ->setParameter('from', $from )
+//        ->setParameter('to', $to)
+//    ;
+//    $result = $qb->getQuery()->getResult();
+//
+//    return $result;
 
