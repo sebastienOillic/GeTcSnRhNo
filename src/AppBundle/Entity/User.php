@@ -86,10 +86,35 @@ class User extends BaseUser
     public function setCours($cours)
     {
         $this->cours = $cours;
-    
+    }
 
-    
-}
+    /**
+     * @var string
+     */
+
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @var string
+     */
+
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
 
     /**
      * @var string
@@ -98,6 +123,11 @@ class User extends BaseUser
     public function getSexe()
     {
         return $this->sexe;
+    }
+
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
     }
 
     public function addCours(Cours $cours)

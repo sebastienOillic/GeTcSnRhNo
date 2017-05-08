@@ -22,6 +22,8 @@ class StyleDanse
 
     private $typeDanses;
 
+    private $description;
+
     /**
 
      * TypeDanse constructor.

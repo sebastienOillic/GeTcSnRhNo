@@ -141,15 +141,4 @@ class TypeDanse
         return $this;
     }
 
-    public function removeStyleDanse(StyleDanse $styleDanse)
-    {
-
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-
-        }
-
-        return $this;
-    }
-
 }
