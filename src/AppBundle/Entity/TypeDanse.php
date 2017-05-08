@@ -4,8 +4,6 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Entity\User as BaseUser;
-
 
 /**
  * TypeDanse
@@ -23,6 +21,7 @@ class TypeDanse
     private $nom;
 
     private $styleDanses;
+
 
     private $users;
 
@@ -87,7 +86,6 @@ class TypeDanse
         $this->styleDanses = $styleDanses;
     }
 
-    
     /**
      * Get id
      *
@@ -126,6 +124,7 @@ class TypeDanse
     {
         if ($this->styleDanses->contains($styleDanse)) {
             $this->styleDanses->removeElement($styleDanse);
+           // $styleDanse->removeTypeDanse($this);
         }
 
         return $this;
@@ -135,27 +134,19 @@ class TypeDanse
     {
 
         if (!$this->styleDanses->contains($styleDanse)) {
+
             $this->styleDanses->add($styleDanse);
+            $styleDanse->addTypeDanse($this);
         }
         return $this;
     }
 
-
-    public function addUser(User $user)
+    public function removeStyleDanse(StyleDanse $styleDanse)
     {
 
-        if (!$this->users->contains($user)) {
-
-            $this->users->add($user);
-            $user->addTypeDanse($this);
-        }
-        return $this;
-    }
-
-    public function removeUser(User $user)
-    {
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
+
         }
 
         return $this;

@@ -98,8 +98,6 @@ class Cours
         $this->referent = $referent;
     }
 
-
-
     /**
      * @return mixed
      */
@@ -300,7 +298,7 @@ class Cours
     {
         if ($this->avis->contains($avis)) {
             $this->avis->removeElement($avis);
-//            $avis->setCours(null);
+            $avis->setCours(null);
         }
 
         return $this;
@@ -345,4 +343,5 @@ class Cours
 
         return $this;
     }
+
 }

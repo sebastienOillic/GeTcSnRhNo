@@ -19,8 +19,6 @@ class AccueilController extends Controller
      */
     public function homeAction()
     {
-
-
         $styleDanses = $this
             ->getDoctrine()
             ->getRepository('AppBundle:StyleDanse')
@@ -30,22 +28,10 @@ class AccueilController extends Controller
             'stylesDanses' => $styleDanses,
         ));
 
+        // replace this example code with whatever you need
+        return $this->render('AppBundle:App:home.html.twig');
+
     }
 
 
-
-//    public function homeAction()
-//    {
-//
-//
-//        $styleDanses = $this
-//            ->getDoctrine()
-//            ->getRepository('AppBundle:StyleDanse')
-//            ->findAll();
-//
-//        return $this->render('AppBundle:Accueil:home.html.twig', array(
-//            'stylesDanses' => $styleDanses,
-//        ));
-//
-//    }
 }
