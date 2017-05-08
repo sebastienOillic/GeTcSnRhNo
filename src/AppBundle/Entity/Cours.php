@@ -52,6 +52,18 @@ class Cours
     private $referent;
 
     /**
+     * Cours constructor.
+     * @param $avis
+     */
+    public function __construct()
+    {
+        $this->avis = new ArrayCollection();
+        $this->danseurs = new ArrayCollection();
+        $this->animateurs = new ArrayCollection();
+    }
+
+
+    /**
      * @return ArrayCollection
      */
     public function getDanseurs()
@@ -86,16 +98,6 @@ class Cours
         $this->referent = $referent;
     }
 
-    /**
-     * Cours constructor.
-     * @param $avis
-     */
-    public function __construct()
-    {
-        $this->avis = new ArrayCollection();
-        $this->danseurs = new ArrayCollection();
-        $this->animateurs = new ArrayCollection();
-    }
 
 
     /**
@@ -323,7 +325,6 @@ class Cours
 
         return $this;
     }
-
 
     public function addAnimateur(User $animateur){
 

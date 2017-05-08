@@ -2,38 +2,72 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Entity\Cours;
+use AppBundle\Entity\User;
+use AppBundle\Form\InscriptionCoursType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 /**
- * Class InscriptionCoursController
+ *  InscriptionCoursController
  * @package ApppBundle\Controller
  */
 class InscriptionCoursController extends Controller
 {
     public function indexAction()
     {
+
         return $this->render('AppBundle:InscriptionCours:index.html.twig');  
     } 
 
-    /**
-    * Add action.
-    */
-    public function addAction(Request $request)
+    public function listeAction()
     {
-       
-        return $this->render('AppBundle:InscriptionCours:add.html.twig');  
-        
-    }
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $cours = $em->getRepository('AppBundle:Cours')->findByDate();
+
+        return $this->render('AppBundle:Cours:index.html.twig', array(
+            'cours' => $cours,
+            'user' => $user
+        ));
+
+   }
+
 
     /**
-    * Cancel action.
-    */
-    public function cancelAction(Request $request)
+     * Creates a new cours entity.
+     *
+     */
+    public function addAction(Request $request)
     {
-        return $this->render('AppBundle:InscriptionCours:cancel.html.twig');  
-        
+        $cours = new Cours();
+        $form = $this
+                ->createForm('AppBundle\Form\CoursType', $cours)
+                ->add('save', new SubmitType(), [
+                    'attr' => [
+                        'class' => 'btn btn-sm btn-success',
+                    ]
+                ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            
+            $em->persist($cours);
+            $em->flush();
+
+            return $this->redirectToRoute('app_cours_liste', array('id' => $cours->getId()));
+        }
+
+        return $this->render('AppBundle:IncriptionCours:add.html.twig', array(
+            'cours'  => $cours,
+            //'user'=> $user,
+            'form'   => $form->createView(),
+        ));
     }
+
 
 }

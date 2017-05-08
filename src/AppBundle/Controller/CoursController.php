@@ -19,15 +19,14 @@ class CoursController extends Controller
      */
    public function listeAction()
     {
-		$cours = $this->findCours();
-        //$mode = false;
-		
+        $user = $this->getUser();      
+        $cours = $this->findCours();
+       //$mode = false;        
         return $this->render('AppBundle:Cours:listeCours.html.twig', [
-		    'cours' => $cours, 
-            //'form' => $form->createView(),
-			//'mode'=> $mode,
-        ]);
-    }
+            'cours' => $cours,
+            'user' => $user
+       ]);
+   }
     
 	/**
      * Add action.

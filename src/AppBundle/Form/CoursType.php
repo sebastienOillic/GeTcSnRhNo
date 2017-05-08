@@ -67,7 +67,16 @@ class CoursType extends AbstractType
             ])
              //->add('evenement')
             // ->add('danseurs')
-             ;
+           /* ->add('danseur','entity', [
+                'class'         => 'AppBundle\Entity\User',
+                'query_builder' => function (EntityRepository $repository) {
+                    $qb = $repository->createQueryBuilder('u');
+
+                    return $qb
+                        ->orderBy('u.nom', 'ASC');
+                         },
+            ])*/
+            ;
     }
     
     /**

@@ -1,21 +1,23 @@
 {% extends 'AppBundle:Cours:listeCours.html.twig' %} {% block content %}
 <h1>Inscription à un cours</h1>
 
+<p>Veuillez confirmer votre inscription</p>
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-<ul class="list-inline">
-    <li>
-        <p>Veuillez confirmer votre inscription</p>
-        <a href="{{path('app_inscriptionCours_add')}}" class="btn btn-sm btn-default">
+
+
+
+
+<a href="{{path('app_inscriptionCours_add')}}" class="btn btn-sm btn-default">
                 Confirmer
         </a>
 
-        <a href="{{path('app_inscriptionCours_cancel')}}" class="btn btn-sm btn-default">
+<a href="{{path('app_cours_liste')}}" class="btn btn-sm btn-default">
                 Annuler
         </a>
-    </li>
+</li>
 </ul>
-
 {% else %}
+<p>Veuillez connecter ou créer votre compte </p>
 <li>
     <a class="navbar-brand" href="{{ path('fos_user_security_login') }}">
         <span class="glyphicon glyphicon-log-in"></span> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>

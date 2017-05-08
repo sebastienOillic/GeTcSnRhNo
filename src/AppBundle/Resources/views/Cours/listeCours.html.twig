@@ -24,4 +24,9 @@
         </p>
     </div>
 </div>
-{% endfor %} {% endblock %}
+{% endfor %} {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+<p>{{'nom'}}: {{ user.nom }}</p>
+<p>{{'Prénom'}}: {{ user.prenom }}</p>
+<p>{{'Sexe'}}: {{ user.sexe }}</p>
+
+{% endif %} {% endblock %}
