@@ -19,7 +19,33 @@ class AccueilController extends Controller
      */
     public function homeAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:Accueil:home.html.twig');
+
+
+        $styleDanses = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:StyleDanse')
+            ->findAll();
+
+        return $this->render('AppBundle:Accueil:home.html.twig', array(
+            'stylesDanses' => $styleDanses,
+        ));
+
     }
+
+
+
+//    public function homeAction()
+//    {
+//
+//
+//        $styleDanses = $this
+//            ->getDoctrine()
+//            ->getRepository('AppBundle:StyleDanse')
+//            ->findAll();
+//
+//        return $this->render('AppBundle:Accueil:home.html.twig', array(
+//            'stylesDanses' => $styleDanses,
+//        ));
+//
+//    }
 }
