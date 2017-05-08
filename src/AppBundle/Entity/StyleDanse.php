@@ -24,7 +24,6 @@ class StyleDanse
 	
 	private $description;
 
-    private $description;
 
     /**
 
@@ -73,17 +72,6 @@ class StyleDanse
     public function setTypeDanses($typeDanses)
     {
         $this->typeDanses = $typeDanses;
-    }
-
-
-    /**
-     * StyleDanse constructor.
-     * @param $typeDanses
-     */
-    public function __construct($typeDanses)
-
-    {
-        $this->typeDanses = new ArrayCollection();
     }
 
 
