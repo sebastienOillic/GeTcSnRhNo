@@ -87,10 +87,9 @@ class User extends BaseUser
     public function setCours($cours)
     {
         $this->cours = $cours;
-<<<<<<< HEAD
+
     }
-=======
->>>>>>> f318b012a7ce73e3cd2274c8b49979768a2b8ac2
+
 
     /**
      * @var string
