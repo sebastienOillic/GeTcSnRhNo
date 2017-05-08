@@ -21,6 +21,8 @@ class StyleDanse
     private $nom;
 
     private $typeDanses;
+	
+	private $description;
 
     private $description;
 
@@ -75,6 +77,17 @@ class StyleDanse
 
 
     /**
+     * StyleDanse constructor.
+     * @param $typeDanses
+     */
+    public function __construct($typeDanses)
+
+    {
+        $this->typeDanses = new ArrayCollection();
+    }
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -123,7 +136,6 @@ class StyleDanse
             $this->typeDanses->removeElement($typeDanse);
 
         }
-
         return $this;
     }
 

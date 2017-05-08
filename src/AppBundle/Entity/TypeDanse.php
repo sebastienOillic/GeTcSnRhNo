@@ -54,6 +54,7 @@ class TypeDanse
         return $this->description;
     }
 
+
     /**
      * @param mixed $description
      */
@@ -85,6 +86,7 @@ class TypeDanse
     {
         $this->styleDanses = $styleDanses;
     }
+
 
     /**
      * Get id
@@ -119,17 +121,6 @@ class TypeDanse
         return $this->nom;
     }
 
-
-    public function removeStyleDanse(StyleDanse $styleDanse)
-    {
-        if ($this->styleDanses->contains($styleDanse)) {
-            $this->styleDanses->removeElement($styleDanse);
-           // $styleDanse->removeTypeDanse($this);
-        }
-
-        return $this;
-    }
-
     public function addStyleDanse(StyleDanse $styleDanse)
     {
 
@@ -138,6 +129,18 @@ class TypeDanse
             $this->styleDanses->add($styleDanse);
             $styleDanse->addTypeDanse($this);
         }
+        return $this;
+    }
+
+    public function removeStyleDanse(StyleDanse $styleDanse)
+    {
+
+
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+
+        }
+
         return $this;
     }
 

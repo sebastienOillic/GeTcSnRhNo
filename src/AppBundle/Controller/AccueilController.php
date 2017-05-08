@@ -29,9 +29,7 @@ class AccueilController extends Controller
         ));
 
         // replace this example code with whatever you need
-        return $this->render('AppBundle:App:home.html.twig');
-
+        return $this->render('AppBundle:Accueil:home.html.twig');
     }
-
-
 }
+
