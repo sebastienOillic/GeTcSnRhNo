@@ -31,10 +31,8 @@ class CoursController extends Controller
             'cours' => $cours,
             'user' => $user
         ));
-
     }
 
-    
 	/**
      * Add action.
      */
@@ -51,22 +49,19 @@ class CoursController extends Controller
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($cours); 
             $em->flush($cours);
-        
+
             return $this->redirect($this->generateUrl('app_cours_liste'));    
         }
-
-		//$contacts = $this->findContacts();
-		//$mode = false;
-		
         return $this->render('AppBundle:Cours:createCours.html.twig', [
-		   // 'contacts' => $contacts, 
             'form' => $form->createView(),
-			//'mode'=> $mode,
         ]);
     }
+
+    
 	
 	/**
      * Edit action.

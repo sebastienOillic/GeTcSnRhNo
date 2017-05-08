@@ -4,8 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Cours;
 use AppBundle\Entity\User;
-use AppBundle\Form\InscriptionCoursType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+//use AppBundle\Form\CoursType;
+//use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,55 +19,53 @@ class InscriptionCoursController extends Controller
 {
     public function indexAction()
     {
-
-        return $this->render('AppBundle:InscriptionCours:index.html.twig');  
-    } 
-
-    public function listeAction()
-    {
-        $user = $this->getUser();
+        //$cours = $this->getCours();
         $em = $this->getDoctrine()->getManager();
-        $cours = $em->getRepository('AppBundle:Cours')->findByDate();
+        $users = $em->getRepository('AppBundle:User')->findAll();
 
-        return $this->render('AppBundle:Cours:index.html.twig', array(
-            'cours' => $cours,
-            'user' => $user
-        ));
-
-   }
-
-
-    /**
-     * Creates a new cours entity.
-     *
-     */
-    public function addAction(Request $request)
-    {
-        $cours = new Cours();
-        $form = $this
-                ->createForm('AppBundle\Form\CoursType', $cours)
-                ->add('save', new SubmitType(), [
-                    'attr' => [
-                        'class' => 'btn btn-sm btn-success',
-                    ]
-                ]);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            
-            $em->persist($cours);
-            $em->flush();
-
-            return $this->redirectToRoute('app_cours_liste', array('id' => $cours->getId()));
+        foreach ($users as $danseur) {
+            $danseur->getNom();
+            $danseur->getPrenom();
+            $danseur->getSexe();
         }
 
-        return $this->render('AppBundle:IncriptionCours:add.html.twig', array(
-            'cours'  => $cours,
-            //'user'=> $user,
-            'form'   => $form->createView(),
+        return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
+            'users' => $users,
         ));
-    }
+    } 
 
+ /*   public function listeCoursAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cours = $em->getRepository('AppBundle:Cours')->findAll();
 
+        foreach ($cours as $cours) {
+            $cours->getTypeDanse();
+            $cours->getNiveau();
+            $cours->getDateCours();
+            $cours->getHeureDebut();
+            $cours->getHeureFin();
+            $cours->getSalle();
+        }
+
+        return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
+            'cours' => $cours,
+        ));
+   }
+*/
+    public function addAction(Request $request)
+    {
+        $danseur = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        
+        $cours = $em->getRepository('AppBundle:Cours');
+                    //->findByNiveau();
+
+        return $this->render('AppBundle:IncriptionCours:index.html.twig', array(
+            'cours' => $cours,
+            'danseur' => $danseur
+        ));
+   }
+
+    
 }

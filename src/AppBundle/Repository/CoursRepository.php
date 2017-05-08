@@ -63,8 +63,8 @@ class CoursRepository extends EntityRepository
             ->getResult();
     }
 
-     public function findByDanseur(User $user)
-     {
+    public function findByDanseur(User $user)
+    {
         $qb = $this->createQueryBuilder('u');
 
         return $qb
@@ -72,7 +72,7 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('user', $user)
             ->getResult();
-     }
+    }
 
     public function findByDate()
     {
@@ -86,36 +86,5 @@ class CoursRepository extends EntityRepository
             ->getResult();
     }
 
-
-//
-//    public function findByDate()
-//    {
-//        $now = new \DateTime();
-//        return $this->createQueryBuilder('c')
-//            ->where('c.dateCours > :limite')
-//            ->setParameter('limite', $now)
-//            ->getQuery();
-//            ->getResult();
-////      return  $qb->getResult();
-//    }
-
 }
-
-
-
-
-//public function getByDate(\Datetime $date)
-//{
-//    $from = new \DateTime($date->format("Y-m-d")." 00:00:00");
-//    $to   = new \DateTime($date->format("Y-m-d")." 23:59:59");
-//
-//    $qb = $this->createQueryBuilder("e");
-//    $qb
-//        ->andWhere('e.date BETWEEN :from AND :to')
-//        ->setParameter('from', $from )
-//        ->setParameter('to', $to)
-//    ;
-//    $result = $qb->getQuery()->getResult();
-//
-//    return $result;
 

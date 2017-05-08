@@ -3,8 +3,8 @@
 {# Pour chaque coours #} {% for cours in cours %}
 <div class="row cours">
     <div class="col-sm-11">
-        <a href="{{path('app_inscriptionCours_index')}}" class="btn btn-xs btn-danger">
-            <b>{{cours.typeDanse}}  {{cours.niveau}}</b><br /> {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('H:m')}}-{{cours.heureFin|date('H:m')}} Salle {{cours.salle}}
+        <a href="{{ path('app_inscriptionCours_index') }}" class="btn btn-xs btn-danger">
+            <b>{{cours.typeDanse}}  {{cours.niveau}}</b><br /> {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('h:m')}}-{{cours.heureFin|date('h:m')}} Salle {{cours.salle}}
         </a>
     </div>
     <div class="col-sm-1">
@@ -26,9 +26,4 @@
     </div>
 </div>
 
-{% endfor %} {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
-<p>{{ 'nom'}}: {{ user.nom }}</p>
-<p>{{ 'Prénom'}}: {{ user.prenom }}</p>
-<p>{{ 'Sexe'}}: {{ user.sexe }}</p>
-{% endif %} {% endblock %}
+{% endfor %} {% endblock %}
