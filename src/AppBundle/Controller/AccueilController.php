@@ -20,6 +20,6 @@ class AccueilController extends Controller
     public function homeAction()
     {
         // replace this example code with whatever you need
-        return $this->render('AppBundle:App:home.html.twig');
+        return $this->render('AppBundle:Accueil:home.html.twig');
     }
 }

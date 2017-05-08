@@ -91,17 +91,6 @@ class TypeDanse
         return $this->nom;
     }
 
-
-    public function removeStyleDanse(StyleDanse $styleDanse)
-    {
-        if ($this->styleDanses->contains($styleDanse)) {
-            $this->styleDanses->removeElement($styleDanse);
-           // $styleDanse->removeTypeDanse($this);
-        }
-
-        return $this;
-    }
-
     public function addStyleDanse(StyleDanse $styleDanse)
     {
 

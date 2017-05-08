@@ -21,6 +21,8 @@ class StyleDanse
     private $nom;
 
     private $typeDanses;
+	
+	private $description;
 
     /**
      * @return ArrayCollection
@@ -69,11 +71,6 @@ class StyleDanse
 
     {
         $this->typeDanses = new ArrayCollection();
-    }
-
-
-    public function __toString(){
-        return $this->name;
     }
 
 
