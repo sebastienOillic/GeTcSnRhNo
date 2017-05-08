@@ -4,8 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Cours;
 use AppBundle\Entity\User;
-//use AppBundle\Form\CoursType;
-//use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use AppBundle\Form\CoursType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,8 +33,8 @@ class InscriptionCoursController extends Controller
             'users' => $users,
         ));
     } 
-
- /*   public function listeCoursAction()
+/*
+    public function listeCoursAction()
     {
         $em = $this->getDoctrine()->getManager();
         $cours = $em->getRepository('AppBundle:Cours')->findAll();
@@ -51,8 +51,8 @@ class InscriptionCoursController extends Controller
         return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
             'cours' => $cours,
         ));
-   }
-*/
+   }*/
+
     public function addAction(Request $request)
     {
         $danseur = $this->getUser();
