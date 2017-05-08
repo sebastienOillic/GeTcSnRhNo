@@ -1,9 +1,12 @@
- <nav class="navbar navbar-inverse navbar-fixed-top" id="topnavbar"> 
-{#<nav class="navbar navbar-default navbar-static-top" id="topnavbar">#}
+{# <nav class="navbar navbar-inverse navbar-fixed-top" id="topnavbar"> #}
+<nav class="navbar navbar-default navbar-static-top" id="topnavbar">
   <div class="container-fluid">
     <div class="navbar-header">
       <ul class="nav navbar-nav">
-        <li><a href="#">COURS</a></li>
+        <li class="active"><a href="/">ACCUEIL</a></li>
+        <li><a href="#">DANSES</a></li>
+        <li><a href="{{path('app_cours_liste')}}">COURS</a></li>
+        <li><a href="#">AGENDA</a></li>
         <li><a href="#">FORUM</a></li>
         <li><a href="#">CONTACT</a></li>
       </ul>

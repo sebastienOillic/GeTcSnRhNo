@@ -96,8 +96,7 @@ class Cours
         $this->danseurs = new ArrayCollection();
         $this->animateurs = new ArrayCollection();
     }
-
-
+    
     /**
      * @return mixed
      */
@@ -327,9 +326,9 @@ class Cours
 
     public function addAnimateur(User $animateur){
 
-        if(!$this->danseurs->contains($animateur)){
+        if(!$this->animateurs->contains($animateur)){
 
-            $this->danseurs->add($animateur);
+            $this->animateurs->add($animateur);
             $animateur->addCours($this);
         }
         return $this;

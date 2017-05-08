@@ -1,0 +1,14 @@
+app_animateur_liste:
+    path: /liste
+    defaults: { _controller: AppBundle:Animateur:liste }
+app_animateur_add:
+    path: /create
+    defaults: { _controller: AppBundle:Animateur:add }
+app_animateur_edit:
+    path: /{id}/edit
+    defaults: { _controller: AppBundle:Animateur:edit }
+    methods:  [GET, POST]
+app_animateur_delete:
+    path: /{id}/delete
+    defaults: { _controller: AppBundle:Animateur:delete }
+    methods:  [GET, POST]

@@ -4,3 +4,11 @@ app_cours_liste:
 app_cours_add:
     path: /create
     defaults: { _controller: AppBundle:Cours:add }
+app_cours_edit:
+    path: /{id}/edit
+    defaults: { _controller: AppBundle:Cours:edit }
+    methods:  [GET, POST]
+app_cours_delete:
+    path: /{id}/delete
+    defaults: { _controller: AppBundle:Cours:delete }
+    methods:  [GET, POST]
