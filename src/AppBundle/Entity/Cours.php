@@ -99,17 +99,6 @@ class Cours
     }
 
     /**
-     * Cours constructor.
-     * @param $avis
-     */
-    public function __construct()
-    {
-        $this->avis = new ArrayCollection();
-        $this->danseurs = new ArrayCollection();
-        $this->animateurs = new ArrayCollection();
-    }
-    
-    /**
      * @return mixed
      */
     public function getAvis()

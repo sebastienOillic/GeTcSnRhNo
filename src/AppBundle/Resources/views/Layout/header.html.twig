@@ -10,7 +10,10 @@
 
             {% if is_granted("ROLE_RESPONSABLE") %}
 
-            <a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a> {% endif %} {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+            <a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a>
+             {% endif %} 
+             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
+             {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
             <a class="btn btn-default" href="{{ path('fos_user_security_logout') }}"><span
                             class="glyphicon glyphicon-log-out"></span>
                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}

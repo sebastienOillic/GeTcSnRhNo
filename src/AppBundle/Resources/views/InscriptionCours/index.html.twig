@@ -7,9 +7,7 @@
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 <ul>
     {% for danseur in user %}
-    <li>Nom : {{ danseur.nom }}</br>
-        Prénom : {{ danseur.prenom }}</br>
-        Sexe : {{ danseur.sexe }}</br>
+    <li>Bonjour {{ danseur.nom }} {{ danseur.prenom }}</br>
     </li>
     {% endfor %}
 </ul>
