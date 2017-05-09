@@ -9,3 +9,12 @@ app_cours_add:
 app_old_cours:
     path: /
     defaults: { _controller: AppBundle:Cours:old }
+
+app_cours_edit:
+    path: /{id}/edit
+    defaults: { _controller: AppBundle:Cours:edit }
+    methods:  [GET, POST]
+app_cours_delete:
+    path: /{id}/delete
+    defaults: { _controller: AppBundle:Cours:delete }
+    methods:  [GET, POST]

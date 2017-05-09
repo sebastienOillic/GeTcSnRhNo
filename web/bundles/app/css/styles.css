@@ -2,7 +2,7 @@ body {
     padding-top: 0;
     padding-bottom: 20px;
     background-color: #FFF7CC;
-    background-color: #F7F2B2;
+
 }
 h2{
     font-size: 36px;
@@ -13,8 +13,13 @@ h2{
 #container{
     margin:10px;
 }
+/****************************
 header {
     margin:0px;
+}*/
+header {
+    margin-top:10px;
+    margin-bottom: 10px;
 }
 .img-circle{
     width:100px;
@@ -123,10 +128,10 @@ listetypesdanse ul,li a:link, a:visited{
     text-decoration: none;
 }
 
-listetypesdanse ul,li a:hover{
-    color:#d3d3d3;
-    text-decoration: none;
-}
+/*listetypesdanse ul,li a:hover{*/
+    /*color:#d3d3d3;*/
+    /*text-decoration: none;*/
+/*}*/
 
 
 #topnavigbar {
@@ -153,3 +158,25 @@ listetypesdanse ul,li a:hover{
     margin: 0 20px;
 }
 
+/****************************************************************************/
+
+#topnavbar { 
+    background-color: #AB252B;
+}
+#topnavbar.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.navbar-header ul{
+    text-align:center;
+    float:none;
+    margin-left:30%;
+    margin-right:10%;
+} 
+.navbar-header li {
+    display:inline-block;
+}
+hr{
+    border-color:#AB252B; 
+}

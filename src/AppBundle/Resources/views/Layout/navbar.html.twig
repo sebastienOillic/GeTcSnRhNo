@@ -1,9 +1,27 @@
-<nav class="navigbar" id="topnavigbar">
-    <ul>
-        <li><a href="{{ path('app_home') }}">Accueil</a></li>
-        <li><a href="{{ path('app_styleDanse_index') }}">Danses</a></li>
-        <li><a href="/cours/liste">Cours</a></li>
-        <li><a href="{{ path('app_agenda_index') }}">Agenda</a></li>
+{# <nav class="navbar navbar-inverse navbar-fixed-top" id="topnavbar"> #}
+<nav class="navbar navbar-default navbar-static-top" id="topnavbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{{path('app_home') }}">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Danses <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Danse Latine</a></li>
+                        <li><a href="#">Danse Moderne</a></li>
+                        <li><a href="#">Danse Urbaine</a></li>
 
-    </ul>
+                    </ul>
+                </li>
+                <li><a href="#">Agenda</a></li>
+                <li><a href="">Cours</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+
+
+
+    </div>
 </nav>

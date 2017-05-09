@@ -24,6 +24,7 @@ class CoursController extends Controller
     public function listeAction()
     {
 
+
         $user = $this->container->get('security.context')->getToken()->getUser();
 //        $user = $this->getUser();
 
@@ -36,6 +37,9 @@ class CoursController extends Controller
             'cours' => $cours,
             'user' => $user
         ));
+
+
+
     }
 
 
@@ -80,6 +84,10 @@ class CoursController extends Controller
 
             return $this->redirect($this->generateUrl('app_cours_liste'));    
         }
+
+
+		
+
         return $this->render('AppBundle:Cours:createCours.html.twig', [
             'form' => $form->createView(),
         ]);
@@ -90,49 +98,50 @@ class CoursController extends Controller
 	/**
      * Edit action.
      */
-   /* public function editAction(Request $request, $id)
+    public function editAction(Request $request, $id)
     {
-        $contact = $this
+        $cours = $this
 		    ->getDoctrine()
-            ->getRepository('AppBundle:Contact')
+            ->getRepository('AppBundle:Cours')
             ->findOneBy(['id'=>$id]);
 			
-        $editForm = $this
-                ->createForm(new ContactType(), $contact);
-				
-        $editForm->handleRequest($request);
+        $form = $this
+                ->createForm(new CoursType(), $cours)
+				->add ('save', new SubmitType(),[
+                     'attr'=>[
+                         'class'=>"btn btn-sm btn-success",
+                     ]
+                 ]);   
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('App_liste');
+            return $this->redirectToRoute('app_cours_liste');
         }
          
-		$contacts = $this->findContacts();
-		//$mode = false; 
+		$cours = $this->findCours();
 		 
-        return $this->render('AppBundle::ajout.html.twig', array(
-            'contacts' => $contacts,
-            'form' => $editForm->createView(),
-			//'mode'=> $mode,
+        return $this->render('AppBundle:Cours:createCours.html.twig', array(
+            'cours' => $cours,
+            'form' => $form->createView(),
         ));
     }
 	
 	/**
      * Delete action.
      */
- /*   public function deleteAction($id)
+    public function deleteAction($id)
     {
-        $contact = $this->findById($id);
-			
-		$contact->setTrashed(true);
-		
-		$em = $this->getDoctrine()->getManager();
-        $em->persist($contact); 
-        $em->flush($contact);
+        $cours = $this->findById($id);
 
-        return $this->redirectToRoute('App_liste');
-    }*/
+		$em = $this->getDoctrine()->getManager();
+        $em->remove($cours);
+        $em->flush();
+
+        return $this->redirectToRoute('app_cours_liste');
+    }
 	
     public function findCours()
 	{
