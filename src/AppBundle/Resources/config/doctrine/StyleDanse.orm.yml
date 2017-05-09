@@ -17,12 +17,20 @@ AppBundle\Entity\StyleDanse:
         description:
             type: text
             unique: false
+            nullable: true
 
     manyToMany:
         typeDanses:
-            targetEntity: AppBundle\Entity\TypeDanse
-            mappedBy: styleDanses
+            targetEntity:   AppBundle\Entity\TypeDanse
+            inversedBy: styleDanses
+            joinTable:
+                name: styledanse_typedanse
+                joinColumns:
+                    styleDanse_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    typeDanse_id:
+                        referencedColumnName: id
 
-    lifecycleCallbacks: {}
 
-
+    lifecycleCallbacks: {  }

@@ -60,7 +60,6 @@ class Cours
     }
 
 
-
     /**
      * @return ArrayCollection
      */
@@ -87,19 +86,13 @@ class Cours
         $this->referent = $referent;
     }
 
-
-
-
-
     /**
      * Cours constructor.
      * @param $avis
      */
-    public function __construct()
+    public function __construct($avis)
     {
         $this->avis = new ArrayCollection();
-        $this->danseurs = new ArrayCollection();
-        $this->animateurs = new ArrayCollection();
     }
 
 
@@ -195,6 +188,7 @@ class Cours
         return $this->id;
     }
 
+    
     /**
      * Set dateCours
      *
@@ -302,50 +296,10 @@ class Cours
     {
         if ($this->avis->contains($avis)) {
             $this->avis->removeElement($avis);
-//            $avis->setCours(null);
+            $avis->setCours(null);
         }
 
         return $this;
     }
 
-    public function addDanseur(User $danseur){
-
-        if(!$this->danseurs->contains($danseur)){
-
-            $this->danseurs->add($danseur);
-            $danseur->addCours($this);
-        }
-        return $this;
-    }
-
-    public function removeDanseur(User $danseur)
-    {
-        if ($this->danseurs->contains($danseur)) {
-            $this->danseurs->removeElement($danseur);
-//            $danseur->removeCours($this);
-        }
-
-        return $this;
-    }
-
-
-    public function addAnimateur(User $animateur){
-
-        if(!$this->danseurs->contains($animateur)){
-
-            $this->danseurs->add($animateur);
-            $animateur->addCours($this);
-        }
-        return $this;
-    }
-
-    public function removeAnimateur(User $animateur)
-    {
-        if ($this->animateurs->contains($animateur)) {
-            $this->animateurs->removeElement($animateur);
-//            $animateur->removeCours($this);
-        }
-
-        return $this;
-    }
 }

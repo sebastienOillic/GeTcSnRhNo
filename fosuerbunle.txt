@@ -1,7 +1,0 @@
-1 composer require friendsofsymfony/user-bundle "~1.3"
-2 ajouter dans AppKernel :    new FOS\UserBundle\FOSUserBundle(),
-3 crer une entity User
-4 app/config/security.yml : configurer la security
-5 routing
-6 creer fichier User.orm.yml
-6 php app/console doctrine:schema:update --force

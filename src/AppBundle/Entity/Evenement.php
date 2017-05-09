@@ -39,6 +39,9 @@ class Evenement
      */
     private $description;
 
+    /**
+     * @var string
+     */
     private $image;
 
     /**

@@ -19,7 +19,13 @@ class AccueilController extends Controller
      */
     public function homeAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:Accueil:home.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
+
+        // src/AppBundle/Resources/views/index.html.twig
+        return $this->render('AppBundle:Accueil:home.html.twig', array(
+            'stylesDanse' => $stylesDanses,
+        ));
     }
 }

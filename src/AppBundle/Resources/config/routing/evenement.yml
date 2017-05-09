@@ -1,0 +1,15 @@
+app_agenda_index:
+    path: /
+    defaults: { _controller: AppBundle:Evenement:index}
+    methods: GET
+
+app_agenda_add:
+    path: /new
+    defaults: { _controller: AppBundle:Evenement:new}
+    methods: [GET, POST]
+
+app_agenda_delete:
+    path:     /{id}/delete
+    defaults: { _controller: AppBundle:Evenement:delete}
+    methods: [GET, POST]
+

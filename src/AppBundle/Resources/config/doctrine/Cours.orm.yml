@@ -17,7 +17,10 @@ AppBundle\Entity\Cours:
             type: time
         nombreDanseursMax:
             type: integer
-
+#    oneToMany:
+#        user:
+#            targetEntity: AppBundle\Entity\User
+#            mappedBy: category
     manyToOne:
         typeDanse:
             targetEntity: AppBundle\Entity\TypeDanse
@@ -49,44 +52,11 @@ AppBundle\Entity\Cours:
                 referencedComlumnName: id
                 onDelete: RESTRICT
 
-        referent:
-            targetEntity: AppBundle\Entity\User
-            joinColumn:
-                name: referent
-                eferencedComlumnName: id
-                onDelete: RESTRICT
-
     oneToMany:
         avis:
             targetEntity: AppBundle\Entity\Avis
             mappedBy: cours
 #            cascade: [all]
 
-    manyToMany:
-        danseurs:
-            targetEntity:   AppBundle\Entity\User
-            inversedBy: cours
-            joinTable:
-                name: cours_danseurs
-                joinColumns:
-                    cours_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    user_id:
-                        referencedColumnName: id
-
-
-
-        animateurs:
-            targetEntity:   AppBundle\Entity\User
-            inversedBy: coursAnimes
-            joinTable:
-                name: animateur
-                joinColumns:
-                    cours_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    user_id:
-                        referencedColumnName: id
 
     lifecycleCallbacks: {  }

@@ -1,5 +1,3 @@
-
-
 {% extends '::base.html.twig' %}
 
 {% block content %}
@@ -24,25 +22,20 @@
                                 {% if is_granted("ROLE_RESPONSABLE") %}
                                 <a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-warning">
                                     Modifier
-                                </a>
+                                </a> 
                                 {% endif %}
                             </li>
                         </ul>
                         <p>{{ styleDanse.description }}</p>
                         <ul class="listetypesdanse">
-                            <li><a href="/typedanse/5/show">Boston</a></li>
-                            <li><a href="/typedanse/9/show">Charleston</a></li>
-                            <li><a href="/typedanse/2/show">Foxtrot</a></li>
-                            <li><a href="/typedanse/10/show">Madison</a></li>
-                            <li><a href="/typedanse/1/show">One-Step</a></li>
-                            <li><a href="/typedanse/7/show">Paso-doble</a></li>
-                            <li><a href="/typedanse/3/show">Quicks Tep</a></li>
-                            <li><a href="/typedanse/4/show">Tango</a></li>
-                            <li><a href="/typedanse/6/show">Valse</a></li>
+                        {% for typeDanse in styleDanse.getTypeDanses() %}
+                            <li><a href="/typedanse/{{typeDanse.id}}/show">{{typeDanse.nom|capitalize}}</a></li>
+                        {% endfor %}
                         </ul>
                     </div>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
     <hr>
@@ -57,61 +50,3 @@
     {% endif %}
 
 {% endblock %}
-
-
-
-
-
-{#{% extends '::base.html.twig' %}#}
-
-{#{% block content %}#}
-    {#<h1>Styles de danse</h1>#}
-    {#<hr>#}
-    {#<div class="table-responsive">#}
-        {#<table class="table table-stripped table-condensed">#}
-            {#<thead>#}
-                {#<tr>#}
-                    {#<th>Id</th>#}
-                    {#<th>Nom</th>#}
-                    {#<th>Description</th>#}
-                {#</tr>#}
-            {#</thead>#}
-            {#<tbody>#}
-
-            {#{% for styleDanse in stylesDanse %}#}
-            {#<tr>#}
-                {#<td>#}
-                    {#<a href="{{ path('app_styleDanse_show', { 'id': styleDanse.id }) }}">#}
-                            {#{{ styleDanse.id }}#}
-                        {#</a>#}
-                {#</td>#}
-                {#<td>{{ styleDanse.nom }}</td>#}
-                {#<td>{{ styleDanse.description }}</td>#}
-                {#<td>#}
-                    {#<ul class="list-inline">#}
-                        {#<li>#}
-                            {#<a href="{{ path('app_styleDanse_show', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-primary">#}
-                                    {#Show#}
-                                {#</a>#}
-                        {#</li>#}
-                        {#<li>#}
-                            {#<a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}" class="btn btn-xs btn-warning">#}
-                                    {#Modifier#}
-                                {#</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                {#</td>#}
-            {#</tr>#}
-            {#{% endfor %}#}
-        {#</tbody>#}
-    {#</table>#}
-{#</div>#}
-{#<hr>#}
-{#<ul class="list-inline">#}
-    {#<li>#}
-        {#<a href="{{ path('app_admin_styleDanse_new') }}" class="btn btn-sm btn-success">#}
-                {#Créer un nouveau style de danse#}
-            {#</a>#}
-    {#</li>#}
-{#</ul>#}
-{#{% endblock %}#}

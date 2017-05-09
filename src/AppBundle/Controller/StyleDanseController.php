@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\StyleDanse;
-use AppBundle\Form\StyleDanseType;
+//use AppBundle\Form\StyleDanseType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,6 +17,7 @@ class StyleDanseController extends Controller
 
         $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
 
+        // src/AppBundle/Resources/views/index.html.twig
         return $this->render('AppBundle:StyleDanse:index.html.twig', array(
             'stylesDanse' => $stylesDanses,
         ));
@@ -28,7 +29,7 @@ class StyleDanseController extends Controller
      */
     public function newAction(Request $request)
     {
-        $styleDanse = new StyleDanse(['Tango']);
+        $styleDanse = new StyleDanse();
         $form = $this
                 ->createForm('AppBundle\Form\StyleDanseType', $styleDanse)
                 ->add('Enregistrer', new SubmitType(), [
@@ -40,14 +41,15 @@ class StyleDanseController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
             $em->persist($styleDanse);
-            $em->flush($styleDanse);
+            $em->flush();
 
-            return $this->redirectToRoute('app_admin_styleDanse_show', array('id' => $styleDanse->getId()));
+            return $this->redirectToRoute('app_styleDanse_show', array('id' => $styleDanse->getId()));
         }
 
         return $this->render('AppBundle:StyleDanse:new.html.twig', array(
-            'StyleDanse' => $styleDanse,
+            'styleDanse' => $styleDanse,
             'form' => $form->createView(),
         ));
     }
@@ -89,7 +91,7 @@ class StyleDanseController extends Controller
         }
 
         return $this->render('AppBundle:StyleDanse:edit.html.twig', array(
-            'StyleDanse' => $styleDanse,
+            'styleDanse' => $styleDanse,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
