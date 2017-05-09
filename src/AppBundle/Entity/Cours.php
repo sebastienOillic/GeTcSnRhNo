@@ -99,6 +99,17 @@ class Cours
     }
 
     /**
+     * Cours constructor.
+     * @param $avis
+     */
+    public function __construct()
+    {
+        $this->avis = new ArrayCollection();
+        $this->danseurs = new ArrayCollection();
+        $this->animateurs = new ArrayCollection();
+    }
+    
+    /**
      * @return mixed
      */
     public function getAvis()
@@ -326,9 +337,9 @@ class Cours
 
     public function addAnimateur(User $animateur){
 
-        if(!$this->danseurs->contains($animateur)){
+        if(!$this->animateurs->contains($animateur)){
 
-            $this->danseurs->add($animateur);
+            $this->animateurs->add($animateur);
             $animateur->addCours($this);
         }
         return $this;

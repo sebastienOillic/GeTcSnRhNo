@@ -3,41 +3,33 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use AppBundle\Entity\Cours;
-use AppBundle\Form\CoursType;
+use AppBundle\Entity\User;
+use AppBundle\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
-
-class CoursController extends Controller
+class AnimateurController extends Controller
 {
- /*   public function indexAction()
-    {
-        return $this->render('AppBundle::index.html.twig');
-    }
     /**
      * Create action.
      */
-
-
-    public function listeAction()
+   public function listeAction()
     {
-		$cours = $this->findCours();
+		$animateurs = $this->findAnimateur();
 		
-        return $this->render('AppBundle:Cours:listeCours.html.twig', [
-		    'cours' => $cours, 
+        return $this->render('AppBundle:Animateur:listeAnimateur.html.twig', [
+		    'animateurs' => $animateurs, 
         ]);
     }
-
+    
 	/**
      * Add action.
      */
     public function addAction(Request $request)
     {
-        $cours = new Cours();
+        $animateur = new User();
 
-        $form = $this->createForm('AppBundle\Form\CoursType', $cours)
+        $form = $this->createForm('AppBundle\Form\UserType', $animateur)
                  ->add ('save', new SubmitType(),[
                      'attr'=>[
                          'class'=>"btn btn-sm btn-success",
@@ -46,33 +38,30 @@ class CoursController extends Controller
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-
             $em = $this->getDoctrine()->getManager();
-            $em->persist($cours); 
-            $em->flush($cours);
-
-            return $this->redirect($this->generateUrl('app_cours_liste'));    
+            $em->persist($animateur); 
+            $em->flush($animateur);
+        
+            return $this->redirect($this->generateUrl('app_animateur_liste'));    
         }
-
-        return $this->render('AppBundle:Cours:createCours.html.twig', [
+		
+        return $this->render('AppBundle:Animateur:createAnimateur.html.twig', [
             'form' => $form->createView(),
         ]);
     }
-
-    
 	
 	/**
      * Edit action.
      */
     public function editAction(Request $request, $id)
     {
-        $cours = $this
+        $animateur = $this
 		    ->getDoctrine()
-            ->getRepository('AppBundle:Cours')
+            ->getRepository('AppBundle:Animateur')
             ->findOneBy(['id'=>$id]);
 			
         $form = $this
-                ->createForm(new CoursType(), $cours)
+                ->createForm(new UserType(), $animateur)
 				->add ('save', new SubmitType(),[
                      'attr'=>[
                          'class'=>"btn btn-sm btn-success",
@@ -84,13 +73,13 @@ class CoursController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('app_cours_liste');
+            return $this->redirectToRoute('app_animateur_liste');
         }
          
-		$cours = $this->findCours();
+		$animateur = $this->findAnimateur();
 		 
-        return $this->render('AppBundle:Cours:createCours.html.twig', array(
-            'cours' => $cours,
+        return $this->render('AppBundle:Animateur:createAnimateur.html.twig', array(
+            'animateur' => $animateur,
             'form' => $form->createView(),
         ));
     }
@@ -100,27 +89,27 @@ class CoursController extends Controller
      */
     public function deleteAction($id)
     {
-        $cours = $this->findById($id);
+        $animateur = $this->findById($id);
 
 		$em = $this->getDoctrine()->getManager();
-        $em->remove($cours);
+        $em->remove($animateur);
         $em->flush();
 
-        return $this->redirectToRoute('app_cours_liste');
+        return $this->redirectToRoute('app_animateur_liste');
     }
 	
-    public function findCours()
+    public function findAnimateur()
 	{
 	    return $this
 		    ->getDoctrine()
-            ->getRepository('AppBundle:Cours')
+            ->getRepository('AppBundle:User')
             ->findAll(); 
 	}
 	public function findById($id)
 	{
 	    return $this
 		    ->getDoctrine()
-            ->getRepository('AppBundle:Cours')
+            ->getRepository('AppBundle:User')
             ->findOneBy(['id'=>$id]); 
 	}
 }
