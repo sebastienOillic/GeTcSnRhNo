@@ -10,15 +10,15 @@ AppBundle\Entity\User:
         nom:
             type: string
             length: 56
-            nullable: true
+
         prenom:
             type: string
             length: 56
-            nullable: true
+
         sexe:
             type: string
             length: 56
-            nullable: true
+
 
 
     manyToMany:

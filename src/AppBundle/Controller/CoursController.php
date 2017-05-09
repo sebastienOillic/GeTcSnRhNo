@@ -23,7 +23,7 @@ class CoursController extends Controller
 
     public function listeAction()
     {
-        $user = $this->container->get('security.context')->getToken()->getUser()->getId();
+//        $user = $this->container->get('security.context')->getToken()->getUser();
 //        $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $cours = $em->getRepository('AppBundle:Cours')->findByDate();
@@ -34,7 +34,7 @@ class CoursController extends Controller
 
         return $this->render('AppBundle:Cours:listeCours.html.twig', array(
             'cours' => $cours,
-            'user' => $user
+
         ));
 
     }

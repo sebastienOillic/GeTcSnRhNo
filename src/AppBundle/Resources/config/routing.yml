@@ -13,6 +13,10 @@ app_avis:
     resource: "@AppBundle/Resources/config/routing/avis.yml"
     prefix: /avis
 
+app_inscriptionCours:
+    resource: "@AppBundle/Resources/config/routing/inscriptioncours.yml"
+    prefix: /cours/liste
+
 app_typeDanse:
     resource: routing/typeDanse.yml
     prefix: /typeDanse

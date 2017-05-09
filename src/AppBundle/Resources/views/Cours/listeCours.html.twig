@@ -6,7 +6,8 @@
 {% for cours in cours %}
 <div class="row cours">
     <div class="col-sm-11">
-            <a href="#" class="btn btn-xs btn-danger">
+
+            <a href="{{ path('inscriptionCours_index', { 'id': cours.id }) }}" class="btn btn-xs btn-danger">
 				<b>{{cours.typeDanse}}  {{cours.niveau}}</b><br />
                 {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('h:m')}}-{{cours.heureFin|date('h:m')}} Salle {{cours.salle}}
             </a>     
@@ -14,7 +15,7 @@
     <div class="col-sm-1">
         <p>
             {# Bouton d'ajout #}
-            <a href="{{ path('app_cours_add') }}" class="btn btn-xs btn-warning">
+            <a href="" class="btn btn-xs btn-warning">
                 <span class="glyphicon glyphicon-pencil"></span>
             </a>
             {# Bouton d'edition #}
@@ -33,12 +34,6 @@
 {% endfor %}
     {#<a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a>#}
     <a href="{{ path('app_old_cours') }}" class="glyphicon glyphicon-comment">Donner votre avis</a>
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
-        <p>{{ 'nom'}}: {{ user.nom }}</p>
-        <p>{{ 'Prénom'}}: {{ user.prenom }}</p>
-        <p>{{ 'Sexe'}}: {{ user.sexe }}</p>
-    {% endif %}
 
 
 {% endblock %}

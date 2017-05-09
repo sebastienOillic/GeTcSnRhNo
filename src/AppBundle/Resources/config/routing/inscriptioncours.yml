@@ -1,0 +1,23 @@
+inscriptionCours_index:
+    path:   /{id}
+    defaults: { _controller: AppBundle:InscriptionCours:index }
+    methods:  GET
+    requirements:
+        id: \d+
+
+
+#app_inscriptionCours_listeCours:
+#    path: /
+#    defaults: { _controller: AppBundle:InscriptionCours:index }
+
+app_inscriptionCours_add:
+    path: /add/{id}
+    defaults: { _controller: AppBundle:InscriptionCours:add }
+    requirements:
+        id: \d+
+
+
+#app_inscription_show:
+#    path:     /{id}/show
+#    defaults: { _controller: "AppBundle:InnscriptionCours:show" }
+#    methods:  GET
