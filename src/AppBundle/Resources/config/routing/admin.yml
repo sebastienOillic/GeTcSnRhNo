@@ -10,11 +10,10 @@ admin_promote:
 admin_demote:
     path: /demote/{username}
     defaults: { _controller: AppBundle:Admin:demote }
-
+    methods: GET
 
 admin_delete:
     path:     /{id}/delete
     defaults: { _controller: AppBundle:Admin:delete }
     methods:  DELETE
-
 

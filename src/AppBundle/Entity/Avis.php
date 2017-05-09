@@ -96,8 +96,6 @@ class Avis
         return $this->commentaire;
     }
 
-
-
     /**
      * Set user
      *
@@ -120,4 +118,5 @@ class Avis
     {
         return $this->user;
     }
+
 }

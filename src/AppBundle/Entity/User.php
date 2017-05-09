@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -11,20 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->cours = new ArrayCollection();
-        $this->typeDanses = new ArrayCollection();
-        $this->coursAnimes = new ArrayCollection();
-
-    }
-
     /**
      * @var int
      */
     protected $id;
 
+  
     private $nom;
 
     private $prenom;
@@ -38,6 +29,17 @@ class User extends BaseUser
     private $typeDanses;
 
     /**
+     * TypeDanse toString
+     * @return string
+     */
+
+//    public function __toString()
+//    {
+//        return $this->nom;
+//    }
+
+    
+    /**
      * @return mixed
      */
     public function getCoursAnimes()
@@ -45,14 +47,6 @@ class User extends BaseUser
         return $this->coursAnimes;
     }
 
-    /**
-     * TypeDanse toString
-     * @return string
-     */
-//    public function __toString()
-//    {
-//        return $this->nom;
-//    }
 
     /**
      * @return mixed
@@ -96,81 +90,51 @@ class User extends BaseUser
     public function setCours($cours)
     {
         $this->cours = $cours;
+
     }
 
 
-
     /**
-     * @return int
+     * @var string
      */
 
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     * @return User
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
     public function getNom()
     {
         return $this->nom;
     }
 
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     * @return User
-     */
-    public function setPrenom($prenom)
+    public function setNom($nom)
     {
-        $this->prenom = $prenom;
-
-        return $this;
+        $this->nom = $nom;
     }
 
     /**
-     * Get prenom
-     *
-     * @return string
+     * @var string
      */
+
     public function getPrenom()
     {
         return $this->prenom;
     }
 
-    /**
-     * Set sex
-     *
-     * @param string $sexe
-     * @return User
-     */
-    public function setSexe($sexe)
+    public function setPrenom($prenom)
     {
-        $this->sexe = $sexe;
-
-        return $this;
+        $this->prenom = $prenom;
     }
 
     /**
-     * Get sex
-     *
-     * @return string
+     * @var string
      */
+
+
     public function getSexe()
     {
         return $this->sexe;
+    }
+
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
     }
 
     public function addCours(Cours $cours)
@@ -187,7 +151,7 @@ class User extends BaseUser
     {
         if ($this->cours->contains($cours)) {
             $this->cours->removeElement($cours);
-//            $cours->removeDanseur($this);
+            //$cours->removeDanseur($this);
         }
 
         return $this;
@@ -207,7 +171,7 @@ class User extends BaseUser
     {
         if ($this->coursAnimes->contains($coursAnime)) {
             $this->coursAnimes->removeElement($coursAnime);
-//            $coursAnime->removeAnimateur($this);
+            //$coursAnime->removeAnimateur($this);
         }
 
         return $this;

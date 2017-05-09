@@ -2,8 +2,6 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\StyleDanse;
-use AppBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -14,13 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class TypeDanseRepository extends EntityRepository
 {
-     /**
-     * Finds typeDanse by styleDanse.
-     *
-     * @param StyleDanse $styleDanse
-     *
-     * @return \AppBundle\Entity\TypeDanse[]
-     */
+    /**
+    * Finds typeDanse by styleDanse.
+    *
+    * @param StyleDanse $styleDanse
+    *
+    * @return \AppBundle\Entity\TypeDanse[]
+    */
     public function findByStyleDanse(StyleDanse $styleDanse)
     {
         $qb = $this->createQueryBuilder('t');
@@ -39,7 +37,7 @@ class TypeDanseRepository extends EntityRepository
      *
      * @return \AppBundle\Entity\TypeDanse[]
      */
-    public function findByUser(StyleDanse $user)
+    public function findByUser(User $user)
     {
         $qb = $this->createQueryBuilder('t');
 
@@ -49,4 +47,20 @@ class TypeDanseRepository extends EntityRepository
             ->setParameter('user', $user)
             ->getResult();
     }
+
+    /* public function findOneByNomAndPrenom(User $nom, $prenom)
+    {
+        $qb = $this->createQueryBuilder('t');
+
+        return $qb
+            ->where($qb->expr()->eq('t.nom', ':nom'))
+            ->andWhere($qb->expr()->eq('t.prenom', ':prenom'))
+            ->getQuery()
+            ->setParameters([
+                'nom'        => $nom,
+                'prenom'     => $prenom,
+            ])
+            //->getResult();
+            ->getOneOrNullResult();
+    }*/
 }

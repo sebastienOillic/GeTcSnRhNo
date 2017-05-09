@@ -6,27 +6,19 @@ AppBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
-    fields:
-        nom:
-            type: string
-            length: 56
-            nullable: true
-        prenom:
-            type: string
-            length: 56
-            nullable: true
-        sexe:
-            type: string
-            length: 56
-            nullable: true
-
 
     manyToMany:
         cours:
-            targetEntity: AppBundle\Entity\Cours
-            mappedBy: danseurs
-#            mappedBy: animateurs
-
+            targetEntity:   AppBundle\Entity\Cours
+            inversedBy: danseurs
+            joinTable:
+                name: cours_danseurs
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    cours_id:
+                        referencedColumnName: id
 
         typeDanses:
             targetEntity: AppBundle\Entity\TypeDanse
@@ -38,3 +30,5 @@ AppBundle\Entity\User:
 
 
     lifecycleCallbacks: {  }
+
+

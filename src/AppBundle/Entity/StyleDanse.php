@@ -2,9 +2,8 @@
 
 namespace AppBundle\Entity;
 
-//use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
 
 /**
  * StyleDanse
@@ -20,12 +19,14 @@ class StyleDanse
      * @var string
      */
     private $nom;
-    
-    private $description;
 
     private $typeDanses;
+	
+	private $description;
+
 
     /**
+
      * TypeDanse constructor.
      * @param $typeDanses
      */
@@ -34,8 +35,14 @@ class StyleDanse
         $this->typeDanses = new TypeDanse();
     }
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
     /**
      * @return mixed
+     * @return ArrayCollection
      */
     public function getDescription()
     {
@@ -50,6 +57,9 @@ class StyleDanse
         $this->description = $description;
     }
 
+    /**
+     * @return ArrayCollection
+     */
 
     public function getTypeDanses()
     {
@@ -57,23 +67,12 @@ class StyleDanse
     }
 
     /**
-     * @param TypeDanse $typeDanses
+     * @param ArrayCollection $typeDanses
      */
     public function setTypeDanses($typeDanses)
     {
         $this->typeDanses = $typeDanses;
     }
-
-
-
-
-
-    public function __toString()
-    {
-        return $this->nom;
-    }
-
-    
 
 
     /**
@@ -123,10 +122,10 @@ class StyleDanse
     {
         if ($this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->removeElement($typeDanse);
-//            $typeDanse->removeStyleDanse($this);
-        }
 
+        }
         return $this;
     }
+
 
 }

@@ -23,21 +23,21 @@ class CoursController extends Controller
 
     public function listeAction()
     {
-        $user = $this->container->get('security.context')->getToken()->getUser()->getId();
+
+        $user = $this->container->get('security.context')->getToken()->getUser();
 //        $user = $this->getUser();
+
+//        $user = $this->getUser();
+
         $em = $this->getDoctrine()->getManager();
         $cours = $em->getRepository('AppBundle:Cours')->findByDate();
-
-
-
-
 
         return $this->render('AppBundle:Cours:listeCours.html.twig', array(
             'cours' => $cours,
             'user' => $user
         ));
-
     }
+
 
     public function oldAction(){
 
@@ -55,24 +55,8 @@ class CoursController extends Controller
 
     }
 
-//    public function listeAction(){
-//
-//        $em = $this->getDoctrine()->getManager();
-//
-//        $cours = $em
-//
-//            ->getRepository('AppBundle:Cours')
-//            ->findAll()
-//            ->where(['dateCours >= :new \DateTime()']);
-//
-//
-//        return $this->render('AppBundle:Cours:listeCours.html.twig', array(
-//            'cours' => $cours,
-//        ));
-//    }
 
 
-    
 	/**
      * Add action.
      */
@@ -89,22 +73,19 @@ class CoursController extends Controller
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($cours); 
             $em->flush($cours);
-        
+
             return $this->redirect($this->generateUrl('app_cours_liste'));    
         }
-
-		//$contacts = $this->findContacts();
-		//$mode = false;
-		
         return $this->render('AppBundle:Cours:createCours.html.twig', [
-		   // 'contacts' => $contacts, 
             'form' => $form->createView(),
-			//'mode'=> $mode,
         ]);
     }
+
+    
 	
 	/**
      * Edit action.
