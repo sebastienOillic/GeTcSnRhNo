@@ -11,33 +11,35 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 
+
 /**
  *  InscriptionCoursController
  * @package ApppBundle\Controller
  */
 class InscriptionCoursController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        //$cours = $this->getCours();
         $em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('AppBundle:User')->findAll();
+        $user = $this->container->get('security.context')
+                ->getToken()->getUser()->getId();
+        /*$users = $em->getRepository('AppBundle:User')->findAll($danseur);
 
         foreach ($users as $danseur) {
             $danseur->getNom();
             $danseur->getPrenom();
             $danseur->getSexe();
-        }
+        }*/
 
         return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
-            'users' => $users,
+            'user' => $user,
         ));
     } 
-/*
-    public function listeCoursAction()
+
+ /*   public function listeCoursAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $cours = $em->getRepository('AppBundle:Cours')->findAll();
+        $cours = $em->getRepository('AppBundle:Cours')->findOneBy();
 
         foreach ($cours as $cours) {
             $cours->getTypeDanse();

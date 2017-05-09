@@ -7,7 +7,6 @@ use AppBundle\Entity\User;
 use AppBundle\Entity\Niveau;
 use AppBundle\Entity\Salle;
 use AppBundle\Entity\Cours;
-
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Validator\Constraints\DateTime;
 

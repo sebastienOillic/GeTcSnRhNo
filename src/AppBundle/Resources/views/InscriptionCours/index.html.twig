@@ -6,7 +6,7 @@
 <p>Veuillez confirmer votre inscription</p>
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 <ul>
-    {% for danseur in users %}
+    {% for danseur in user %}
     <li>Nom : {{ danseur.nom }}</br>
         Prénom : {{ danseur.prenom }}</br>
         Sexe : {{ danseur.sexe }}</br>
