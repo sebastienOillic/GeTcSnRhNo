@@ -13,12 +13,12 @@ class UserRepository extends EntityRepository
 {
     public function findByDanseur(User $user)
     {
-        $qb = $this->createQueryBuilder('u');
+        $qb = $this->createQueryBuilder('c');
 
         return $qb
-            ->where($qb->expr()->eq('c.user', ':user'))
+            ->where($qb->expr()->eq('u.cours', ':cours'))
             ->getQuery()
-            ->setParameter('user', $user)
+            ->setParameter('cours', $cours)
             ->getResult();
     }
 }

@@ -8,7 +8,7 @@ use AppBundle\Form\RegistrationType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class RegisterController extends Controller
+class UserController extends Controller
 {
     public function indexAction()
     {

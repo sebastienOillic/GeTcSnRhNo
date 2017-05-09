@@ -3,34 +3,32 @@
 {% block content %}
 <h1>Inscription à un cours</h1>
 
-<p>Veuillez confirmer votre inscription</p>
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 <ul>
-    {% for danseur in user %}
-    <li>Bonjour {{ danseur.nom }} {{ danseur.prenom }}</br>
+    {#{% for danseur in user %}#}
+    <li>Bonjour {{ user.nom }} {{ user.prenom }}</br>
+    <p>Veuillez confirmer votre inscription</p>
     </li>
-    {% endfor %}
+    {#{% endfor %}#}
 </ul>
-{#
+
 <div class="col-sm-11">
 <p> Le cours que vous voulez vous inscrire est : </p>
-    {% for cours in cours %}
     <b>{{cours.typeDanse}}  {{cours.niveau}}</b>
-    <br/> {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('h:m')}}-{{cours.heureFin|date('h:m')}} Salle {{cours.salle}} 
-    {% endfor %}
-</div>#}
+    <br/>{{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('H:i')}}-{{cours.heureFin|date('H:i')}} Salle {{cours.salle}} 
+ 
+</div>
 
-<a href="{{path('app_inscriptionCours_add')}}" class="btn btn-sm btn-default">
-                Confirmer</a>
+<a href="{{path('app_inscriptionCours_add')}}" class="btn btn-sm btn-default">Confirmer</a>
+<a href="{{path('app_cours_liste')}}" class="btn btn-sm btn-default">Annuler</a>
 
-<a href="{{path('app_cours_liste')}}" class="btn btn-sm btn-default">Annuler
-</a> 
 {% else %}
-
 <p>Veuillez connecter ou créer votre compte </p>
 <li>
     <a class="navbar-brand" href="{{ path('fos_user_security_login') }}">
-        <span class="glyphicon glyphicon-log-in"></span> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        <span class="glyphicon glyphicon-log-in"></span> 
+            {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+    </a>
 </li>
 {% endif %}
 {% endblock %}

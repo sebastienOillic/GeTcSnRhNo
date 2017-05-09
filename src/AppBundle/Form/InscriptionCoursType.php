@@ -2,12 +2,10 @@
 
 namespace AppBundle\Form;
 
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CoursType extends AbstractType
+class InscriptionCoursType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,7 +13,7 @@ class CoursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-             ->add('typeDanse', 'entity', [
+            ->add('typeDanse', 'entity', [
                 'class'         => 'AppBundle\Entity\TypeDanse',
                 'query_builder' => function (EntityRepository $repository) {
                     $qb = $repository->createQueryBuilder('t');
@@ -46,35 +44,15 @@ class CoursType extends AbstractType
                         ->orderBy('s.nom', 'ASC');
                 },
             ])
-             ->add('referent','entity', [
-                'class'         => 'AppBundle\Entity\User',
-                'query_builder' => function (EntityRepository $repository) {
-                    $qb = $repository->createQueryBuilder('u');
-
-                    return $qb
-                        ->orderBy('u.nom', 'ASC');
-                         },
-            ])
-             ->add('animateurs','entity', [
-                'class'         => 'AppBundle\Entity\User',
-                'multiple' => true,
-                'expanded' => true,
-                'query_builder' => function (EntityRepository $repository) {
-                    $qb = $repository->createQueryBuilder('u');
-
-                    return $qb
-                        ->orderBy('u.nom', 'ASC');
-                         },
-            ])
-             //->add('evenement')
-            // ->add('danseurs')
             ->add('danseur','entity', [
                 'class'         => 'AppBundle\Entity\User',
                 'query_builder' => function (EntityRepository $repository) {
                     $qb = $repository->createQueryBuilder('u');
 
                     return $qb
-                        ->orderBy('u.nom', 'ASC');
+                        ->andWhere($qb->expr()->eq('u.prenom', ':prenom'))
+                        ->orderBy('u.nom', 'ASC')
+                        ->setParameter('prenom', true);
                          },
             ])
             ;
@@ -86,7 +64,7 @@ class CoursType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Cours'
+            'data_class' => 'AppBundle\Entity\User'
         ));
     }
 
@@ -97,6 +75,5 @@ class CoursType extends AbstractType
     {
         return 'appbundle_cours';
     }
-
 
 }

@@ -15,7 +15,6 @@ class User extends BaseUser
      */
     protected $id;
 
-  
     private $nom;
 
     private $prenom;
@@ -27,6 +26,8 @@ class User extends BaseUser
     private $coursAnimes;
 
     private $typeDanses;
+
+    private $adherent;
 
     /**
      * TypeDanse toString
@@ -90,7 +91,6 @@ class User extends BaseUser
 
     }
 
-
     /**
      * @var string
      */
@@ -122,8 +122,6 @@ class User extends BaseUser
     /**
      * @var string
      */
-
-
     public function getSexe()
     {
         return $this->sexe;
@@ -170,8 +168,31 @@ class User extends BaseUser
             $this->coursAnimes->removeElement($coursAnime);
             //$coursAnime->removeAnimateur($this);
         }
+        return $this;
+    }
+
+    /**
+     * Set adherent
+     *
+     * @param bool $adherent
+     *
+     * @return 
+     */
+    public function setAdherent($adherent)
+    {
+        $this->adherent = (bool)$adherent;
 
         return $this;
+    }
+
+    /**
+     * Get adherent
+     *
+     * @return bool
+     */
+    public function getAdherent()
+    {
+        return $this->adherent;
     }
 
 }

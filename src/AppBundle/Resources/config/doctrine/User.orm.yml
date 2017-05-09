@@ -6,6 +6,19 @@ AppBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 56
+        prenom:
+            type: string
+            length: 56
+        sexe:
+            type: string
+            length: 56
+        adherent:
+            type: boolean
+            nullable: false
 
     manyToMany:
         cours:
