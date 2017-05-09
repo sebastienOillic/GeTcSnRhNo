@@ -23,8 +23,8 @@ class CoursController extends Controller
 
     public function listeAction()
     {
-
-        $user = $this->getUser();
+        $user = $this->container->get('security.context')->getToken()->getUser()->getId();
+//        $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $cours = $em->getRepository('AppBundle:Cours')->findByDate();
 
@@ -35,6 +35,22 @@ class CoursController extends Controller
         return $this->render('AppBundle:Cours:listeCours.html.twig', array(
             'cours' => $cours,
             'user' => $user
+        ));
+
+    }
+
+    public function oldAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $cours = $em->getRepository('AppBundle:Cours')->findByOldDate();
+
+
+
+
+
+        return $this->render('AppBundle:Cours:oldCours.html.twig', array(
+            'cours' => $cours,
+
         ));
 
     }

@@ -76,6 +76,20 @@ class CoursRepository extends EntityRepository
             ->getResult();
     }
 
+    public function findByOldDate()
+    {
+        $currentdate = new \DateTime(); //Date du jour
+
+        return $this->createQueryBuilder('cours')
+            ->select('cours')
+            ->where('cours.dateCours < :date')
+            ->setParameter(':date', $currentdate->format('Y-m-d'))
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
 
 //
 //    public function findByDate()

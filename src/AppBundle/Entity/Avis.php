@@ -25,6 +25,11 @@ class Avis
 //lien unique
     private $slug;
 
+
+
+    public function __toString() {
+        return $this->getCours();
+    }
     /**
      * @return mixed
      */

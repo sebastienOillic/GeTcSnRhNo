@@ -31,10 +31,14 @@
 </div>
 
 {% endfor %}
+    {#<a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a>#}
+    <a href="{{ path('app_old_cours') }}" class="glyphicon glyphicon-comment">Donner votre avis</a>
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
         <p>{{ 'nom'}}: {{ user.nom }}</p>
         <p>{{ 'Prénom'}}: {{ user.prenom }}</p>
         <p>{{ 'Sexe'}}: {{ user.sexe }}</p>
     {% endif %}
+
+
 {% endblock %}
