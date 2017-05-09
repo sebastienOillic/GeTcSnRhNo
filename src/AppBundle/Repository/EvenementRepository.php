@@ -33,4 +33,13 @@ class EvenementRepository extends EntityRepository
         return $qb->getQuery()
             ->getResult();
     }
+
+    public function getOneById(int $id){
+        return $this->createQueryBuilder('e')
+            ->select('e')
+            ->where("e.id = :id")
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

@@ -22,6 +22,8 @@ class TypeDanse
 
     private $styleDanses;
 
+    private $description;
+
     /**
      * @return ArrayCollection
      */
@@ -89,6 +91,29 @@ class TypeDanse
     public function getNom()
     {
         return $this->nom;
+    }
+
+     /**
+     * Set description
+     *
+     * @param string $description
+     * @return TypeDanse
+     */
+    public function setDescription($description)
+    {
+        $this->descrition = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     public function addStyleDanse(StyleDanse $styleDanse)
