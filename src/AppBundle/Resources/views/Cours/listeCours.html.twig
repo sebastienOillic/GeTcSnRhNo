@@ -4,7 +4,7 @@
 <div class="row cours">
     <div class="col-sm-11">
         <a href="{{ path('app_inscriptionCours_index') }}" class="btn btn-xs btn-danger">
-            <b>{{cours.typeDanse}}  {{cours.niveau}}</b><br /> {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('h:m')}}-{{cours.heureFin|date('h:m')}} Salle {{cours.salle}}
+            <b>{{cours.typeDanse}}  {{cours.niveau}}</b><br /> {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('H:i')}}-{{cours.heureFin|date('H:i')}} Salle {{cours.salle}}
         </a>
     </div>
     <div class="col-sm-1">
