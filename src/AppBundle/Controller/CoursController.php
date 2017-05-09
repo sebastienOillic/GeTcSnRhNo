@@ -10,10 +10,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CoursController extends Controller
 {
- /*   public function indexAction()
-    {
-        return $this->render('AppBundle::index.html.twig');
-    }
     /**
      * Create action.
      */

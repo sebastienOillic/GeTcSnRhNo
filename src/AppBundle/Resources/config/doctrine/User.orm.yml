@@ -18,8 +18,10 @@ AppBundle\Entity\User:
         sexe:
             type: string
             length: 56
-            nullable: true
-
+            nullable: false
+        adherent:
+            type: boolean
+            nullable: false
 
     manyToMany:
         cours:

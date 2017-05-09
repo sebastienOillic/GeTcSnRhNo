@@ -58,7 +58,6 @@ class CoursType extends AbstractType
              ->add('animateurs','entity', [
                 'class'         => 'AppBundle\Entity\User',
                 'multiple' => true,
-                'expanded' => true,
                 'query_builder' => function (EntityRepository $repository) {
                     $qb = $repository->createQueryBuilder('u');
 

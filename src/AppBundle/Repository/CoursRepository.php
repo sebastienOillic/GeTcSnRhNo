@@ -49,7 +49,7 @@ class CoursRepository extends EntityRepository
      }
      public function findByAnimateur(User $user)
      {
-        $qb = $this->createQueryBuilder('u');
+        $qb = $this->createQueryBuilder('c');
 
         return $qb
             ->where($qb->expr()->eq('c.user', ':user'))
