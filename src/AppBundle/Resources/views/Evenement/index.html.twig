@@ -10,7 +10,7 @@
             <h2 class="event-name">{{event.nom}}</h2>
             {% if event.image %}
 
-                <img style="width: 95%" src="{{ asset('uploads/events_img/' ~ event.image) }}"></img>
+                <img style="width: 95%" src="{{ asset('uploads/events_img/' ~ event.image) }}" alt=" alt="{{event.image}}"></img>
 
             {% endif %}
             <div>Du {{event.dateDebut|date('d/m/Y')}} au {{event.dateFin|date('d/m/Y')}}</div>
@@ -18,7 +18,7 @@
             <p>{{event.description}}</p>
             <p>
                 <a class="btn btn-primary" href="#" role="button">Détails</a>
-                <a class="btn btn-warning" href="#" role="button">Modifier</a>
+                <a class="btn btn-warning" href="{{ path('app_agenda_edit', {id: event.id}) }}" role="button">Modifier</a>
 
                 <a class="btn btn-danger" href="{{ path('app_agenda_delete', {id: event.id}) }}" role="button">Supprimer</a>
 

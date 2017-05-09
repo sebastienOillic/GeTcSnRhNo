@@ -62,43 +62,50 @@ class EvenementController extends Controller
         ]);
     }
     
-    public function editAction(Request $request){
-        $event = new \AppBundle\Entity\Evenement();
-        $form = $this->createForm('AppBundle\Form\EvenementType', $event)
-        ->add('Enregistrer', new SubmitType(), [
-        'attr' => [
-        'class' => 'btn btn-sm btn-success',
-        ]
-        ]);
-        
-        $form->handleRequest($request);
-        
-        if($form->isSubmitted() && $form->isValid()){
-            
-            $file = $event->getImage();
+    public function editAction(Request $request, Evenement $evenement)
+    {
+        $id = $request->attributes->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $imageString = $evenement->getImage();
+        $editForm = $this->createForm('AppBundle\Form\EvenementType', $evenement)
+                ->add('Modifier', new SubmitType(), [
+                    'attr' => [
+                        'class' => 'btn btn-sm btn-warning',
+                    ]
+                ]);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $file = $evenement->getImage();
             if (!is_null($file)){
-                
+                if (!is_null($imageString)){
+                    unlink($this->getParameter('events_image_directory').'/'.$imageString);
+                }
                 $filename = md5(uniqid()).'.'.$file->guessExtension();
                 $file = $file->move(
                 $this->getParameter('events_image_directory'),
                 $filename
                 );
-                $event->setImage($filename);
+                $evenement->setImage($filename);
             }
             else {
-                $event->setImage(NULL);
+                if (!is_null($imageString)){
+                    $evenement->setImage($imageString);
+                }
             }
             $em = $this->getDoctrine()->getManager();
-            $em->persist($event);
+            $em->persist($evenement);
             $em->flush();
-            
-            return $this->redirect($this->generateUrl('app_agenda_index'));
-            
+
+            return $this->redirectToRoute('app_agenda_index');
         }
-        return $this->render('AppBundle:Evenement:new.html.twig', [
-        'form' => $form->createView()
-        ]);
+        return $this->render('AppBundle:Evenement:edit.html.twig', array(
+            'form' => $editForm->createView(),
+            'event' => $evenement,
+        ));
     }
+
+
     public function deleteAction(Request $request)
     {
         $id = $request->attributes->get('id');

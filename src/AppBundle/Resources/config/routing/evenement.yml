@@ -15,3 +15,10 @@ app_agenda_delete:
     requirements:
         id: \d+
 
+app_agenda_edit:
+    path: /{id}/edit
+    defaults: {_controller: AppBundle:Evenement:edit}
+    methods: [GET, POST]
+    requirements:
+        id: \d+
+
