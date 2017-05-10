@@ -94,17 +94,6 @@ class Cours
         $this->referent = $referent;
     }
 
-    /**
-     * Cours constructor.
-     * @param $avis
-     */
-    public function __construct()
-    {
-        $this->avis = new ArrayCollection();
-        $this->danseurs = new ArrayCollection();
-        $this->animateurs = new ArrayCollection();
-    }
-
 
     /**
      * @return mixed
@@ -196,6 +185,11 @@ class Cours
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setId()
+    {
+        $this->id=$id;
     }
 
     
