@@ -39,7 +39,7 @@ class TypeDanseRepository extends EntityRepository
      *
      * @return \AppBundle\Entity\TypeDanse[]
      */
-    public function findByUser(StyleDanse $user)
+    public function findByUser(User $user)
     {
         $qb = $this->createQueryBuilder('t');
 

@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Cours;
+use AppBundle\Entity\User;
+use AppBundle\Entity\UserType;
 use AppBundle\Form\CoursType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -16,7 +18,7 @@ class CoursController extends Controller
    public function listeAction()
     {
 		$cours = $this->findCours();
-		
+        
         return $this->render('AppBundle:Cours:listeCours.html.twig', [
 		    'cours' => $cours, 
         ]);
@@ -88,7 +90,7 @@ class CoursController extends Controller
      * Delete action.
      */
     public function deleteAction($id)
-    {
+    {        
         $cours = $this->findById($id);
 
 		$em = $this->getDoctrine()->getManager();

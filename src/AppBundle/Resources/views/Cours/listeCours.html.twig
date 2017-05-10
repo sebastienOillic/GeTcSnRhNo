@@ -7,9 +7,11 @@
 <div class="row cours">
 {% for lecours in cours %}
       <div class="col-sm-7" id="listeCours" >
-              <a href="#" class="btn btn-xs btn-danger">
+              <a href="{{path('app_inscriptionCours_index',{ 'id': lecours.id })}}" class="btn btn-xs btn-danger">
                   <b>{{lecours.typeDanse|capitalize}}  {{lecours.niveau}}</b><br />
-                  {{lecours.dateCours|date('d-m-Y')}} - {{lecours.heureDebut|date('H:i')}}-{{lecours.heureFin|date('H:i')}} Salle {{lecours.salle}}
+                  {{lecours.dateCours|date('d-m-Y')}} - {{lecours.heureDebut|date('H:i')}}-{{lecours.heureFin|date('H:i')}} Salle {{lecours.salle}}<br />
+                  Nombre d'inscrits : Homme : 
+                  
               </a>     
       </div>
 
@@ -17,9 +19,9 @@
 
           {# Bouton liste des inscrits #}  
               <!-- Trigger the modal with a button -->
-              <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#listeInscrits">Liste des inscrits</button>
+              <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#listeInscrits-{{lecours.id}}">Liste des inscrits</button>
               <!-- Modal -->
-              <div id="listeInscrits" class="modal fade" role="dialog">
+              <div id="listeInscrits-{{lecours.id}}" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
                         <!-- Modal content-->
@@ -56,9 +58,11 @@
 
           {# Bouton de suppression #}
               <!-- Trigger the modal with a button -->
-              <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteCours"><span class="glyphicon glyphicon-trash"></span></button>
+              <button  type="button" class="btndelete btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteCours-{{lecours.id}}">
+                    <span class="glyphicon glyphicon-trash"></span>
+              </button>
               <!-- Modal -->
-              <div id="deleteCours" class="modal fade" role="dialog">
+              <div id="deleteCours-{{lecours.id}}" class="modal fade" role="dialog">
                   <div class="modal-dialog">
 
                       <!-- Modal content-->
@@ -74,7 +78,7 @@
                                     {{lecours.dateCours|date('d-m-Y')}} - {{lecours.heureDebut|date('H:i')}}-{{lecours.heureFin|date('H:i')}} Salle {{lecours.salle}}<br />
                                     Référent : {{lecours.referent}} - Animateur(s) : {% for animateur in lecours.animateurs %}
                                     {{animateur}} - {% endfor %}
-                              </p>
+                              </p> 
                           </div>
 
                           <div class="modal-footer">

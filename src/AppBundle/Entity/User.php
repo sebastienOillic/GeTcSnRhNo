@@ -37,8 +37,6 @@ class User extends BaseUser
 
     private $typeDanses;
 
-    private $adherent;
-
     /**
      * @return mixed
      */
@@ -71,6 +69,7 @@ class User extends BaseUser
     {
         if (!$this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->add($typeDanse);
+            $typeDanse->addUser($this);
         }
         return $this;
     }
@@ -213,22 +212,6 @@ class User extends BaseUser
         }
 
         return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAdherent()
-    {
-        return $this->adherent;
-    }
-
-    /**
-     * @param mixed $adherent
-     */
-    public function setAdherent($adherent)
-    {
-        $this->adherent = $adherent;
     }
 
 }
