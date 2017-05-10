@@ -27,10 +27,17 @@ AppBundle\Entity\User:
             mappedBy: danseurs
 #            mappedBy: animateurs
 
-
         typeDanses:
-            targetEntity: AppBundle\Entity\TypeDanse
-            mappedBy: users
+            targetEntity:   AppBundle\Entity\TypeDanse
+            inversedBy: users
+            joinTable:
+                name: typedanse_user
+                joinColumns:
+                    animateurPotentiel_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    typeDanse_id:
+                        referencedColumnName: id
 
         coursAnimes:
             targetEntity: AppBundle\Entity\Cours
