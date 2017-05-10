@@ -24,4 +24,11 @@ AppBundle\Entity\TypeDanse:
             targetEntity: AppBundle\Entity\StyleDanse
             mappedBy: typeDanses
 
+<<<<<<< HEAD
+=======
+        users:
+            targetEntity: AppBundle\Entity\User
+            mappedBy: typedanse
+
+>>>>>>> d2ffb03f493b552f0684e36d0246ab3c78771737
     lifecycleCallbacks: {  }
