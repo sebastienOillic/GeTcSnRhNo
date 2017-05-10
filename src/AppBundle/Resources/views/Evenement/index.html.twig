@@ -5,9 +5,9 @@
     {% for event in events %}
         <div class="col-md-4 col-sm-6">
             <h2 class="event-name">{{event.nom}}</h2>
-            {% if event.image %}
+            {% if event.image is not empty %}
 
-                <img style="width: 95%" src="{{ asset('uploads/events_img/' ~ event.image) }}" alt=" alt="{{event.image}}"></img>
+                <img style="width: 95%" src="{{ asset('uploads/events_img/' ~ event.image) }}" alt="{{event.image}}"></img>
 
             {% endif %}
             <div>Du {{event.dateDebut|date('d/m/Y')}} au {{event.dateFin|date('d/m/Y')}}</div>

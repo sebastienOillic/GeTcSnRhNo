@@ -38,7 +38,14 @@ class EvenementController extends Controller
         if($form->isSubmitted() && $form->isValid()){
             
             $file = $event->getImage();
+            if ($file->getSize()<$maxSize){
+                $this->addFlash('error', 'Fichier trop grand');
+                return $this->render('AppBundle:Evenement:new.html.twig', [
+                'form' => $form->createView()
+                ]);
+            }
             if (!is_null($file)){
+                $maxSize = $this->file_upload_max_size();
                 
                 $filename = md5(uniqid()).'.'.$file->guessExtension();
                 $file = $file->move(
@@ -68,16 +75,24 @@ class EvenementController extends Controller
         $em = $this->getDoctrine()->getManager();
         $imageString = $evenement->getImage();
         $editForm = $this->createForm('AppBundle\Form\EvenementType', $evenement)
-                ->add('Modifier', new SubmitType(), [
-                    'attr' => [
-                        'class' => 'btn btn-sm btn-warning',
-                    ]
-                ]);
+        ->add('Modifier', new SubmitType(), [
+        'attr' => [
+        'class' => 'btn btn-sm btn-warning',
+        ]
+        ]);
         $editForm->handleRequest($request);
-
+        
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $maxSize = $this->file_upload_max_size();
             $file = $evenement->getImage();
             if (!is_null($file)){
+                if ($file->getSize()<$maxSize){
+                    $this->addFlash('error', 'Fichier trop grand');
+                    return $this->render('AppBundle:Evenement:edit.html.twig', array(
+                    'form' => $editForm->createView(),
+                    'event' => $evenement,
+                    ));
+                }
                 if (!is_null($imageString)){
                     unlink($this->getParameter('events_image_directory').'/'.$imageString);
                 }
@@ -96,16 +111,16 @@ class EvenementController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($evenement);
             $em->flush();
-
+            
             return $this->redirectToRoute('app_agenda_index');
         }
         return $this->render('AppBundle:Evenement:edit.html.twig', array(
-            'form' => $editForm->createView(),
-            'event' => $evenement,
+        'form' => $editForm->createView(),
+        'event' => $evenement,
         ));
     }
-
-
+    
+    
     public function deleteAction(Request $request)
     {
         $id = $request->attributes->get('id');
@@ -137,5 +152,33 @@ class EvenementController extends Controller
         ->setAction($this->generateUrl('app_agenda_delete', array('id' => $evenement->getId())))
         ->setMethod('DELETE')
         ->getForm();
+    }
+    public function file_upload_max_size() {
+        static $max_size = -1;
+        
+        if ($max_size < 0) {
+            // Start with post_max_size.
+            $max_size = $this->parse_size(ini_get('post_max_size'));
+            
+            // If upload_max_size is less, then reduce. Except if upload_max_size is
+            // zero, which indicates no limit.
+            $upload_max = $this->parse_size(ini_get('upload_max_filesize'));
+            if ($upload_max > 0 && $upload_max < $max_size) {
+                $max_size = $upload_max;
+            }
+        }
+        return $max_size;
+    }
+    
+    public function parse_size($size) {
+        $unit = preg_replace('/[^bkmgtpezy]/i', '', $size); // Remove the non-unit characters from the size.
+        $size = preg_replace('/[^0-9\.]/', '', $size); // Remove the non-numeric characters from the size.
+        if ($unit) {
+            // Find the position of the unit in the ordered string which is the power of magnitude to multiply a kilobyte by.
+            return round($size * pow(1024, stripos('bkmgtpezy', $unit[0])));
+        }
+        else {
+            return round($size);
+        }
     }
 }
