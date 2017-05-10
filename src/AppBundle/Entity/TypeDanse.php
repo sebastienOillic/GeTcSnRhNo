@@ -18,11 +18,12 @@ class TypeDanse
     /**
      * @var string
      */
+
     private $nom;    
     private $styleDanses;    
     private $users;    
     private $description;    
-   
+  
     /**
      * TypeDanse constructor.
      * @param $styleDanses
