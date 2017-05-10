@@ -1,11 +1,21 @@
 app_inscriptionCours_index:
-    path: /{id}
+    path:   /{id}
     defaults: { _controller: AppBundle:InscriptionCours:index }
+    methods:  GET
     requirements:
-        id: \d+    
-        
+        id: \d+
+
+
 app_inscriptionCours_add:
     path: /add/{id}
     defaults: { _controller: AppBundle:InscriptionCours:add }
     requirements:
         id: \d+
+
+
+app_inscriptionCours_delete:
+    path:     /delete/{id}
+    defaults: { _controller: "AppBundle:InscriptionCours:delete" }
+
+
+

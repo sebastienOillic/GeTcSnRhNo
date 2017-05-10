@@ -22,16 +22,8 @@ AppBundle\Entity\User:
 
     manyToMany:
         cours:
-            targetEntity:   AppBundle\Entity\Cours
-            inversedBy: danseurs
-            joinTable:
-                name: cours_danseurs
-                joinColumns:
-                    user_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    cours_id:
-                        referencedColumnName: id
+           targetEntity: AppBundle\Entity\Cours
+           mappedBy: danseurs
 
         typeDanses:
             targetEntity: AppBundle\Entity\TypeDanse
