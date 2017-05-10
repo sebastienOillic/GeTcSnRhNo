@@ -1,8 +1,4 @@
 app_inscriptionCours_index:
-     path: /
-     defaults: { _controller: AppBundle:InscriptionCours:index }
-
-inscriptionCours_index:
     path:   /{id}
     defaults: { _controller: AppBundle:InscriptionCours:index }
     methods:  GET

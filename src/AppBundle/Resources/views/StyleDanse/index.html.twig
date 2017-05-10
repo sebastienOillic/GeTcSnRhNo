@@ -3,6 +3,21 @@
 {% block content %}
     <h1>Styles de danse</h1>
     <hr>
+    {% if is_granted("ROLE_RESPONSABLE") %}
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('app_admin_styleDanse_new') }}" class="btn btn-sm btn-success">
+                Créer un nouveau style de danse
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('app_typeDanse_index') }}" class="btn btn-sm btn-success">
+                Acceder &agrave; la liste des types de danse
+            </a>
+        </li>
+    </ul>
+    {% endif %}
+    <hr>
     <div class="table-responsive">
         <div class="row" id="danseAccueil">
             {% set number = 0 %}
@@ -39,14 +54,5 @@
         </div>
     </div>
     <hr>
-    {% if is_granted("ROLE_RESPONSABLE") %}
-    <ul class="list-inline">
-        <li>
-            <a href="{{ path('app_admin_styleDanse_new') }}" class="btn btn-sm btn-success">
-                Créer un nouveau style de danse
-            </a>
-        </li>
-    </ul>
-    {% endif %}
 
 {% endblock %}

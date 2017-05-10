@@ -24,7 +24,7 @@
         {% else %}
             <div class="bouton_cours orange">
         {% endif %}
-            <a href="{{path('app_inscriptionCours_index')}}">
+            <a href="{{path('app_inscriptionCours_index', {id:cours.id})}}">
                 <div class = "titrecours">{{cours.typeDanse|upper}}  {{cours.niveau|capitalize}}</div>
                 <div class = "detailscours">{{cours.dateCours|date("d/m/Y", "Europe/Paris")}} de {{cours.heureDebut|date('H:i')}} à {{cours.heureFin|date('H:i')}} - Salle {{cours.salle}}</div>
             </a>

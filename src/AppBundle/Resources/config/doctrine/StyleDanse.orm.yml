@@ -22,15 +22,8 @@ AppBundle\Entity\StyleDanse:
     manyToMany:
         typeDanses:
             targetEntity:   AppBundle\Entity\TypeDanse
-            inversedBy: styleDanses
-            joinTable:
-                name: styledanse_typedanse
-                joinColumns:
-                    styleDanse_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    typeDanse_id:
-                        referencedColumnName: id
+            mappedBy: styleDanses
+            
 
 
     lifecycleCallbacks: {  }

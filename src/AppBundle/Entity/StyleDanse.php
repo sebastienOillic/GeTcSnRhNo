@@ -28,7 +28,7 @@ class StyleDanse
      * StyleDanse constructor
      * @param $typeDanses
      */
-    public function __construct($typeDanses)
+    public function __construct()
     {
         $this->typeDanses = new ArrayCollection();
     }

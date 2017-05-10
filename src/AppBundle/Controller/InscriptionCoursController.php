@@ -16,11 +16,9 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class InscriptionCoursController extends Controller
 {
-    public function indexAction(Cours $id)
+    public function indexAction(Cours $cours)
     {
-        $cours = $this->getDoctrine()
-            ->getRepository('AppBundle:Cours')
-            ->find($id);
+        
 
         $user = $this->container->get('security.context')->getToken()->getUser();
 
