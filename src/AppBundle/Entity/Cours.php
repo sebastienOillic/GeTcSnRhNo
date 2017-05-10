@@ -62,7 +62,6 @@ class Cours
         $this->animateurs = new ArrayCollection();
     }
 
-
     /**
      * @return ArrayCollection
      */
@@ -71,7 +70,6 @@ class Cours
         return $this->danseurs;
     }
 
-
     /**
      * @return ArrayCollection
      */
@@ -79,8 +77,6 @@ class Cours
     {
         return $this->animateurs;
     }
-
-
 
     /**
      * @return mixed

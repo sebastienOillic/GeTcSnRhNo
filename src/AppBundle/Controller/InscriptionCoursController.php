@@ -24,17 +24,13 @@ class InscriptionCoursController extends Controller
                 ->getToken()
                 ->getUser();
                 //->getId();
-        
-        return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
-            'user' => $user,
-        ));
 
         $em = $this->getDoctrine()->getManager();
         $cours = $em->getRepository('AppBundle:Cours')->findById($id);
-var_dump($cours);
-die();
+        
         return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
             'cours' => $cours,
+            'user' => $user,
         ));
     } 
 
@@ -43,11 +39,11 @@ die();
         $danseur = new User();
 
         $form = $this->createForm('AppBundle\Form\CoursType', $danseur)
-                 ->add ('save', new SubmitType(),[
-                     'attr'=>[
-                         'class'=>"btn btn-sm btn-success",
-                     ]
-                 ]);                           
+                ->add ('save', new SubmitType(),[
+                        'attr'=>[
+                          'class'=>"btn btn-sm btn-success",
+                        ]
+                ]);                           
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){

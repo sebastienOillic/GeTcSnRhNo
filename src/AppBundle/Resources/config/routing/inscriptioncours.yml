@@ -1,13 +1,11 @@
 app_inscriptionCours_index:
-    path: /
+    path: /{id}
     defaults: { _controller: AppBundle:InscriptionCours:index }
-
-#app_inscriptionCours_listeCours:
- #   path: /
-  #  defaults: { _controller: AppBundle:InscriptionCours:index }
-
+    requirements:
+        id: \d+    
+        
 app_inscriptionCours_add:
-    path: /add
+    path: /add/{id}
     defaults: { _controller: AppBundle:InscriptionCours:add }
     requirements:
         id: \d+

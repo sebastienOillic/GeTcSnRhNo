@@ -49,7 +49,7 @@ class CoursController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($cours); 
-            $em->flush($cours);
+            $em->flush();
 
             return $this->redirect($this->generateUrl('app_cours_liste'));    
         }
