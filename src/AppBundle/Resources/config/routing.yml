@@ -23,8 +23,8 @@ app_animateur:
 #    resource: "@AppBundle/Resources/config/routing/avis.yml"
 #    prefix: /avis
 
-app_typeDanse:
-    resource: routing/typeDanse.yml
+app_typedanse:
+    resource: routing/typedanse.yml
     prefix: /typedanse
 
 app_styledanse:

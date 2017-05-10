@@ -62,7 +62,7 @@ AppBundle\Entity\Cours:
         danseurs:
             targetEntity: AppBundle\Entity\User
             mappedBy: cours
-#            mappedBy: animateurs
+#           mappedBy: animateurs
 
         animateurs:
             targetEntity:   AppBundle\Entity\User
