@@ -6,6 +6,7 @@ use AppBundle\Entity\TypeDanse;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Niveau;
 use AppBundle\Entity\Salle;
+use AppBundle\Entity\Evenement;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -66,6 +67,16 @@ class CoursRepository extends EntityRepository
             ->where($qb->expr()->eq('c.user', ':user'))
             ->getQuery()
             ->setParameter('user', $user)
+            ->getResult();
+     }
+
+     public function findByEvent(Evenement $evenement){
+         $qb = $this->createQueryBuilder('c');
+
+        return $qb
+            ->where($qb->expr()->eq('c.evenement', ':event'))
+            ->getQuery()
+            ->setParameter('event', $evenement)
             ->getResult();
      }
 }
