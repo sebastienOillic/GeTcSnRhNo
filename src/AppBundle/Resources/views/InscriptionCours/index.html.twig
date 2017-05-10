@@ -15,15 +15,15 @@
 
 
 <div class="col-sm-11">
-<p> Le cours dans lequel voulez vous inscrire est : </p>
+<p> Le cours dans lequel vous voulez inscrire est : </p>
 
     <b>{{cours.typeDanse}}  {{cours.niveau}}</b>
     <br/> {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('h:m')}}-{{cours.heureFin|date('h:m')}} Salle {{cours.salle}}
 
 </div>
 
-{#<a href="{{path('app_inscriptionCours_add')}}" class="btn btn-sm btn-default">Confirmer</a>#}
-{#<a href="{{path('app_cours_liste')}}" class="btn btn-sm btn-default">Annuler</a>#}
+<a href="{{path('app_inscriptionCours_add', { 'id': cours.id })}}" class="btn btn-sm btn-default">Confirmer</a>
+<a href="{{path('app_cours_liste')}}" class="btn btn-sm btn-default">Annuler</a>
 
 {% else %}
 <p>Veuillez connecter ou créer votre compte </p>

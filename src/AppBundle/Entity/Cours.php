@@ -56,7 +56,7 @@ class Cours
      */
     public function getDanseurs()
     {
-        return $this->danseurs;
+        return $this->typeDanse;
     }
 
 
@@ -95,6 +95,11 @@ class Cours
         $this->avis = new ArrayCollection();
         $this->danseurs = new ArrayCollection();
         $this->animateurs = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return "cours";
     }
 
 

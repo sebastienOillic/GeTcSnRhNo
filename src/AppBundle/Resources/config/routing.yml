@@ -15,7 +15,7 @@ app_avis:
 
 app_inscriptionCours:
     resource: "@AppBundle/Resources/config/routing/inscriptioncours.yml"
-    prefix: /cours/liste
+    prefix: /cours/liste/inscriptioncours
 
 app_typeDanse:
     resource: routing/typeDanse.yml
