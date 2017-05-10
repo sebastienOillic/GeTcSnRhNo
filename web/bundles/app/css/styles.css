@@ -10,6 +10,9 @@ h2{
     color: #8A0507;
     text-align: center;
 }
+h3{
+    text-shadow: 1px 1px 2px #000;
+}
 #container{
     margin:10px;
 }
@@ -88,6 +91,7 @@ header {
     margin:10px;
     margin-left:2px;
     height: 500px;
+    padding:10px;
 }
 .listedanses a:link, a:visited{
     color:#FFF;
@@ -103,13 +107,16 @@ header {
 }
 
 .orange{
-    background-color:orange;
+    background-color:#ffa500;
 }
 .tomato{
     background-color:tomato;
 }
 .firebrick{
     background-color:firebrick;
+}
+.yellow{
+    background-color:#f8ff3d;
 }
 
 .listetypesdanse li{
@@ -128,7 +135,6 @@ listetypesdanse ul,li a:hover{
     text-decoration: none;
 }
 
-
 #topnavigbar {
     background-color: #AB252B;
     border-radius: 10px;
@@ -139,9 +145,24 @@ listetypesdanse ul,li a:hover{
 #topnavigbar a:link, a:visited{ 
     color: #FFF;
 }
+#topnavigbar a:hover{
+    color: pink;
+    text-shadow: 1px 1px 1px #000;
+}
+
 #bottomnavigbar a:link, a:visited{ 
     color: #AB252B;
 }
+#bottomnavigbar a:hover{ 
+    color: red;
+    text-shadow: 1px 1px 1px #000;
+}
+#topnavigbar a:active,
+#bottomnavigbar a:active{ 
+    color: black;
+}
+
+
 
 .navigbar ul{
     text-align:center;
@@ -151,5 +172,28 @@ listetypesdanse ul,li a:hover{
 .navigbar li {
     display:inline-block;
     margin: 0 20px;
+}
+
+footer{
+    background-color:#FFF7CC;
+}
+
+.bouton_cours{
+    margin:10px;
+    padding:10px;
+    border-radius: 10px;
+}
+.bouton_cours a{
+    color:#000;
+    text-shadow: 1px 1px 2px #FFF;
+}
+
+.bouton_cours a:hover{
+    color:grey;
+    text-decoration: none;
+}
+
+.titrecours{
+    font-size:24px;
 }
 

@@ -2,38 +2,57 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Entity\Cours;
+use AppBundle\Entity\User;
+use AppBundle\Form\InscriptionCoursType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class InscriptionCoursController
- * @package ApppBundle\Controller
+ * @package AppBundle\Controller
  */
 class InscriptionCoursController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Cours $cours)
     {
-        return $this->render('AppBundle:InscriptionCours:index.html.twig');  
-    } 
+        
 
-    /**
-    * Add action.
-    */
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
+        return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
+            'cours' => $cours,
+            'user' => $user
+        ));
+
+    }
+
     public function addAction(Request $request)
     {
-       
-        return $this->render('AppBundle:InscriptionCours:add.html.twig');  
-        
-    }
+        $danseur = new User();
 
-    /**
-    * Cancel action.
-    */
-    public function cancelAction(Request $request)
-    {
-        return $this->render('AppBundle:InscriptionCours:cancel.html.twig');  
-        
-    }
+        $form = $this->createForm('AppBundle\Form\CoursType', $danseur)
+                 ->add ('save', new SubmitType(),[
+                     'attr'=>[
+                         'class'=>"btn btn-sm btn-success",
+                     ]
+                 ]);                           
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($danseur); 
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('app_inscriptionCours_add'));    
+        }
+
+        return $this->render('AppBundle:InscriptionCours:add.html.twig', [
+            'form' => $form->createView(),
+        ]);
+   }
 
 }

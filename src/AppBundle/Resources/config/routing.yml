@@ -19,7 +19,7 @@ app_inscriptionCours:
 #    prefix: /avis
 
 app_typeDanse:
-    resource: routing/typeDanse.yml
+    resource: routing/typedanse.yml
     prefix: /typedanse
 
 app_styledanse:
@@ -60,4 +60,13 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
+
+app_qsn:
+    path: /quisommesnous
+    defaults: { _controller: AppBundle:Accueil:quisommesnous }
+
+app_mentionslegales:
+    path: /mentionslegales
+    defaults: { _controller: AppBundle:Accueil:mentionslegales }
 

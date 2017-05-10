@@ -15,7 +15,7 @@ class Salle
     private $id;
 
     /**
-     * @var int
+     * @var string
      */
     private $nom;
 

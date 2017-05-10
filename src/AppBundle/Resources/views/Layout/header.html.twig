@@ -23,11 +23,8 @@
             {% if is_granted("ROLE_RESPONSABLE") %}
                 <a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a>
             {% endif %}
-
         </div>
     </div>
     {# Navbar #}
     {% include "AppBundle:Layout:navbar.html.twig" %}
 </header>
-
-

@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\StyleDanse;
-//use AppBundle\Form\StyleDanseType;
+use AppBundle\Form\StyleDanseType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,6 @@ class StyleDanseController extends Controller
 
         $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
 
-        // src/AppBundle/Resources/views/index.html.twig
         return $this->render('AppBundle:StyleDanse:index.html.twig', array(
             'stylesDanse' => $stylesDanses,
         ));
@@ -41,7 +40,6 @@ class StyleDanseController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            
             $em->persist($styleDanse);
             $em->flush();
 

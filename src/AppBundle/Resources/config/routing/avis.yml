@@ -1,4 +1,24 @@
-#accueil_home:
-#    path: /
-#    defaults: { _controller: AppBundle:Accueil:home }
-# new, show edit delete
+avis_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Avis:index" }
+    methods:  GET
+
+avis_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Avis:show" }
+    methods:  GET
+
+avis_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Avis:new" }
+    methods:  [GET, POST]
+
+avis_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Avis:edit" }
+    methods:  [GET, POST]
+
+avis_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Avis:delete" }
+    methods:  DELETE

@@ -60,7 +60,6 @@ class Evenement
         $this->image = $image;
     }
 
-
     /**
      * Get id
      *

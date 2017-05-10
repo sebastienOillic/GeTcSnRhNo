@@ -1,4 +1,3 @@
-
 security:
     access_denied_url: /
     role_hierarchy:

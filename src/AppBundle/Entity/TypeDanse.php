@@ -4,52 +4,36 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
- * TypeDanse
- */
+* TypeDanse
+*/
 class TypeDanse
 {
     /**
      * @var int
      */
-    private $id;
-
+    private $id;    
     /**
      * @var string
      */
-    private $nom;
 
-    private $styleDanses;
-
-    private $description;
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getStyleDanses()
-    {
-        return $this->styleDanses;
-    }
-
-    /**
-     * @param ArrayCollection $styleDanses
-     */
-    public function setStyleDanses($styleDanses)
-    {
-        $this->styleDanses = $styleDanses;
-    }
-
+    private $nom;    
+    private $styleDanses;    
+    private $users;    
+    private $description;    
+  
     /**
      * TypeDanse constructor.
      * @param $styleDanses
      */
-    public function __construct($styleDanses)
+    public function __construct()
     {
         $this->styleDanses = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
-
-
+    
     /**
      * TypeDanse toString
      * @return string
@@ -57,9 +41,42 @@ class TypeDanse
     public function __toString()
     {
         return $this->nom;
-    }
-
-
+    }    
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }    
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }    
+    /**
+     * @return ArrayCollection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }    
+    /**
+     * @return ArrayCollection
+     */
+    public function getStyleDanses()
+    {
+        return $this->styleDanses;
+    }    
+    /**
+     * @param ArrayCollection $styleDanses
+     */
+    public function setStyleDanses($styleDanses)
+    {
+        $this->styleDanses = $styleDanses;
+    }    
     /**
      * Get id
      *
@@ -68,8 +85,7 @@ class TypeDanse
     public function getId()
     {
         return $this->id;
-    }
-
+    } 
     /**
      * Set nom
      *
@@ -79,10 +95,8 @@ class TypeDanse
     public function setNom($nom)
     {
         $this->nom = $nom;
-
         return $this;
     }
-
     /**
      * Get nom
      *
@@ -93,34 +107,9 @@ class TypeDanse
         return $this->nom;
     }
 
-     /**
-     * Set description
-     *
-     * @param string $description
-     * @return TypeDanse
-     */
-    public function setDescription($description)
-    {
-        $this->descrition = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
     public function addStyleDanse(StyleDanse $styleDanse)
     {
-
-        if (!$this->styleDanses->contains($styleDanse)) {
-
+        if (!$this->styleDanses->contains($styleDanse)) {            
             $this->styleDanses->add($styleDanse);
             $styleDanse->addTypeDanse($this);
         }
@@ -129,14 +118,8 @@ class TypeDanse
 
     public function removeStyleDanse(StyleDanse $styleDanse)
     {
-
-
         if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-
+            $this->users->removeElement($user);        
         }
-
         return $this;
-    }
-
-}
+    }}

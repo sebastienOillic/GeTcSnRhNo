@@ -1,0 +1,47 @@
+AppBundle\Entity\TypeDanse:
+    type: entity
+    table: typeDanse
+    repositoryClass: AppBundle\Repository\TypeDanseRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+            unique: true
+            
+        description:
+            type: text
+            unique: false
+            nullable: true
+    
+    manyToMany:
+        styleDanses:
+            targetEntity: AppBundle\Entity\StyleDanse
+            inversedBy: typeDanses
+            joinTable:
+                name: styledanse_typedanse
+                joinColumns:
+                    typeDanse_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    styleDanse_id:
+                        referencedColumnName: id
+
+        users:
+            targetEntity:   AppBundle\Entity\User
+            inversedBy: typeDanses
+            joinTable:
+                name: typedanse_user
+                joinColumns:
+                    typeDanse_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    animateurPotentiel_id:
+                        referencedColumnName: id
+                        
+    lifecycleCallbacks: {  }
