@@ -3,7 +3,7 @@
 {# Pour chaque coours #} {% for cours in cours %}
 <div class="row cours">
     <div class="col-sm-11">
-        <a href="{{ path('app_inscriptionCours_index') }}" class="btn btn-xs btn-danger">
+        <a href="{{ path('app_inscriptionCours_index', { 'id': cours.id }) }}" class="btn btn-xs btn-danger">
             <b>{{cours.typeDanse}}  {{cours.niveau}}</b><br /> {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('H:i')}}-{{cours.heureFin|date('H:i')}} Salle {{cours.salle}}
         </a>
     </div>
