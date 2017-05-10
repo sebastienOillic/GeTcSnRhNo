@@ -145,9 +145,24 @@ listetypesdanse ul,li a:hover{
 #topnavigbar a:link, a:visited{ 
     color: #FFF;
 }
+#topnavigbar a:hover{
+    color: pink;
+    text-shadow: 1px 1px 1px #000;
+}
+
 #bottomnavigbar a:link, a:visited{ 
     color: #AB252B;
 }
+#bottomnavigbar a:hover{ 
+    color: red;
+    text-shadow: 1px 1px 1px #000;
+}
+#topnavigbar a:active,
+#bottomnavigbar a:active{ 
+    color: black;
+}
+
+
 
 .navigbar ul{
     text-align:center;

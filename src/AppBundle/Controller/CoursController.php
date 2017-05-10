@@ -10,28 +10,26 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CoursController extends Controller
 {
- /*   public function indexAction()
+    public function listeAction()
     {
-        return $this->render('AppBundle::index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $cours = $em->getRepository('AppBundle:Cours')->findByDate();
+
+        return $this->render('AppBundle:Cours:listeCours.html.twig', array(
+            'cours' => $cours,
+        ));
     }
-    /**
-     * Create action.
-     */
-   public function listeAction()
+
+    public function oldAction()
     {
-		$cours = $this->findCours();
-        //$mode = false;
-		
-        return $this->render('AppBundle:Cours:listeCours.html.twig', [
-		    'cours' => $cours, 
-            //'form' => $form->createView(),
-			//'mode'=> $mode,
-        ]);
+        $em = $this->getDoctrine()->getManager();
+        $cours = $em->getRepository('AppBundle:Cours')->findByOldDate();
+
+        return $this->render('AppBundle:Cours:oldCours.html.twig', array(
+            'cours' => $cours,
+        ));
     }
-    
-	/**
-     * Add action.
-     */
+
     public function addAction(Request $request)
     {
         $cours = new Cours();
@@ -51,63 +49,11 @@ class CoursController extends Controller
         
             return $this->redirect($this->generateUrl('app_cours_liste'));    
         }
-
-		//$contacts = $this->findContacts();
-		//$mode = false;
 		
         return $this->render('AppBundle:Cours:createCours.html.twig', [
-		   // 'contacts' => $contacts, 
             'form' => $form->createView(),
-			//'mode'=> $mode,
         ]);
     }
-	
-	/**
-     * Edit action.
-     */
-   /* public function editAction(Request $request, $id)
-    {
-        $contact = $this
-		    ->getDoctrine()
-            ->getRepository('AppBundle:Contact')
-            ->findOneBy(['id'=>$id]);
-			
-        $editForm = $this
-                ->createForm(new ContactType(), $contact);
-				
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('App_liste');
-        }
-         
-		$contacts = $this->findContacts();
-		//$mode = false; 
-		 
-        return $this->render('AppBundle::ajout.html.twig', array(
-            'contacts' => $contacts,
-            'form' => $editForm->createView(),
-			//'mode'=> $mode,
-        ));
-    }
-	
-	/**
-     * Delete action.
-     */
- /*   public function deleteAction($id)
-    {
-        $contact = $this->findById($id);
-			
-		$contact->setTrashed(true);
-		
-		$em = $this->getDoctrine()->getManager();
-        $em->persist($contact); 
-        $em->flush($contact);
-
-        return $this->redirectToRoute('App_liste');
-    }*/
 	
     public function findCours()
 	{
@@ -116,6 +62,7 @@ class CoursController extends Controller
             ->getRepository('AppBundle:Cours')
             ->findAll(); 
 	}
+    
 	public function findById($id)
 	{
 	    return $this

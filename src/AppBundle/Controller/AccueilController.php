@@ -28,4 +28,12 @@ class AccueilController extends Controller
             'stylesDanse' => $stylesDanses,
         ));
     }
+    public function quisommesnousAction()
+    {
+        return $this->render('AppBundle:Accueil:quisommesnous.html.twig');
+    }
+    public function mentionslegalesAction()
+    {
+        return $this->render('AppBundle:Accueil:mentionslegales.html.twig');
+    }
 }

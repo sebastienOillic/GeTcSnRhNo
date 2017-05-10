@@ -6,7 +6,10 @@ use AppBundle\Entity\TypeDanse;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Niveau;
 use AppBundle\Entity\Salle;
+use AppBundle\Entity\Cours;
+
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * CoursRepository
@@ -57,16 +60,27 @@ class CoursRepository extends EntityRepository
             ->setParameter('user', $user)
             ->getResult();
      }
-
-     public function findByDanseur(User $user)
+     public function findByDate()
      {
-        $qb = $this->createQueryBuilder('u');
+        $currentdate = new \DateTime(); //Date du jour
 
-        return $qb
-            ->where($qb->expr()->eq('c.user', ':user'))
+        return $this->createQueryBuilder('cours')
+            ->select('cours')
+            ->where('cours.dateCours >= :date')
+            ->setParameter(':date', $currentdate->format('Y-m-d'))
             ->getQuery()
-            ->setParameter('user', $user)
             ->getResult();
-     }
-}
+    }
 
+    public function findByOldDate()
+    {
+        $currentdate = new \DateTime(); //Date du jour
+
+        return $this->createQueryBuilder('cours')
+            ->select('cours')
+            ->where('cours.dateCours < :date')
+            ->setParameter(':date', $currentdate->format('Y-m-d'))
+            ->getQuery()
+            ->getResult();
+    }
+}
