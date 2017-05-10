@@ -1,12 +1,50 @@
 {% extends '::base.html.twig' %} {% block content %}
-<h1>Voici votre liste de cours</h1>
-{# Pour chaque coours #} {% for cours in cours %}
+
+
+<div class="col-sm-11">
+        <h1>Nos prochains cours</h1>
+</div>
+<div class="col-sm-1">
+    {% if is_granted("ROLE_RESPONSABLE") %}
+    {# Bouton d'ajout #}
+    <a href="{{ path('app_cours_add') }}" class="btn btn-xs btn-success">
+        <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+    {% endif %}
+</div>
+
+{# Pour chaque cours #} 
+{% set number = 0 %}
+{% for cours in cours %}
 <div class="row cours">
     <div class="col-sm-11">
-        <a href="{{ path('app_inscriptionCours_index', { 'id': cours.id }) }}" class="btn btn-xs btn-danger">
-            <b>{{cours.typeDanse}}  {{cours.niveau}}</b><br /> {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('H:i')}}-{{cours.heureFin|date('H:i')}} Salle {{cours.salle}}
+        <a href="{{ path('app_inscriptionCours_index', { 'id': cours.id }) }}" 
+            class="btn btn-xs btn-danger">
+            <b>{{cours.typeDanse}}  {{cours.niveau}}</b
+            <br />{{cours.dateCours|date('d-m-Y')}} - 
+                {{cours.heureDebut|date('H:i')}}-
+                {{cours.heureFin|date('H:i')}} 
+                Salle {{cours.salle}}
         </a>
+        {% set number = number+1 %}
+        {% if number %2 == 0 %}
+            <div class="bouton_cours yellow">
+        {% else %}
+            <div class="bouton_cours orange">
+        {% endif %}
+            <a href="{{path('app_inscriptionCours_index', {id:cours.id})}}">
+                <div class = "titrecours">{{cours.typeDanse|upper}}  
+                    {{cours.niveau|capitalize}}</div>
+                <div class = "detailscours">
+                    {{cours.dateCours|date("d/m/Y", "Europe/Paris")}} 
+                    de {{cours.heureDebut|date('H:i')}} à {{cours.heureFin|date('H:i')}} - 
+                    Salle {{cours.salle}}</div>
+            </a>
+        </div>
+
     </div>
+
+    {% if is_granted("ROLE_RESPONSABLE") %}
     <div class="col-sm-1">
         <p>
             {# Bouton d'ajout #}
@@ -24,6 +62,12 @@
             </a>
         </p>
     </div>
+    {% endif %}
 </div>
+<<<<<<< HEAD
 
 {% endfor %} {% endblock %}
+=======
+{% endfor %} 
+{% endblock %}
+>>>>>>> dev

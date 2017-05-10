@@ -14,7 +14,6 @@ AppBundle\Entity\StyleDanse:
             length: 255
             unique: true
 
-
         description:
             type: text
             unique: false
@@ -23,15 +22,8 @@ AppBundle\Entity\StyleDanse:
     manyToMany:
         typeDanses:
             targetEntity:   AppBundle\Entity\TypeDanse
-            inversedBy: styleDanses
-            joinTable:
-                name: styleDanse_typeDanse
-                joinColumns:
-                    styleDanse_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    typeDanse_id:
-                        referencedColumnName: id
+            mappedBy: styleDanses
+            
 
 
     lifecycleCallbacks: {  }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace AppBundle\Entity;
@@ -27,7 +28,6 @@ class User extends BaseUser
 
     private $typeDanses;
 
-    private $adherent;
 
     /**
      * TypeDanse toString
@@ -171,28 +171,7 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * Set adherent
-     *
-     * @param bool $adherent
-     *
-     * @return 
-     */
-    public function setAdherent($adherent)
-    {
-        $this->adherent = (bool)$adherent;
 
-        return $this;
-    }
 
-    /**
-     * Get adherent
-     *
-     * @return bool
-     */
-    public function getAdherent()
-    {
-        return $this->adherent;
-    }
 
-}
+

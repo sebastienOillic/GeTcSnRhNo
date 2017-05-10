@@ -4,10 +4,11 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
- * TypeDanse
- */
+* TypeDanse
+*/
 class TypeDanse
 {
     /**
@@ -15,13 +16,9 @@ class TypeDanse
      */
     private $id;
 
-    /**
-     * @var string
-     */
     private $nom;
 
     private $styleDanses;
-
 
     private $users;
 
@@ -53,8 +50,7 @@ class TypeDanse
     {
         return $this->description;
     }
-
-
+    
     /**
      * @param mixed $description
      */
@@ -69,8 +65,7 @@ class TypeDanse
     public function getUsers()
     {
         return $this->users;
-    }
-
+    }    
     /**
      * @return ArrayCollection
      */
@@ -78,7 +73,6 @@ class TypeDanse
     {
         return $this->styleDanses;
     }
-
     /**
      * @param ArrayCollection $styleDanses
      */
@@ -86,7 +80,6 @@ class TypeDanse
     {
         $this->styleDanses = $styleDanses;
     }
-
 
     /**
      * Get id
@@ -96,8 +89,12 @@ class TypeDanse
     public function getId()
     {
         return $this->id;
-    }
+    } 
 
+    public function setId()
+    {
+        $this->id=$id;
+    } 
     /**
      * Set nom
      *
@@ -107,10 +104,8 @@ class TypeDanse
     public function setNom($nom)
     {
         $this->nom = $nom;
-
         return $this;
     }
-
     /**
      * Get nom
      *
@@ -123,9 +118,7 @@ class TypeDanse
 
     public function addStyleDanse(StyleDanse $styleDanse)
     {
-
         if (!$this->styleDanses->contains($styleDanse)) {
-
             $this->styleDanses->add($styleDanse);
             $styleDanse->addTypeDanse($this);
         }
@@ -134,14 +127,8 @@ class TypeDanse
 
     public function removeStyleDanse(StyleDanse $styleDanse)
     {
-
-
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
-
         }
-
         return $this;
     }
-
-}

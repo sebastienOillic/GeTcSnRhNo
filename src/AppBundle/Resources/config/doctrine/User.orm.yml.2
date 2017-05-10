@@ -1,0 +1,40 @@
+AppBundle\Entity\User:
+    type:  entity
+    table: fos_user
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 56
+
+        prenom:
+            type: string
+            length: 56
+
+        sexe:
+            type: string
+            length: 56
+
+
+
+    manyToMany:
+        cours:
+            targetEntity: AppBundle\Entity\Cours
+            mappedBy: danseurs
+#            mappedBy: animateurs
+
+
+        typeDanses:
+            targetEntity: AppBundle\Entity\TypeDanse
+            mappedBy: users
+
+        coursAnimes:
+            targetEntity: AppBundle\Entity\Cours
+            mappedBy: animateurs
+
+
+    lifecycleCallbacks: {  }

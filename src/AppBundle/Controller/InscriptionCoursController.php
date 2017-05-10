@@ -60,3 +60,4 @@ class InscriptionCoursController extends Controller
 }
 
 
+

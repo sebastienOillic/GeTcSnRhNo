@@ -22,9 +22,13 @@ class Avis
     private $cours;
 
     private $user;
-//lien unique
-    private $slug;
 
+    private $slug; //lien unique
+
+
+    public function __toString() {
+        return $this->getCours();
+    }
     /**
      * @return mixed
      */
@@ -91,6 +95,8 @@ class Avis
         return $this->commentaire;
     }
 
+
+
     /**
      * Set user
      *
@@ -113,5 +119,5 @@ class Avis
     {
         return $this->user;
     }
-
 }
+

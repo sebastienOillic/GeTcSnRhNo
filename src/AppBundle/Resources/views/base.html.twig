@@ -4,17 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="icon" href="/favicon.ico">
-
     <title>{% block title 'Administration' %}</title>
-
     {% block stylesheets %}
         <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('bundles/app/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
         <link href="{{ asset('bundles/app/css/admin.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/app/css/slider.css') }}" rel="stylesheet">
     {% endblock stylesheets %}
-
     <!--[if lt IE 9]>
     <script src="{{ asset('bundles/app/js/html5shiv.min.js') }}"></script>
     <script src="{{ asset('bundles/app/js/respond.min.js') }}"></script>
@@ -24,8 +21,6 @@
 <body>
 
     {% include 'AppBundle:Layout:navbar.html.twig' %}
-
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
@@ -33,7 +28,6 @@
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 {% include 'AppBundle:Layout:flashes.html.twig' %}
-
                 {% block content %}{% endblock content %}
             </div>
         </div>

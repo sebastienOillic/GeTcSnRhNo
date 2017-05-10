@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 
+
 class EvenementType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -23,7 +24,11 @@ class EvenementType extends AbstractType
             ])
             ->add('description', TextareaType::class, [
                 'label'     => 'Description',
-                'required'  => true
+                'required'  => true,
+                'attr'      => [
+                    'rows'  => '10',
+                    'cols'  => '40'
+                ]
             ])
             ->add('lieu', TextType::class, [
                 'label'     => 'Lieu',
@@ -39,7 +44,8 @@ class EvenementType extends AbstractType
             ])
             ->add('image', FileType::class, [
                 'label'     => 'Affiche / Poster (fichier jpg ou jpeg)',
-                'required'  => false
+                'required'  => false,
+                'data_class'=> null
             ]);
     }
 
@@ -49,6 +55,4 @@ class EvenementType extends AbstractType
             'data_class' => \AppBundle\Entity\Evenement::class,
         ));
     }
-
-    
 }

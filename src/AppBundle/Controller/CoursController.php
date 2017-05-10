@@ -12,27 +12,26 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CoursController extends Controller
 {
- /*   public function indexAction()
-    {
-        return $this->render('AppBundle::index.html.twig');
-    }
-    /**
-     * Create action.
-     */
-
-
     public function listeAction()
     {
-		$cours = $this->findCours();
-		
-        return $this->render('AppBundle:Cours:listeCours.html.twig', [
-		    'cours' => $cours, 
-        ]);
+        $em = $this->getDoctrine()->getManager();
+        $cours = $em->getRepository('AppBundle:Cours')->findByDate();
+
+        return $this->render('AppBundle:Cours:listeCours.html.twig', array(
+            'cours' => $cours,
+        ));
     }
 
-	/**
-     * Add action.
-     */
+    public function oldAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cours = $em->getRepository('AppBundle:Cours')->findByOldDate();
+
+        return $this->render('AppBundle:Cours:oldCours.html.twig', array(
+            'cours' => $cours,
+        ));
+    }
+
     public function addAction(Request $request)
     {
         $cours = new Cours();
@@ -59,56 +58,6 @@ class CoursController extends Controller
         ]);
     }
 
-    
-	
-	/**
-     * Edit action.
-     */
-    public function editAction(Request $request, $id)
-    {
-        $cours = $this
-		    ->getDoctrine()
-            ->getRepository('AppBundle:Cours')
-            ->findOneBy(['id'=>$id]);
-			
-        $form = $this
-                ->createForm(new CoursType(), $cours)
-				->add ('save', new SubmitType(),[
-                     'attr'=>[
-                         'class'=>"btn btn-sm btn-success",
-                     ]
-                 ]);   
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('app_cours_liste');
-        }
-         
-		$cours = $this->findCours();
-		 
-        return $this->render('AppBundle:Cours:createCours.html.twig', array(
-            'cours' => $cours,
-            'form' => $form->createView(),
-        ));
-    }
-	
-	/**
-     * Delete action.
-     */
-    public function deleteAction($id)
-    {
-        $cours = $this->findById($id);
-
-		$em = $this->getDoctrine()->getManager();
-        $em->remove($cours);
-        $em->flush();
-
-        return $this->redirectToRoute('app_cours_liste');
-    }
-	
     public function findCours()
 	{
 	    return $this
@@ -116,6 +65,7 @@ class CoursController extends Controller
             ->getRepository('AppBundle:Cours')
             ->findAll(); 
 	}
+    
 	public function findById($id)
 	{
 	    return $this

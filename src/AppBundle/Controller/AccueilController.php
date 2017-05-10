@@ -19,17 +19,22 @@ class AccueilController extends Controller
      */
     public function homeAction()
     {
-        $styleDanses = $this
-            ->getDoctrine()
-            ->getRepository('AppBundle:StyleDanse')
-            ->findAll();
+        $em = $this->getDoctrine()->getManager();
 
+        $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
+
+        // src/AppBundle/Resources/views/index.html.twig
         return $this->render('AppBundle:Accueil:home.html.twig', array(
-            'stylesDanses' => $styleDanses,
+            'stylesDanse' => $stylesDanses,
         ));
-
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:Accueil:home.html.twig');
+    }
+    public function quisommesnousAction()
+    {
+        return $this->render('AppBundle:Accueil:quisommesnous.html.twig');
+    }
+    public function mentionslegalesAction()
+    {
+        return $this->render('AppBundle:Accueil:mentionslegales.html.twig');
     }
 }
 

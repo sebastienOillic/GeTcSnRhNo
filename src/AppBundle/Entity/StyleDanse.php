@@ -40,8 +40,10 @@ class StyleDanse
         return $this->nom;
     }
 
+
+
+
     /**
-     * @return mixed
      * @return ArrayCollection
      */
     public function getDescription()
@@ -73,7 +75,6 @@ class StyleDanse
     {
         $this->typeDanses = $typeDanses;
     }
-
 
     /**
      * Get id

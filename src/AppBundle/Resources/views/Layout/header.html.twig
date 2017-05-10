@@ -21,11 +21,13 @@
             <a class="btn btn-default" href="{{ path('fos_user_profile_show') }}">Profile</a> {% else %}
             <a class="btn btn-default" href="{{ path('fos_user_security_login') }}"><span
                             class="glyphicon glyphicon-log-in"></span>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}
-                </a> {% endif %} {% if is_granted("ROLE_RESPONSABLE") %}
-            <a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a> {% endif %}
-
+                </a>
+            {% endif %}
+            {% if is_granted("ROLE_RESPONSABLE") %}
+                <a href="{{ path('admin_index') }}" class="btn btn-default">Administration</a>
+            {% endif %}
         </div>
     </div>
-
+    {# Navbar #}
     {% include "AppBundle:Layout:navbar.html.twig" %}
 </header>

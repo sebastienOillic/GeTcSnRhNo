@@ -30,7 +30,7 @@
 
     <div id="container">
         {# Header #} {% block header %} {% include "AppBundle:Layout:header.html.twig" %} {% endblock %}
-
+        {% block flashbag %} {% include "AppBundle:Layout:flashes.html.twig" %} {% endblock %}
         <main>
             {# Content #} {% block content %} {% endblock %}
         </main>
