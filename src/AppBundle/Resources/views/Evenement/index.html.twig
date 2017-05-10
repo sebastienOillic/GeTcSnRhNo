@@ -1,9 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block content %}
 <h1>Agenda</h1>
-
-<a class="btn btn-success" href="{{ path('app_agenda_add') }}" role="button">Nouvel évenement</a>
-
 <div class="row">
     {% for event in events %}
         <div class="col-md-4 col-sm-6">
@@ -17,16 +14,16 @@
             <div>{{event.lieu}}</div>
             <p>{{event.description}}</p>
             <p>
-                <a class="btn btn-primary" href="#" role="button">Détails</a>
+                {% if is_granted('ROLE_REFERENT') %}
                 <a class="btn btn-warning" href="{{ path('app_agenda_edit', {id: event.id}) }}" role="button">Modifier</a>
 
                 <a class="btn btn-danger" href="{{ path('app_agenda_delete', {id: event.id}) }}" role="button">Supprimer</a>
-
+                {% endif %}
             </p>
         </div>
     {% endfor %}
 </div>
-
+{% if is_granted('ROLE_REFERENT') %}
 <a class="btn btn-success" href="{{ path('app_agenda_add') }}" role="button">Nouvel évenement</a>
-
+{% endif %}
 {% endblock %}

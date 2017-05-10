@@ -9,14 +9,14 @@ app_agenda_add:
     methods: [GET, POST]
 
 app_agenda_delete:
-    path:     /{id}/delete
+    path:     /delete/{id}
     defaults: { _controller: AppBundle:Evenement:delete}
     methods: [GET, POST]
     requirements:
         id: \d+
 
 app_agenda_edit:
-    path: /{id}/edit
+    path: /edit/{id}
     defaults: {_controller: AppBundle:Evenement:edit}
     methods: [GET, POST]
     requirements:

@@ -114,6 +114,11 @@ class EvenementController extends Controller
         if($evenement == NULL){
             return $this->redirectToRoute('app_agenda_index');
         }
+        $linkedToLessons = $em->getRepository('AppBundle:Cours')->findByEvent($evenement);
+        if ($linkedToLessons){
+            $this->addFlash('error', 'Un evenement ne peut pas être supprimé s\'il est lié à des cours. <br/>Veuillez supprimer les cours liés à cet evenement avant de pouvoir le supprimer.');
+            return $this->redirectToRoute('app_agenda_index');
+        }
         $form = $this->createDeleteForm($evenement);
         
         if ($evenement->getImage()){
