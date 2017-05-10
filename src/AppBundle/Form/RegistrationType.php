@@ -14,7 +14,7 @@ class RegistrationType extends AbstractType
         $builder->add('nom');
         $builder->add('prenom');
         $builder->add('sexe', 'choice', array(
-            'choices' => array('Homme'=> 'hommme', 'Femme'=>'femme'),
+            'choices' => array('Homme'=> 'homme', 'Femme'=>'femme'),
             'expanded' => true,
             'multiple' => false
         ));

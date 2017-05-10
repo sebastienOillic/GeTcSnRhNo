@@ -56,7 +56,7 @@ class Cours
      */
     public function getDanseurs()
     {
-        return $this->typeDanse;
+        return $this->danseurs;
     }
 
 

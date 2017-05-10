@@ -10,7 +10,7 @@ AppBundle\Entity\Cours:
                 strategy: AUTO
     fields:
         dateCours:
-            type: date
+            type: datetime
         heureDebut:
             type: time
         heureFin:
@@ -64,9 +64,16 @@ AppBundle\Entity\Cours:
 
     manyToMany:
         danseurs:
-            targetEntity: AppBundle\Entity\User
-            mappedBy: cours
-        #
+            targetEntity:   AppBundle\Entity\User
+            inversedBy: cours
+            joinTable:
+                name: cours_danseurs
+                joinColumns:
+                    cours_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_id:
+                        referencedColumnName: id
 
 
 

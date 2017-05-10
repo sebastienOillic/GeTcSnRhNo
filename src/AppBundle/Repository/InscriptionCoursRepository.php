@@ -30,6 +30,8 @@ class InscriptionCoursRepository extends EntityRepository
 
 
 
+
+
 //    public function findByDanseur(Cours $user)
 //    {
 //        $qb = $this->createQueryBuilder('i');
