@@ -3,14 +3,11 @@ security:
     role_hierarchy:
         ROLE_RESPONSABLE: [ROLE_ADMIN, ROLE_REFERENT]
         ROLE_REFERENT: ROLE_DANSEUR
-
     encoders:
             FOS\UserBundle\Model\UserInterface: bcrypt
-
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
-
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt))/
@@ -31,7 +28,6 @@ security:
                 path: fos_user_security_logout
                 target: app_home
             anonymous:    true
-
 
     access_control:
             # require ROLE_ADMIN for /admin*

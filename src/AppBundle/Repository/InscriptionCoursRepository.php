@@ -16,7 +16,6 @@ use Doctrine\ORM\EntityRepository;
 
 class InscriptionCoursRepository extends EntityRepository
 {
-
     public function findByCours(Cours $cours)
     {
         $qb = $this->createQueryBuilder('i');
@@ -27,4 +26,5 @@ class InscriptionCoursRepository extends EntityRepository
             ->setParameter('cours', $cours)
             ->getResult();
     }
+
 }
