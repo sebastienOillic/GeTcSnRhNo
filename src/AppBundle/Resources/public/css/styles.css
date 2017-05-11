@@ -4,134 +4,171 @@ body {
     background-color: #FFF7CC;
     background-color: #F7F2B2;
 }
-h2{
+
+h2 {
     font-size: 36px;
     font-family: "Dancing Script", cursive;
     color: #8A0507;
     text-align: center;
 }
-h3{
+
+h3 {
     text-shadow: 1px 1px 2px #000;
 }
-#container{
-    margin:10px;
+
+#container {
+    margin: 10px;
 }
+
+
+/****************************
 header {
     margin:0px;
+}*/
+
+header {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-.img-circle{
-    width:100px;
+
+.img-circle {
+    width: 100px;
 }
+
 #titreAccueil {
     font-size: 36px;
     font-family: "Dancing Script", cursive;
     color: #8A0507;
     text-align: center;
 }
-#titreAccueil a:link, a:visited {
+
+#titreAccueil a:link,
+a:visited {
     color: #8A0507;
-    text-decoration:none;
-}
-#titreAccueil a:hover{
-    color: #ff0000;
-    text-decoration:none;
+    text-decoration: none;
 }
 
-#danseAccueil{
+#titreAccueil a:hover {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+#danseAccueil {
     margin-top: 10px;
-    text-align:center;
-}
-
-#listeEvents {
-    border:solid 1px;
-    border-radius: 10px;
-    margin:10px;
-}
-.eventAccueil{
-    margin: 10px;
-    background-color:#FFF;
-    padding:5px;
-    border:solid 1px;
-    border-radius: 5px;
-}
-.eventAccueil a:link, a:visited {
-    color: #8A0507;
-    text-decoration:none;
-}
-.eventAccueil a:hover{
-    color: #ff0000;
-    text-decoration:none;
-}
-.imgEvent{
-    width:40%;
-    float:left;
-}
-.imgEvent img{
-    width:100px;
-    height:100px;
-}
-.eventDetail{
-    width:60%;
-    float:left;
-}
-.clearboth{
-    clear:both;
-}
-.reseauSocial {
-    width:100%;
-}
-.reseauSocial >p{
     text-align: center;
 }
 
-.listedanses{
-    color: #FFF;
-    border:solid 1px;
+#listeEvents {
+    border: solid 1px;
     border-radius: 10px;
-    margin:10px;
-    margin-left:2px;
+    margin: 10px;
+}
+
+.eventAccueil {
+    margin: 10px;
+    background-color: #FFF;
+    padding: 5px;
+    border: solid 1px;
+    border-radius: 5px;
+}
+
+.eventAccueil a:link,
+a:visited {
+    color: #8A0507;
+    text-decoration: none;
+}
+
+.eventAccueil a:hover {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.imgEvent {
+    width: 40%;
+    float: left;
+}
+
+.imgEvent img {
+    width: 100px;
+    height: 100px;
+}
+
+.eventDetail {
+    width: 60%;
+    float: left;
+}
+
+.clearboth {
+    clear: both;
+}
+
+.reseauSocial {
+    width: 100%;
+}
+
+.reseauSocial>p {
+    text-align: center;
+}
+
+.listedanses {
+    color: #FFF;
+    border: solid 1px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 2px;
     height: 500px;
-    padding:10px;
+    padding: 10px;
 }
-.listedanses a:link, a:visited{
-    color:#FFF;
-    text-decoration: none;
-}
-.listedanses a:visited{
-    color:#FFF ! important;
-    text-decoration: none;
-}
-.listedanses a:hover{
-    color:#d3d3d3;
+
+.listedanses a:link,
+a:visited {
+    color: #FFF;
     text-decoration: none;
 }
 
-.orange{
-    background-color:#ffa500;
-}
-.tomato{
-    background-color:tomato;
-}
-.firebrick{
-    background-color:firebrick;
-}
-.yellow{
-    background-color:#f0e68c;
+.listedanses a:visited {
+    color: #FFF ! important;
+    text-decoration: none;
 }
 
-.listetypesdanse li{
+.listedanses a:hover {
+    color: #d3d3d3;
+    text-decoration: none;
+}
+
+.orange {
+    background-color: #ffa500;
+}
+
+.tomato {
+    background-color: tomato;
+}
+
+.firebrick {
+    background-color: firebrick;
+}
+
+.yellow {
+    background-color: #F3F781;
+}
+
+.listetypesdanse li {
     text-align: left;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-listetypesdanse ul,li a:link, a:visited{
-    color:#FFF;
+
+listetypesdanse ul,
+li a:link,
+a:visited {
+    color: #FFF;
     text-decoration: none;
 }
 
-listetypesdanse ul,li a:hover{
-    color:#d3d3d3;
+listetypesdanse ul,
+li a:hover {
+    color: #d3d3d3;
     text-decoration: none;
 }
 
@@ -139,74 +176,80 @@ listetypesdanse ul,li a:hover{
     background-color: #AB252B;
     border-radius: 10px;
 }
-#topnavigbar a{ 
+
+#topnavigbar a {
     color: #FFF;
 }
-#topnavigbar a:link, a:visited{ 
+
+#topnavigbar a:link,
+a:visited {
     color: #FFF;
 }
-#topnavigbar a:hover{
+
+#topnavigbar a:hover {
     color: pink;
     text-shadow: 1px 1px 1px #000;
 }
 
-#bottomnavigbar a:link, a:visited{ 
+#bottomnavigbar a:link,
+a:visited {
     color: #AB252B;
 }
-#bottomnavigbar a:hover{ 
+
+#bottomnavigbar a:hover {
     color: red;
     text-shadow: 1px 1px 1px #000;
 }
+
 #topnavigbar a:active,
-#bottomnavigbar a:active{ 
+#bottomnavigbar a:active {
     color: black;
 }
 
+.navigbar ul {
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+}
 
-
-.navigbar ul{
-    text-align:center;
-    padding:5px;
-    font-size:20px;
-} 
 .navigbar li {
-    display:inline-block;
+    display: inline-block;
     margin: 0 20px;
 }
-<<<<<<< HEAD
 
-footer{
-    background-color:#FFF7CC;
+footer {
+    background-color: #FFF7CC;
 }
 
-.bouton_cours{
-    margin:10px;
-    padding:10px;
+.bouton_cours {
+    margin: 10px;
+    padding: 10px;
     border-radius: 10px;
 }
-.bouton_cours a{
-    color:#000;
+
+.bouton_cours a {
+    color: #000;
     text-shadow: 1px 1px 2px #FFF;
 }
 
-.bouton_cours a:hover{
-    color:grey;
+.bouton_cours a:hover {
+    color: grey;
     text-decoration: none;
 }
 
-.titrecours{
-    font-size:24px;
+.titrecours {
+    font-size: 24px;
 }
 
-.plandusite a:link,a:visited{
-    color:#000;
-}
-.plandusite a:hover{
-    color:#AB252B;
-}
-.plandusite a:active{
-    color:red;
+.plandusite a:link,
+a:visited {
+    color: #000;
 }
 
-=======
->>>>>>> dev
+.plandusite a:hover {
+    color: #AB252B;
+}
+
+.plandusite a:active {
+    color: red;
+}

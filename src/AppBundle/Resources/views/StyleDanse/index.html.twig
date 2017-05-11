@@ -44,7 +44,7 @@
                         <p>{{ styleDanse.description }}</p>
                         <ul class="listetypesdanse">
                             {% for typeDanse in styleDanse.getTypeDanses() %}
-                                <li><a href="/typedanse/{{typeDanse.id}}/show">{{typeDanse.nom|capitalize}}</a></li>
+                                <li><a href="{{ path('app_typeDanse_show',{ 'id': typeDanse.id }) }}">{{typeDanse.nom|capitalize}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

@@ -32,7 +32,6 @@ app_styledanse:
     prefix: /styledanse
 
 
-l
 
 app_evenement:
     resource: "routing/evenement.yml"
