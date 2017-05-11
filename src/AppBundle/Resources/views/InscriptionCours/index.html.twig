@@ -1,6 +1,9 @@
+
+
 {% extends '::base.html.twig' %} 
+
 {% block content %}
-<h1>Inscription à un cours</h1>
+    <h1>Inscription à un cours</h1>
 
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
@@ -9,6 +12,7 @@
         <p class="alert alert-info" role="alert">
         Veuillez confirmer votre inscription  </p>
         <p class="cours_inscription">
+
         <br/><b>{{cours.typeDanse|capitalize}}  ({{cours.niveau}})</b>
         le {{cours.dateCours|date('d-m-Y')}} 
         de {{cours.heureDebut|date('H:i')}}
@@ -35,8 +39,10 @@
             <span class="glyphicon glyphicon-log-in"></span>
                 {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
         </a>
+    </p>
 </div>
 {% endif %}
 
 {% endblock %}
+
 

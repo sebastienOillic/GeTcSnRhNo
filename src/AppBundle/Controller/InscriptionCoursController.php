@@ -2,8 +2,13 @@
 
 namespace AppBundle\Controller;
 
+
 use AppBundle\Entity\Cours;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+
+
+
 
 
 /**
@@ -12,18 +17,26 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  */
 class InscriptionCoursController extends Controller
 {
+
+
+
     public function indexAction(Cours $cours)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
+
 
         $joinedLesson = in_array($user, $cours->getDanseurs()->toArray() );
         return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
             'cours' => $cours,
             'user' => $user,
             'joinedLesson' => $joinedLesson
+
+
+
         ));
 
     }
+
 
     public function addAction(Cours $cours)
     {
@@ -57,6 +70,5 @@ class InscriptionCoursController extends Controller
         return $this->redirectToRoute('app_cours_liste');
     }
 }
-
 
 

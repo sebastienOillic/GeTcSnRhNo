@@ -2,6 +2,7 @@ body {
     padding-top: 0;
     padding-bottom: 20px;
     background-color: #FFF7CC;
+    background-color: #F7F2B2;
 }
 
 h2 {
@@ -9,6 +10,10 @@ h2 {
     font-family: "Dancing Script", cursive;
     color: #8A0507;
     text-align: center;
+}
+
+h3 {
+    text-shadow: 1px 1px 2px #000;
 }
 
 #container {
@@ -99,17 +104,23 @@ a:visited {
 }
 
 .listedanses {
+    color: #FFF;
     border: solid 1px;
     border-radius: 10px;
     margin: 10px;
     margin-left: 2px;
-    color: #FFF;
-    height: 300px;
+    height: 500px;
+    padding: 10px;
 }
 
 .listedanses a:link,
 a:visited {
     color: #FFF;
+    text-decoration: none;
+}
+
+.listedanses a:visited {
+    color: #FFF ! important;
     text-decoration: none;
 }
 
@@ -119,7 +130,7 @@ a:visited {
 }
 
 .orange {
-    background-color: orange;
+    background-color: #ffa500;
 }
 
 .tomato {
@@ -128,6 +139,10 @@ a:visited {
 
 .firebrick {
     background-color: firebrick;
+}
+
+.yellow {
+    background-color: #f0e68c;
 }
 
 .listetypesdanse li {
@@ -155,14 +170,33 @@ li a:hover {
     border-radius: 10px;
 }
 
+#topnavigbar a {
+    color: #FFF;
+}
+
 #topnavigbar a:link,
 a:visited {
     color: #FFF;
 }
 
+#topnavigbar a:hover {
+    color: pink;
+    text-shadow: 1px 1px 1px #000;
+}
+
 #bottomnavigbar a:link,
 a:visited {
     color: #AB252B;
+}
+
+#bottomnavigbar a:hover {
+    color: red;
+    text-shadow: 1px 1px 1px #000;
+}
+
+#topnavigbar a:active,
+#bottomnavigbar a:active {
+    color: black;
 }
 
 .navigbar ul {
@@ -179,4 +213,41 @@ a:visited {
 .nom_prenom {
     font-size: 28px;
     background-color: red;
+}
+
+footer {
+    background-color: #FFF7CC;
+}
+
+.bouton_cours {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.bouton_cours a {
+    color: #000;
+    text-shadow: 1px 1px 2px #FFF;
+}
+
+.bouton_cours a:hover {
+    color: grey;
+    text-decoration: none;
+}
+
+.titrecours {
+    font-size: 24px;
+}
+
+.plandusite a:link,
+a:visited {
+    color: #000;
+}
+
+.plandusite a:hover {
+    color: #AB252B;
+}
+
+.plandusite a:active {
+    color: red;
 }

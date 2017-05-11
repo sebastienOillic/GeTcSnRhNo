@@ -19,23 +19,32 @@ class AccueilController extends Controller
      */
     public function homeAction()
     {
+
+
+
+
         $em = $this->getDoctrine()->getManager();
 
         $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
-
+        $events = $em->getRepository('AppBundle:Evenement')->getFutureEvents(4);
         // src/AppBundle/Resources/views/index.html.twig
         return $this->render('AppBundle:Accueil:home.html.twig', array(
             'stylesDanse' => $stylesDanses,
+            'events' => $events
         ));
     }
+
     public function quisommesnousAction()
     {
         return $this->render('AppBundle:Accueil:quisommesnous.html.twig');
     }
+
     public function mentionslegalesAction()
     {
         return $this->render('AppBundle:Accueil:mentionslegales.html.twig');
+
     }
+
 
     public function plandusiteAction()
     {
@@ -46,4 +55,5 @@ class AccueilController extends Controller
         return $this->render('AppBundle:Accueil:contact.html.twig');
     }
 }
+
 

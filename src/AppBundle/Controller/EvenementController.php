@@ -10,9 +10,6 @@ use AppBundle\Entity\Evenement;
 
 class EvenementController extends Controller
 {
-    /**
-    * @Route("/", name="homepage")
-    */
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -37,15 +34,16 @@ class EvenementController extends Controller
         
         if($form->isSubmitted() && $form->isValid()){
             
+            $maxSize = $this->file_upload_max_size();
             $file = $event->getImage();
-            if ($file->getSize()<$maxSize){
+            if ($file->getSize()>$maxSize){
                 $this->addFlash('alert alert-danger', 'Fichier trop grand');
+
                 return $this->render('AppBundle:Evenement:new.html.twig', [
                 'form' => $form->createView()
                 ]);
             }
             if (!is_null($file)){
-                $maxSize = $this->file_upload_max_size();
                 
                 $filename = md5(uniqid()).'.'.$file->guessExtension();
                 $file = $file->move(
@@ -86,8 +84,10 @@ class EvenementController extends Controller
             $maxSize = $this->file_upload_max_size();
             $file = $evenement->getImage();
             if (!is_null($file)){
-                if ($file->getSize()<$maxSize){
+
+                if ($file->getSize()>$maxSize){
                     $this->addFlash('alert alert-danger', 'Fichier trop grand');
+
                     return $this->render('AppBundle:Evenement:edit.html.twig', array(
                     'form' => $editForm->createView(),
                     'event' => $evenement,
