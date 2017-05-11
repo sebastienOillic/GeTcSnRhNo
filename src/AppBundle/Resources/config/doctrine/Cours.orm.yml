@@ -75,8 +75,6 @@ AppBundle\Entity\Cours:
                     user_id:
                         referencedColumnName: id
 
-
-
         animateurs:
             targetEntity:   AppBundle\Entity\User
             inversedBy: coursAnimes

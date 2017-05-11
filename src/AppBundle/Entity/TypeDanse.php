@@ -122,4 +122,26 @@ class TypeDanse
             $this->users->removeElement($user);        
         }
         return $this;
-    }}
+    }
+
+    public function addUser(User $user)
+    {
+
+        if (!$this->users->contains($user)) {
+
+            $this->users->add($user);
+            $user->addTypeDanse($this);
+        }
+        return $this;
+    }
+
+    public function removeUser(User $user)
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeTypeDanse($this);
+        }
+        return $this;
+    }
+
+}
