@@ -303,7 +303,7 @@ class Cours
     {
         if ($this->avis->contains($avis)) {
             $this->avis->removeElement($avis);
-//            $avis->setCours(null);
+
         }
 
         return $this;

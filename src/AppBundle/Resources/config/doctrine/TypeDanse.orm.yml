@@ -43,5 +43,5 @@ AppBundle\Entity\TypeDanse:
                 inverseJoinColumns:
                     animateurPotentiel_id:
                         referencedColumnName: id
-                        
+
     lifecycleCallbacks: {  }

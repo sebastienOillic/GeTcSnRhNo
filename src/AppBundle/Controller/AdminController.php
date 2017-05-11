@@ -49,17 +49,4 @@ class AdminController extends Controller
 
     }
 
-//    public function deleteAction(Request $request, User $user){
-//        $form = $this->createDeleteForm($user);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $em->remove($user);
-//            $em->flush();
-//        }
-//
-//        return $this->redirectToRoute('admin_index');
-//    }
-
 }

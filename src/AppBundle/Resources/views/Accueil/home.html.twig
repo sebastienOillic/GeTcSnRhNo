@@ -5,61 +5,57 @@
 <div class="contentAccueil">
     <div class="row">
         <div class="col-md-8">
-           <div id="slider">
+            <div id="slider">
                 <img src="{{ asset('bundles/app/img/ami-danse-5.jpg') }}" alt="ami-danse-5" class="img-thumbnail">
                 <img src="{{ asset('bundles/app/img/ami-danse-1.jpg') }}" alt="ami-danse-1" class="img-thumbnail">
                 <img src="{{ asset('bundles/app/img/ami-danse-2.jpg') }}" alt="ami-danse-2" class="img-thumbnail">
                 <img src="{{ asset('bundles/app/img/ami-danse-4.jpg') }}" alt="ami-danse-4" class="img-thumbnail">
                 <img src="{{ asset('bundles/app/img/ami-danse-3.jpg') }}" alt="ami-danse-3" class="img-thumbnail">
-           </div>
-           <script src="{{ asset('bundles/app/js/slider.js') }}"></script>
-           <div class="row" id="danseAccueil">
-                <div class="col-md-4">
-                   <div class="listedanses tomato">
-                        <h3><a href="#">Danses modernes</a></h3>
-                        <ul class="listetypesdanse">
-                            <li><a href="#">Boston</a></li>
-                            <li><a href="#">Charleston</a></li>
-                            <li><a href="#">Foxtrot</a></li>
-                            <li><a href="#">Madison</a></li>
-                            <li><a href="#">One-Step</a></li>
-                            <li><a href="#">Paso-doble</a></li>
-                            <li><a href="#">Quicks Tep</a></li>
-                            <li><a href="#">Tango</a></li>
-                            <li><a href="#">Valse</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                   <div class="listedanses orange">
-                        <h3><a href="#">Danses latines</a></h3>
-                        <ul class="listetypesdanse">
-                            <li><a href="#">Cha-cha-cha</a></li>
-                            <li><a href="#">Mambo</a></li>
-                            <li><a href="#">Paso-doble</a></li>
-                            <li><a href="#">Rumba</a></li>
-                            <li><a href="#">Samba</a></li>
-                            <li><a href="#">Salsa</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                   <div class="listedanses firebrick">
-                        <h3><a href="#">Danses urbaines</a></h3>
-                        <ul class="listetypesdanse">
-                            <li><a href="#">Hip-hop</a></li>
-                            <li><a href="#">Pogo</a></li>
-                            <li><a href="#">R'N'B</a></li>
-                            <li><a href="#">Ragga</a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
-        </div> 
-        <aside class="col-md-4">
-            {% include('AppBundle:Layout:sidebar.html.twig') %}
-        </aside>
+            <script src="{{ asset('bundles/app/js/slider.js') }}"></script>
+
+            <div class="row" id="danseAccueil">
+                {% set number = 0 %}
+                {% for styleDanse in stylesDanse %}
+                {% set number = number+1 %}
+                <div class="col-md-4">
+                    {% if number %3 == 0 %}
+                    <div class="listedanses tomato">
+                        {% elseif number %3 == 1 %}
+                        <div class="listedanses firebrick">
+                            {% elseif number %3 == 2 %}
+                            <div class="listedanses orange">
+                                {% endif %}
+                                <h3>{{ styleDanse.nom }}</h3>
+                                <ul class="list-inline">
+                                    <li>
+                                        {% if is_granted("ROLE_RESPONSABLE") %}
+                                            <a href="{{ path('app_admin_styleDanse_edit', { 'id': styleDanse.id }) }}"
+                                               class="btn btn-xs btn-warning">
+                                                Modifier
+                                            </a>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                                <p>{{ styleDanse.description }}</p>
+                                <ul class="listetypesdanse">
+                                    {% for typeDanse in styleDanse.getTypeDanses() %}
+                                        <li>
+                                            <a href="/typedanse/{{ typeDanse.id }}/show">{{ typeDanse.nom|capitalize }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <aside class="col-md-4">
+                    {% include('AppBundle:Layout:sidebar.html.twig') %}
+                </aside>
+            </div>
+        </div>
     </div>
 </div>
-{% endblock %}
+        {% endblock %}
 

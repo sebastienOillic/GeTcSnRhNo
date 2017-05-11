@@ -123,7 +123,6 @@ class StyleDanse
     {
         if ($this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->removeElement($typeDanse);
-//            $typeDanse->removeStyleDanse($this);
         }
 
         return $this;

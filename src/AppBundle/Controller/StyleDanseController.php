@@ -47,7 +47,7 @@ class StyleDanseController extends Controller
         }
 
         return $this->render('AppBundle:StyleDanse:new.html.twig', array(
-            'StyleDanse' => $styleDanse,
+            'styleDanse' => $styleDanse,
             'form' => $form->createView(),
         ));
     }
@@ -89,7 +89,7 @@ class StyleDanseController extends Controller
         }
 
         return $this->render('AppBundle:StyleDanse:edit.html.twig', array(
-            'StyleDanse' => $styleDanse,
+            'styleDanse' => $styleDanse,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

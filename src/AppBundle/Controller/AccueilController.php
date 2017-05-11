@@ -27,25 +27,24 @@ class AccueilController extends Controller
             ->findAll();
 
         return $this->render('AppBundle:Accueil:home.html.twig', array(
-            'stylesDanses' => $styleDanses,
+            'stylesDanse' => $styleDanses,
         ));
 
     }
 
 
 
-//    public function homeAction()
-//    {
-//
-//
-//        $styleDanses = $this
-//            ->getDoctrine()
-//            ->getRepository('AppBundle:StyleDanse')
-//            ->findAll();
-//
-//        return $this->render('AppBundle:Accueil:home.html.twig', array(
-//            'stylesDanses' => $styleDanses,
-//        ));
-//
-//    }
+    public function quisommesnousAction()
+    {
+        return $this->render('AppBundle:Accueil:quisommesnous.html.twig');
+    }
+    public function mentionslegalesAction()
+    {
+        return $this->render('AppBundle:Accueil:mentionslegales.html.twig');
+    }
 }
+
+
+
+
+

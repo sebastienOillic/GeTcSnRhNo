@@ -53,7 +53,7 @@ AppBundle\Entity\Cours:
             targetEntity: AppBundle\Entity\User
             joinColumn:
                 name: referent
-                eferencedComlumnName: id
+                referencedComlumnName: id
                 onDelete: RESTRICT
 
     oneToMany:

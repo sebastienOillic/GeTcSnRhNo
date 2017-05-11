@@ -35,7 +35,13 @@ class User extends BaseUser
 
     private $coursAnimes;
 
+
     private $typeDanses;
+
+    /**
+     * @return mixed
+     */
+
 
     /**
      * @return mixed

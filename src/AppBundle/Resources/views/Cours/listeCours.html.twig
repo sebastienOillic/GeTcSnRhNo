@@ -1,16 +1,25 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
-<h1>Voici votre liste de cours</h1>
-{# Pour chaque coours #}
-{% for cours in cours %}
+    <div class="col-sm-11">
+        <h1>Nos prochains cours</h1>
+    </div>
+    <div class="col-sm-1">
+    {% if is_granted("ROLE_RESPONSABLE") %}
+        {# Bouton d'ajout #}
+        <a href="{{ path('app_cours_add') }}" class="btn btn-xs btn-success">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+    {% endif %}
+    </div>
+{% for lecours in cours %}
 <div class="row cours">
     <div class="col-sm-11">
 
-            <a href="{{ path('app_inscriptionCours_index', { 'id': cours.id }) }}" class="btn btn-xs btn-danger">
-				<b>{{cours.typeDanse}}  {{cours.niveau}}</b><br />
-                {{cours.dateCours|date('d-m-Y')}} - {{cours.heureDebut|date('h:m')}}-{{cours.heureFin|date('h:m')}} Salle {{cours.salle}}
-            </a>     
+            <a href="{{ path('app_inscriptionCours_index', { 'id': lecours.id }) }}" class="btn btn-xs btn-danger">
+				<b>{{lecours.typeDanse}}  {{lecours.niveau}}</b><br />
+                {{lecours.dateCours|date('d-m-Y')}} - {{lecours.heureDebut|date('h:m')}}-{{lecours.heureFin|date('h:m')}} Salle {{lecours.salle}}
+            </a>
     </div>
     <div class="col-sm-1">
         <p>
