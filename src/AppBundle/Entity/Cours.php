@@ -62,6 +62,11 @@ class Cours
         $this->animateurs = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return 'cours';
+    }
+
     /**
      * @return ArrayCollection
      */

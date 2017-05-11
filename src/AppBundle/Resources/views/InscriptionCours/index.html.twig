@@ -5,42 +5,44 @@
 {% block content %}
     <h1>Inscription à un cours</h1>
 
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
+<div class="col-sm-12">
+        <p class="nom_prenom">{{ 'Bonjour'}} {{ user.nom|capitalize }} {{ user.prenom|capitalize }}</p>
+        <p class="alert alert-info" role="alert">
+        Veuillez confirmer votre inscription  </p>
+        <p class="cours_inscription">
 
-        <p>{{ 'Bonjour' }} {{ user.nom }} {{ user.prenom }}</p>
-
-        {#<li>Bonjour {{ danseur.nom }} {{ danseur.prenom }}#}
-        <p>Veuillez confirmer votre inscription</p>
-
-
-
-
-        <div class="col-sm-11">
-            <p> Le cours dans lequel vous voulez inscrire est : </p>
-
-            <b>{{ cours.typeDanse }}  {{ cours.niveau }}</b>
-            <br/> {{ cours.dateCours|date('d-m-Y') }} - {{ cours.heureDebut|date('h:m') }}
-            -{{ cours.heureFin|date('h:m') }} Salle {{ cours.salle }}
-
-        </div>
-
-            {% if joinedLesson %}
-            <a href="{{ path('app_inscriptionCours_delete', { 'id': cours.id }) }}" class="btn btn-sm btn-default">Se
+        <br/><b>{{cours.typeDanse|capitalize}}  ({{cours.niveau}})</b>
+        le {{cours.dateCours|date('d-m-Y')}} 
+        de {{cours.heureDebut|date('H:i')}}
+        à {{cours.heureFin|date('H:i')}} 
+        - Salle {{cours.salle}}
+        </p>
+</div>
+<div>
+        <p>
+    {% if joinedLesson %}
+            <a href="{{ path('app_inscriptionCours_delete', { 'id': cours.id }) }}" class="btn btn-sm btn-success">Se
                 désinscrire</a>
             {% else %}
-            <a href="{{ path('app_inscriptionCours_add', { 'id': cours.id }) }}" class="btn btn-sm btn-default">Inscription</a>
+            <a href="{{ path('app_inscriptionCours_add', { 'id': cours.id }) }}" class="btn btn-sm btn-success">Inscription</a>
             {% endif %}
-        <a href="{{ path('app_cours_liste') }}" class="btn btn-sm btn-default">Annuler</a>
+        <a href="{{ path('app_cours_liste') }}" class="btn btn-sm btn-warning">Annuler</a>
+        </p>
+</div>
+{% else %}
+<div class="alert alert-info" role="alert">
 
-        {% else %}
-            <p>Veuillez vous connecter ou créer votre compte </p>
+    <p>Veuillez vous connecter ou créer votre compte </p>
+        <a class="navbar-brand" href="{{ path('fos_user_security_login') }}">
+            <span class="glyphicon glyphicon-log-in"></span>
+                {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+        </a>
+    </p>
+</div>
+{% endif %}
 
-                <a class="navbar-brand" href="{{ path('fos_user_security_login') }}">
-                    <span class="glyphicon glyphicon-log-in"></span>
-                    {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
-                </a>
+{% endblock %}
 
-        {% endif %}
-        {% endblock %}
 
