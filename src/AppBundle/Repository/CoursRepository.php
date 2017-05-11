@@ -7,7 +7,6 @@ use AppBundle\Entity\User;
 use AppBundle\Entity\Niveau;
 use AppBundle\Entity\Salle;
 use AppBundle\Entity\Cours;
-
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -19,8 +18,8 @@ use Symfony\Component\Validator\Constraints\DateTime;
  */
 class CoursRepository extends EntityRepository
 {
-     public function findByTypeDanse(TypeDanse $typeDanse)
-     {
+    public function findByTypeDanse(TypeDanse $typeDanse)
+    {
         $qb = $this->createQueryBuilder('c');
 
         return $qb
@@ -28,10 +27,10 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('typeDanse', $typeDanse)
             ->getResult();
-     }
+    }
 
-     public function findByNiveau(Niveau $niveau)
-     {
+    public function findByNiveau(Niveau $niveau)
+    {
         $qb = $this->createQueryBuilder('c');
 
         return $qb
@@ -39,9 +38,10 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('niveau', $niveau)
             ->getResult();
-     }
-     public function findBySalle(Salle $salle)
-     {
+    }
+
+    public function findBySalle(Salle $salle)
+    {
         $qb = $this->createQueryBuilder('c');
 
         return $qb
@@ -49,9 +49,10 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('salle', $salle)
             ->getResult();
-     }
-     public function findByAnimateur(User $user)
-     {
+    }
+
+    public function findByAnimateur(User $user)
+    {
         $qb = $this->createQueryBuilder('u');
 
         return $qb
@@ -59,7 +60,8 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('user', $user)
             ->getResult();
-     }
+    }
+
      public function findByDate()
      {
         $currentdate = new \DateTime(); //Date du jour
@@ -67,6 +69,7 @@ class CoursRepository extends EntityRepository
         return $this->createQueryBuilder('cours')
             ->select('cours')
             ->where('cours.dateCours >= :date')
+            ->orderBy('cours.dateCours', 'ASC')
             ->setParameter(':date', $currentdate->format('Y-m-d'))
             ->getQuery()
             ->getResult();
@@ -75,12 +78,23 @@ class CoursRepository extends EntityRepository
     public function findByOldDate()
     {
         $currentdate = new \DateTime(); //Date du jour
-
+        
         return $this->createQueryBuilder('cours')
             ->select('cours')
             ->where('cours.dateCours < :date')
             ->setParameter(':date', $currentdate->format('Y-m-d'))
             ->getQuery()
+            ->getResult();
+    }
+
+    public function findByDanseur(User $user)
+    {
+        $qb = $this->createQueryBuilder('u');
+
+        return $qb
+            ->where($qb->expr()->eq('c.user', ':user'))
+            ->getQuery()
+            ->setParameter('user', $user)
             ->getResult();
     }
 }

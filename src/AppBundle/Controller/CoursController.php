@@ -8,6 +8,8 @@ use AppBundle\Form\CoursType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+
+
 class CoursController extends Controller
 {
     public function listeAction()
@@ -43,18 +45,19 @@ class CoursController extends Controller
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($cours); 
-            $em->flush($cours);
-        
+            $em->flush();
+
             return $this->redirect($this->generateUrl('app_cours_liste'));    
         }
-		
+
         return $this->render('AppBundle:Cours:createCours.html.twig', [
             'form' => $form->createView(),
         ]);
     }
-	
+
     public function findCours()
 	{
 	    return $this

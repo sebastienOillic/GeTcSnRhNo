@@ -24,14 +24,23 @@ class StyleDanse
 	
 	private $description;
 
+
     /**
-     * StyleDanse constructor
+
+     * TypeDanse constructor.
      * @param $typeDanses
      */
     public function __construct()
     {
-        $this->typeDanses = new ArrayCollection();
+        $this->typeDanses = new TypeDanse();
     }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
+
 
 
     /**
@@ -66,11 +75,6 @@ class StyleDanse
     {
         $this->typeDanses = $typeDanses;
     }
-    
-     public function __toString()
-     {
-         return $this->nom;
-     }
 
     /**
      * Get id

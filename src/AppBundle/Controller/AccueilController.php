@@ -36,6 +36,7 @@ class AccueilController extends Controller
     {
         return $this->render('AppBundle:Accueil:mentionslegales.html.twig');
     }
+
     public function plandusiteAction()
     {
         return $this->render('AppBundle:Accueil:plandusite.html.twig');
@@ -45,3 +46,4 @@ class AccueilController extends Controller
         return $this->render('AppBundle:Accueil:contact.html.twig');
     }
 }
+

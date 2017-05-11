@@ -75,7 +75,6 @@ class Cours
         return $this->danseurs;
     }
 
-
     /**
      * @return ArrayCollection
      */
@@ -83,8 +82,6 @@ class Cours
     {
         return $this->animateurs;
     }
-
-
 
     /**
      * @return mixed
@@ -101,7 +98,6 @@ class Cours
     {
         $this->referent = $referent;
     }
-
 
     /**
      * @return mixed
@@ -194,7 +190,6 @@ class Cours
     {
         return $this->id;
     }
-
     
     /**
      * Set dateCours
@@ -328,11 +323,9 @@ class Cours
         return $this;
     }
 
-
-    public function addAnimateur(User $animateur){
-
+    public function addAnimateur(User $animateur)
+    {
         if(!$this->danseurs->contains($animateur)){
-
             $this->danseurs->add($animateur);
             $animateur->addCours($this);
         }

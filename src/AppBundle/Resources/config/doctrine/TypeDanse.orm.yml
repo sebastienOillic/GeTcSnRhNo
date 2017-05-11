@@ -13,6 +13,11 @@ AppBundle\Entity\TypeDanse:
             type: string
             length: 255
             unique: true
+            
+        description:
+            type: text
+            unique: false
+            nullable: true
 
         description:
             type: text
@@ -44,5 +49,9 @@ AppBundle\Entity\TypeDanse:
                     animateurPotentiel_id:
                         referencedColumnName: id
 
+
+        users:
+            targetEntity: AppBundle\Entity\User
+            mappedBy: typedanse
 
     lifecycleCallbacks: {  }
