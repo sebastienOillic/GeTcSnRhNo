@@ -120,3 +120,4 @@ class Avis
         return $this->user;
     }
 }
+

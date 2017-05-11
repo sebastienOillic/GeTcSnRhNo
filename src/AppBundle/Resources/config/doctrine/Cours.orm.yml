@@ -26,7 +26,6 @@ AppBundle\Entity\Cours:
                 referencedComlumnName: id
                 onDelete: RESTRICT
 
-
         niveau:
             targetEntity: AppBundle\Entity\Niveau
             joinColumn:
@@ -64,16 +63,16 @@ AppBundle\Entity\Cours:
 
     manyToMany:
         danseurs:
-            targetEntity:   AppBundle\Entity\User
-            inversedBy: cours
-            joinTable:
-                name: cours_danseurs
-                joinColumns:
-                    cours_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    user_id:
-                        referencedColumnName: id
+           targetEntity:   AppBundle\Entity\User
+           inversedBy: cours
+           joinTable:
+               name: cours_danseurs
+               joinColumns:
+                   cours_id:
+                       referencedColumnName: id
+               inverseJoinColumns:
+                   user_id:
+                       referencedColumnName: id
 
         animateurs:
             targetEntity:   AppBundle\Entity\User

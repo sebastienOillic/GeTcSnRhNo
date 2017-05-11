@@ -10,28 +10,38 @@ AppBundle\Entity\User:
         nom:
             type: string
             length: 56
-
         prenom:
             type: string
             length: 56
-
         sexe:
             type: string
             length: 56
 
+
     manyToMany:
         cours:
-            targetEntity: AppBundle\Entity\Cours
-            mappedBy: danseurs
-#            mappedBy: animateurs
-
+           targetEntity: AppBundle\Entity\Cours
+           mappedBy: danseurs
+        
         typeDanses:
             targetEntity: AppBundle\Entity\TypeDanse
             mappedBy: users
+
+        # typeDanses:
+        #     targetEntity:   AppBundle\Entity\TypeDanse
+        #     inversedBy: users
+        #     joinTable:
+        #         name: typedanse_user
+        #         joinColumns:
+        #             animateurPotentiel_id:
+        #                 referencedColumnName: id
+        #         inverseJoinColumns:
+        #             typeDanse_id:
+        #                 referencedColumnName: id
 
         coursAnimes:
             targetEntity: AppBundle\Entity\Cours
             mappedBy: animateurs
 
-
     lifecycleCallbacks: {  }
+

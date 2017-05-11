@@ -14,16 +14,16 @@ class TypeDanse
     /**
      * @var int
      */
-    private $id;    
-    /**
-     * @var string
-     */
+    private $id;
 
-    private $nom;    
-    private $styleDanses;    
-    private $users;    
-    private $description;    
-  
+    private $nom;
+
+    private $styleDanses;
+
+    private $users;
+
+    private $description;
+
     /**
      * TypeDanse constructor.
      * @param $styleDanses
@@ -33,7 +33,7 @@ class TypeDanse
         $this->styleDanses = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
-    
+
     /**
      * TypeDanse toString
      * @return string
@@ -41,21 +41,24 @@ class TypeDanse
     public function __toString()
     {
         return $this->nom;
-    }    
+    }
+
     /**
      * @return mixed
      */
     public function getDescription()
     {
         return $this->description;
-    }    
+    }
+    
     /**
      * @param mixed $description
      */
     public function setDescription($description)
     {
         $this->description = $description;
-    }    
+    }
+
     /**
      * @return ArrayCollection
      */
@@ -69,14 +72,15 @@ class TypeDanse
     public function getStyleDanses()
     {
         return $this->styleDanses;
-    }    
+    }
     /**
      * @param ArrayCollection $styleDanses
      */
     public function setStyleDanses($styleDanses)
     {
         $this->styleDanses = $styleDanses;
-    }    
+    }
+
     /**
      * Get id
      *
@@ -86,6 +90,7 @@ class TypeDanse
     {
         return $this->id;
     } 
+ 
     /**
      * Set nom
      *
@@ -109,7 +114,7 @@ class TypeDanse
 
     public function addStyleDanse(StyleDanse $styleDanse)
     {
-        if (!$this->styleDanses->contains($styleDanse)) {            
+        if (!$this->styleDanses->contains($styleDanse)) {
             $this->styleDanses->add($styleDanse);
             $styleDanse->addTypeDanse($this);
         }
@@ -119,7 +124,7 @@ class TypeDanse
     public function removeStyleDanse(StyleDanse $styleDanse)
     {
         if ($this->users->contains($user)) {
-            $this->users->removeElement($user);        
+            $this->users->removeElement($user);
         }
         return $this;
     }
