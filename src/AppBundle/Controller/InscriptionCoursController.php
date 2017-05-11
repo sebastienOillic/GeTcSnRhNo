@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
 
+
+
 /**
  *  InscriptionCoursController
  * @package ApppBundle\Controller
@@ -17,10 +19,9 @@ class InscriptionCoursController extends Controller
 {
 
 
+
     public function indexAction(Cours $cours)
     {
-
-
         $user = $this->container->get('security.context')->getToken()->getUser();
 
 
@@ -29,6 +30,8 @@ class InscriptionCoursController extends Controller
             'cours' => $cours,
             'user' => $user,
             'joinedLesson' => $joinedLesson
+
+
 
         ));
 

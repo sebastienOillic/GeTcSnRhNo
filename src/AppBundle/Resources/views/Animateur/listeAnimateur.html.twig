@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<h1>Gestion des animateurs</h1>
+{# Pour chaque animateur #}
+{% for animateur in animateurs %}
+  <div class="row animateur">
+      <div class="col-sm-10" id="listeAnimateur" >
+              <a href="#" class="btn btn-xs btn-danger">
+                  <b>{{animateur.prenom|capitalize}}  {{animateur.nom|capitalize}}</b><br />
+                  {{animateur.email}} 
+                  Types de Danse exercés :
+                   {% for typeDanse in animateur.typeDanses %}
+                     <ul>
+                        <li>
+                           {{typeDanse}}
+                        </li>
+                     </ul>         
+                     {% endfor %}  
+                 </a>     
+      </div>
+  <div class="col-sm-2">
+    {# Bouton d'edition #}
+    <a href="{{path('app_animateur_edit',{ 'id': animateur.id })}}" class="btn btn-xs btn-warning">
+       <span class="glyphicon glyphicon-pencil"></span>
+  </div>
+</div>
+{% endfor %}
+  <div class="row">
+      <div class="col-sm-12">
+      {# Bouton d'ajout #}
+          <a href="{{path('app_animateur_add')}}" class="btn btn-primary btn-block">Ajouter un animateur</a>
+      </div>
+  </div>  
+         
+{% endblock %}

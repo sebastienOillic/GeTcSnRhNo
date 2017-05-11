@@ -22,9 +22,8 @@ class Avis
     private $cours;
 
     private $user;
-//lien unique
-    private $slug;
 
+    private $slug; //lien unique
 
 
     public function __toString() {
@@ -121,3 +120,4 @@ class Avis
         return $this->user;
     }
 }
+

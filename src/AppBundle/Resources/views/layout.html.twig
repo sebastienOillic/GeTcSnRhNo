@@ -1,4 +1,3 @@
-
 {% extends '::base.html.twig' %}
  {% block content %}
 
@@ -6,17 +5,16 @@
          {% for message in messages %}
 
 
-
              <div class="{{ type }}">
     {{ message|trans({}, 'FOSUserBundle') }}
 </div>
+
          {% endfor %}
      {% endfor %}
 
 
 
-
-<div>
+     <div>
 
     {% block fos_user_content %} 
     {% endblock fos_user_content %}
@@ -25,6 +23,6 @@
 
 
 
- {% endblock %}
 
+ {% endblock %}
 

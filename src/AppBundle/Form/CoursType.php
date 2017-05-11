@@ -33,7 +33,6 @@ class CoursType extends AbstractType
                         ->orderBy('n.nom', 'ASC');
                 },
             ])
-
              ->add('dateCours','date', ['format' => " dd/MM/yyyy",])
              ->add('heureDebut')
              ->add('heureFin')
@@ -59,6 +58,7 @@ class CoursType extends AbstractType
              ->add('animateurs','entity', [
                 'class'         => 'AppBundle\Entity\User',
                 'multiple' => true,
+                'expanded' => true,
                 'query_builder' => function (EntityRepository $repository) {
                     $qb = $repository->createQueryBuilder('u');
 
@@ -68,7 +68,16 @@ class CoursType extends AbstractType
             ])
              //->add('evenement')
             // ->add('danseurs')
-             ;
+            /*->add('danseur','entity', [
+                'class'         => 'AppBundle\Entity\User',
+                'query_builder' => function (EntityRepository $repository) {
+                    $qb = $repository->createQueryBuilder('u');
+
+                    return $qb
+                        ->orderBy('u.nom', 'ASC');
+                         },
+            ])*/
+            ;
     }
     
     /**

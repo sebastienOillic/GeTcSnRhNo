@@ -28,7 +28,8 @@ class TypeDanseType extends AbstractType
                 'multiple'      => true,
                 'query_builder' => function (EntityRepository $repository) {
                     $qb = $repository->createQueryBuilder('s');
-                    return $qb;
+                    return $qb
+                        ->orderBy('s.nom', 'ASC');
                 }
             ])
             ->add('users', 'entity', [
@@ -36,7 +37,8 @@ class TypeDanseType extends AbstractType
                 'multiple'      => true,
                 'query_builder' => function (EntityRepository $repository) {
                     $qb = $repository->createQueryBuilder('u');
-                    return $qb;
+                    return $qb
+                        ->orderBy('u.nom', 'ASC');
                 }
             ]);
     }

@@ -21,6 +21,8 @@ class AccueilController extends Controller
     {
 
 
+
+
         $em = $this->getDoctrine()->getManager();
 
         $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
@@ -41,4 +43,16 @@ class AccueilController extends Controller
         return $this->render('AppBundle:Accueil:mentionslegales.html.twig');
 
     }
+
+
+    public function plandusiteAction()
+    {
+        return $this->render('AppBundle:Accueil:plandusite.html.twig');
+    }
+    public function contactAction()
+    {
+        return $this->render('AppBundle:Accueil:contact.html.twig');
+    }
 }
+
+

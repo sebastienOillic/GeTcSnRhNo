@@ -7,7 +7,6 @@ use AppBundle\Entity\User;
 use AppBundle\Entity\Niveau;
 use AppBundle\Entity\Salle;
 use AppBundle\Entity\Cours;
-
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -62,17 +61,20 @@ class CoursRepository extends EntityRepository
             ->setParameter('user', $user)
             ->getResult();
 
+
     }
 
 
-    public function findByDate()
-    {
+
+     public function findByDate()
+     {
 
         $currentdate = new \DateTime(); //Date du jour
 
         return $this->createQueryBuilder('cours')
             ->select('cours')
             ->where('cours.dateCours >= :date')
+            ->orderBy('cours.dateCours', 'ASC')
             ->setParameter(':date', $currentdate->format('Y-m-d'))
             ->getQuery()
             ->getResult();
@@ -91,12 +93,17 @@ class CoursRepository extends EntityRepository
             ->getResult();
     }
 
+
+
+    public function findByDanseur(User $user)
+    {
+        $qb = $this->createQueryBuilder('u');
+
+        return $qb
+            ->where($qb->expr()->eq('c.user', ':user'))
+            ->getQuery()
+            ->setParameter('user', $user)
+            ->getResult();
+    }
 }
-
-
-
-
-
-
-
 

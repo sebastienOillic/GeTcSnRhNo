@@ -22,6 +22,7 @@
         <div class="bouton_cours yellow">
             {% else %}
             <div class="bouton_cours orange">
+
                 {% endif %}
                 <a href="{{path('app_inscriptionCours_index', {id:cours.id})}}">
                     <div class = "titrecours">{{cours.typeDanse|upper}} {{cours.niveau|capitalize}}</div>
@@ -30,6 +31,7 @@
             </div>
 
         </div>
+
 
         {% if is_granted("ROLE_RESPONSABLE") %}
             <div class="col-sm-1">
@@ -51,6 +53,9 @@
             </div>
         {% endif %}
     </div>
+</div>
     {% endfor %}
     {% endblock %}
+
+
 

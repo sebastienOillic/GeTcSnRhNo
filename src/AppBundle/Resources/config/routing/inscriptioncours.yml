@@ -16,12 +16,12 @@ app_inscriptionCours_add:
 
 
 
+
 app_inscriptionCours_delete:
     path:     /delete/{id}
     defaults: { _controller: "AppBundle:InscriptionCours:delete" }
-
-
-
+    requirements:
+        id: \d+
 
 
 
