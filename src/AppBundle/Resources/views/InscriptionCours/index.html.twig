@@ -2,29 +2,38 @@
 {% block content %}
 <h1>Inscription à un cours</h1>
 
-<div class="col-sm-11">
+<div class="col-sm-12">
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <p>{{ 'Bonjour'}} {{ user.nom|capitalize }} {{ user.prenom|capitalize }}</p>
         <p>Veuillez confirmer votre inscription</p>
-        <p>Le cours dans lequel voulez vous inscrire est :
+        <p>Le cours dans lequel vous voulez inscrire est :
         <br/><b>{{cours.typeDanse|capitalize}}  ({{cours.niveau}})</b>
         le {{cours.dateCours|date('d-m-Y')}} 
         de {{cours.heureDebut|date('h:m')}}
         à {{cours.heureFin|date('h:m')}} 
         - Salle {{cours.salle}}
         </p>
+</div>
+<div>
         <p>
-            <a href="{{path('app_inscriptionCours_add',{id:cours.id})}}" class="btn btn-sm btn-success">Confirmer</a>
-            <a href="{{path('app_cours_liste')}}" class="btn btn-sm btn-warning">Annuler</a>
+    {% if joinedLesson %}
+            <a href="{{ path('app_inscriptionCours_delete', { 'id': cours.id }) }}" class="btn btn-sm btn-success">Se
+                désinscrire</a>
+            {% else %}
+            <a href="{{ path('app_inscriptionCours_add', { 'id': cours.id }) }}" class="btn btn-sm btn-success">Inscription</a>
+            {% endif %}
+        <a href="{{ path('app_cours_liste') }}" class="btn btn-sm btn-warning">Annuler</a>
         </p>
-
+</div>
 {% else %}
+<div class="col-sm-12">
     <p>Veuillez vous connecter ou créer votre compte </p>
         <a class="navbar-brand" href="{{ path('fos_user_security_login') }}">
             <span class="glyphicon glyphicon-log-in"></span>
                 {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
         </a>
-{% endif %}
 </div>
+{% endif %}
+
 {% endblock %}
 
