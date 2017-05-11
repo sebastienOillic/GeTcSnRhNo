@@ -12,15 +12,20 @@ AppBundle\Entity\Evenement:
         nom:
             type: string
             length: 255
+
         dateDebut:
             type: datetime
+
         dateFin:
             type: datetime
+
         lieu:
             type: string
             length: 255
+
         description:
             type: text
+
         image:
             type: string
             length: 255

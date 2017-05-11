@@ -6,6 +6,7 @@
         <div class="col-sm-4" id="titreAccueil">
             <a href="/">Ami'Danse</a>
         </div>
+
         <div class="col-sm-4" id="buttonConnexion">
              {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
              {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}

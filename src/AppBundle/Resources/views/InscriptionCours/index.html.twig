@@ -1,6 +1,9 @@
+
+
 {% extends '::base.html.twig' %} 
+
 {% block content %}
-<h1>Inscription à un cours</h1>
+    <h1>Inscription à un cours</h1>
 
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 <div class="col-sm-12">
@@ -35,4 +38,5 @@
 {% endif %}
 
 {% endblock %}
+
 

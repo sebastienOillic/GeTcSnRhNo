@@ -46,4 +46,5 @@ class AdminController extends Controller
         $users = $userManager->findUsers();
         return $this->render('AppBundle:Admin:admin.html.twig', array('users' => $users,));
     }
+
 }

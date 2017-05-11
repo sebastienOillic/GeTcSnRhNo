@@ -86,4 +86,5 @@ AppBundle\Entity\Cours:
                     user_id:
                         referencedColumnName: id
 
+
     lifecycleCallbacks: {  }

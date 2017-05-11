@@ -99,6 +99,7 @@ class Cours
         $this->referent = $referent;
     }
 
+
     /**
      * @return mixed
      */
