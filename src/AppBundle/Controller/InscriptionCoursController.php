@@ -36,7 +36,7 @@ class InscriptionCoursController extends Controller
         $em->persist($cours);
         $em->flush();
 
-        $this->addFlash('alert-success', 'Vous avez été inscrit avec succès');
+        $this->addFlash("alert alert-success", 'Vous avez été inscrit avec succès');
 
         return $this->redirect($this->generateUrl('app_cours_liste'));
     }
@@ -52,7 +52,7 @@ class InscriptionCoursController extends Controller
         $em->persist($cours);
         $em->flush();
 
-        $this->addFlash('alert-success', 'Vous vous êtes désinscrit avec succès');
+        $this->addFlash("alert alert-success", 'Vous vous êtes désinscrit avec succès');
 
         return $this->redirectToRoute('app_cours_liste');
     }
