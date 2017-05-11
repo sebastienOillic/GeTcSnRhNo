@@ -26,6 +26,7 @@ app_styledanse:
     resource: "routing/styledanse.yml"
     prefix: /styledanse
 
+
 app_evenement:
     resource: "routing/evenement.yml"
     prefix: /evenement
