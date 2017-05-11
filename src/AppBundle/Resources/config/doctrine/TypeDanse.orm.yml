@@ -18,7 +18,12 @@ AppBundle\Entity\TypeDanse:
             type: text
             unique: false
             nullable: true
-    
+
+        description:
+            type: text
+            unique: false
+            nullable: true
+
     manyToMany:
         styleDanses:
             targetEntity: AppBundle\Entity\StyleDanse
@@ -35,5 +40,6 @@ AppBundle\Entity\TypeDanse:
         users:
             targetEntity: AppBundle\Entity\User
             mappedBy: typeDanses    
+
 
     lifecycleCallbacks: {  }

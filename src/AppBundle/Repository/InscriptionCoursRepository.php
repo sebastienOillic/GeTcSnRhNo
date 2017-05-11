@@ -27,24 +27,4 @@ class InscriptionCoursRepository extends EntityRepository
             ->setParameter('cours', $cours)
             ->getResult();
     }
-
-
-
-
-
-//    public function findByDanseur(Cours $user)
-//    {
-//        $qb = $this->createQueryBuilder('i');
-//
-//        return $qb
-//            ->where($qb->expr()->eq('i.user', ':user'))
-//            ->getQuery()
-//            ->setParameter('user', $user)
-//            ->getResult();
-//    }
-
-
-
-
-
 }

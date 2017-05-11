@@ -10,11 +10,9 @@ AppBundle\Entity\User:
         nom:
             type: string
             length: 56
-            nullable: true
         prenom:
             type: string
             length: 56
-            nullable: true
         sexe:
             type: string
             length: 56
@@ -37,9 +35,10 @@ AppBundle\Entity\User:
                 inverseJoinColumns: 
                     typeDanse_id:
                         referencedColumnName: id 
+
         coursAnimes:
             targetEntity: AppBundle\Entity\Cours
             mappedBy: animateurs
 
-
     lifecycleCallbacks: {  }
+

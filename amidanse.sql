@@ -39,7 +39,7 @@ CREATE TABLE `animateur` (
 
 LOCK TABLES `animateur` WRITE;
 /*!40000 ALTER TABLE `animateur` DISABLE KEYS */;
-INSERT INTO `animateur` VALUES (4,4),(5,3),(6,3),(7,5),(9,8),(9,9);
+INSERT INTO `animateur` VALUES (4,4),(5,3),(6,3),(7,5);
 /*!40000 ALTER TABLE `animateur` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +111,7 @@ CREATE TABLE `cours` (
 
 LOCK TABLES `cours` WRITE;
 /*!40000 ALTER TABLE `cours` DISABLE KEYS */;
-INSERT INTO `cours` VALUES (4,2,4,NULL,'2017-05-15 00:00:00','18:00:00','19:30:00',10,6,4),(5,3,3,NULL,'2012-01-01 00:00:00','08:00:00','05:00:00',7,5,6),(6,1,4,NULL,'2017-05-17 00:00:00','20:00:00','21:30:00',15,17,1),(7,1,4,NULL,'2017-05-17 00:00:00','20:00:00','21:30:00',10,3,5),(9,3,2,NULL,'2017-06-07 00:00:00','14:00:00','15:30:00',10,20,6);
+INSERT INTO `cours` VALUES (4,2,4,NULL,'2017-05-15 00:00:00','18:00:00','19:30:00',2,6,4),(5,3,3,NULL,'2012-01-01 00:00:00','08:00:00','05:00:00',7,5,6),(6,1,4,NULL,'2017-05-17 00:00:00','20:00:00','21:30:00',15,17,1),(7,1,4,NULL,'2017-05-17 00:00:00','20:00:00','21:30:00',10,3,5);
 /*!40000 ALTER TABLE `cours` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +139,7 @@ CREATE TABLE `cours_danseurs` (
 
 LOCK TABLES `cours_danseurs` WRITE;
 /*!40000 ALTER TABLE `cours_danseurs` DISABLE KEYS */;
-INSERT INTO `cours_danseurs` VALUES (4,12),(6,11),(6,13);
+INSERT INTO `cours_danseurs` VALUES (4,12),(4,13),(5,17),(6,11),(6,13),(7,13);
 /*!40000 ALTER TABLE `cours_danseurs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +203,7 @@ CREATE TABLE `fos_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_957A647992FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_957A6479A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,7 +212,7 @@ CREATE TABLE `fos_user` (
 
 LOCK TABLES `fos_user` WRITE;
 /*!40000 ALTER TABLE `fos_user` DISABLE KEYS */;
-INSERT INTO `fos_user` VALUES (1,'gugu','gugu','gugu@hotmail.com','gugu@hotmail.com',1,'ogp12c801qocwkwg4skgswsk4o080w8','emmanuelmacron',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Macron','Emmanuel','H'),(3,'Théo','theo','teo@net.com','teo@net.com',1,'iozaw3yvubs4w0cc4os884w4ggg0gg8','$2y$13$iozaw3yvubs4w0cc4os88ufsA.dDCbcrfwuv9Y2BM04ExUNPDFio6',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Dupont','T2o','m'),(4,'lolo','lolo','lolo45@dot.com','lolo45@dot.com',1,'iox7d5zn6bcw40cogksgs4s008s4sck','$2y$13$iox7d5zn6bcw40cogksgsuBfmlmel1uCLnHL7BR2yErKGSdrIOp3y',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Ndiaye','Lolo','f'),(5,'Jean','jean','jean17@gmail.com','jean17@gmail.com',1,'7czjg19ryzwok0s4kwog4wgg8g80wow','$2y$13$7czjg19ryzwok0s4kwog4u.YH/ZtTckBE0.cVhBaEU5wf4jyrw5kC',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Coudrais','Jean','m'),(6,'Floriant','floriant','floflo35@dot.com','floflo35@dot.com',1,'t5j4ci6ctdwgos8w080gkkgkk04c0ok','$2y$13$t5j4ci6ctdwgos8w080gkeQxBWSVoY0F9ofq3xO.I8XUgSYlhzMBm',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Archambaud','Floriant','m'),(7,'juju','juju','julien.lepers@gmail.com','julien.lepers@gmail.com',0,'cb1bd27qx9sswcoksw000044kokw8k8','julienlepers',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Lepers','Julien','H'),(8,'lulu','lulu','toto.lulu@toto.com','toto.lulu@toto.com',0,'mzisi8mqi5wcss8804ogskkwkk8wk8w','toto.lulu',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'TOTO','lulu','m'),(9,'seb','seb','sebastien.oillic@gmail.com','sebastien.oillic@gmail.com',0,'q7j5ovjvjk04gsg48kgkw0w0kgo4ows','sebastienoillic',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'oillic','sebastien','m'),(10,'responsable','responsable','res@res.com','res@res.com',1,'2kv5a2b64vuowkwwc44og8cw00g0co4','$2y$13$2kv5a2b64vuowkwwc44ogu3fER6I8g9EuyxH6ePwvnJ2t9Y3FMc.q','2017-05-10 13:02:11',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_RESPONSABLE\";}',0,NULL,'Coudrais','Richard','Homme'),(11,'tina','tina','tinalechat@chat.fr','tinalechat@chat.fr',1,'pz3t3mp8x9wcgkkc484ocsk4os0kwgg','$2y$13$pz3t3mp8x9wcgkkc484ocecNb6Cfl//rNIW/7i7zs.IJwCXRG0p8S',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'lechat','tina','1'),(12,'cancre','cancre','crancre@perpetelesbains.fr','crancre@perpetelesbains.fr',1,'gnjbficp1o0sk8gowswk08cwk844c0w','$2y$13$gnjbficp1o0sk8gowswk0unHYbQNa59Sw2D63dvjyBlWS7TueJP4q',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'lecancre','cancre','0'),(13,'tiptop','tiptop','tiptop@lechat.fr','tiptop@lechat.fr',1,'7g1pbop4uk0skkwc80wcoso40swokgs','$2y$13$7g1pbop4uk0skkwc80wcoe82qY0NSgX5ZcYqbVQ32yN73XXfVHDya',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'tip','top','1');
+INSERT INTO `fos_user` VALUES (1,'gugu','gugu','gugu@hotmail.com','gugu@hotmail.com',1,'ogp12c801qocwkwg4skgswsk4o080w8','emmanuelmacron',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Macron','Emmanuel','Homme'),(3,'Théo','theo','teo@net.com','teo@net.com',1,'iozaw3yvubs4w0cc4os884w4ggg0gg8','$2y$13$iozaw3yvubs4w0cc4os88ufsA.dDCbcrfwuv9Y2BM04ExUNPDFio6',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Dupont','T2o','Homme'),(4,'lolo','lolo','lolo45@dot.com','lolo45@dot.com',1,'iox7d5zn6bcw40cogksgs4s008s4sck','$2y$13$iox7d5zn6bcw40cogksgsuBfmlmel1uCLnHL7BR2yErKGSdrIOp3y',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Ndiaye','Lolo','Femme'),(5,'Jean','jean','jean17@gmail.com','jean17@gmail.com',1,'7czjg19ryzwok0s4kwog4wgg8g80wow','$2y$13$7czjg19ryzwok0s4kwog4u.YH/ZtTckBE0.cVhBaEU5wf4jyrw5kC',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Coudrais','Jean','Homme'),(6,'Floriant','floriant','floflo35@dot.com','floflo35@dot.com',1,'t5j4ci6ctdwgos8w080gkkgkk04c0ok','$2y$13$t5j4ci6ctdwgos8w080gkeQxBWSVoY0F9ofq3xO.I8XUgSYlhzMBm',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Archambaud','Floriant','Homme'),(7,'juju','juju','julien.lepers@gmail.com','julien.lepers@gmail.com',0,'cb1bd27qx9sswcoksw000044kokw8k8','julienlepers',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Lepers','Julien','Homme'),(8,'lulu','lulu','toto.lulu@toto.com','toto.lulu@toto.com',0,'mzisi8mqi5wcss8804ogskkwkk8wk8w','toto.lulu',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'TOTO','lulu','Homme'),(9,'seb','seb','sebastien.oillic@gmail.com','sebastien.oillic@gmail.com',0,'q7j5ovjvjk04gsg48kgkw0w0kgo4ows','sebastienoillic',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'oillic','sebastien','Homme'),(10,'responsable','responsable','res@res.com','res@res.com',1,'2kv5a2b64vuowkwwc44og8cw00g0co4','$2y$13$2kv5a2b64vuowkwwc44ogu3fER6I8g9EuyxH6ePwvnJ2t9Y3FMc.q','2017-05-11 16:03:28',0,0,NULL,NULL,NULL,'a:1:{i:0;s:16:\"ROLE_RESPONSABLE\";}',0,NULL,'Coudrais','Richard','Homme'),(11,'tina','tina','tinalechat@chat.fr','tinalechat@chat.fr',1,'pz3t3mp8x9wcgkkc484ocsk4os0kwgg','$2y$13$pz3t3mp8x9wcgkkc484ocecNb6Cfl//rNIW/7i7zs.IJwCXRG0p8S',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'lechat','tina','Femme'),(12,'cancre','cancre','crancre@perpetelesbains.fr','crancre@perpetelesbains.fr',1,'gnjbficp1o0sk8gowswk08cwk844c0w','$2y$13$gnjbficp1o0sk8gowswk0unHYbQNa59Sw2D63dvjyBlWS7TueJP4q',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'lecancre','cancre','Homme'),(13,'tiptop','tiptop','tiptop@lechat.fr','tiptop@lechat.fr',1,'7g1pbop4uk0skkwc80wcoso40swokgs','$2y$13$7g1pbop4uk0skkwc80wcoe82qY0NSgX5ZcYqbVQ32yN73XXfVHDya','2017-05-11 14:50:24',0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'tip','top','Femme'),(15,'jeanLeboucher','jeanleboucher','jean.leboucher@yahoo.fr','jean.leboucher@yahoo.fr',0,'by5i8y01qhsgcs4wk8wo88wk8oc40ok','jeanLeboucher',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'Leboucher','jean','Homme'),(16,'polpolet','polpolet','plo.polet@gmail.com','plo.polet@gmail.com',0,'ldfr3s7yvwg08ow8w08w0gow8oo08sg','polpolet',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'polet','pol','Homme'),(17,'nana','nana','nana@gmail.com','nana@gmail.com',1,'hj1khwtks4gkww08g4k0kk4ckwcsk04','$2y$13$hj1khwtks4gkww08g4k0keRsUQ03/hv4n3P8z4ETRxK5AgZbn8bRm',NULL,0,0,NULL,NULL,NULL,'a:0:{}',0,NULL,'poisson','nana','Femme');
 /*!40000 ALTER TABLE `fos_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,7 +370,7 @@ CREATE TABLE `typedanse_user` (
 
 LOCK TABLES `typedanse_user` WRITE;
 /*!40000 ALTER TABLE `typedanse_user` DISABLE KEYS */;
-INSERT INTO `typedanse_user` VALUES (1,1),(1,3),(1,9),(2,4),(2,7),(3,6),(4,4),(4,5),(4,8),(5,3),(6,3),(6,8),(7,5),(7,9),(8,1),(8,5),(9,1),(9,7),(10,3),(10,9),(11,3),(11,4),(12,4),(12,6),(12,7),(13,1),(13,5),(14,3),(17,3),(18,4),(19,6);
+INSERT INTO `typedanse_user` VALUES (1,1),(1,3),(1,9),(2,4),(2,7),(2,15),(3,6),(4,4),(4,5),(4,8),(4,16),(5,3),(5,15),(6,3),(6,8),(6,16),(7,5),(7,9),(8,1),(8,5),(8,16),(9,1),(9,7),(10,3),(10,9),(11,3),(11,4),(11,16),(12,4),(12,6),(12,7),(13,1),(13,5),(13,16),(14,3),(17,3),(18,4),(19,6);
 /*!40000 ALTER TABLE `typedanse_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -383,4 +383,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-11  1:51:22
+-- Dump completed on 2017-05-11 17:35:06

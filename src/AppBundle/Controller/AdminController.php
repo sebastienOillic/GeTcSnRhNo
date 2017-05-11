@@ -45,21 +45,6 @@ class AdminController extends Controller
         $user = $userManipulator->removeRole($username, 'ROLE_REFERENT');
         $users = $userManager->findUsers();
         return $this->render('AppBundle:Admin:admin.html.twig', array('users' => $users,));
-
-
     }
-
-//    public function deleteAction(Request $request, User $user){
-//        $form = $this->createDeleteForm($user);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $em->remove($user);
-//            $em->flush();
-//        }
-//
-//        return $this->redirectToRoute('admin_index');
-//    }
 
 }

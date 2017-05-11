@@ -9,14 +9,20 @@
     <title>{% block title %}Ami'Danse{% endblock %}</title>
 
     {% block stylesheets %}
+
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
         <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('bundles/app/css/font-awesome.min.css') }}" rel="stylesheet"> 
         <link href="{{ asset('bundles/app/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
         <link href="{{ asset('bundles/app/css/styles.css') }}" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet"> 
+
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('bundles/app/css/slider.css') }}"> 
+
     {% endblock stylesheets %}
+
+
+
 
     <!--[if lt IE 9]>
     <script src="{{ asset('bundles/app/js/html5shiv.min.js') }}"></script>
@@ -25,32 +31,21 @@
 </head>
 
 <body>
+    <div id="container">
+        {# Header #} {% block header %} {% include "AppBundle:Layout:header.html.twig" %} {% endblock %}
+        {% block flashbag %} {% include "AppBundle:Layout:flashes.html.twig" %} {% endblock %}
+        <main>
+            {# Content #} {% block content %} {% endblock %}
+        </main>
 
-<div id="container">
-    {# Header #}
-    {% block header %}
-        {% include "AppBundle:Layout:header.html.twig" %}
-    {% endblock %}
-
-    <main>
-    {% include "AppBundle:Layout:flashes.html.twig" %}
-        {# Content #}
-        {% block content %}
-        {% endblock %}
-    </main>
-    
-    {# Footer #}
-    {% block footer %}
-        {% include "AppBundle:Layout:footer.html.twig" %}
-    {% endblock %}
-
-    {% block javascripts %}
-        <script src="{{ asset('bundles/app/js/navbar.js') }}"></script>
+        {# Footer #} {% block footer %} {% include "AppBundle:Layout:footer.html.twig" %} {% endblock %} 
+        {% block javascripts %}
         <script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script>
         <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>
-        <script src="{{ asset('bundles/app/js/deletecours.js') }}"></script>
-    {% endblock javascripts %}
-</div>
+        {% endblock javascripts %}
+    </div>
 </body>
+
 </html>
+

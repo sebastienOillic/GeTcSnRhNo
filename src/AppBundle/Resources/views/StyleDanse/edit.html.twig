@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 {% extends '::base.html.twig' %}
 {% block content %}
     <h1>Modifier Style de danses</h1>
@@ -12,22 +8,13 @@
     <hr>
     <ul class="list-inline">
         <li>
-<<<<<<< HEAD
-            <a href="{{ path('app_styleDanse_index') }}" class="btn btn-sm btn-default">
-                Liste des danses
-=======
-
-
-
         <a href="{{ path('app_styleDanse_index') }}" class="btn btn-sm btn-default">
-                Liste des styles de danse
->>>>>>> dev
-            </a>
+            Liste des styles de danse
+        </a>
     </li>
     <li>
         {{ form_start(delete_form) }}
-        <input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> 
-        {{ form_end(delete_form) }}
+        <input type="submit" value="Supprimer" class="btn btn-sm btn-danger"> {{ form_end(delete_form) }}
     </li>
 </ul>
 {% endblock %}

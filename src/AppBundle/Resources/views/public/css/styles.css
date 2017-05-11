@@ -3,22 +3,24 @@ body {
     padding-bottom: 20px;
     background-color: #FFF7CC;
 }
-h2{
+
+h2 {
     font-size: 36px;
     font-family: "Dancing Script", cursive;
     color: #8A0507;
     text-align: center;
 }
 
-#container{
-    margin:10px;
+#container {
+    margin: 10px;
 }
 
 header {
-    margin:0px;
+    margin: 0px;
 }
-.img-circle{
-    width:50%;
+
+.img-circle {
+    width: 50%;
 }
 
 #titreAccueil {
@@ -27,129 +29,153 @@ header {
     color: #8A0507;
     text-align: center;
 }
-#titreAccueil a:link, a:visited {
+
+#titreAccueil a:link,
+a:visited {
     color: #8A0507;
-    text-decoration:none;
-}
-#titreAccueil a:hover{
-    color: #ff0000;
-    text-decoration:none;
+    text-decoration: none;
 }
 
-#danseAccueil{
+#titreAccueil a:hover {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+#danseAccueil {
     margin-top: 10px;
-    text-align:center;
-}
-
-#listeEvents {
-    border:solid 1px;
-    border-radius: 10px;
-    margin:10px;
-}
-.eventAccueil{
-    margin: 10px;
-    background-color:#FFF;
-    padding:5px;
-    border:solid 1px;
-    border-radius: 5px;
-}
-.eventAccueil a:link, a:visited {
-    color: #8A0507;
-    text-decoration:none;
-}
-.eventAccueil a:hover{
-    color: #ff0000;
-    text-decoration:none;
-}
-.imgEvent{
-    width:40%;
-    float:left;
-}
-.imgEvent img{
-    width:100px;
-    height:100px;
-}
-.eventDetail{
-    width:60%;
-    float:left;
-}
-.clearboth{
-    clear:both;
-}
-.reseauSocial {
-    width:100%;
-}
-.reseauSocial >p{
     text-align: center;
 }
 
-.listedanses{
-    border:solid 1px;
+#listeEvents {
+    border: solid 1px;
     border-radius: 10px;
-    margin:10px;
-    margin-left:2px;
+    margin: 10px;
+}
+
+.eventAccueil {
+    margin: 10px;
+    background-color: #FFF;
+    padding: 5px;
+    border: solid 1px;
+    border-radius: 5px;
+}
+
+.eventAccueil a:link,
+a:visited {
+    color: #8A0507;
+    text-decoration: none;
+}
+
+.eventAccueil a:hover {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.imgEvent {
+    width: 40%;
+    float: left;
+}
+
+.imgEvent img {
+    width: 100px;
+    height: 100px;
+}
+
+.eventDetail {
+    width: 60%;
+    float: left;
+}
+
+.clearboth {
+    clear: both;
+}
+
+.reseauSocial {
+    width: 100%;
+}
+
+.reseauSocial>p {
+    text-align: center;
+}
+
+.listedanses {
+    border: solid 1px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 2px;
     color: #FFF;
     height: 300px;
 }
 
-.listedanses a:link, a:visited{
-    color:#FFF;
+.listedanses a:link,
+a:visited {
+    color: #FFF;
     text-decoration: none;
 }
 
-.listedanses a:hover{
-    color:#d3d3d3;
+.listedanses a:hover {
+    color: #d3d3d3;
     text-decoration: none;
 }
 
-.orange{
-    background-color:orange;
-}
-.tomato{
-    background-color:tomato;
-}
-.firebrick{
-    background-color:firebrick;
+.orange {
+    background-color: orange;
 }
 
-.listetypesdanse li{
+.tomato {
+    background-color: tomato;
+}
+
+.firebrick {
+    background-color: firebrick;
+}
+
+.listetypesdanse li {
     text-align: left;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-listetypesdanse ul,li a:link, a:visited{
-    color:#FFF;
+
+listetypesdanse ul,
+li a:link,
+a:visited {
+    color: #FFF;
     text-decoration: none;
 }
 
-listetypesdanse ul,li a:hover{
-    color:#d3d3d3;
+listetypesdanse ul,
+li a:hover {
+    color: #d3d3d3;
     text-decoration: none;
 }
-
 
 #topnavigbar {
     background-color: #AB252B;
     border-radius: 10px;
 }
-#topnavigbar a:link, a:visited{ 
+
+#topnavigbar a:link,
+a:visited {
     color: #FFF;
 }
-#bottomnavigbar a:link, a:visited{ 
+
+#bottomnavigbar a:link,
+a:visited {
     color: #AB252B;
 }
 
-.navigbar ul{
-    text-align:center;
-    padding:5px;
-    font-size:20px;
-} 
+.navigbar ul {
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+}
+
 .navigbar li {
-    display:inline-block;
+    display: inline-block;
     margin: 0 20px;
 }
 
 #listeCours {
-    margin-bottom:50px;
+    margin-bottom: 50px;
 }

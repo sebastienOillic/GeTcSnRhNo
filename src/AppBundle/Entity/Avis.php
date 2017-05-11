@@ -23,8 +23,12 @@ class Avis
 
     private $user;
 
-    private $slug;
+    private $slug; //lien unique
 
+
+    public function __toString() {
+        return $this->getCours();
+    }
     /**
      * @return mixed
      */
@@ -116,3 +120,4 @@ class Avis
         return $this->user;
     }
 }
+

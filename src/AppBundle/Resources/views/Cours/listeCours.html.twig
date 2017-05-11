@@ -1,21 +1,29 @@
-{% extends '::base.html.twig' %}
+{% extends '::base.html.twig' %} {% block content %}
 
 {% block content %}
 <h1>Cliquez sur le cours de votre choix pour vous inscrire</h1>
 {# Pour chaque coours #}
 
 <div class="row cours">
+{% set number = 0 %}
 {% for lecours in cours %}
-      <div class="col-sm-7" id="listeCours" >
+      <div class="col-sm-11" id="listeCours" >
+           {% set number = number+1 %}
+        {% if number %2 == 0 %}
+        <div class="bouton_cours yellow">
+            {% else %}
+            <div class="bouton_cours orange">
+
+                {% endif %}
               <a href="{{path('app_inscriptionCours_index',{ 'id': lecours.id })}}" class="btn btn-xs btn-danger">
-                  <b>{{lecours.typeDanse|capitalize}}  {{lecours.niveau}}</b><br />
-                  {{lecours.dateCours|date('d-m-Y')}} - {{lecours.heureDebut|date('H:i')}}-{{lecours.heureFin|date('H:i')}} Salle {{lecours.salle}}<br />
-                  Nombre d'inscrits : {{lecours.hommes}} homme(s) et {{lecours.femmes}} femme(s).<br />
-                  Nombre de places restantes : {{lecours.placesRestantes}}
-              </a>     
+                    <div class = "titrecours">{{lecours.typeDanse|upper}} {{lecours.niveau|capitalize}}</div>
+                    <div class = "detailscours"> {{lecours.dateCours|date("d/m/Y", "Europe/Paris")}}  de {{lecours.heureDebut|date('H:i')}} à {{lecours.heureFin|date('H:i')}} - Salle {{lecours.salle}}<br />
+                  Nombre d'inscrits : {{lecours.hommes}} homme(s) et {{lecours.femmes}} femme(s) - Nombre de places restantes : {{lecours.placesRestantes}}</div>
+              </a>  
+            </div>    
       </div>
 {% if is_granted("ROLE_RESPONSABLE") %}
-      <div class="col-sm-5">
+      <div class="col-sm-1">
 
           {# Bouton liste des inscrits #}  
               <!-- Trigger the modal with a button -->

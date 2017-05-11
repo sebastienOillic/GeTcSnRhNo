@@ -17,18 +17,25 @@ app_inscriptionCours:
     resource: "@AppBundle/Resources/config/routing/inscriptioncours.yml"
     prefix: /cours/liste/inscriptioncours
 
+app_inscriptionCours:
+    resource: "@AppBundle/Resources/config/routing/inscriptioncours.yml"
+    prefix: /cours/liste/inscriptioncours
+
 app_animateur:
     resource: routing/animateur.yml
     prefix: /animateur
 
 app_typeDanse:
-    resource: routing/typeDanse.yml
-    prefix: /typeDanse
+    resource: routing/typedanse.yml
+    prefix: /typedanse
 
 app_styledanse:
-    resource: "routing/styledance.yml"
+    resource: "routing/styledanse.yml"
     prefix: /styledanse
 
+app_evenement:
+    resource: "routing/evenement.yml"
+    prefix: /evenement
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
@@ -49,4 +56,18 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
+app_quisommesnous:
+    path: /quisommesnous
+    defaults: { _controller: AppBundle:Accueil:quisommesnous }
 
+app_mentionslegales:
+    path: /mentionslegales
+    defaults: { _controller: AppBundle:Accueil:mentionslegales }
+
+app_plandusite:
+    path: /plandusite
+    defaults: { _controller: AppBundle:Accueil:plandusite }
+
+app_contact:
+    path: /contact
+    defaults: { _controller: AppBundle:Accueil:contact }

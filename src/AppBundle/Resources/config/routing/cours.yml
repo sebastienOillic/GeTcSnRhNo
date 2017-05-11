@@ -12,3 +12,7 @@ app_cours_delete:
     path: /{id}/delete
     defaults: { _controller: AppBundle:Cours:delete }
     methods:  [GET, POST]
+app_old_cours:
+    path: /
+    defaults: { _controller: AppBundle:Cours:old }
+
