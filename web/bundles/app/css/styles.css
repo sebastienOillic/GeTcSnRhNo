@@ -253,13 +253,3 @@ a:visited {
 .plandusite a:active {
     color: red;
 }
-
-.nom_prenom {
-    font-size: 20px;
-}
-
-.cours_inscription {
-    font-size: 20px;
-    border-style: 5px;
-    background-color: Coral;
-}
