@@ -1,43 +1,17 @@
 <div id="listeEvents">
     <h2>L'Agenda</h2>
+    {% for event in events %}
     <div class="eventAccueil">
-        <div class="imgEvent"><img src="{{ asset('bundles/app/img/dansemoderne.jpg') }}" /></div>
+    {% if event.image is not empty %}
+        <div class="imgEvent"><img style="width: 95%" src="{{ asset('uploads/events_img/' ~ event.image) }}" alt="{{event.image}}"></img></div>
+    {% endif %}
         <div class="eventDetail">
-            <div class="eventDate">25 mai 2017</div>
-            <div class="eventTitre"><b><a href="#">Modern'Danses : Concours Danses Modernes</a></b></div>
-            <div class="eventTexte">Dans le cadre des journées de la danse moderne ...</div>
-            <div class="eventSuite"><a href="#">lire la suite</a></div>
+            <div class="eventDate">Du {{event.dateDebut|date('d/m/Y')}} au {{event.dateFin|date('d/m/Y')}}</div>
+            <div class="eventTitre"><b><a href="{{ path('app_agenda_index') }}">{{event.nom}}</a></b></div>
+            <div class="eventTexte">{{ event.description|length > 50 ? event.description|slice(0, 50) ~ '...' : event.description  }}</div>
+            <div class="eventSuite"><a href="{{ path('app_agenda_index') }}">lire la suite</a></div>
         </div>
         <br class="clearboth" />
     </div>
-    <div class="eventAccueil">
-        <div class="imgEvent"><img src="{{ asset('bundles/app/img/latino.jpg') }}" /></div>
-        <div class="eventDetail">
-            <div class="eventDate">02 juin 2017 - 04 juin 2017</div>
-            <div class="eventTitre"><b><a href="#">Latina for ever</a></b></div>
-            <div class="eventTexte">Pour le 21éme festival de danses latines...</div>
-            <div class="eventSuite"><a href="#">lire la suite</a></div>
-        </div>
-        <br class="clearboth" />
-    </div>
-    <div class="eventAccueil">
-        <div class="imgEvent"><img src="{{ asset('bundles/app/img/ami-danse-4.jpg') }}" /></div>
-        <div class="eventDetail">
-            <div class="eventDate">14 juin 2017</div>
-            <div class="eventTitre"><b><a href="#">La nuit du hip-hop</a></b></div>
-            <div class="eventTexte">Dans le cadre des journées de la vulgarisation des danses de rue ...</div>
-            <div class="eventSuite"><a href="#">lire la suite</a></div>
-        </div>
-        <br class="clearboth" />
-    </div>
-    <div class="eventAccueil">
-        <div class="imgEvent"><img src="{{ asset('bundles/app/img/ami-danse-5.jpg') }}" /></div>
-        <div class="eventDetail">
-            <div class="eventDate">18 juin 2017</div>
-            <div class="eventTitre"><b><a href="#">Soirée Country</a></b></div>
-            <div class="eventTexte">L'association des garçons vachers des Deux-Sèvres organise ...</div>
-            <div class="eventSuite"><a href="#">lire la suite</a></div>
-        </div>
-        <br class="clearboth" />
-    </div>
+    {% endfor %}
 </div>
