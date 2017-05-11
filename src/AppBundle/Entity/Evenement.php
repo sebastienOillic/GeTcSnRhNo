@@ -39,6 +39,9 @@ class Evenement
      */
     private $description;
 
+    /**
+     * @var string
+     */
     private $image;
 
     /**
@@ -56,7 +59,6 @@ class Evenement
     {
         $this->image = $image;
     }
-
 
     /**
      * Get id

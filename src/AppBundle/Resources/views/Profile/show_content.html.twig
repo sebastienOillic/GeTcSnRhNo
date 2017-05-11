@@ -1,14 +1,17 @@
 
 
 <div class="fos_user_user_show">
-
+    <div class="jumbotron vertical-center">
+        <div class="container text-center">
     <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
     <p>{{ 'nom'}}: {{ user.nom }}</p>
     <p>{{ 'Prénom'}}: {{ user.prenom }}</p>
     <p>{{ 'Sexe'}}: {{ user.sexe }}</p>
-    <p>{{ 'Statut'}}: {{ user.statut }}</p>
+
+        <p><a class="btn btn-primary" href="{{ path('fos_user_profile_edit') }}" >Modifier son profil</a></p>
+        <p><a class="btn btn-warning" href="{{ path('fos_user_change_password') }}" >Changer de mot de passe</a></p>
+        </div>
+    </div>
 </div>
 
-
-<p><a href="{{ path('fos_user_change_password') }}" >Changer de mot de passe</a></p>

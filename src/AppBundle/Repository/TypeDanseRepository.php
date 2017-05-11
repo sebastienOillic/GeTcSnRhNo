@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\StyleDanse;
+use AppBundle\Entity\User;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -12,4 +14,39 @@ use Doctrine\ORM\EntityRepository;
  */
 class TypeDanseRepository extends EntityRepository
 {
+    /**
+    * Finds typeDanse by styleDanse.
+    *
+    * @param StyleDanse $styleDanse
+    *
+    * @return \AppBundle\Entity\TypeDanse[]
+    */
+    public function findByStyleDanse(StyleDanse $styleDanse)
+    {
+        $qb = $this->createQueryBuilder('t');
+
+        return $qb
+            ->where($qb->expr()->eq('t.styleDanse', ':styleDanse'))
+            ->getQuery()
+            ->setParameter('styleDanse', $styleDanse)
+            ->getResult();
+    }
+
+    /**
+     * Finds typeDanse by user.
+     *
+     * @param User $user
+     *
+     * @return \AppBundle\Entity\TypeDanse[]
+     */
+    public function findByUser(User $user)
+    {
+        $qb = $this->createQueryBuilder('t');
+
+        return $qb
+            ->where($qb->expr()->eq('t.user', ':user'))
+            ->getQuery()
+            ->setParameter('user', $user)
+            ->getResult();
+    }
 }

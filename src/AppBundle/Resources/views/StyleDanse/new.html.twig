@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <h1>Création d'un style de danse</h1>
+    <hr>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('app_styleDanse_index') }}" class="btn btn-sm btn-default">
+                Retour à la liste
+            </a>
+    </li>
+</ul>
+{% endblock %}

@@ -19,7 +19,15 @@ class Niveau
      */
     private $nom;
 
-
+    /**
+     * Niveau toString
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom;
+    }
+    
     /**
      * Get id
      *

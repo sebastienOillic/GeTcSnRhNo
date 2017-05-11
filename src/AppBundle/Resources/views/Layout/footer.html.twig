@@ -1,41 +1,30 @@
-{#<nav class="navbar navbar-default navbar-static-top" id="topnavbar">#}
-{# <nav class="navbar navbar-inverse navbar-fixed-bottom"> #}
-    {#<div class="navbar-header">#}
-    {#<ul class="nav navbar-nav">#}
-      {#<li class="active"><a href="#">ACCUEIL</a></li>#}
-      {#<li><a href="#">QUI SOMMES NOUS ?</a></li>#}
-      {#<li><a href="#">MENTIONS LEGALES</a></li>#}
-      {#<li><a href="#">PLAN DU SITE</a></li>#}
-      {#<li><a href="#">FORUM</a></li>#}
-      {#<li><a href="#">CONTACT</a></li>#}
-    {#</ul>#}
-  {#</div>#}
-{#</nav>#}
-
+<hr />
 <footer>
-    <div class="container-fluid text-center">
-        <p class="footer-links">
-            <a href="#">Accueil</a>
-            ·
-            <a href="#">Qui Sommes Nous</a>
-            ·
-            <a href="#">Mentions Légales</a>
-            ·
-            <a href="#">Plan du site</a>
-            ·
-            <a href="#">Forum</a>
-            ·
-            <a href="#">Contact</a>
-        </p>
+    <nav class="navigbar" id="bottomnavigbar">
+        <ul>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a href="{{ path('app_quisommesnous') }}">Qui sommes nous ?</a></li>
+            <li><a href="{{ path('app_mentionslegales') }}">Mentions légales</a></li>
+            <li><a href="{{ path('app_plandusite') }}">Plan du site</a></li>
+        </ul>
+    </nav>
 
+
+    <div class="reseauSocial">
         <p>
-            <a href="#"><i class="fa fa-twitter"></i></a>
+            IMIE 2017 - DL18
+            - Site réalisé par Toutou Baïla Ndiaye, Gülistan Ehmet, Richard Coudrais, Sébastien Oillic, Nicolas Hertz
+            - Tout droits réservés
+        </p>
+    </div>
+
+    <div class="reseauSocial">
+        <p>
             <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-github"></i></a>
-        <p>Copyright 2017</p>
+        </p>
     </div>
+
 </footer>
-
-
-

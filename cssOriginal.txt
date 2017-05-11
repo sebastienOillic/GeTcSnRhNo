@@ -1,0 +1,55 @@
+header {
+    margin-top:10px;
+    margin-bottom: 5px;
+}
+#titreAccueil {
+    font-size: 36px;
+    font-family: "Dancing Script", cursive;
+    color: #8A0507;
+    text-align: center;
+}
+#topnavbar { 
+    background-color: #AB252B;
+}
+#topnavbar.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.navbar-header ul{
+    text-align:center;
+    float:none;
+    margin-left:30%;
+    margin-right:10%;
+} 
+.navbar-header li {
+    display:inline-block;
+}
+#bottomnavbar {
+    background-color: #AB252B;
+}
+#danseAccueil{
+    margin-top: 10px;
+    text-align:center;
+}
+.enteteTableauDanse {
+    background-color:#AB252B;
+    height: 50px;
+    padding-top:10px;
+}
+aside {
+    border:solid 1px;
+    padding: 10px;
+    margin-right: 5px;
+}
+.imgEvent{
+    width:125px;
+    height:100px;
+}
+.reseauSocial {
+    width:100%;
+}
+.reseauSocial >p{
+    text-align: center;
+}
+

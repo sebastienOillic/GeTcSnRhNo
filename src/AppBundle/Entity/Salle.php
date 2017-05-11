@@ -15,11 +15,18 @@ class Salle
     private $id;
 
     /**
-     * @var int
+     * @var string
      */
     private $nom;
 
-
+     /**
+     * Salle toString
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom;
+    }
     /**
      * Get id
      *
@@ -33,7 +40,7 @@ class Salle
     /**
      * Set nom
      *
-     * @param integer $nom
+     * @param string $nom
      * @return Salle
      */
     public function setNom($nom)

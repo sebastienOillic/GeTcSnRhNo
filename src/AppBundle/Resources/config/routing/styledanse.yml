@@ -1,0 +1,24 @@
+app_styleDanse_index:
+    path: /
+    defaults: { _controller: AppBundle:StyleDanse:index }
+    methods: GET
+
+app_styleDanse_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:StyleDanse:show" }
+    methods:  GET
+
+app_admin_styleDanse_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:StyleDanse:new" }
+    methods:  [GET, POST]
+
+app_admin_styleDanse_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:StyleDanse:edit" }
+    methods:  [GET, POST]
+
+app_admin_styleDanse_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:StyleDanse:delete" }
+    methods:  DELETE
