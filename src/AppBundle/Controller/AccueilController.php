@@ -26,10 +26,11 @@ class AccueilController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $stylesDanses = $em->getRepository('AppBundle:StyleDanse')->findAll();
-
+        $events = $em->getRepository('AppBundle:Evenement')->getFutureEvents(4);
         // src/AppBundle/Resources/views/index.html.twig
         return $this->render('AppBundle:Accueil:home.html.twig', array(
             'stylesDanse' => $stylesDanses,
+            'events' => $events
         ));
     }
 

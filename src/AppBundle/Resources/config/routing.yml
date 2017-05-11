@@ -64,3 +64,4 @@ app_plandusite:
 app_contact:
     path: /contact
     defaults: { _controller: AppBundle:Accueil:contact }
+
