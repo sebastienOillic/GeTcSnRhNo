@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+
+<div class="contentAccueil">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Plan du site</h2>
+            <ul class="plandusite">
+                <li><a href="{{ path('app_home') }}">Page d'accueil</a>
+                    <ul>
+                        <li><a href="{{ path('fos_user_security_login') }}">Se connecter au site</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('app_styleDanse_index') }}">Liste des danses</a></li>
+                <li><a href="{{ path('app_cours_liste') }}">Liste des cours</a>
+                    <ul>
+                        <li><a href="{{ path('app_cours_liste') }}">S'inscrire à un cours</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('app_agenda_index') }}">Agenda des événements</a></li>
+                <li><a href="{{ path('app_quisommesnous') }}">Qui sommes nous ?</a></li>
+                <li><a href="{{ path('app_mentionslegales') }}">Mentions légales</a></li>
+                <li><a href="{{ path('app_plandusite') }}">Plan du site</a></li>
+                <li><a href="/">Forum</a></li>
+                <li><a href="{{ path('app_contact') }}">Contact</a></li>
+
+            </ul>
+        </div>
+        <aside class="col-md-4">
+            {% include('AppBundle:Layout:sidebar.html.twig') %}
+        </aside>
+    </div>
+</div>
+{% endblock %}
+

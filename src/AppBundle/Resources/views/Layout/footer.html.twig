@@ -2,12 +2,12 @@
 <footer>
     <nav class="navigbar" id="bottomnavigbar">
         <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/quisommesnous">Qui sommes nous ?</a></li>
-            <li><a href="/mentionslegales">Mentions légales</a></li>
-            <li><a href="#">Plan du site</a></li>
-            <li><a href="#">Forum</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a href="{{ path('app_quisommesnous') }}">Qui sommes nous ?</a></li>
+            <li><a href="{{ path('app_mentionslegales') }}">Mentions légales</a></li>
+            <li><a href="{{ path('app_plandusite') }}">Plan du site</a></li>
+            <li><a href="/">Forum</a></li>
+            <li><a href="{{ path('app_contact') }}">Contact</a></li>
         </ul>
     </nav>
     
