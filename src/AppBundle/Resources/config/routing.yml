@@ -59,11 +59,19 @@ fos_user_change_password:
     prefix: /profile
 
 
-app_qsn:
+app_quisommesnous:
     path: /quisommesnous
     defaults: { _controller: AppBundle:Accueil:quisommesnous }
 
 app_mentionslegales:
     path: /mentionslegales
     defaults: { _controller: AppBundle:Accueil:mentionslegales }
+
+app_plandusite:
+    path: /plandusite
+    defaults: { _controller: AppBundle:Accueil:plandusite }
+
+app_contact:
+    path: /contact
+    defaults: { _controller: AppBundle:Accueil:contact }
 

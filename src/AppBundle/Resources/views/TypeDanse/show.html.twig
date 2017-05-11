@@ -7,11 +7,16 @@
 
 <ul class="list-inline">
     <li>
-        <a href="{{ path('app_typeDanse_index') }}" class="btn btn-sm btn-default">
-                Retour à la liste
+        <a href="{{ path('app_styleDanse_index') }}" class="btn btn-sm btn-success">
+                Liste des danses
             </a>
     </li>
     {% if is_granted("ROLE_RESPONSABLE") %}
+    <li>
+        <a href="{{ path('app_typeDanse_index') }}" class="btn btn-sm btn-success">
+                Tableau des types de danse
+            </a>
+    </li>
     <li>
         <a href="{{ path('app_admin_typeDanse_edit', { 'id': typeDanse.id }) }}" class="btn btn-sm btn-warning">
                 Modifier

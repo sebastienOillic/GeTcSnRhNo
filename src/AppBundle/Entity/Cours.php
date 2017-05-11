@@ -61,6 +61,11 @@ class Cours
         $this->danseurs = new ArrayCollection();
         $this->animateurs = new ArrayCollection();
     }
+    
+    public function __toString()
+    {
+        return 'cours';
+    }
 
     /**
      * @return ArrayCollection
@@ -93,7 +98,6 @@ class Cours
     {
         $this->referent = $referent;
     }
-
 
     /**
      * @return mixed

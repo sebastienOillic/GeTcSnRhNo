@@ -149,7 +149,7 @@ a:visited {
 }
 
 .yellow {
-    background-color: #f8ff3d;
+    background-color: #F3F781;
 }
 
 .listetypesdanse li {
@@ -239,4 +239,17 @@ footer {
 
 .titrecours {
     font-size: 24px;
+}
+
+.plandusite a:link,
+a:visited {
+    color: #000;
+}
+
+.plandusite a:hover {
+    color: #AB252B;
+}
+
+.plandusite a:active {
+    color: red;
 }
