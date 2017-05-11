@@ -17,7 +17,6 @@ AppBundle\Entity\User:
             type: string
             length: 56
 
-<<<<<<< HEAD
 
     manyToMany:
         cours:
