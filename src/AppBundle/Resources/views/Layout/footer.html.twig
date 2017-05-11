@@ -2,30 +2,31 @@
 <footer>
     <nav class="navigbar" id="bottomnavigbar">
         <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/quisommesnous">Qui sommes nous ?</a></li>
-            <li><a href="/mentionslegales">Mentions légales</a></li>
-            <li><a href="#">Plan du site</a></li>
-            <li><a href="#">Forum</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a href="{{ path('app_quisommesnous') }}">Qui sommes nous ?</a></li>
+            <li><a href="{{ path('app_mentionslegales') }}">Mentions légales</a></li>
+            <li><a href="{{ path('app_plandusite') }}">Plan du site</a></li>
+            <li><a href="/">Forum</a></li>
+            <li><a href="{{ path('app_contact') }}">Contact</a></li>
         </ul>
     </nav>
-    
+
+
     <div class="reseauSocial">
-    <p>    
-    IMIE 2017 - DL18
-    - Site réalisé par Toutou Baïla Ndiaye, Gülistan Ehmet, Richard Coudrais, Sébastien Oillic, Nicolas Hertz 
-    - Tout droits réservés
-    </p>
+        <p>
+            IMIE 2017 - DL18
+            - Site réalisé par Toutou Baïla Ndiaye, Gülistan Ehmet, Richard Coudrais, Sébastien Oillic, Nicolas Hertz
+            - Tout droits réservés
+        </p>
     </div>
 
     <div class="reseauSocial">
-    <p>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-github"></i></a>
-    </p>
+        <p>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+        </p>
     </div>
 
 </footer>

@@ -10,31 +10,28 @@ AppBundle\Entity\User:
         nom:
             type: string
             length: 56
-
         prenom:
             type: string
             length: 56
-
         sexe:
             type: string
             length: 56
 
-        
 
     manyToMany:
         cours:
-            targetEntity: AppBundle\Entity\Cours
-            mappedBy: danseurs
-#            mappedBy: animateurs
-
-
+           targetEntity: AppBundle\Entity\Cours
+           mappedBy: danseurs
+        
         typeDanses:
             targetEntity: AppBundle\Entity\TypeDanse
             mappedBy: users
+
+
 
         coursAnimes:
             targetEntity: AppBundle\Entity\Cours
             mappedBy: animateurs
 
-
     lifecycleCallbacks: {  }
+

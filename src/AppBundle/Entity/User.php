@@ -11,15 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->cours = new ArrayCollection();
-        $this->typeDanses = new ArrayCollection();
-        $this->coursAnimes = new ArrayCollection();
-
-    }
-
     /**
      * @var int
      */
@@ -37,6 +28,22 @@ class User extends BaseUser
 
     private $typeDanses;
 
+    public function __construct()
+   {
+       parent::__construct();
+       $this->cours = new ArrayCollection();
+       $this->typeDanses = new ArrayCollection();
+       $this->coursAnimes = new ArrayCollection();    
+    }
+    /**
+     * TypeDanse toString
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom;
+    }
+    
     /**
      * @return mixed
      */
@@ -44,15 +51,6 @@ class User extends BaseUser
     {
         return $this->coursAnimes;
     }
-
-    /**
-     * TypeDanse toString
-     * @return string
-     */
-//    public function __toString()
-//    {
-//        return $this->nom;
-//    }
 
     /**
      * @return mixed
@@ -96,87 +94,53 @@ class User extends BaseUser
     public function setCours($cours)
     {
         $this->cours = $cours;
-    }
 
-
-
-    /**
-     * @return int
-     */
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     * @return User
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
     }
 
     /**
-     * Get nom
-     *
-     * @return string
+     * @var string
      */
+
     public function getNom()
     {
         return $this->nom;
     }
 
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     * @return User
-     */
-    public function setPrenom($prenom)
+    public function setNom($nom)
     {
-        $this->prenom = $prenom;
-
-        return $this;
+        $this->nom = $nom;
     }
 
     /**
-     * Get prenom
-     *
-     * @return string
+     * @var string
      */
+
     public function getPrenom()
     {
         return $this->prenom;
     }
 
-    /**
-     * Set sex
-     *
-     * @param string $sexe
-     * @return User
-     */
-    public function setSexe($sexe)
+    public function setPrenom($prenom)
     {
-        $this->sexe = $sexe;
-
-        return $this;
+        $this->prenom = $prenom;
     }
 
     /**
-     * Get sex
-     *
-     * @return string
+     * @var string
      */
     public function getSexe()
     {
         return $this->sexe;
     }
 
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+    }
+
     public function addCours(Cours $cours)
     {
         if (!$this->cours->contains($cours)) {
-
             $this->cours->add($cours);
             $cours->addDanseur($this);
         }
@@ -187,7 +151,7 @@ class User extends BaseUser
     {
         if ($this->cours->contains($cours)) {
             $this->cours->removeElement($cours);
-//            $cours->removeDanseur($this);
+            //$cours->removeDanseur($this);
         }
 
         return $this;
@@ -196,7 +160,6 @@ class User extends BaseUser
     public function addCoursAnime(Cours $coursAnime)
     {
         if (!$this->coursAnimes->contains($coursAnime)) {
-
             $this->coursAnimes->add($coursAnime);
 //            $coursAnime->addAnimateur($this);
         }
@@ -207,10 +170,12 @@ class User extends BaseUser
     {
         if ($this->coursAnimes->contains($coursAnime)) {
             $this->coursAnimes->removeElement($coursAnime);
-//            $coursAnime->removeAnimateur($this);
+            //$coursAnime->removeAnimateur($this);
         }
-
         return $this;
     }
-
 }
+
+
+
+

@@ -2,57 +2,73 @@
 
 namespace AppBundle\Controller;
 
+
 use AppBundle\Entity\Cours;
-use AppBundle\Entity\User;
-use AppBundle\Form\InscriptionCoursType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+
+
+
+
+
 
 /**
- * Class InscriptionCoursController
- * @package AppBundle\Controller
+ *  InscriptionCoursController
+ * @package ApppBundle\Controller
  */
 class InscriptionCoursController extends Controller
 {
+
+
+
     public function indexAction(Cours $cours)
     {
-        
-
         $user = $this->container->get('security.context')->getToken()->getUser();
 
+
+        $joinedLesson = in_array($user, $cours->getDanseurs()->toArray() );
         return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
             'cours' => $cours,
-            'user' => $user
+            'user' => $user,
+            'joinedLesson' => $joinedLesson
+
+
+
         ));
 
     }
 
-    public function addAction(Request $request)
+
+    public function addAction(Cours $cours)
     {
-        $danseur = new User();
 
-        $form = $this->createForm('AppBundle\Form\CoursType', $danseur)
-                 ->add ('save', new SubmitType(),[
-                     'attr'=>[
-                         'class'=>"btn btn-sm btn-success",
-                     ]
-                 ]);                           
+        $danseur = $this->container->get('security.context')->getToken()->getUser();
 
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
+        $em = $this->getDoctrine()->getManager();
+        $cours->addDanseur($danseur);
+        $em->persist($danseur);
+        $em->persist($cours);
+        $em->flush();
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($danseur); 
-            $em->flush();
+        $this->addFlash('alert-success', 'Vous avez été inscrit avec succès');
 
-            return $this->redirect($this->generateUrl('app_inscriptionCours_add'));    
-        }
+        return $this->redirect($this->generateUrl('app_cours_liste'));
+    }
 
-        return $this->render('AppBundle:InscriptionCours:add.html.twig', [
-            'form' => $form->createView(),
-        ]);
-   }
 
+    public function deleteAction(Cours $cours)
+    {
+        $danseur = $this->container->get('security.context')->getToken()->getUser();
+
+        $em = $this->getDoctrine()->getManager();
+        $cours->removeDanseur($danseur);
+        $em->persist($danseur);
+        $em->persist($cours);
+        $em->flush();
+
+        $this->addFlash('alert-success', 'Vous vous êtes désinscrit avec succès');
+
+        return $this->redirectToRoute('app_cours_liste');
+    }
 }
+
+
