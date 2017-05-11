@@ -19,7 +19,11 @@ class InscriptionCoursController extends Controller
 
     public function indexAction(Cours $cours)
     {
-
+            $nbreHommesInscrits=0;
+            $nbreFemmesInscrits=0;
+            $danseurs = $cours->getDanseurs();
+            
+            $cours->placesRestantes = $cours->getNombreDanseursMax()-(count($danseurs));
 
         $user = $this->container->get('security.context')->getToken()->getUser();
 

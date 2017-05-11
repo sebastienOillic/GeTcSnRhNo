@@ -7,13 +7,7 @@
 
 
         <p>{{ 'Bonjour' }} {{ user.nom }} {{ user.prenom }}</p>
-
-        {#<li>Bonjour {{ danseur.nom }} {{ danseur.prenom }}#}
-        <p>Veuillez confirmer votre inscription</p>
-
-
-
-
+          
         <div class="col-sm-11">
             <p> Le cours dans lequel vous voulez inscrire est : </p>
 
@@ -24,10 +18,16 @@
         </div>
 
             {% if joinedLesson %}
-            <a href="{{ path('app_inscriptionCours_delete', { 'id': cours.id }) }}" class="btn btn-sm btn-default">Se
-                désinscrire</a>
+            <p>Veuillez confirmer votre désinscription</p>
+            <a href="{{ path('app_inscriptionCours_delete', { 'id': cours.id }) }}" class="btn btn-sm btn-default">Se désinscrire</a>
             {% else %}
+            {% if cours.placesRestantes > 0 %}
+            <p>Veuillez confirmer votre inscription</p>
             <a href="{{ path('app_inscriptionCours_add', { 'id': cours.id }) }}" class="btn btn-sm btn-default">Confirmer</a>
+            {% else %}
+            <p>Ce cours est déjà complet</p>
+             <a href="{{ path('app_cours_liste') }}" class="btn btn-sm btn-danger">Complet</a>
+             {% endif %}
             {% endif %}
         <a href="{{ path('app_cours_liste') }}" class="btn btn-sm btn-default">Annuler</a>
 

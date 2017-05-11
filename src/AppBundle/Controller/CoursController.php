@@ -18,9 +18,21 @@ class CoursController extends Controller
    public function listeAction()
     {
 		$cours = $this->findCours();
-        
+        foreach ($cours as $lecours){
+            $nbreHommesInscrits=0;
+            $nbreFemmesInscrits=0;
+            $danseurs = $lecours->getDanseurs();
+            foreach ($danseurs as $danseur){
+               if ($danseur->getSexe() === 'Homme'){
+                   $nbreHommesInscrits++;
+               } else $nbreFemmesInscrits++;
+            }
+            $lecours->hommes = $nbreHommesInscrits;
+            $lecours->femmes = $nbreFemmesInscrits;
+            $lecours->placesRestantes = $lecours->getNombreDanseursMax()-($lecours->hommes + $lecours->femmes);
+        }
         return $this->render('AppBundle:Cours:listeCours.html.twig', [
-		    'cours' => $cours, 
+		    'cours' => $cours,
         ]);
     }
     

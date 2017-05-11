@@ -21,7 +21,6 @@ class UserType extends AbstractType
             ->add('sexe')
             ->add('email')
             ->add('password','password')
-            ->add('adherent')
             ->add('typeDanses','entity', [
                 'class'         => 'AppBundle\Entity\TypeDanse',
                 'multiple' => true,
