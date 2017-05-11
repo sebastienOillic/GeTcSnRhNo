@@ -36,10 +36,22 @@ AppBundle\Entity\TypeDanse:
                 inverseJoinColumns:
                     styleDanse_id:
                         referencedColumnName: id
-        
+
+        users:
+            targetEntity:   AppBundle\Entity\User
+            inversedBy: typeDanses
+            joinTable:
+                name: typedanse_user
+                joinColumns:
+                    typeDanse_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    animateurPotentiel_id:
+                        referencedColumnName: id
+
+
         users:
             targetEntity: AppBundle\Entity\User
-            mappedBy: typeDanses    
-
+            mappedBy: typedanse
 
     lifecycleCallbacks: {  }

@@ -31,6 +31,8 @@
 </head>
 
 <body>
+
+
     <div id="container">
         {# Header #} {% block header %} {% include "AppBundle:Layout:header.html.twig" %} {% endblock %}
         {% block flashbag %} {% include "AppBundle:Layout:flashes.html.twig" %} {% endblock %}
@@ -38,11 +40,13 @@
             {# Content #} {% block content %} {% endblock %}
         </main>
 
-        {# Footer #} {% block footer %} {% include "AppBundle:Layout:footer.html.twig" %} {% endblock %} 
-        {% block javascripts %}
+        {# Footer #} {% block footer %} {% include "AppBundle:Layout:footer.html.twig" %} {% endblock %} {% block javascripts %}
+
         <script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script>
         <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/navbar.js') }}"></script>
+
         {% endblock javascripts %}
     </div>
 </body>

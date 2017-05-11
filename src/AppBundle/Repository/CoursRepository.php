@@ -68,7 +68,7 @@ class CoursRepository extends EntityRepository
 
      public function findByDate()
      {
-        $qb = $this->createQueryBuilder('c');
+
         $currentdate = new \DateTime(); //Date du jour
 
         return $this->createQueryBuilder('cours')

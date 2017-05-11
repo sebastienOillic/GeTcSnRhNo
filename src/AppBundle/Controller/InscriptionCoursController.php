@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
 
+
+
 /**
  *  InscriptionCoursController
  * @package ApppBundle\Controller
@@ -17,21 +19,19 @@ class InscriptionCoursController extends Controller
 {
 
 
+
     public function indexAction(Cours $cours)
     {
-            $nbreHommesInscrits=0;
-            $nbreFemmesInscrits=0;
-            $danseurs = $cours->getDanseurs();
-            
-            $cours->placesRestantes = $cours->getNombreDanseursMax()-(count($danseurs));
-
         $user = $this->container->get('security.context')->getToken()->getUser();
+
 
         $joinedLesson = in_array($user, $cours->getDanseurs()->toArray() );
         return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
             'cours' => $cours,
             'user' => $user,
             'joinedLesson' => $joinedLesson
+
+
 
         ));
 

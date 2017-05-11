@@ -68,7 +68,6 @@ class User extends BaseUser
     {
         if (!$this->typeDanses->contains($typeDanse)) {
             $this->typeDanses->add($typeDanse);
-            $typeDanse->addUser($this);
         }
         return $this;
     }
@@ -153,8 +152,7 @@ class User extends BaseUser
     {
         if ($this->cours->contains($cours)) {
             $this->cours->removeElement($cours);
-            $cours->removeDanseur($this);
-
+            //$cours->removeDanseur($this);
         }
 
         return $this;
@@ -164,7 +162,7 @@ class User extends BaseUser
     {
         if (!$this->coursAnimes->contains($coursAnime)) {
             $this->coursAnimes->add($coursAnime);
-            $coursAnime->addAnimateur($this);
+//            $coursAnime->addAnimateur($this);
         }
         return $this;
     }
@@ -173,8 +171,7 @@ class User extends BaseUser
     {
         if ($this->coursAnimes->contains($coursAnime)) {
             $this->coursAnimes->removeElement($coursAnime);
-            $coursAnime->removeAnimateur($this);
-
+            //$coursAnime->removeAnimateur($this);
         }
         return $this;
     }

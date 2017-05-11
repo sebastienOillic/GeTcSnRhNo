@@ -38,4 +38,3 @@ security:
             - { path: ^/evenement/add$, role: ROLE_REFERENT }
             - { path: ^/evenement/edit/\d+$, role: ROLE_REFERENT }
             - { path: ^/evenement/delete/\d+$, role: ROLE_REFERENT }
-

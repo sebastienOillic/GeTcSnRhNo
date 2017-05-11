@@ -8,8 +8,8 @@
       <div class="col-sm-10" id="listeAnimateur" >
               <a href="#" class="btn btn-xs btn-danger">
                   <b>{{animateur.prenom|capitalize}}  {{animateur.nom|capitalize}}</b><br />
-                  {{animateur.email}} <br />
-                  <b>Types de Danse exercés</b> :<br />
+                  {{animateur.email}} 
+                  Types de Danse exercés :
                    {% for typeDanse in animateur.typeDanses %}
                      <ul>
                         <li>
