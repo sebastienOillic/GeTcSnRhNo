@@ -16,18 +16,25 @@ AppBundle\Entity\User:
         sexe:
             type: string
             length: 56
-
+            nullable: false
 
     manyToMany:
         cours:
-           targetEntity: AppBundle\Entity\Cours
-           mappedBy: danseurs
-        
+            targetEntity: AppBundle\Entity\Cours
+            mappedBy: danseurs
+
+
         typeDanses:
-            targetEntity: AppBundle\Entity\TypeDanse
-            mappedBy: users
-
-
+            targetEntity:   AppBundle\Entity\TypeDanse
+            inversedBy: users
+            joinTable:
+                name: typedanse_user
+                joinColumns:
+                    animateurPotentiel_id:
+                        referencedColumnName: id
+                inverseJoinColumns: 
+                    typeDanse_id:
+                        referencedColumnName: id 
 
         coursAnimes:
             targetEntity: AppBundle\Entity\Cours

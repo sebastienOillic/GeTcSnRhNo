@@ -57,7 +57,7 @@ class AnimateurController extends Controller
     {
         $animateur = $this
 		    ->getDoctrine()
-            ->getRepository('AppBundle:Animateur')
+            ->getRepository('AppBundle:User')
             ->findOneBy(['id'=>$id]);
 			
         $form = $this
