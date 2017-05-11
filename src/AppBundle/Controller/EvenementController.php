@@ -37,7 +37,8 @@ class EvenementController extends Controller
             $maxSize = $this->file_upload_max_size();
             $file = $event->getImage();
             if ($file->getSize()>$maxSize){
-                $this->addFlash('danger', 'Fichier trop grand');
+                $this->addFlash('alert alert-danger', 'Fichier trop grand');
+
                 return $this->render('AppBundle:Evenement:new.html.twig', [
                 'form' => $form->createView()
                 ]);
@@ -83,8 +84,10 @@ class EvenementController extends Controller
             $maxSize = $this->file_upload_max_size();
             $file = $evenement->getImage();
             if (!is_null($file)){
+
                 if ($file->getSize()>$maxSize){
-                    $this->addFlash('danger', 'Fichier trop grand');
+                    $this->addFlash('alert alert-danger', 'Fichier trop grand');
+
                     return $this->render('AppBundle:Evenement:edit.html.twig', array(
                     'form' => $editForm->createView(),
                     'event' => $evenement,
@@ -128,7 +131,7 @@ class EvenementController extends Controller
         }
         $linkedToLessons = $em->getRepository('AppBundle:Cours')->findByEvent($evenement);
         if ($linkedToLessons){
-            $this->addFlash('error', 'Un evenement ne peut pas être supprimé s\'il est lié à des cours. <br/>Veuillez supprimer les cours liés à cet evenement avant de pouvoir le supprimer.');
+            $this->addFlash('alert alert-warning', 'Un evenement ne peut pas être supprimé s\'il est lié à des cours. <br/>Veuillez supprimer les cours liés à cet evenement avant de pouvoir le supprimer.');
             return $this->redirectToRoute('app_agenda_index');
         }
         $form = $this->createDeleteForm($evenement);

@@ -16,7 +16,6 @@ use Doctrine\ORM\EntityRepository;
 
 class InscriptionCoursRepository extends EntityRepository
 {
-
     public function findByCours(Cours $cours)
     {
         $qb = $this->createQueryBuilder('i');
@@ -27,24 +26,5 @@ class InscriptionCoursRepository extends EntityRepository
             ->setParameter('cours', $cours)
             ->getResult();
     }
-
-
-
-
-
-//    public function findByDanseur(Cours $user)
-//    {
-//        $qb = $this->createQueryBuilder('i');
-//
-//        return $qb
-//            ->where($qb->expr()->eq('i.user', ':user'))
-//            ->getQuery()
-//            ->setParameter('user', $user)
-//            ->getResult();
-//    }
-
-
-
-
 
 }
