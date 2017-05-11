@@ -10,25 +10,24 @@ app_cours:
     resource: routing/cours.yml
     prefix: /cours
 
-#app_avis:
-#    resource: "@AppBundle/Resources/config/routing/avis.yml"
-#    prefix: /avis
+
 
 app_inscriptionCours:
     resource: "@AppBundle/Resources/config/routing/inscriptioncours.yml"
     prefix: /cours/liste/inscriptioncours
 
 app_typeDanse:
-    resource: routing/typeDanse.yml
-    prefix: /typeDanse
+    resource: routing/typedanse.yml
+    prefix: /typedanse
 
 app_styledanse:
-    resource: "routing/styledance.yml"
+    resource: "routing/styledanse.yml"
     prefix: /styledanse
 
 app_evenement:
     resource: "routing/evenement.yml"
-    prefix: /evenemen
+    prefix: /evenement
+
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
@@ -56,4 +55,8 @@ app_qsn:
 app_mentionslegales:
     path: /mentionslegales
     defaults: { _controller: AppBundle:Accueil:mentionslegales }
+
+
+
+
 

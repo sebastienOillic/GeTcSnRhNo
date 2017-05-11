@@ -1,6 +1,6 @@
 AppBundle\Entity\StyleDanse:
     type: entity
-    table: styleDanse
+    table: styledanse
     repositoryClass: AppBundle\Repository\StyleDanseRepository
     id:
         id:
@@ -21,9 +21,9 @@ AppBundle\Entity\StyleDanse:
 
     manyToMany:
         typeDanses:
-            targetEntity: AppBundle\Entity\TypeDanse
+            targetEntity:   AppBundle\Entity\TypeDanse
             mappedBy: styleDanses
+            
 
-    lifecycleCallbacks: {}
 
-
+    lifecycleCallbacks: {  }

@@ -51,6 +51,13 @@ class Cours
 
     private $referent;
 
+
+    public function __construct()
+    {
+        $this->avis = new ArrayCollection();
+        $this->danseurs = new ArrayCollection();
+        $this->animateurs = new ArrayCollection();
+    }
     /**
      * @return ArrayCollection
      */
@@ -90,12 +97,7 @@ class Cours
      * Cours constructor.
      * @param $avis
      */
-    public function __construct()
-    {
-        $this->avis = new ArrayCollection();
-        $this->danseurs = new ArrayCollection();
-        $this->animateurs = new ArrayCollection();
-    }
+
 
     public function __toString()
     {

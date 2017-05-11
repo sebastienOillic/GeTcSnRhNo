@@ -45,8 +45,6 @@ class AdminController extends Controller
         $user = $userManipulator->removeRole($username, 'ROLE_REFERENT');
         $users = $userManager->findUsers();
         return $this->render('AppBundle:Admin:admin.html.twig', array('users' => $users,));
-
-
     }
 
 }

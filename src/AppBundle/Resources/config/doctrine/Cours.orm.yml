@@ -49,6 +49,7 @@ AppBundle\Entity\Cours:
                 referencedComlumnName: id
                 onDelete: RESTRICT
 
+
         referent:
             targetEntity: AppBundle\Entity\User
             joinColumn:
@@ -56,13 +57,12 @@ AppBundle\Entity\Cours:
                 referencedComlumnName: id
                 onDelete: RESTRICT
 
+
     oneToMany:
         avis:
             targetEntity: AppBundle\Entity\Avis
             mappedBy: cours
-#            cascade: [all]
 
-    manyToMany:
         danseurs:
             targetEntity:   AppBundle\Entity\User
             inversedBy: cours
@@ -74,8 +74,6 @@ AppBundle\Entity\Cours:
                 inverseJoinColumns:
                     user_id:
                         referencedColumnName: id
-
-
 
         animateurs:
             targetEntity:   AppBundle\Entity\User

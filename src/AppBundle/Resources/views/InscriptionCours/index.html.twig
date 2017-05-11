@@ -1,3 +1,4 @@
+
 {% extends '::base.html.twig' %} 
 
 {% block content %}
@@ -33,11 +34,11 @@
 
         {% else %}
             <p>Veuillez connecter ou créer votre compte </p>
-            <li>
+
                 <a class="navbar-brand" href="{{ path('fos_user_security_login') }}">
                     <span class="glyphicon glyphicon-log-in"></span>
                     {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
                 </a>
-            </li>
+
         {% endif %}
         {% endblock %}

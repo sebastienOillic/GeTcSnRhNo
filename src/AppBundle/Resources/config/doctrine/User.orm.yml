@@ -19,13 +19,12 @@ AppBundle\Entity\User:
             type: string
             length: 56
 
-
+        
 
     manyToMany:
         cours:
             targetEntity: AppBundle\Entity\Cours
             mappedBy: danseurs
-#            mappedBy: animateurs
 
 
         typeDanses:

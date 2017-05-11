@@ -14,6 +14,7 @@ class CoursController extends Controller
 {
 
 
+
     public function listeAction()
     {
 
@@ -42,5 +43,49 @@ class CoursController extends Controller
 
     }
 
+
+
+
+
+    public function addAction(Request $request)
+    {
+        $cours = new Cours();
+
+        $form = $this->createForm('AppBundle\Form\CoursType', $cours)
+                 ->add ('save', new SubmitType(),[
+                     'attr'=>[
+                         'class'=>"btn btn-sm btn-success",
+                     ]
+                 ]);                           
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($cours); 
+            $em->flush($cours);
+        
+            return $this->redirect($this->generateUrl('app_cours_liste'));    
+        }
+		
+        return $this->render('AppBundle:Cours:createCours.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+	
+    public function findCours()
+	{
+	    return $this
+		    ->getDoctrine()
+            ->getRepository('AppBundle:Cours')
+            ->findAll(); 
+	}
+    
+	public function findById($id)
+	{
+	    return $this
+		    ->getDoctrine()
+            ->getRepository('AppBundle:Cours')
+            ->findOneBy(['id'=>$id]); 
+	}
 }
 

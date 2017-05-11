@@ -23,6 +23,7 @@ class InscriptionCoursController extends Controller
 
         $user = $this->container->get('security.context')->getToken()->getUser();
 
+
         $joinedLesson = in_array($user, $cours->getDanseurs()->toArray() );
         return $this->render('AppBundle:InscriptionCours:index.html.twig', array(
             'cours' => $cours,

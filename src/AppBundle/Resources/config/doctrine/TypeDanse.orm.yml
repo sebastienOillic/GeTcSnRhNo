@@ -1,6 +1,6 @@
 AppBundle\Entity\TypeDanse:
     type: entity
-    table: typeDanse
+    table: typedanse
     repositoryClass: AppBundle\Repository\TypeDanseRepository
     id:
         id:
@@ -13,12 +13,12 @@ AppBundle\Entity\TypeDanse:
             type: string
             length: 255
             unique: true
-            
+
         description:
             type: text
             unique: false
             nullable: true
-    
+
     manyToMany:
         styleDanses:
             targetEntity: AppBundle\Entity\StyleDanse
@@ -43,5 +43,6 @@ AppBundle\Entity\TypeDanse:
                 inverseJoinColumns:
                     animateurPotentiel_id:
                         referencedColumnName: id
+
 
     lifecycleCallbacks: {  }

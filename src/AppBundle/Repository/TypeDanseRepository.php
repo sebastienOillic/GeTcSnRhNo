@@ -14,13 +14,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class TypeDanseRepository extends EntityRepository
 {
-     /**
-     * Finds typeDanse by styleDanse.
-     *
-     * @param StyleDanse $styleDanse
-     *
-     * @return \AppBundle\Entity\TypeDanse[]
-     */
+    /**
+    * Finds typeDanse by styleDanse.
+    *
+    * @param StyleDanse $styleDanse
+    *
+    * @return \AppBundle\Entity\TypeDanse[]
+    */
     public function findByStyleDanse(StyleDanse $styleDanse)
     {
         $qb = $this->createQueryBuilder('t');

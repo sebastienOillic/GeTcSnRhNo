@@ -4,9 +4,9 @@ var currentPicture ;
 var interval;
 function animatePicture()
 {
-	leftPos += 8;
+	leftPos += currentPicture.width /1000;
 	currentPicture.style.left = leftPos + "px";
-	if (leftPos >= 600){
+	if (leftPos >= currentPicture){
 		window.clearInterval(interval);
         //cette fonction déplace la derniere photo juste avant la premiere, dans le slider
 	    slider.insertBefore(currentPicture, slider.firstChild);
