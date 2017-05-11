@@ -186,12 +186,6 @@ class Cours
     {
         return $this->id;
     }
-
-    public function setId()
-    {
-        $this->id=$id;
-    }
-
     
     /**
      * Set dateCours

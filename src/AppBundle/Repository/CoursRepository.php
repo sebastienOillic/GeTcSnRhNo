@@ -60,7 +60,7 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('user', $user)
             ->getResult();
-     }
+    }
 
      public function findByDate()
      {
@@ -69,6 +69,7 @@ class CoursRepository extends EntityRepository
         return $this->createQueryBuilder('cours')
             ->select('cours')
             ->where('cours.dateCours >= :date')
+            ->orderBy('cours.dateCours', 'ASC')
             ->setParameter(':date', $currentdate->format('Y-m-d'))
             ->getQuery()
             ->getResult();
@@ -83,6 +84,17 @@ class CoursRepository extends EntityRepository
             ->where('cours.dateCours < :date')
             ->setParameter(':date', $currentdate->format('Y-m-d'))
             ->getQuery()
+            ->getResult();
+    }
+
+    public function findByDanseur(User $user)
+    {
+        $qb = $this->createQueryBuilder('u');
+
+        return $qb
+            ->where($qb->expr()->eq('c.user', ':user'))
+            ->getQuery()
+            ->setParameter('user', $user)
             ->getResult();
     }
 }

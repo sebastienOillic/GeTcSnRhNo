@@ -25,7 +25,6 @@ class InscriptionCoursController extends Controller
 
     }
 
-
     public function addAction(Cours $cours)
     {
 

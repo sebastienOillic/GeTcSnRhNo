@@ -90,11 +90,7 @@ class TypeDanse
     {
         return $this->id;
     } 
-
-    public function setId()
-    {
-        $this->id=$id;
-    } 
+ 
     /**
      * Set nom
      *
@@ -120,7 +116,7 @@ class TypeDanse
     {
         if (!$this->styleDanses->contains($styleDanse)) {
             $this->styleDanses->add($styleDanse);
-           // $styleDanse->addTypeDanse($this);
+            $styleDanse->addTypeDanse($this);
         }
         return $this;
     }

@@ -21,7 +21,8 @@ class EvenementRepository extends EntityRepository
      *
      * @return \AppBundle\Entity\Evenement[]
      */
-    public function getFutureEvents(int $limit = 0){
+    public function getFutureEvents($limit = 0)
+    {
         $qb = $this->createQueryBuilder('e');
         $now = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
         $qb =  $qb->select('e')

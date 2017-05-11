@@ -27,7 +27,13 @@ class User extends BaseUser
 
     private $typeDanses;
 
-
+    public function __construct()
+   {
+       parent::__construct();
+       $this->cours = new ArrayCollection();
+       $this->typeDanses = new ArrayCollection();
+       $this->coursAnimes = new ArrayCollection();    
+    }
     /**
      * TypeDanse toString
      * @return string
@@ -134,7 +140,6 @@ class User extends BaseUser
     public function addCours(Cours $cours)
     {
         if (!$this->cours->contains($cours)) {
-
             $this->cours->add($cours);
             $cours->addDanseur($this);
         }
@@ -154,7 +159,6 @@ class User extends BaseUser
     public function addCoursAnime(Cours $coursAnime)
     {
         if (!$this->coursAnimes->contains($coursAnime)) {
-
             $this->coursAnimes->add($coursAnime);
 //            $coursAnime->addAnimateur($this);
         }
