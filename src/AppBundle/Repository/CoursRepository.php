@@ -60,10 +60,15 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->setParameter('user', $user)
             ->getResult();
+
+
     }
+
+
 
      public function findByDate()
      {
+
         $currentdate = new \DateTime(); //Date du jour
 
         return $this->createQueryBuilder('cours')
@@ -78,7 +83,8 @@ class CoursRepository extends EntityRepository
     public function findByOldDate()
     {
         $currentdate = new \DateTime(); //Date du jour
-        
+
+
         return $this->createQueryBuilder('cours')
             ->select('cours')
             ->where('cours.dateCours < :date')
@@ -86,6 +92,8 @@ class CoursRepository extends EntityRepository
             ->getQuery()
             ->getResult();
     }
+
+
 
     public function findByDanseur(User $user)
     {
@@ -98,3 +106,4 @@ class CoursRepository extends EntityRepository
             ->getResult();
     }
 }
+

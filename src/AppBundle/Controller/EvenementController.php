@@ -10,9 +10,6 @@ use AppBundle\Entity\Evenement;
 
 class EvenementController extends Controller
 {
-    /**
-    * @Route("/", name="homepage")
-    */
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
