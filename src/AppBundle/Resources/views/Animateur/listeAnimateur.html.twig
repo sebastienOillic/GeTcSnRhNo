@@ -7,7 +7,7 @@
 {% for animateur in animateurs %}
   <div class="row animateur">
       <div class="col-sm-10" id="listeAnimateur" >
-            <h2>{{animateur.prenom|capitalize}}  {{animateur.nom|capitalize}}</h2>
+            <h2 class="anim_title">{{animateur.prenom|capitalize}}  {{animateur.nom|capitalize}}</h2>
                 <p id="nomAnimateur" class="animateur"> {{animateur.email}} </p> 
                 <p id="typeDanse" class="animateur">  Types de Danse exercés :</p> 
                   {% for typeDanse in animateur.typeDanses %}

@@ -9,7 +9,7 @@
         <div class="eventDetail">
             <div class="eventDate">Du {{event.dateDebut|date('d/m/Y')}} au {{event.dateFin|date('d/m/Y')}}</div>
             <div class="eventTitre"><b><a href="{{ path('app_agenda_index') }}">{{event.nom}}</a></b></div>
-            <div class="eventTexte">{{ event.description|length > 50 ? event.description|slice(0, 50) ~ '...' : event.description  }}</div>
+            <div class="eventTexte">{{ event.description|length > 200 ? event.description|slice(0, 200) ~ '...' : event.description  }}</div>
             <div class="eventSuite"><a href="{{ path('app_agenda_index') }}">lire la suite</a></div>
         </div>
         <br class="clearboth" />
