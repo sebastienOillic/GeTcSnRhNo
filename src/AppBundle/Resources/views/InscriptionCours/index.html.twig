@@ -19,13 +19,13 @@
             <div class="alert alert-warning" role="alert">
             <p>Veuillez confirmer votre désinscription</p>
             </div>
-            <a href="{{ path('app_inscriptionCours_delete', { 'id': cours.id }) }}" class="btn btn-sm btn-default">Se désinscrire</a>
+            <a href="{{ path('app_inscriptionCours_delete', { 'id': cours.id }) }}" class="btn btn-sm btn-primary">Se désinscrire</a>
             {% else %}
             {% if cours.placesRestantes > 0 %}
             <div class="alert alert-info" role="alert">
             <p>Veuillez confirmer votre inscription</p>
             </div>
-            <a href="{{ path('app_inscriptionCours_add', { 'id': cours.id }) }}" class="btn btn-sm btn-default">Confirmer</a>
+            <a href="{{ path('app_inscriptionCours_add', { 'id': cours.id }) }}" class="btn btn-sm btn-success">Inscription</a>
             {% else %}
             <div class="alert alert-warning" role="alert">
             <p>Ce cours est déjà complet</p>
@@ -33,15 +33,13 @@
              <a href="{{ path('app_cours_liste') }}" class="btn btn-sm btn-danger">Complet</a>
              {% endif %}
             {% endif %}
-        <a href="{{ path('app_cours_liste') }}" class="btn btn-sm btn-default">Annuler</a>
+        <a href="{{ path('app_cours_liste') }}" class="btn btn-sm btn-danger">Annuler</a>
 
         {% else %}
             <p>Veuillez connecter ou créer votre compte </p>
-            <li>
                 <a class="navbar-brand" href="{{ path('fos_user_security_login') }}">
                     <span class="glyphicon glyphicon-log-in"></span>
                     {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
                 </a>
-            </li>
         {% endif %}
         {% endblock %}

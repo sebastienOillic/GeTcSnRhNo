@@ -7,7 +7,7 @@
 {% for animateur in animateurs %}
   <div class="row animateur">
       <div class="col-sm-10" id="listeAnimateur" >
-            <h2>{{animateur.prenom|capitalize}}  {{animateur.nom|capitalize}}</h2>
+            <h2 class="anim_title">{{animateur.prenom|capitalize}}  {{animateur.nom|capitalize}}</h2>
                 <p id="nomAnimateur" class="animateur"> {{animateur.email}} </p> 
                 <p id="typeDanse" class="animateur">  Types de Danse exercés :</p> 
                   {% for typeDanse in animateur.typeDanses %}
@@ -18,21 +18,23 @@
                      </ul>        
                   {% endfor %}                       
        </div>
-      
+      {% if is_granted("ROLE_RESPONSABLE") %}
        <div class="col-sm-2">
             {# Bouton d'edition #}
             <a href="{{path('app_animateur_edit',{ 'id': animateur.id })}}" class="btn btn-xs btn-warning">
             <span class="glyphicon glyphicon-pencil"></span></a>
        </div>
+       {% endif %}
 </div>
 {% endfor %}
 </article> 
+{% if is_granted("ROLE_RESPONSABLE") %}
   <div class="row">
       <div class="col-sm-12">
       {# Bouton d'ajout #}
           <a href="{{path('app_animateur_add')}}" class="btn btn-primary btn-block">Ajouter un animateur</a>
       </div>
   </div>  
-         
+{% endif %}         
 {% endblock %}
 

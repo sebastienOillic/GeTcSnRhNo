@@ -9,8 +9,6 @@
                 <th>Nom</th>
                 <th>Description</th>
                 {% if is_granted("ROLE_RESPONSABLE") %}
-                <th>Style de danse</th>
-                <th>Animateur potentiel</th>
                 <th>Actions</th>
                 {% endif %}
             </tr>
@@ -26,8 +24,6 @@
                 <td>{{ typeDanse.nom }}</td>
                 <td>{{ typeDanse.description }}</td>
                 {% if is_granted("ROLE_RESPONSABLE") %}
-                <td> </td>
-                <td> </td>
                 <td>
                     <ul class="list-inline">
                         <li>

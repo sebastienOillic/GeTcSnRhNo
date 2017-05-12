@@ -113,13 +113,41 @@ class CoursController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('app_cours_liste');
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('app_cours_liste');
+        }
+         
+		$cours = $this->findCours();
+		 
+        return $this->render('AppBundle:Cours:createCours.html.twig', array(
+            'cours' => $cours,
+            'form' => $form->createView(),
+        ));
     }
+	
+	/**
+     * Delete action.
+     */
+   /* public function deleteAction($id)
+    {        
+        $cours = $this->findById($id);
+
+		$em = $this->getDoctrine()->getManager();
+        $em->remove($cours);
+        $em->flush();
+
+        return $this->redirectToRoute('app_cours_liste');
+    }*/
     public function findCours()
 	{
 	    return $this
 		    ->getDoctrine()
             ->getRepository('AppBundle:Cours')
-            ->findAll(); 
+            ->findByDate(); 
 	}
     
 	public function findById($id)
