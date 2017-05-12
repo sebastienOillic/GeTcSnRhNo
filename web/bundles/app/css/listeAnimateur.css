@@ -15,15 +15,15 @@ article {
 	margin: 10px 30px;
 }
 
-p {
+p.animateur{
 	display: none;
 }
 
-ul {
+ul.anim_desc {
 	display: none;
 }
 
-li {
+li.anim_desc_item {
 	display: none;
 }
 

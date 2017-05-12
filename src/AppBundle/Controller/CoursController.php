@@ -66,7 +66,54 @@ class CoursController extends Controller
         ]);
     }
 
+	
+	/**
+     * Edit action.
+     */
+    public function editAction(Request $request, $id)
+    {
+        $cours = $this
+		    ->getDoctrine()
+            ->getRepository('AppBundle:Cours')
+            ->findOneBy(['id'=>$id]);
+			
+        $form = $this
+                ->createForm(new CoursType(), $cours)
+				->add ('save', new SubmitType(),[
+                     'attr'=>[
+                         'class'=>"btn btn-sm btn-success",
+                     ]
+                 ]);   
 
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('app_cours_liste');
+        }
+         
+		$cours = $this->findCours();
+		 
+        return $this->render('AppBundle:Cours:createCours.html.twig', array(
+            'cours' => $cours,
+            'form' => $form->createView(),
+        ));
+    }
+	
+	/**
+     * Delete action.
+     */
+    public function deleteAction($id)
+    {        
+        $cours = $this->findById($id);
+
+		$em = $this->getDoctrine()->getManager();
+        $em->remove($cours);
+        $em->flush();
+
+        return $this->redirectToRoute('app_cours_liste');
+    }
     public function findCours()
 	{
 	    return $this

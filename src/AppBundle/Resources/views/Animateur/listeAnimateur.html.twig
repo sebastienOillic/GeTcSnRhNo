@@ -8,11 +8,11 @@
   <div class="row animateur">
       <div class="col-sm-10" id="listeAnimateur" >
             <h2>{{animateur.prenom|capitalize}}  {{animateur.nom|capitalize}}</h2>
-                <p id="nomAnimateur"> {{animateur.email}} </p> 
-                <p id="typeDanse">  Types de Danse exercés :</p> 
+                <p id="nomAnimateur" class="animateur"> {{animateur.email}} </p> 
+                <p id="typeDanse" class="animateur">  Types de Danse exercés :</p> 
                   {% for typeDanse in animateur.typeDanses %}
-                     <ul>
-                        <li>
+                     <ul class="anim_desc">
+                        <li class="anim_desc_item">
                            {{typeDanse}}
                         </li>
                      </ul>        
