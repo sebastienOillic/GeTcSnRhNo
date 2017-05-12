@@ -7,11 +7,7 @@
         {{ form_widget(form) }}
     {{ form_end(form) }}
     <hr>
-    <ul class="list-inline">
-        <li>
-            <a href="{{ path('app_agenda_index') }}" class="btn btn-sm btn-default">
-                Annuler
-            </a>
-        </li>
-    </ul>
+    <a href="{{ path('app_agenda_index') }}" class="btn btn-sm btn-danger">
+        Annuler</a>
+
 {% endblock %}

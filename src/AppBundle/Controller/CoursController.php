@@ -120,7 +120,7 @@ class CoursController extends Controller
 	    return $this
 		    ->getDoctrine()
             ->getRepository('AppBundle:Cours')
-            ->findAll(); 
+            ->findByDate(); 
 	}
     
 	public function findById($id)

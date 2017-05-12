@@ -65,7 +65,6 @@ class CoursRepository extends EntityRepository
     }
 
 
-
      public function findByDate()
      {
         $qb = $this->createQueryBuilder('c');
