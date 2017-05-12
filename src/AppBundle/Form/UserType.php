@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Doctrine\ORM\EntityRepository;
 
 class UserType extends AbstractType
 {
@@ -16,9 +17,10 @@ class UserType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
+            ->add('username')
             ->add('sexe')
             ->add('email')
-            //->add('adherent')
+            ->add('password','password')
             ->add('typeDanses','entity', [
                 'class'         => 'AppBundle\Entity\TypeDanse',
                 'multiple' => true,
@@ -27,16 +29,6 @@ class UserType extends AbstractType
 
                     return $qb
                         ->orderBy('t.nom', 'ASC');
-                         },
-            ])
-            ->add('coursAnimes','entity', [
-                'class'         => 'AppBundle\Entity\Cours',
-                'multiple' => true,
-                'query_builder' => function (EntityRepository $repository) {
-                    $qb = $repository->createQueryBuilder('c');
-
-                    return $qb
-                        ->orderBy('c.typeDanse', 'ASC');
                          },
             ]);
     }

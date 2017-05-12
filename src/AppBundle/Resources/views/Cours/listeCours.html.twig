@@ -1,61 +1,110 @@
-{% extends '::base.html.twig' %} {% block content %}
+{% extends '::base.html.twig' %} 
+{% block content %}
+<h1>Cliquez sur le cours de votre choix pour vous inscrire</h1>
+{# Pour chaque coours #}
 
-<div class="col-sm-11">
-    <h1>Nos prochains cours</h1>
-</div>
-<div class="col-sm-1">
-    {% if is_granted("ROLE_RESPONSABLE") %}
-        {# Bouton d'ajout #}
-        <a href="{{ path('app_cours_add') }}" class="btn btn-xs btn-success">
-            <span class="glyphicon glyphicon-pencil"></span>
-        </a>
-    {% endif %}
-</div>
-
-{# Pour chaque cours #}
-{% set number = 0 %}
-{% for cours in cours %}
 <div class="row cours">
-    <div class="col-sm-11">
+{% set number = 0 %}
+{% for lecours in cours %}
+    <div class="col-sm-11" id="listeCours" >
         {% set number = number+1 %}
         {% if number %2 == 0 %}
         <div class="bouton_cours yellow">
-            {% else %}
-            <div class="bouton_cours orange">
-
-                {% endif %}
-                <a href="{{path('app_inscriptionCours_index', {id:cours.id})}}">
-                    <div class = "titrecours">{{cours.typeDanse|upper}} {{cours.niveau|capitalize}}</div>
-                    <div class = "detailscours"> {{cours.dateCours|date("d/m/Y", "Europe/Paris")}}  de {{cours.heureDebut|date('H:i')}} à {{cours.heureFin|date('H:i')}} - Salle {{cours.salle}}</div>
-                </a>
-            </div>
-
-        </div>
-
-
-        {% if is_granted("ROLE_RESPONSABLE") %}
-            <div class="col-sm-1">
-                <p>
-                    {# Bouton d'ajout #}
-                    <a href="{{ path('app_cours_add') }}" class="btn btn-xs btn-warning">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                    {# Bouton d'edition #}
-                    <a href="#" class="btn btn-xs btn-warning">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                    {# Bouton de suppression #}
-                    <a href="{{path('app_cours_liste')}}" class="btn btn-xs btn-danger">
-                        <span class="glyphicon glyphicon-trash"></span>
-
-                    </a>
-                </p>
-            </div>
+        {% else %}
+        <div class="bouton_cours orange">
         {% endif %}
+        <a href="{{path('app_inscriptionCours_index',{ 'id': lecours.id })}}" >
+             <div class = "titrecours">{{lecours.typeDanse|upper}} {{lecours.niveau|capitalize}}</div>
+             <div class = "detailscours"> {{lecours.dateCours|date("d/m/Y", "Europe/Paris")}}  de {{lecours.heureDebut|date('H:i')}} à {{lecours.heureFin|date('H:i')}} - Salle {{lecours.salle}}<br />
+                 Nombre d'inscrits : {{lecours.hommes}} homme(s) et {{lecours.femmes}} femme(s) - Nombre de places restantes : {{lecours.placesRestantes}}</div>
+        </a>  
+        </div>    
     </div>
+    <div class="col-sm-1">
+    {% if is_granted("ROLE_RESPONSABLE") %}
+        {# Bouton liste des inscrits #}  
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#listeInscrits-{{lecours.id}}">Liste des inscrits</button>
+        <!-- Modal -->
+        <div id="listeInscrits-{{lecours.id}}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Liste des inscrits</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <ul>
+                        {% for danseur in lecours.danseurs %}
+                            <li>{{danseur}}</li>
+                        {% endfor %}
+                        </ul>         
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Femer</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+              
+        {# Bouton d'edition #}
+              <a href="{{path('app_cours_edit',{ 'id': lecours.id })}}" class="btn btn-xs btn-warning">
+                  <span class="glyphicon glyphicon-pencil"></span>
+              </a>
+
+          {# Bouton de suppression #}
+              <!-- Trigger the modal with a button -->
+              <button  type="button" class="btndelete btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteCours-{{lecours.id}}">
+                    <span class="glyphicon glyphicon-trash"></span>
+              </button>
+              <!-- Modal -->
+              <div id="deleteCours-{{lecours.id}}" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                           
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Cours à suprimer</h4>
+                          </div>
+
+                          <div class="modal-body">
+                              <p>	<b>{{lecours.typeDanse|capitalize}}  {{lecours.niveau}}</b><br />
+                                    {{lecours.dateCours|date('d-m-Y')}} - {{lecours.heureDebut|date('H:i')}}-{{lecours.heureFin|date('H:i')}} Salle {{lecours.salle}}<br />
+                                    Référent : {{lecours.referent}} - Animateur(s) : {% for animateur in lecours.animateurs %}
+                                    {{animateur}} - {% endfor %}
+                              </p> 
+                          </div>
+
+                          <div class="modal-footer">
+                            <a href="{{path('app_cours_delete',{ 'id': lecours.id })}}" class="btn btn-default">Confirmer</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                          </div>
+                           
+                      </div>
+
+                  </div>
+              </div>
+    {% endif %} 
+    </div>
+{% endfor %}
 </div>
-    {% endfor %}
-    {% endblock %}
-
-
-
+{% if is_granted("ROLE_RESPONSABLE") %}
+<div class="row">
+      <div class="col-sm-5">
+      {# Bouton d'ajout #}
+          <a href="{{path('app_cours_add')}}" class="btn btn-primary btn-block">Ajouter un cours</a>
+      </div>
+      <div class="col-sm-5">
+      {# Bouton d'ajout #}
+          <a href="{{path('app_animateur_add')}}" class="btn btn-primary btn-block">Ajouter un animateur</a>
+      </div>
+</div>  
+{% endif %}         
+{% endblock %}

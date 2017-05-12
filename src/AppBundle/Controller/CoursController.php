@@ -114,6 +114,7 @@ class CoursController extends Controller
 
         return $this->redirectToRoute('app_cours_liste');
     }
+
     public function findCours()
 	{
 	    return $this
