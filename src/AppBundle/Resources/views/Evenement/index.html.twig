@@ -16,7 +16,6 @@
             <p>
                 {% if is_granted('ROLE_REFERENT') %}
                 <a class="btn btn-warning" href="{{ path('app_agenda_edit', {id: event.id}) }}" role="button">Modifier</a>
-
                 <a class="btn btn-danger" href="{{ path('app_agenda_delete', {id: event.id}) }}" role="button">Supprimer</a>
                 {% endif %}
             </p>
