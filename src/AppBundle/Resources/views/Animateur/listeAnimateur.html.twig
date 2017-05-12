@@ -1,31 +1,32 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
+<article>
 <h1>Gestion des animateurs</h1>
 {# Pour chaque animateur #}
 {% for animateur in animateurs %}
   <div class="row animateur">
       <div class="col-sm-10" id="listeAnimateur" >
-              <a href="#" class="btn btn-xs btn-danger">
-                  <b>{{animateur.prenom|capitalize}}  {{animateur.nom|capitalize}}</b><br />
-                  {{animateur.email}} 
-                  Types de Danse exercés :
-                   {% for typeDanse in animateur.typeDanses %}
-                     <ul>
-                        <li>
+            <h2>{{animateur.prenom|capitalize}}  {{animateur.nom|capitalize}}</h2>
+                <p id="nomAnimateur" class="animateur"> {{animateur.email}} </p> 
+                <p id="typeDanse" class="animateur">  Types de Danse exercés :</p> 
+                  {% for typeDanse in animateur.typeDanses %}
+                     <ul class="anim_desc">
+                        <li class="anim_desc_item">
                            {{typeDanse}}
                         </li>
-                     </ul>         
-                     {% endfor %}  
-                 </a>     
-      </div>
-  <div class="col-sm-2">
-    {# Bouton d'edition #}
-    <a href="{{path('app_animateur_edit',{ 'id': animateur.id })}}" class="btn btn-xs btn-warning">
-       <span class="glyphicon glyphicon-pencil"></span>
-  </div>
+                     </ul>        
+                  {% endfor %}                       
+       </div>
+      
+       <div class="col-sm-2">
+            {# Bouton d'edition #}
+            <a href="{{path('app_animateur_edit',{ 'id': animateur.id })}}" class="btn btn-xs btn-warning">
+            <span class="glyphicon glyphicon-pencil"></span></a>
+       </div>
 </div>
 {% endfor %}
+</article> 
   <div class="row">
       <div class="col-sm-12">
       {# Bouton d'ajout #}
@@ -34,3 +35,4 @@
   </div>  
          
 {% endblock %}
+
