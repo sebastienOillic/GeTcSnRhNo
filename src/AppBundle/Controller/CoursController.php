@@ -129,19 +129,6 @@ class CoursController extends Controller
         ));
     }
 	
-	/**
-     * Delete action.
-     */
-   /* public function deleteAction($id)
-    {        
-        $cours = $this->findById($id);
-
-		$em = $this->getDoctrine()->getManager();
-        $em->remove($cours);
-        $em->flush();
-
-        return $this->redirectToRoute('app_cours_liste');
-    }*/
     public function findCours()
 	{
 	    return $this
