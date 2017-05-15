@@ -1,10 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
- <div class="jumbotron">
-        <div class="container">
             <h1>Ajouter un nouveau animateur</h1>
-
             {# Début formulaire (ajout ou modification) #}
 			    {{ form_start(form) }}
                 {# Champ du formulaire #}
@@ -13,9 +10,6 @@
             {{ form_end(form) }}
             <p>
             <a href="{{ path('app_animateur_liste') }}" class="btn btn-sm btn-danger">Annuler</a>
-
             </p>
-        </div>
-    </div>
 
 {% endblock %}
